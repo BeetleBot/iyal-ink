@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iyal Ink — Screenplay Tools</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface-hover: #1a1a26;
+      --border: #1e1e2e;
+      --text: #e2e2ee;
+      --text-dim: #6c6c8a;
+      --accent-fount: #89b4fa;
+      --accent-actone: #f38ba8;
+      --accent-iyal: #cba6f7;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(203, 166, 247, 0.04) 0%, transparent 100%),
+        radial-gradient(ellipse 50% 40% at 20% 80%, rgba(137, 180, 250, 0.03) 0%, transparent 100%),
+        radial-gradient(ellipse 50% 30% at 80% 80%, rgba(243, 139, 168, 0.03) 0%, transparent 100%);
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      background: rgba(10, 10, 15, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, var(--accent-fount), var(--accent-iyal), var(--accent-actone));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--bg);
+    }
+
+    .brand span { color: var(--text-dim); font-weight: 400; }
+
+    nav { display: flex; align-items: center; gap: 8px; }
+
+    .nav-btn {
+      padding: 8px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .nav-btn:hover {
+      background: var(--surface-hover);
+      border-color: var(--accent-iyal);
+    }
+
+    .nav-btn-primary {
+      background: linear-gradient(135deg, var(--accent-iyal), #b4befe);
+      color: var(--bg);
+      border: none;
+      font-weight: 600;
+    }
+
+    .nav-btn-primary:hover {
+      filter: brightness(1.1);
+      border: none;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px;
+    }
+
+    .tagline {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .tagline h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .tagline h1 span { background: linear-gradient(135deg, var(--accent-fount), var(--accent-iyal), var(--accent-actone)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .tagline p {
+      color: var(--text-dim);
+      font-size: 1.1rem;
+      margin-top: 12px;
+      max-width: 480px;
+      margin-inline: auto;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .product-card {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 48px 40px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .product-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      opacity: 0;
+      transition: opacity 0.35s;
+      pointer-events: none;
+    }
+
+    .product-card-fount::before { background: radial-gradient(ellipse at 50% 0%, rgba(137, 180, 250, 0.06), transparent 70%); }
+    .product-card-actone::before { background: radial-gradient(ellipse at 50% 0%, rgba(243, 139, 168, 0.06), transparent 70%); }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: transparent;
+    }
+
+    .product-card-fount:hover { border-color: rgba(137, 180, 250, 0.3); box-shadow: 0 8px 40px rgba(137, 180, 250, 0.06); }
+    .product-card-actone:hover { border-color: rgba(243, 139, 168, 0.3); box-shadow: 0 8px 40px rgba(243, 139, 168, 0.06); }
+
+    .product-card:hover::before { opacity: 1; }
+
+    .product-logo {
+      position: relative;
+      z-index: 1;
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      margin-bottom: 24px;
+      transition: transform 0.35s;
+    }
+
+    .product-card:hover .product-logo { transform: scale(1.05); }
+
+    .product-name {
+      position: relative;
+      z-index: 1;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .product-label {
+      position: relative;
+      z-index: 1;
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .product-label-fount { color: var(--accent-fount); }
+    .product-label-actone { color: var(--accent-actone); }
+
+    .product-desc {
+      position: relative;
+      z-index: 1;
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      max-width: 280px;
+      margin-bottom: 24px;
+    }
+
+    .product-badge {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .badge-fount { background: rgba(166, 227, 161, 0.1); color: var(--accent-fount); }
+    .badge-actone { background: rgba(137, 180, 250, 0.1); color: var(--accent-actone); }
+
+    .enter-btn {
+      position: relative;
+      z-index: 1;
+      padding: 12px 32px;
+      border-radius: 10px;
+      border: none;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .enter-btn-fount { background: var(--accent-fount); color: #0a0a0f; }
+    .enter-btn-fount:hover { filter: brightness(1.15); transform: scale(1.02); }
+    .enter-btn-actone { background: var(--accent-actone); color: #0a0a0f; }
+    .enter-btn-actone:hover { filter: brightness(1.15); transform: scale(1.02); }
+
+    .enter-arrow { transition: transform 0.25s; }
+    .product-card:hover .enter-arrow { transform: translateX(4px); }
+
+    .mono-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      position: relative;
+      z-index: 1;
+      margin-top: 16px;
+      opacity: 0.6;
+    }
+
+    .footer-meta {
+      text-align: center;
+      padding: 24px;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-meta a {
+      color: var(--accent-iyal);
+      text-decoration: none;
+    }
+
+    @media (max-width: 700px) {
+      .products { grid-template-columns: 1fr; }
+      header { padding: 12px 16px; }
+      .product-card { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header>
+    <div class="brand">
+      <div class="brand-mark">I</div>
+      Iyal <span>Ink</span>
+    </div>
+    <nav>
+      <a href="/blog" class="nav-btn">Blog</a>
+      <a href="https://github.com/BeetleBot" class="nav-btn nav-btn-primary" target="_blank">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="tagline">
+      <h1>Choose your <span>canvas</span></h1>
+      <p>Two screenwriting tools. One philosophy — pure, focused, yours.</p>
+    </div>
+
+    <div class="products">
+      <a href="https://github.com/BeetleBot/FountTUI" target="_blank" class="product-card product-card-fount">
+        <img src="assets/fount-logo.png" alt="FountTUI" class="product-logo" loading="lazy">
+        <div class="product-label product-label-fount">Open Source</div>
+        <div class="product-name">FountTUI</div>
+        <div class="product-badge badge-fount">Terminal · TUI</div>
+        <div class="product-desc">
+          A fully-featured Fountain screenplay editor that lives in your terminal. Built with Rust. Zero distractions. Maximum flow.
+        </div>
+        <span class="enter-btn enter-btn-fount">
+          Enter the Terminal
+          <span class="enter-arrow">→</span>
+        </span>
+        <div class="mono-tag">$ fount script.fountain</div>
+      </a>
+
+      <a href="https://github.com/BeetleBot/ActOne" target="_blank" class="product-card product-card-actone">
+        <img src="assets/actone-logo.png" alt="ActOne" class="product-logo" loading="lazy">
+        <div class="product-label product-label-actone">Proprietary</div>
+        <div class="product-name">ActOne</div>
+        <div class="product-badge badge-actone">GUI · Desktop</div>
+        <div class="product-desc">
+          A modern, cross-platform screenplay editor with AI-powered assistance, planning boards, and production-grade export.
+        </div>
+        <span class="enter-btn enter-btn-actone">
+          Explore the Studio
+          <span class="enter-arrow">→</span>
+        </span>
+        <div class="mono-tag">v0.4.2 — Windows &amp; Linux</div>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer-meta">
+    <p>© Iyal Inc. · Crafted for storytellers · <a href="https://github.com/BeetleBot">GitHub</a></p>
+  </footer>
+</body>
+</html>

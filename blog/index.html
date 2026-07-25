@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Iyal Ink</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface-hover: #1a1a26;
+      --border: #1e1e2e;
+      --text: #e2e2ee;
+      --text-dim: #6c6c8a;
+      --accent: #cba6f7;
+      --radius: 12px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      background: rgba(10, 10, 15, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, #89b4fa, #cba6f7, #f38ba8);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--bg);
+    }
+
+    nav a {
+      padding: 8px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    nav a:hover { border-color: var(--accent); background: var(--surface-hover); }
+
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--text-dim);
+      font-size: 1.05rem;
+      margin-bottom: 48px;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 80px 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .empty-state-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+
+    .empty-state h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .empty-state p {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      max-width: 360px;
+      margin-inline: auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../" class="brand">
+      <div class="brand-mark">I</div>
+      Iyal Ink
+    </a>
+    <nav>
+      <a href="../">Home</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Blog</h1>
+    <p class="subtitle">Thoughts on screenwriting, tools, and craft.</p>
+
+    <div class="empty-state">
+      <div class="empty-state-icon">✎</div>
+      <h2>Coming soon</h2>
+      <p>Stories about building FountTUI, ActOne, and the art of writing for the screen.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© Iyal Inc. · <a href="https://github.com/BeetleBot">GitHub</a></p>
+  </footer>
+</body>
+</html>
