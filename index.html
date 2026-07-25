@@ -5,63 +5,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>iyal.inc — Screenplay Tools</title>
   <link rel="icon" type="image/svg+xml" href="assets/@iyal.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Inter+Tight:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
-
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #0a0a0f;
-      --surface: #12121a;
-      --surface-hover: #1a1a26;
-      --border: #1e1e2e;
-      --text: #e2e2ee;
-      --text-dim: #6c6c8a;
-      --accent-fount: #89b4fa;
-      --accent-actone: #f38ba8;
-      --accent-iyal: #cba6f7;
-      --radius: 16px;
+      --bg-deep:    #050508;
+      --bg:         #0a0a0f;
+      --bg-card:    #111118;
+      --bg-elev:    #181822;
+      --line:       rgba(226, 226, 238, 0.08);
+      --line-strong:rgba(226, 226, 238, 0.16);
+      --text:       #e2e2ee;
+      --text-soft:  #9e9eb0;
+      --text-mute:  #6c6c82;
+      --blue:       #89b4fa;
+      --blue-soft:  #a9c8fc;
+      --blue-glow:  rgba(137, 180, 250, 0.15);
+      --red:        #f38ba8;
+      --red-soft:   #f6a9bf;
+      --red-glow:   rgba(243, 139, 168, 0.15);
+      --purple:     #cba6f7;
+      --radius:     12px;
+      --radius-lg:  20px;
+      --radius-full: 999px;
+      --gutter:     clamp(1.25rem, 1rem + 1.5vw, 2.25rem);
+      --font-display: 'Boldonse', 'Inter Tight', system-ui, sans-serif;
+      --font-body:    'Inter Tight', system-ui, sans-serif;
+      --font-mono:    'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+      --text-sm:    0.8125rem;
+      --text-base:  clamp(1rem, 0.94rem + 0.28vw, 1.0625rem);
+      --text-lg:    clamp(1.125rem, 1rem + 0.45vw, 1.25rem);
+      --text-xl:    clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+      --text-2xl:   clamp(1.5rem, 1.25rem + 0.95vw, 2rem);
+      --text-3xl:   clamp(1.875rem, 1.45rem + 1.7vw, 2.75rem);
+      --text-4xl:   clamp(2.5rem, 1.75rem + 2.6vw, 4rem);
+      --text-mega:  clamp(2.8rem, 1.9rem + 3.4vw, 4.75rem);
+      --space-4:  1rem;
+      --space-5:  1.5rem;
+      --space-6:  2rem;
+      --space-7:  3rem;
+      --space-8:  4.5rem;
+      --space-9:  6.5rem;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; background: var(--bg); }
 
     body {
-      font-family: 'Inter', system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
       background-image:
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(203, 166, 247, 0.04) 0%, transparent 100%),
-        radial-gradient(ellipse 50% 40% at 20% 80%, rgba(137, 180, 250, 0.03) 0%, transparent 100%),
-        radial-gradient(ellipse 50% 30% at 80% 80%, rgba(243, 139, 168, 0.03) 0%, transparent 100%);
+        radial-gradient(900px 460px at 15% 0%, rgba(137, 180, 250, 0.04), transparent 60%),
+        radial-gradient(900px 520px at 85% 100%, rgba(243, 139, 168, 0.04), transparent 60%),
+        radial-gradient(800px 400px at 50% 50%, rgba(203, 166, 247, 0.03), transparent 60%);
     }
 
-    .noise {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.03;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      background-repeat: repeat;
-      background-size: 256px;
-    }
+    img, svg { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--purple); color: var(--bg-deep); }
 
-    header {
+    .site-header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 100;
+      z-index: 50;
+      background: rgba(10, 10, 15, 0.78);
+      backdrop-filter: saturate(140%) blur(14px);
+      -webkit-backdrop-filter: saturate(140%) blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 16px 32px;
-      background: rgba(10, 10, 15, 0.8);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
+      gap: var(--space-5);
+      padding: 14px var(--gutter);
+      max-width: 1480px;
+      margin-inline: auto;
     }
 
     .brand {
@@ -70,278 +99,407 @@
       color: var(--text);
     }
 
-    .brand-logo {
-      height: 36px;
-      width: auto;
-    }
+    .brand-logo { height: 32px; width: auto; }
 
-    nav { display: flex; align-items: center; gap: 8px; }
-
-    .nav-btn {
-      padding: 8px 20px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text);
-      font-family: inherit;
-      font-size: 0.875rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-decoration: none;
-    }
-
-    .nav-btn:hover {
-      background: var(--surface-hover);
-      border-color: var(--accent-iyal);
-    }
-
-    main {
-      flex: 1;
+    .nav-links {
       display: flex;
-      flex-direction: column;
+      gap: var(--space-5);
+      margin-inline-start: auto;
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      color: var(--text-soft);
+      padding-block: 4px;
+      border-bottom: 1px solid transparent;
+      transition: color 180ms, border-color 180ms;
+    }
+
+    .nav-links a:hover { color: var(--text); border-bottom-color: var(--purple); }
+
+    .btn {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      padding: 120px 24px 80px;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      border: 1px solid transparent;
+      transition: background 180ms, color 180ms, border-color 180ms, transform 180ms;
+      white-space: nowrap;
     }
 
-    .tagline {
-      text-align: center;
-      margin-bottom: 64px;
+    .btn .arrow { transition: transform 180ms; }
+    .btn:hover .arrow { transform: translateX(3px); }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--line-strong);
     }
+    .btn--ghost:hover { border-color: var(--purple); color: var(--purple); }
 
-    .tagline h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-    }
+    main { padding: 100px 0 0; }
 
-    .tagline h1 span { background: linear-gradient(135deg, var(--accent-fount), var(--accent-iyal), var(--accent-actone)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-
-    .tagline p {
-      color: var(--text-dim);
-      font-size: 1.1rem;
-      margin-top: 12px;
-      max-width: 480px;
+    .hero {
+      padding: clamp(3rem, 5vw, 6rem) var(--gutter) clamp(4rem, 6vw, 8rem);
+      max-width: 1480px;
       margin-inline: auto;
     }
 
-    .products {
+    .hero-head {
+      text-align: center;
+      margin-bottom: var(--space-8);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: var(--space-5);
+    }
+
+    .hero-eyebrow .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      display: inline-block;
+      background: var(--purple);
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-mega);
+      line-height: 1.15;
+      text-transform: uppercase;
+      letter-spacing: -0.018em;
+      font-weight: 400;
+    }
+
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, var(--blue), var(--purple), var(--red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: var(--text-soft);
+      font-size: var(--text-lg);
+      line-height: 1.55;
+      max-width: 52ch;
+      margin: var(--space-5) auto 0;
+    }
+
+    .product-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      max-width: 900px;
-      width: 100%;
+      gap: var(--space-6);
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 var(--gutter);
     }
 
     .product-card {
       position: relative;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 48px 40px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-      overflow: hidden;
-      text-decoration: none;
-      color: inherit;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8) var(--space-7);
       display: flex;
       flex-direction: column;
       align-items: center;
+      text-align: center;
+      transition: border-color 320ms, transform 320ms, box-shadow 320ms;
+      overflow: hidden;
+      isolation: isolate;
     }
 
     .product-card::before {
       content: '';
       position: absolute;
       inset: 0;
-      border-radius: var(--radius);
+      border-radius: var(--radius-lg);
       opacity: 0;
-      transition: opacity 0.35s;
+      transition: opacity 320ms;
       pointer-events: none;
     }
 
-    .product-card-fount::before { background: radial-gradient(ellipse at 50% 0%, rgba(137, 180, 250, 0.06), transparent 70%); }
-    .product-card-actone::before { background: radial-gradient(ellipse at 50% 0%, rgba(243, 139, 168, 0.06), transparent 70%); }
+    .card-fount::before { background: radial-gradient(ellipse at 50% 0%, rgba(137, 180, 250, 0.06), transparent 70%); }
+    .card-actone::before { background: radial-gradient(ellipse at 50% 0%, rgba(243, 139, 168, 0.06), transparent 70%); }
 
     .product-card:hover {
       transform: translateY(-4px);
-      border-color: transparent;
     }
 
-    .product-card-fount:hover { border-color: rgba(137, 180, 250, 0.3); box-shadow: 0 8px 40px rgba(137, 180, 250, 0.06); }
-    .product-card-actone:hover { border-color: rgba(243, 139, 168, 0.3); box-shadow: 0 8px 40px rgba(243, 139, 168, 0.06); }
+    .card-fount:hover { border-color: rgba(137, 180, 250, 0.3); box-shadow: 0 20px 60px -16px rgba(137, 180, 250, 0.08); }
+    .card-actone:hover { border-color: rgba(243, 139, 168, 0.3); box-shadow: 0 20px 60px -16px rgba(243, 139, 168, 0.08); }
 
     .product-card:hover::before { opacity: 1; }
 
     .product-logo {
       position: relative;
       z-index: 1;
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       object-fit: contain;
-      margin-bottom: 24px;
-      transition: transform 0.35s;
+      margin-bottom: var(--space-5);
+      transition: transform 320ms;
     }
 
     .product-card:hover .product-logo { transform: scale(1.05); }
 
-    .product-name {
+    .product-tag {
       position: relative;
       z-index: 1;
-      font-size: 1.6rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 4px;
-    }
-
-    .product-label {
-      position: relative;
-      z-index: 1;
-      font-size: 0.8rem;
-      font-weight: 500;
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 12px;
+      margin-bottom: var(--space-4);
     }
 
-    .product-label-fount { color: var(--accent-fount); }
-    .product-label-actone { color: var(--accent-actone); }
+    .tag-fount { color: var(--blue); }
+    .tag-actone { color: var(--red); }
+
+    .product-card h2 {
+      position: relative;
+      z-index: 1;
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: var(--space-4);
+    }
 
     .product-desc {
       position: relative;
       z-index: 1;
-      color: var(--text-dim);
-      font-size: 0.9rem;
+      color: var(--text-soft);
+      font-size: var(--text-base);
       line-height: 1.6;
-      max-width: 280px;
-      margin-bottom: 24px;
+      max-width: 34ch;
+      margin-bottom: var(--space-6);
     }
 
-    .product-badge {
+    .product-meta {
       position: relative;
       z-index: 1;
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      border-radius: 100px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      margin-bottom: 20px;
+      gap: var(--space-4);
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      color: var(--text-mute);
+      letter-spacing: 0.04em;
+      margin-bottom: var(--space-6);
     }
 
-    .badge-fount { background: rgba(166, 227, 161, 0.1); color: var(--accent-fount); }
-    .badge-actone { background: rgba(137, 180, 250, 0.1); color: var(--accent-actone); }
+    .product-meta .pill {
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      letter-spacing: 0.08em;
+    }
+
+    .pill-fount { background: rgba(137, 180, 250, 0.1); color: var(--blue); }
+    .pill-actone { background: rgba(243, 139, 168, 0.1); color: var(--red); }
 
     .enter-btn {
       position: relative;
       z-index: 1;
-      padding: 12px 32px;
-      border-radius: 10px;
-      border: none;
-      font-family: inherit;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.25s;
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      padding: 12px 28px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: transform 180ms, filter 180ms;
     }
 
-    .enter-btn-fount { background: var(--accent-fount); color: #0a0a0f; }
-    .enter-btn-fount:hover { filter: brightness(1.15); transform: scale(1.02); }
-    .enter-btn-actone { background: var(--accent-actone); color: #0a0a0f; }
-    .enter-btn-actone:hover { filter: brightness(1.15); transform: scale(1.02); }
+    .enter-btn:hover { transform: scale(1.02); }
 
-    .enter-arrow { transition: transform 0.25s; }
-    .product-card:hover .enter-arrow { transform: translateX(4px); }
+    .enter-btn .arrow { transition: transform 180ms; }
+    .enter-btn:hover .arrow { transform: translateX(4px); }
 
-    .mono-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--text-dim);
+    .enter-fount { background: var(--blue); color: var(--bg-deep); }
+    .enter-fount:hover { filter: brightness(1.12); }
+
+    .enter-actone { background: var(--red); color: var(--bg-deep); }
+    .enter-actone:hover { filter: brightness(1.12); }
+
+    .cli-tag {
       position: relative;
       z-index: 1;
-      margin-top: 16px;
-      opacity: 0.6;
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      color: var(--text-mute);
+      margin-top: var(--space-5);
+      opacity: 0.5;
+      letter-spacing: 0.02em;
     }
 
-    .footer-meta {
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      max-width: 1100px;
+      margin: var(--space-8) auto 0;
+      padding: 0 var(--gutter);
+      border-block: 1px solid var(--line);
+    }
+
+    .stat-cell {
+      padding: var(--space-6) var(--space-5);
+      border-inline-end: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .stat-cell:last-child { border-inline-end: 0; }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: -0.018em;
+      font-weight: 400;
+    }
+
+    .stat-num .blue { color: var(--blue); }
+    .stat-num .red  { color: var(--red); }
+
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+    }
+
+    .site-footer {
       text-align: center;
-      padding: 24px;
-      color: var(--text-dim);
-      font-size: 0.8rem;
-      border-top: 1px solid var(--border);
+      padding: var(--space-6);
+      color: var(--text-mute);
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-top: 1px solid var(--line);
+      margin-top: var(--space-8);
     }
 
-    .footer-meta a {
-      color: var(--accent-iyal);
-      text-decoration: none;
+    @media (max-width: 800px) {
+      .product-grid { grid-template-columns: 1fr; }
+      .stat-strip { grid-template-columns: repeat(2, 1fr); }
+      .stat-cell:nth-child(2) { border-inline-end: 0; }
+      .stat-cell:nth-child(1), .stat-cell:nth-child(2) { border-bottom: 1px solid var(--line); }
+      .product-card { padding: var(--space-7) var(--space-5); }
     }
 
-    @media (max-width: 700px) {
-      .products { grid-template-columns: 1fr; }
-      header { padding: 12px 16px; }
-      .product-card { padding: 36px 24px; }
+    @media (max-width: 500px) {
+      .stat-strip { grid-template-columns: 1fr; }
+      .stat-cell { border-inline-end: 0; border-bottom: 1px solid var(--line); }
+      .stat-cell:last-child { border-bottom: 0; }
     }
   </style>
 </head>
 <body>
-  <div class="noise"></div>
 
-  <header>
-    <div class="brand">
-      <svg viewBox="0 0 12500 12500" class="brand-logo" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M2175.732,3124.216c-0,-276.142 223.858,-500 500,-500c309.022,-0 704.204,-0 1013.226,-0c276.142,0 500,223.858 500,500c-0,440.412 -0,1078.561 -0,1518.973c0,276.142 -223.858,500 -500,500c-309.022,0 -704.204,0 -1013.226,0c-276.142,-0 -500,-223.858 -500,-500c0,-440.412 0,-1078.561 0,-1518.973Zm0,3011.556c-0,-276.142 223.858,-500 500,-500c309.022,-0 704.204,-0 1013.226,-0c276.142,0 500,223.858 500,500c-0,815.875 -0,2424.137 -0,3240.012c0,276.142 -223.858,500 -500,500c-309.022,0 -704.204,0 -1013.226,0c-276.142,-0 -500,-223.858 -500,-500c0,-815.875 0,-2424.137 0,-3240.012Z"/><path d="M8311.042,3124.216c-0,-276.142 223.858,-500 500,-500c309.022,-0 704.204,-0 1013.226,-0c276.142,0 500,223.858 500,500c-0,440.412 -0,1078.561 -0,1518.973c0,276.142 -223.858,500 -500,500l-1013.226,0c-276.142,-0 -500,-223.858 -500,-500c0,-440.412 0,-1078.561 0,-1518.973Zm0,3011.556c-0,-276.142 223.858,-500 500,-500c309.022,-0 704.204,-0 1013.226,-0c276.142,0 500,223.858 500,500c-0,815.875 -0,2424.137 -0,3240.012c0,276.142 -223.858,500 -500,500c-309.022,0 -704.204,0 -1013.226,0c-276.142,-0 -500,-223.858 -500,-500c0,-815.875 0,-2424.137 0,-3240.012Z"/><path d="M5174.136,5740.914c0,-276.142 223.858,-500 500,-500c346.291,-0 805.437,-0 1151.728,-0c276.142,0 500,223.858 500,500l0,1018.172c-0,276.142 -223.858,500 -500,500c-346.291,0 -805.437,0 -1151.728,0c-276.142,-0 -500,-223.858 -500,-500c0,-310.371 0,-707.801 0,-1018.172Z"/></svg>
+  <header class="site-header">
+    <div class="nav">
+      <div class="brand">
+        <svg viewBox="0 0 12500 12500" class="brand-logo" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M2175.732,3124.216c-0,-276.142 223.858,-500 500,-500c309.022,-0 704.204,-0 1013.226,-0c276.142,0 500,223.858 500,500c-0,440.412 -0,1078.561 -0,1518.973c0,276.142 -223.858,500 -500,500c-309.022,0 -704.204,0 -1013.226,0c-276.142,-0 -500,-223.858 -500,-500c0,-440.412 0,-1078.561 0,-1518.973Zm0,3011.556c-0,-276.142 223.858,-500 500,-500c309.022,-0 704.204,-0 1013.226,-0c276.142,0 500,223.858 500,500c-0,815.875 -0,2424.137 -0,3240.012c0,276.142 -223.858,500 -500,500c-309.022,0 -704.204,0 -1013.226,0c-276.142,-0 -500,-223.858 -500,-500c0,-815.875 0,-2424.137 0,-3240.012Z"/><path d="M8311.042,3124.216c-0,-276.142 223.858,-500 500,-500c309.022,-0 704.204,-0 1013.226,-0c276.142,0 500,223.858 500,500c-0,440.412 -0,1078.561 -0,1518.973c0,276.142 -223.858,500 -500,500l-1013.226,0c-276.142,-0 -500,-223.858 -500,-500c0,-440.412 0,-1078.561 0,-1518.973Zm0,3011.556c-0,-276.142 223.858,-500 500,-500c309.022,-0 704.204,-0 1013.226,-0c276.142,0 500,223.858 500,500c-0,815.875 -0,2424.137 -0,3240.012c0,276.142 -223.858,500 -500,500c-309.022,0 -704.204,0 -1013.226,0c-276.142,-0 -500,-223.858 -500,-500c0,-815.875 0,-2424.137 0,-3240.012Z"/><path d="M5174.136,5740.914c0,-276.142 223.858,-500 500,-500c346.291,-0 805.437,-0 1151.728,-0c276.142,0 500,223.858 500,500l0,1018.172c-0,276.142 -223.858,500 -500,500c-346.291,0 -805.437,0 -1151.728,0c-276.142,-0 -500,-223.858 -500,-500c0,-310.371 0,-707.801 0,-1018.172Z"/></svg>
+      </div>
+      <div class="nav-links">
+        <a href="/blog">Blog</a>
+      </div>
     </div>
-    <nav>
-      <a href="/blog" class="nav-btn">Blog</a>
-    </nav>
   </header>
 
   <main>
-    <div class="tagline">
-      <h1>Choose your <span>canvas</span></h1>
-      <p>Two screenwriting tools. One philosophy — pure, focused, yours.</p>
-    </div>
+    <section class="hero">
+      <div class="hero-head">
+        <span class="hero-eyebrow"><span class="dot"></span> iyal.inc · est. 2024</span>
+        <h1>Choose your<br><span class="gradient">canvas</span></h1>
+        <p>Two screenwriting tools. One philosophy — pure, focused, yours. Pick the interface that fits your flow.</p>
+      </div>
 
-    <div class="products">
-      <a href="/fount" class="product-card product-card-fount">
-        <img src="assets/fount-logo.png" alt="FountTUI" class="product-logo" loading="lazy">
-        <div class="product-label product-label-fount">Open Source</div>
-        <div class="product-name">FountTUI</div>
-        <div class="product-badge badge-fount">Terminal · TUI</div>
-        <div class="product-desc">
-          A fully-featured Fountain screenplay editor that lives in your terminal. Built with Rust. Zero distractions. Maximum flow.
-        </div>
-        <span class="enter-btn enter-btn-fount">
-          Enter the Terminal
-          <span class="enter-arrow">→</span>
-        </span>
-        <div class="mono-tag">$ fount script.fountain</div>
-      </a>
+      <div class="product-grid">
+        <a href="/fount" class="product-card card-fount">
+          <img src="assets/fount-logo.png" alt="FountTUI" class="product-logo" loading="lazy">
+          <div class="product-tag tag-fount">Open Source</div>
+          <h2>FountTUI</h2>
+          <div class="product-meta"><span class="pill pill-fount">Terminal · TUI</span></div>
+          <p class="product-desc">
+            A fully-featured Fountain screenplay editor that lives in your terminal. Built with Rust. Zero distractions. Maximum flow.
+          </p>
+          <span class="enter-btn enter-fount">
+            Enter the Terminal <span class="arrow">→</span>
+          </span>
+          <div class="cli-tag">$ fount script.fountain</div>
+        </a>
 
-      <a href="/actone" class="product-card product-card-actone">
-        <img src="assets/actone-logo.png" alt="ActOne" class="product-logo" loading="lazy">
-        <div class="product-label product-label-actone">Proprietary</div>
-        <div class="product-name">ActOne</div>
-        <div class="product-badge badge-actone">GUI · Desktop</div>
-        <div class="product-desc">
-          A modern, cross-platform screenplay editor with AI-powered assistance, planning boards, and production-grade export.
+        <a href="/actone" class="product-card card-actone">
+          <img src="assets/actone-logo.png" alt="ActOne" class="product-logo" loading="lazy">
+          <div class="product-tag tag-actone">Proprietary</div>
+          <h2>ActOne</h2>
+          <div class="product-meta"><span class="pill pill-actone">GUI · Desktop</span></div>
+          <p class="product-desc">
+            A modern, cross-platform screenplay editor with AI-powered assistance, planning boards, and production-grade export.
+          </p>
+          <span class="enter-btn enter-actone">
+            Explore the Studio <span class="arrow">→</span>
+          </span>
+          <div class="cli-tag">v0.4.2 — Windows &amp; Linux</div>
+        </a>
+      </div>
+
+      <div class="stat-strip">
+        <div class="stat-cell">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Screenwriting tools</div>
         </div>
-        <span class="enter-btn enter-btn-actone">
-          Explore the Studio
-          <span class="enter-arrow">→</span>
-        </span>
-        <div class="mono-tag">v0.4.2 — Windows &amp; Linux</div>
-      </a>
-    </div>
+        <div class="stat-cell">
+          <div class="stat-num"><span class="blue">TUI</span> + <span class="red">GUI</span></div>
+          <div class="stat-label">Terminal &amp; Desktop</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num"><span class="blue">F</span>·<span class="red">A</span></div>
+          <div class="stat-label">Fount · ActOne</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Fountain format</div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="footer-meta">
-    <p>© iyal.inc · Crafted for storytellers</p>
+  <footer class="site-footer">
+    © iyal.inc · Crafted for storytellers
   </footer>
+
 </body>
 </html>
