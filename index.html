@@ -52,7 +52,6 @@
       --text-2xl:   clamp(1.5rem, 1.25rem + 0.95vw, 2rem);
       --text-3xl:   clamp(1.875rem, 1.45rem + 1.7vw, 2.75rem);
       --text-4xl:   clamp(2.5rem, 1.75rem + 2.6vw, 4rem);
-      --text-mega:  clamp(2.8rem, 1.9rem + 3.4vw, 4.75rem);
       --space-4:  1rem;
       --space-5:  1.5rem;
       --space-6:  2rem;
@@ -95,6 +94,7 @@
       backdrop-filter: saturate(140%) blur(14px);
       -webkit-backdrop-filter: saturate(140%) blur(14px);
       border-bottom: 1px solid var(--line);
+      animation: fadeUp 0.6s ease-out both;
     }
 
     .nav {
@@ -179,55 +179,14 @@
       padding-top: clamp(1.5rem, 3vh, 2.5rem);
     }
 
-    .hero-head {
+    .hero-tagline {
       text-align: center;
-      margin-bottom: var(--space-4);
-    }
-
-    .hero-eyebrow {
-      font-family: var(--font-mono);
-      font-size: var(--text-sm);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-mute);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: var(--space-4);
-    }
-
-    .hero-eyebrow .dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      display: inline-block;
-      background: var(--purple);
-    }
-
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: var(--text-mega);
-      line-height: 1.15;
-      text-transform: uppercase;
-      letter-spacing: -0.018em;
-      font-weight: 700;
-      -webkit-text-stroke: 1px;
-      paint-order: stroke fill;
-    }
-
-    .hero h1 .gradient {
-      background: linear-gradient(135deg, var(--blue), var(--purple), var(--red));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      -webkit-text-stroke: 0;
-    }
-
-    .hero p {
       color: var(--text-soft);
       font-size: var(--text-sm);
       line-height: 1.55;
       max-width: 52ch;
-      margin: var(--space-3) auto 0;
+      margin: var(--space-5) auto 0;
+      animation: fadeUp 0.7s ease-out 0.5s both;
     }
 
     .product-grid {
@@ -400,6 +359,23 @@
       border-top: 1px solid var(--line);
     }
 
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .product-card {
+      animation: fadeUp 0.7s ease-out both;
+    }
+
+    .product-card:first-child {
+      animation-delay: 0.2s;
+    }
+
+    .product-card:last-child {
+      animation-delay: 0.35s;
+    }
+
     @media (max-width: 800px) {
       .product-grid { grid-template-columns: 1fr; }
       .product-card { padding: var(--space-7) var(--space-5); }
@@ -421,12 +397,6 @@
 
   <main>
     <section class="hero">
-      <div class="hero-head">
-        <span class="hero-eyebrow"><span class="dot"></span> iyal.inc · est. 2024</span>
-        <h1>Choose your<br><span class="gradient">canvas</span></h1>
-        <p>Two screenwriting tools. One philosophy — pure, focused, yours. Pick the interface that fits your flow.</p>
-      </div>
-
       <div class="product-grid">
         <a href="/fount" class="product-card card-fount">
           <img src="assets/fount-logo.png" alt="FountTUI" class="product-logo" loading="lazy">
@@ -457,6 +427,7 @@
         </a>
       </div>
 
+      <p class="hero-tagline">Two screenwriting tools. One philosophy — pure, focused, yours.</p>
     </section>
   </main>
 
