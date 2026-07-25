@@ -5,10 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>iyal.inc — Screenplay Tools</title>
   <link rel="icon" type="image/svg+xml" href="assets/@iyal.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Inter+Tight:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: 'Courier Prime';
+      src: url('assets/CourierPrime-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Courier Prime';
+      src: url('assets/CourierPrime-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
@@ -32,9 +42,9 @@
       --radius-lg:  20px;
       --radius-full: 999px;
       --gutter:     clamp(1.25rem, 1rem + 1.5vw, 2.25rem);
-      --font-display: 'Boldonse', 'Inter Tight', system-ui, sans-serif;
-      --font-body:    'Inter Tight', system-ui, sans-serif;
-      --font-mono:    'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+      --font-display: 'Courier Prime', 'Courier New', monospace;
+      --font-body:    'Courier Prime', 'Courier New', monospace;
+      --font-mono:    'Courier Prime', 'Courier New', monospace;
       --text-sm:    0.8125rem;
       --text-base:  clamp(1rem, 0.94rem + 0.28vw, 1.0625rem);
       --text-lg:    clamp(1.125rem, 1rem + 0.45vw, 1.25rem);
@@ -491,7 +501,7 @@
         </div>
         <div class="stat-cell">
           <div class="stat-num">100%</div>
-          <div class="stat-label">Fountain format</div>
+          <div class="stat-label">Fountain compatible</div>
         </div>
       </div>
     </section>
