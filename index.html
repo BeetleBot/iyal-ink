@@ -373,48 +373,6 @@
       letter-spacing: 0.02em;
     }
 
-    .stat-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      max-width: 1100px;
-      margin: var(--space-8) auto 0;
-      padding: 0 var(--gutter);
-      border-block: 1px solid var(--line);
-    }
-
-    .stat-cell {
-      padding: var(--space-6) var(--space-5);
-      border-inline-end: 1px solid var(--line);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
-    }
-
-    .stat-cell:last-child { border-inline-end: 0; }
-
-    .stat-num {
-      font-family: var(--font-display);
-      font-size: var(--text-4xl);
-      line-height: 1.1;
-      text-transform: uppercase;
-      letter-spacing: -0.018em;
-      font-weight: 700;
-      -webkit-text-stroke: 0.6px;
-      paint-order: stroke fill;
-    }
-
-    .stat-num .blue { color: var(--blue); }
-    .stat-num .red  { color: var(--red); }
-
-    .stat-label {
-      font-family: var(--font-mono);
-      font-size: var(--text-sm);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-mute);
-    }
-
     .site-footer {
       text-align: center;
       padding: var(--space-6);
@@ -429,16 +387,7 @@
 
     @media (max-width: 800px) {
       .product-grid { grid-template-columns: 1fr; }
-      .stat-strip { grid-template-columns: repeat(2, 1fr); }
-      .stat-cell:nth-child(2) { border-inline-end: 0; }
-      .stat-cell:nth-child(1), .stat-cell:nth-child(2) { border-bottom: 1px solid var(--line); }
       .product-card { padding: var(--space-7) var(--space-5); }
-    }
-
-    @media (max-width: 500px) {
-      .stat-strip { grid-template-columns: 1fr; }
-      .stat-cell { border-inline-end: 0; border-bottom: 1px solid var(--line); }
-      .stat-cell:last-child { border-bottom: 0; }
     }
   </style>
 </head>
@@ -493,24 +442,6 @@
         </a>
       </div>
 
-      <div class="stat-strip">
-        <div class="stat-cell">
-          <div class="stat-num">2</div>
-          <div class="stat-label">Screenwriting tools</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num"><span class="blue">TUI</span> + <span class="red">GUI</span></div>
-          <div class="stat-label">Terminal &amp; Desktop</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num"><span class="blue">F</span>·<span class="red">A</span></div>
-          <div class="stat-label">Fount · ActOne</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num">100%</div>
-          <div class="stat-label">Fountain compatible</div>
-        </div>
-      </div>
     </section>
   </main>
 
