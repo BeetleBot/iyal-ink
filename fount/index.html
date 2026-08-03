@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FountTUI is an open-source terminal screenplay editor written in Rust. Distraction-free Fountain writing, scene tree navigation, Catppuccin Mocha themes, and pacing analytics.">
+  <link rel="canonical" href="https://iyal.ink/fount/">
+  
+  <!-- OpenGraph -->
+  <meta property="og:title" content="FountTUI — Blockbusters in Terminal">
+  <meta property="og:description" content="Open-source Rust terminal screenplay editor built for screenwriters who love keyboard speed, minimal layout, and pure text focus.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://iyal.ink/fount/">
+  <meta property="og:image" content="https://iyal.ink/assets/fount-logo.png">
+
+  <!-- JSON-LD Structured Data for Software -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "FountTUI",
+    "operatingSystem": "Linux, Windows, macOS",
+    "applicationCategory": "DeveloperApplication",
+    "downloadUrl": "https://github.com/BeetleBot/FountTUI/releases",
+    "sameAs": "https://github.com/BeetleBot/FountTUI",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Open-source terminal screenplay editor for Fountain plain text scripts with Catppuccin Mocha themes and scene tree navigation."
+  }
+  </script>
+  <link rel="icon" type="image/svg+xml" href="../assets/@iyal.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Courier Prime';
+      src: url('../assets/CourierPrime-Regular.ttf') format('truetype');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'Courier Prime';
+      src: url('../assets/CourierPrime-Bold.ttf') format('truetype');
+      font-weight: 700;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      /* Catppuccin Mocha Palette */
+      --mocha-base: #1e1e2e;
+      --mocha-mantle: #181825;
+      --mocha-crust: #11111b;
+      --mocha-text: #cdd6f4;
+      --mocha-subtext: #a6adc8;
+      --mocha-dim: #6c7086;
+      --mocha-surface0: #313244;
+      --mocha-surface1: #45475a;
+      
+      --mocha-mauve: #cba6f7;
+      --mocha-blue: #89b4fa;
+      --mocha-sapphire: #74c7ec;
+      --mocha-teal: #94e2d5;
+      --mocha-green: #a6e3a1;
+      --mocha-yellow: #f9e2af;
+      --mocha-peach: #fab387;
+      --mocha-red: #f38ba8;
+
+      --font-display: 'Outfit', sans-serif;
+      --font-mono: 'Fira Code', 'Courier Prime', monospace;
+    }
+
+    html, body {
+      background: var(--mocha-base);
+      color: var(--mocha-text);
+      font-family: var(--font-display);
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+
+    /* Terminal Scanlines Overlay (z-index: 999) */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(rgba(18, 16, 26, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+      background-size: 100% 4px, 6px 100%;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.6;
+    }
+
+    /* Header */
+    header {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(30, 30, 46, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--mocha-surface0);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--mocha-text);
+      font-weight: 800;
+      font-size: 1.4rem;
+    }
+
+    .brand-logo { height: 38px; width: auto; object-fit: contain; }
+
+    nav { display: flex; align-items: center; gap: 20px; }
+    nav a { color: var(--mocha-subtext); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
+    nav a:hover { color: var(--mocha-mauve); }
+
+    .top-right-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--mocha-surface0);
+      border: 1px solid var(--mocha-surface1);
+      padding: 6px 14px;
+      border-radius: 6px;
+      color: var(--mocha-mauve);
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+    }
+
+    .top-right-badge img {
+      height: 18px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      object-fit: contain;
+    }
+
+    .btn-github {
+      background: var(--mocha-surface0);
+      color: var(--mocha-mauve);
+      border: 1px solid var(--mocha-mauve);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      font-family: var(--font-mono);
+      transition: all 0.2s;
+    }
+    .btn-github:hover {
+      background: var(--mocha-mauve);
+      color: var(--mocha-crust);
+    }
+
+    /* Hero Section */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 70px 32px 50px;
+      text-align: center;
+    }
+
+    .badge-catppuccin {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--mocha-mantle);
+      border: 1px solid var(--mocha-mauve);
+      color: var(--mocha-mauve);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--mocha-text), var(--mocha-mauve));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      color: var(--mocha-subtext);
+      max-width: 720px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+
+    .btn-primary {
+      background: var(--mocha-mauve);
+      color: var(--mocha-crust);
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1rem;
+      font-family: var(--font-mono);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(203, 166, 247, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--mocha-surface0);
+      border: 1px solid var(--mocha-surface1);
+      color: var(--mocha-text);
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+      font-family: var(--font-mono);
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--mocha-blue); color: var(--mocha-blue); }
+
+    /* Terminal Mockup Window */
+    .terminal-window {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--mocha-mantle);
+      border-radius: 10px;
+      border: 1px solid var(--mocha-surface0);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .terminal-header {
+      background: var(--mocha-crust);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--mocha-surface0);
+    }
+
+    .terminal-dots { display: flex; gap: 8px; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot-red { background: var(--mocha-red); }
+    .dot-yellow { background: var(--mocha-yellow); }
+    .dot-green { background: var(--mocha-green); }
+
+    .terminal-title {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--mocha-dim);
+    }
+
+    .terminal-body {
+      padding: 24px;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--mocha-text);
+      background: var(--mocha-mantle);
+    }
+
+    .t-prompt { color: var(--mocha-mauve); font-weight: bold; }
+    .t-cmd { color: var(--mocha-green); }
+    .t-heading { color: var(--mocha-yellow); font-weight: bold; }
+    .t-char { color: var(--mocha-red); font-weight: bold; margin-left: 20px; display: inline-block; }
+    .t-dialogue { color: var(--mocha-text); margin-left: 10px; display: block; }
+    .t-parenthetical { color: var(--mocha-teal); margin-left: 14px; display: block; }
+    .t-meta { color: var(--mocha-subtext); border-top: 1px dashed var(--mocha-surface0); padding-top: 10px; margin-top: 16px; font-size: 0.85rem; }
+
+    /* Showcase Container - Vertical List of Feature Sections */
+    .showcase-container {
+      max-width: 1200px;
+      margin: 90px auto;
+      padding: 0 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 90px;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto -10px;
+    }
+
+    .section-title {
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+      font-weight: 900;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+      color: var(--mocha-text);
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--mocha-subtext);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* Alternating Vertical Feature Section Row */
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      background: var(--mocha-mantle);
+      border: 1px solid var(--mocha-surface0);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+      transition: border-color 0.3s ease;
+    }
+
+    .feature-row:hover {
+      border-color: var(--mocha-mauve);
+    }
+
+    .feature-row.reverse {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .feature-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .feature-info h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--mocha-mauve);
+      font-family: var(--font-mono);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .feature-info p {
+      color: var(--mocha-subtext);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--mocha-text);
+      font-size: 0.95rem;
+      font-family: var(--font-mono);
+    }
+
+    .feature-list li::before {
+      content: "❯";
+      color: var(--mocha-green);
+      font-weight: bold;
+    }
+
+    .gif-frame {
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--mocha-surface0);
+      background: var(--mocha-crust);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    .gif-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: zoom-in;
+      transition: transform 0.2s ease;
+    }
+
+    .gif-frame img:hover {
+      transform: scale(1.015);
+    }
+
+    .gif-caption {
+      position: absolute;
+      bottom: 8px;
+      right: 12px;
+      background: rgba(17, 17, 27, 0.85);
+      color: var(--mocha-subtext);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      pointer-events: none;
+      border: 1px solid var(--mocha-surface0);
+    }
+
+    .feature-placeholder-media {
+      aspect-ratio: 16 / 10;
+      background: var(--mocha-crust);
+      border: 2px dashed var(--mocha-surface1);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--mocha-dim);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+    }
+
+    /* Shortcut Reference Table */
+    .shortcuts-box {
+      background: var(--mocha-mantle);
+      border: 1px solid var(--mocha-surface0);
+      border-radius: 14px;
+      padding: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .shortcuts-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--mocha-mauve);
+      font-family: var(--font-mono);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .shortcuts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .shortcut-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--mocha-crust);
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--mocha-surface0);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+    }
+
+    .key-badge {
+      background: var(--mocha-surface0);
+      color: var(--mocha-mauve);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 900px) {
+      .feature-row, .feature-row.reverse {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 24px;
+      }
+      .feature-row.reverse .gif-frame, .feature-row.reverse .feature-placeholder-media {
+        order: -1;
+      }
+      .showcase-container {
+        gap: 60px;
+        padding: 0 20px;
+      }
+    }
+
+    /* Creator's Letter Section */
+    .creator-section {
+      background: var(--mocha-mantle);
+      border: 1px solid var(--mocha-surface0);
+      border-radius: 12px;
+      padding: 48px;
+      max-width: 900px;
+      margin: 80px auto;
+    }
+
+    .creator-section h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--mocha-peach);
+      margin-bottom: 20px;
+      font-family: var(--font-mono);
+    }
+
+    .creator-quote {
+      border-left: 3px solid var(--mocha-peach);
+      padding-left: 20px;
+      color: var(--mocha-text);
+      font-size: 1rem;
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    /* Install Box */
+    .install-box {
+      background: var(--mocha-mantle);
+      border: 1px solid var(--mocha-surface0);
+      border-radius: 12px;
+      padding: 48px;
+      max-width: 900px;
+      margin: 0 auto 80px;
+    }
+
+    .install-box h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--mocha-green);
+      font-family: var(--font-mono);
+      margin-bottom: 10px;
+      margin-top: 24px;
+    }
+    .install-box h3:first-of-type { margin-top: 0; }
+
+    .code-block {
+      background: var(--mocha-crust);
+      border: 1px solid var(--mocha-surface0);
+      padding: 16px 20px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      color: var(--mocha-green);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .copy-btn {
+      background: var(--mocha-surface0);
+      border: none;
+      color: var(--mocha-text);
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      transition: background 0.2s;
+    }
+    .copy-btn:hover { background: var(--mocha-mauve); color: var(--mocha-crust); }
+
+    /* Lightbox Modal (z-index 10000: ABOVE SCANLINES) */
+    .gif-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 16, 0.94);
+      backdrop-filter: blur(12px);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      padding: 32px;
+      cursor: zoom-out;
+    }
+
+    .gif-modal.active { display: flex; }
+
+    .modal-content-wrap {
+      position: relative;
+      max-width: 95vw;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .modal-img {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+      border: 1px solid var(--mocha-surface1);
+      cursor: default;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: var(--mocha-text);
+      font-size: 2.2rem;
+      font-weight: 300;
+      cursor: pointer;
+      transition: color 0.2s;
+      line-height: 1;
+    }
+    .modal-close:hover { color: var(--mocha-mauve); }
+
+    footer {
+      border-top: 1px solid var(--mocha-surface0);
+      padding: 40px 32px;
+      text-align: center;
+      color: var(--mocha-subtext);
+      font-size: 0.9rem;
+      font-family: var(--font-mono);
+    }
+    footer a { color: var(--mocha-mauve); text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="../" class="brand">
+      <img src="../assets/fount-logo.png" alt="Fount Logo" class="brand-logo">
+      <span>FountTUI</span>
+    </a>
+    <nav>
+      <a href="#showcase">Showcase</a>
+      <a href="downloads/">Downloads</a>
+      <a href="#letter">Creator's Note</a>
+      <a href="https://github.com/BeetleBot/FountTUI" target="_blank" class="btn-github">GitHub ↗</a>
+      <div class="top-right-badge">
+        <img src="../assets/fount-icon.png" alt="Fount Icon">
+        <span>FOUNT</span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="badge-catppuccin">CATPPUCCIN MOCHA — RUST TUI</div>
+    <h1 class="hero-title">Blockbusters in Terminal.</h1>
+    <p class="hero-tagline">
+      A minimal, distraction-free Fountain screenplay editor built for writers who live in the terminal. Instant scene navigation, theme customization, and zero visual clutter.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="downloads/" class="btn-primary">Download FountTUI</a>
+      <a href="https://github.com/BeetleBot/FountTUI" target="_blank" class="btn-secondary">View GitHub Source</a>
+    </div>
+
+    <!-- Terminal Mockup -->
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <div class="dot dot-red"></div>
+          <div class="dot dot-yellow"></div>
+          <div class="dot dot-green"></div>
+        </div>
+        <div class="terminal-title">fount ~/screenplays/cyberpunk_heist.fountain</div>
+        <div></div>
+      </div>
+      <div class="terminal-body">
+        <div><span class="t-prompt">~/screenplays $</span> <span class="t-cmd">fount cyberpunk_heist.fountain</span></div>
+        <div style="margin-top: 14px;"><span class="t-heading">INT. CYBERPUNK CAFE - NIGHT</span></div>
+        <div style="color: #a6adc8; margin-top: 4px; margin-bottom: 12px;">
+          Rain beats against the neon window pane. KAI (30s), wearing a leather coat, stares into a glowing terminal buffer.
+        </div>
+        <div class="t-char">KAI</div>
+        <div class="t-parenthetical">(without looking up)</div>
+        <div class="t-dialogue">"You're late. The deck is already encrypted."</div>
+        <div class="t-meta">
+          <span style="color: var(--mocha-mauve);">NORMAL</span> | UTF-8 | 1,420 Words | Scene 14/48 | <span style="color: var(--mocha-green);">Snapshots Active</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real Demo GIFs Feature Showcase - Vertical List -->
+  <main class="showcase-container" id="showcase">
+
+    <div class="section-header">
+      <h2 class="section-title">Terminal Screenwriting Features</h2>
+      <p class="section-sub">Engineered to disappear while you work. Click any screen recording to view full-size demo without scanlines.</p>
+    </div>
+
+    <!-- Feature 1: Scene Tree Navigation -->
+    <section class="feature-row">
+      <div class="feature-info">
+        <h3>Scene Tree Navigation</h3>
+        <p>Interactive tree-structured side-panel of scenes and sequences inside your screenplay. Jump across 100+ page screenplays instantly with single keypresses.</p>
+        <ul class="feature-list">
+          <li>Instant live outline search filtering</li>
+          <li>1-key jump between act structures and scenes</li>
+          <li>Foldable sequence sections and scene numbers</li>
+        </ul>
+      </div>
+      <div class="gif-frame">
+        <img src="assets/demo/navigator.gif" alt="FountTUI Scene Tree Navigation Demo" onclick="openGifModal(this.src, this.alt)">
+        <div class="gif-caption">Click to Enlarge</div>
+      </div>
+    </section>
+
+    <!-- Feature 2: Story Architect Index Cards (Reversed) -->
+    <section class="feature-row reverse">
+      <div class="gif-frame">
+        <img src="assets/demo/index_cards.gif" alt="FountTUI Story Architect Index Cards Demo" onclick="openGifModal(this.src, this.alt)">
+        <div class="gif-caption">Click to Enlarge</div>
+      </div>
+      <div class="feature-info">
+        <h3>Story Architect (Index Cards)</h3>
+        <p>Plot your story structure at a high level using grid-based index cards to organize, rearrange, and edit scene synopses with word wrapping.</p>
+        <ul class="feature-list">
+          <li>Grid-based corkboard view inside terminal</li>
+          <li>Inline scene synopsis editing</li>
+          <li>Keyboard navigation across story beats</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Feature 3: Search & Replace -->
+    <section class="feature-row">
+      <div class="feature-info">
+        <h3>Search & Replace</h3>
+        <p>Fast terminal search and replace with case sensitivity toggles, match counting, and inline scene context highlights.</p>
+        <ul class="feature-list">
+          <li>Pattern matching and case-sensitive filters</li>
+          <li>Inline match highlighting with context preview</li>
+          <li>Global replace across script buffers</li>
+        </ul>
+      </div>
+      <div class="gif-frame">
+        <img src="assets/demo/search.gif" alt="FountTUI Search & Replace Demo" onclick="openGifModal(this.src, this.alt)">
+        <div class="gif-caption">Click to Enlarge</div>
+      </div>
+    </section>
+
+    <!-- Feature 4: Writing Sprint Timer (Reversed) -->
+    <section class="feature-row reverse">
+      <div class="gif-frame">
+        <img src="assets/demo/sprint.gif" alt="FountTUI Writing Sprint Timer Demo" onclick="openGifModal(this.src, this.alt)">
+        <div class="gif-caption">Click to Enlarge</div>
+      </div>
+      <div class="feature-info">
+        <h3>Writing Sprint Timer</h3>
+        <p>Built-in countdown writing sprint timer tracking words per minute (WPM), net word count gains, and sprint history to boost writing momentum.</p>
+        <ul class="feature-list">
+          <li>Customizable countdown sprint durations</li>
+          <li>Real-time WPM & net word count telemetry</li>
+          <li>Sprint session history logging</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Feature 5: Theme Customisation -->
+    <section class="feature-row">
+      <div class="feature-info">
+        <h3>Catppuccin & Theme Switching</h3>
+        <p>Switch on the fly between curated terminal themes including Catppuccin Mocha, Nord, Everforest, and Lilac to suit your writing mood.</p>
+        <ul class="feature-list">
+          <li>Official Catppuccin Mocha palette built-in</li>
+          <li>Instant theme hot-reloading without restart</li>
+          <li>High-contrast terminal color schemes</li>
+        </ul>
+      </div>
+      <div class="gif-frame">
+        <img src="assets/demo/themes.gif" alt="FountTUI Theme Switching Demo" onclick="openGifModal(this.src, this.alt)">
+        <div class="gif-caption">Click to Enlarge</div>
+      </div>
+    </section>
+
+    <!-- Feature 6: X-Ray Analytics (Reversed) -->
+    <section class="feature-row reverse">
+      <div class="gif-frame">
+        <img src="assets/demo/xray.gif" alt="FountTUI Realtime X-Ray Analytics Demo" onclick="openGifModal(this.src, this.alt)">
+        <div class="gif-caption">Click to Enlarge</div>
+      </div>
+      <div class="feature-info">
+        <h3>Realtime X-Ray Analytics</h3>
+        <p>Visualize your screenplay's pacing, character frequency, dialogue distribution, and scene length graphs in real time inside the terminal.</p>
+        <ul class="feature-list">
+          <li>ASCII dialogue frequency charts</li>
+          <li>Character occurrence telemetry</li>
+          <li>Scene length distribution graphs</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Feature 7: Story Structure Templates -->
+    <section class="feature-row">
+      <div class="feature-info">
+        <h3>Story Structure Templates</h3>
+        <p>Start your script with proven narrative frameworks. Import structure templates directly into your outline to map out story beats.</p>
+        <ul class="feature-list">
+          <li>Save the Cat, Hero's Journey, & Three-Act Structure</li>
+          <li>John Truby's 7 Steps & Michael Hauge's 6 Stages</li>
+          <li>Instant structural act outline generation</li>
+        </ul>
+      </div>
+      <div class="feature-placeholder-media">
+        <span style="font-size: 2rem; font-family: var(--font-mono); color: var(--mocha-mauve);">[ ]</span>
+        <span>[ Story Templates Placeholder ]</span>
+      </div>
+    </section>
+
+    <!-- Feature 8: Session Snapshots (Reversed) -->
+    <section class="feature-row reverse">
+      <div class="feature-placeholder-media">
+        <span style="font-size: 2rem; font-family: var(--font-mono); color: var(--mocha-mauve);">[ ]</span>
+        <span>[ Automated Snapshots Placeholder ]</span>
+      </div>
+      <div class="feature-info">
+        <h3>Automated Session Snapshots</h3>
+        <p>FountTUI periodically saves background snapshots of your active buffer so your work remains safe from unexpected system shutdowns.</p>
+        <ul class="feature-list">
+          <li>Silent background buffer snapshots</li>
+          <li>Snapshot manager for preview and recovery</li>
+          <li>Zero impact on typing speed</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Feature 9: Revision Mode -->
+    <section class="feature-row">
+      <div class="feature-info">
+        <h3>Screenplay Revision Tracking</h3>
+        <p>Track draft revisions visually with margin indicators. See modified lines in real time and export revision marks to PDF format.</p>
+        <ul class="feature-list">
+          <li>Toggleable revision tracking (`/revision on`)</li>
+          <li>Visual margin asterisk indicators for edited lines</li>
+          <li>Clean PDF export with revision marks</li>
+        </ul>
+      </div>
+      <div class="feature-placeholder-media">
+        <span style="font-size: 2rem; font-family: var(--font-mono); color: var(--mocha-mauve);">[ ]</span>
+        <span>[ Revision Mode Placeholder ]</span>
+      </div>
+    </section>
+
+    <!-- Shortcuts Quick Reference -->
+    <div class="shortcuts-box">
+      <h3 class="shortcuts-title">Essential Terminal Shortcuts</h3>
+      <div class="shortcuts-grid">
+        <div class="shortcut-item"><span>Scene Sidebar</span> <span class="key-badge">Ctrl + N</span></div>
+        <div class="shortcut-item"><span>Index Cards</span> <span class="key-badge">Ctrl + I</span></div>
+        <div class="shortcut-item"><span>Search & Replace</span> <span class="key-badge">Ctrl + F</span></div>
+        <div class="shortcut-item"><span>X-Ray Analytics</span> <span class="key-badge">Ctrl + X</span></div>
+        <div class="shortcut-item"><span>Writing Sprint</span> <span class="key-badge">Ctrl + T</span></div>
+        <div class="shortcut-item"><span>Quick Help</span> <span class="key-badge">F1</span></div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div id="gif-modal" class="gif-modal" onclick="closeGifModal(event)">
+    <div class="modal-content-wrap" onclick="event.stopPropagation()">
+      <span class="modal-close" onclick="closeGifModal(event)">&times;</span>
+      <img id="modal-img" class="modal-img" src="" alt="Enlarged Demo GIF">
+    </div>
+  </div>
+
+  <!-- Creator's Note Section -->
+  <section class="creator-section" id="letter">
+    <h2>A Letter from the Creator</h2>
+    <div class="creator-quote">
+      "As a credited Tamil/Indian screenwriter—writing predominantly in English and Tanglish—I found myself at a crossroads when I transitioned to Linux. I deeply missed Beat, my long-time companion for storytelling, and couldn't find a minimalist alternative that felt 'right' in the terminal.<br><br>
+      My search led me to Lottie, whose elegance immediately captivated me. I cloned the project and began shaping it into the tool I needed. Fount is the result of creative vision, open-source inspiration, and the intelligence of AI agents that helped me craft it. It is a tool I use daily, and I hope it serves you just as well."
+    </div>
+  </section>
+
+  <!-- Installation Section -->
+  <section class="install-box" id="install">
+    <h2 class="section-title" style="text-align: left; margin-bottom: 24px;">Installation</h2>
+
+    <h3>Linux Terminal (Quick Install)</h3>
+    <div class="code-block">
+      <code>tar -xzf Fount-Linux-x64-*.tar.gz && sudo ./install.sh</code>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText('tar -xzf Fount-Linux-x64-*.tar.gz && sudo ./install.sh')">Copy</button>
+    </div>
+
+    <h3>Any Platform (via Cargo - Rust)</h3>
+    <div class="code-block">
+      <code>cargo install fount</code>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText('cargo install fount')">Copy</button>
+    </div>
+
+    <h3>Windows & macOS</h3>
+    <p style="color: var(--mocha-subtext); margin-top: 8px;">
+      Windows: Available directly on the Microsoft Store. macOS: Install via <code>cargo install fount</code> in any Truecolor terminal (Ghostty, iTerm2, Kitty).
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 iyal.inc — <a href="../">iyal.ink Home</a> | <a href="downloads/">Downloads</a> | <a href="https://github.com/BeetleBot/FountTUI" target="_blank">GitHub</a></p>
+  </footer>
+
+  <script>
+    function openGifModal(src, alt) {
+      const modal = document.getElementById('gif-modal');
+      const modalImg = document.getElementById('modal-img');
+      modalImg.src = src;
+      modalImg.alt = alt || 'Enlarged Demo GIF';
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeGifModal(event) {
+      const modal = document.getElementById('gif-modal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeGifModal();
+      }
+    });
+  </script>
+
+</body>
+</html>

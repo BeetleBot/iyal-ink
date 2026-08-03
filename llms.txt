@@ -1,0 +1,14 @@
+# iyal.inc — Screenwriting Software Engineering
+
+> iyal.inc builds minimalist, distraction-free screenwriting software powered by the open Fountain plain-text format.
+
+## Products
+
+- [ActOne Screenplay](https://iyal.ink/actone/): Desktop screenwriting studio featuring visual storyboards, scene index cards, ambient focus audio, production breakdown tagging, and the optional Muse screenplay assistant. Available for Windows and Linux.
+- [FountTUI](https://iyal.ink/fount/): Open-source Rust terminal (TUI) screenplay editor built for writers who prefer terminal speed, keyboard navigation, Catppuccin Mocha themes, and distraction-free writing. Available for Linux, Windows (Microsoft Store), and macOS via Cargo.
+
+## Core Concepts
+
+- [Fountain Standard Syntax](https://fountain.io): Universal plain-text markup language for screenplays. Files saved in `.fountain` format remain future-proof and human-readable without proprietary locks.
+- [Downloads Hub](https://iyal.ink/downloads/): Access official downloads, Microsoft Store packages, and Linux terminal installers.
+- [Blog / Journal](https://iyal.ink/blog/): Updates, screenwriting workflow essays, and technical releases from iyal.inc.

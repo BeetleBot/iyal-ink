@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download ActOne Screenplay — Desktop Screenwriting Studio</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/@iyal.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Courier Prime';
+      src: url('../../assets/CourierPrime-Regular.ttf') format('truetype');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'Courier Prime';
+      src: url('../../assets/CourierPrime-Bold.ttf') format('truetype');
+      font-weight: 700;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #2C4A3A;
+      --primary-dark: #1E3429;
+      --secondary: #1E2022;
+      --light: #F4F5F7;
+      --white: #FFFFFF;
+      --border-color: #E2E8F0;
+      --text-dark: #1E2022;
+      --text-light: #FFFFFF;
+      --text-dim: #64748B;
+      --font-display: 'Outfit', sans-serif;
+      --font-mono: 'Courier Prime', monospace;
+    }
+
+    html, body {
+      font-family: var(--font-display);
+      min-height: 100vh;
+      background: var(--light);
+      color: var(--text-dark);
+      scroll-behavior: smooth;
+    }
+
+    .hero-section {
+      background: var(--primary);
+      color: var(--text-light);
+      padding-bottom: 70px;
+    }
+
+    header {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 800;
+      font-size: 1.4rem;
+    }
+
+    .brand-logo { height: 38px; width: auto; object-fit: contain; }
+
+    nav { display: flex; align-items: center; gap: 20px; }
+    nav a { color: rgba(255, 255, 255, 0.85); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
+    nav a:hover { color: var(--white); }
+
+    .top-right-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 6px 14px;
+      border-radius: 6px;
+      color: var(--white);
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+    }
+
+    .top-right-badge img {
+      height: 20px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      object-fit: contain;
+    }
+
+    .hero-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 32px 20px;
+      text-align: center;
+    }
+
+    .badge-status {
+      display: inline-block;
+      font-family: var(--font-mono);
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--white);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.6;
+    }
+
+    /* Main Container */
+    main {
+      max-width: 1000px;
+      margin: -40px auto 80px;
+      padding: 0 32px;
+    }
+
+    .downloads-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 32px;
+    }
+
+    .dl-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 40px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .dl-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .platform-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .platform-icon {
+      font-size: 2.2rem;
+    }
+
+    .platform-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    .platform-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(44, 74, 58, 0.1);
+      color: var(--primary);
+    }
+
+    .platform-desc {
+      color: var(--text-dim);
+      font-size: 1rem;
+      line-height: 1.65;
+      margin-bottom: 28px;
+      flex-grow: 1;
+    }
+
+    .btn-dl {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--primary);
+      color: var(--white);
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.2s, transform 0.2s;
+      width: 100%;
+    }
+
+    .btn-dl:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-discord-dl {
+      background: #5865F2;
+      color: var(--white);
+    }
+
+    .btn-discord-dl:hover {
+      background: #4752C4;
+    }
+
+    .specs-box {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 36px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+      margin-top: 40px;
+    }
+
+    .specs-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--text-dark);
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .spec-item h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+    }
+
+    .spec-item p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    footer {
+      background: var(--secondary);
+      color: var(--text-light);
+      padding: 40px 32px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a { color: var(--white); text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <div class="hero-section">
+    <header>
+      <a href="../" class="brand">
+        <img src="../../assets/actone-logo.png" alt="ActOne Logo" class="brand-logo">
+        <span>ActOne Screenplay</span>
+      </a>
+      <nav>
+        <a href="../">← Back to Overview</a>
+        <a href="../docs/index.html">Documentation</a>
+        <a href="https://discord.gg/actone" target="_blank">Discord ↗</a>
+        <div class="top-right-badge">
+          <img src="../../assets/actone-icon.png" alt="ActOne Icon">
+          <span>ACTONE</span>
+        </div>
+      </nav>
+    </header>
+
+    <div class="hero-body">
+      <div class="badge-status">PUBLIC BETA — 100% FREE</div>
+      <h1 class="hero-title">Get ActOne Screenplay</h1>
+      <p class="hero-sub">Select your platform to download the latest desktop studio release.</p>
+    </div>
+  </div>
+
+  <main>
+    <div class="downloads-grid">
+
+      <!-- Windows -->
+      <div class="dl-card">
+        <div>
+          <div class="platform-header">
+            <span class="platform-icon">🪟</span>
+            <div>
+              <div class="platform-title">Windows</div>
+              <span class="platform-badge">Verified App</span>
+            </div>
+          </div>
+          <p class="platform-desc">
+            Official Windows release available directly through the Microsoft Store. Automatic updates, secure sandbox execution, and simple one-click installation.
+          </p>
+        </div>
+        <div>
+          <a href="https://apps.microsoft.com/detail/9PJMKR0937KK" target="_blank" class="btn-dl">
+            Get from Microsoft Store ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Linux -->
+      <div class="dl-card">
+        <div>
+          <div class="platform-header">
+            <span class="platform-icon">🐧</span>
+            <div>
+              <div class="platform-title">Linux</div>
+              <span class="platform-badge">Hosting Soon</span>
+            </div>
+          </div>
+          <p class="platform-desc">
+            The Linux version is currently compiled and ready. We will host the repository distribution files here soon. Join our Discord for updates.
+          </p>
+        </div>
+        <div>
+          <a href="https://discord.gg/actone" target="_blank" class="btn-dl btn-discord-dl">
+            Join Discord Community ↗
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- System Requirements -->
+    <div class="specs-box">
+      <h3 class="specs-title">System Requirements & Compatibility</h3>
+      <div class="specs-grid">
+        <div class="spec-item">
+          <h4>Supported Platforms</h4>
+          <p>Windows 10/11, Linux (64-bit)</p>
+        </div>
+        <div class="spec-item">
+          <h4>Memory (RAM)</h4>
+          <p>4 GB RAM minimum (8 GB recommended)</p>
+        </div>
+        <div class="spec-item">
+          <h4>Disk Space</h4>
+          <p>~150 MB available space</p>
+        </div>
+        <div class="spec-item">
+          <h4>License & Cost</h4>
+          <p>100% Free Public Beta</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 iyal.inc — <a href="../../">iyal.ink Home</a> | <a href="../">ActOne Overview</a></p>
+  </footer>
+
+</body>
+</html>

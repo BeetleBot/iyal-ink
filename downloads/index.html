@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog — iyal.inc</title>
+  <title>Downloads & Releases — iyal.inc</title>
   <link rel="icon" type="image/svg+xml" href="../assets/@iyal.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,7 +50,8 @@
     .hero-section {
       background: linear-gradient(180deg, var(--hero-bg) 0%, var(--hero-bg-dark) 100%);
       color: var(--text-light);
-      padding-bottom: 60px;
+      padding-bottom: 110px;
+      text-align: center;
     }
 
     .header {
@@ -78,13 +79,12 @@
 
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-link { color: rgba(255, 255, 255, 0.85); text-decoration: none; font-weight: 600; font-size: 1rem; transition: color 0.2s; }
-    .nav-link:hover, .nav-link.active { color: var(--accent); }
+    .nav-link:hover { color: var(--accent); }
 
     .hero-content {
-      padding: 40px 32px 20px;
-      max-width: 840px;
+      padding: 60px 32px 20px;
+      max-width: 800px;
       margin: 0 auto;
-      text-align: center;
     }
 
     .hero-title {
@@ -102,41 +102,123 @@
 
     main {
       flex: 1;
-      max-width: 800px;
-      margin: 60px auto 100px;
+      max-width: 1240px;
+      margin: -60px auto 100px;
       padding: 0 32px;
       width: 100%;
     }
 
-    /* Empty State Box */
-    .empty-card {
+    .hub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+      gap: 36px;
+    }
+
+    @media (max-width: 600px) {
+      .hub-grid { grid-template-columns: 1fr; }
+    }
+
+    .card {
       background: var(--white);
       border-radius: 16px;
+      padding: 44px;
       border: 1px solid var(--border-color);
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
-      padding: 80px 40px;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
     }
 
-    .empty-icon {
-      font-size: 3.5rem;
-      margin-bottom: 20px;
-      display: inline-block;
+    .card.card-fount::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: #CBA6F7; }
+    .card.card-actone::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: #2C4A3A; }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.1);
     }
 
-    .empty-title {
-      font-size: 2rem;
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .icon-badge {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon-badge img { width: 36px; height: 36px; object-fit: contain; }
+
+    .tag-pill {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--accent-hover);
+    }
+
+    .card-title {
+      font-size: 2.2rem;
       font-weight: 900;
       margin-bottom: 12px;
-      color: var(--text-dark);
     }
 
-    .empty-desc {
+    .card-desc {
       color: var(--text-dim);
-      font-size: 1.1rem;
-      line-height: 1.65;
-      max-width: 480px;
-      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .platforms-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    .platform-chip {
+      background: #F1F5F9;
+      padding: 6px 12px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-card-dl {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--accent);
+      color: var(--hero-bg-dark);
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 800;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-card-dl:hover {
+      background: #34D399;
+      transform: translateY(-2px);
     }
 
     footer {
@@ -145,7 +227,6 @@
       text-align: center;
       padding: 44px 32px;
       font-size: 0.9rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     footer a { color: var(--accent); text-decoration: underline; }
@@ -166,24 +247,70 @@
       <nav class="nav-links">
         <a href="../fount/" class="nav-link">FountTUI</a>
         <a href="../actone/" class="nav-link">ActOne Screenplay</a>
-        <a href="../downloads/" class="nav-link">Downloads</a>
-        <a href="../blog/" class="nav-link active">Blog</a>
+        <a href="../blog/" class="nav-link">Blog</a>
       </nav>
     </header>
 
     <div class="hero-content">
-      <h1 class="hero-title">Blog</h1>
-      <p class="hero-sub">Thoughts on screenwriting, tools, and craft.</p>
+      <h1 class="hero-title">Downloads Center</h1>
+      <p class="hero-sub">Select a product below to open its dedicated download page with platform-specific installers.</p>
     </div>
   </div>
 
   <main>
-    <div class="empty-card">
-      <span class="empty-icon">✍️</span>
-      <h2 class="empty-title">Coming Soon</h2>
-      <p class="empty-desc">
-        Stories about building FountTUI, ActOne Screenplay, and the art of writing for the screen will be published here.
-      </p>
+    <div class="hub-grid">
+
+      <!-- FountTUI Hub Card -->
+      <div class="card card-fount">
+        <div>
+          <div class="card-header">
+            <div class="icon-badge">
+              <img src="../assets/fount-icon.png" alt="FountTUI Icon">
+            </div>
+            <span class="tag-pill">Terminal Editor</span>
+          </div>
+          <h2 class="card-title">FountTUI</h2>
+          <p class="card-desc">
+            A fast, distraction-free terminal Fountain screenplay editor. Built for screenwriters who love keyboard efficiency and clean text buffers.
+          </p>
+
+          <div class="platforms-row">
+            <div class="platform-chip">🪟 Windows</div>
+            <div class="platform-chip">🐧 Linux</div>
+            <div class="platform-chip">🍎 macOS</div>
+          </div>
+        </div>
+
+        <a href="../fount/downloads/" class="btn-card-dl">
+          Get FountTUI Installers →
+        </a>
+      </div>
+
+      <!-- ActOne Studio Hub Card -->
+      <div class="card card-actone">
+        <div>
+          <div class="card-header">
+            <div class="icon-badge">
+              <img src="../assets/actone-icon.png" alt="ActOne Icon">
+            </div>
+            <span class="tag-pill">Desktop Studio</span>
+          </div>
+          <h2 class="card-title">ActOne Screenplay</h2>
+          <p class="card-desc">
+            A feature-rich desktop screenplay studio with interactive storyboarding, production breakdown tagging, ambient focus audio, and Muse assistant.
+          </p>
+
+          <div class="platforms-row">
+            <div class="platform-chip">🪟 Windows</div>
+            <div class="platform-chip">🐧 Linux</div>
+          </div>
+        </div>
+
+        <a href="../actone/downloads/" class="btn-card-dl">
+          Get ActOne Installers →
+        </a>
+      </div>
+
     </div>
   </main>
 

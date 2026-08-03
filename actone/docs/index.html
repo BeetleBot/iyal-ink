@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ActOne Screenplay — Complete Help Base & Specifications</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/@iyal.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Courier Prime';
+      src: url('../../assets/CourierPrime-Regular.ttf') format('truetype');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'Courier Prime';
+      src: url('../../assets/CourierPrime-Bold.ttf') format('truetype');
+      font-weight: 700;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #2C4A3A;
+      --secondary: #1E2022;
+      --light: #F4F5F7;
+      --white: #FFFFFF;
+      --text-dark: #1E2022;
+      --text-light: #FFFFFF;
+      --text-dim: #6B7280;
+      --font-display: 'Outfit', sans-serif;
+      --font-mono: 'Courier Prime', monospace;
+    }
+
+    html, body {
+      font-family: var(--font-display);
+      min-height: 100vh;
+      background: var(--light);
+      color: var(--text-dark);
+      scroll-behavior: smooth;
+    }
+
+    body { display: flex; }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 290px;
+      background: var(--white);
+      border-right: 1px solid #e5e7eb;
+      padding: 32px 20px;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+
+    .brand-logo { height: 34px; width: auto; object-fit: contain; }
+
+    .nav-section-title {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .nav-item a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 4px;
+      display: block;
+      transition: all 0.2s;
+    }
+
+    .nav-item a:hover, .nav-item a.active {
+      background: rgba(44, 74, 58, 0.1);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Main Content Area */
+    .content-area {
+      margin-left: 290px;
+      flex: 1;
+      padding: 48px 64px 90px;
+      max-width: 1000px;
+    }
+
+    .search-box { margin-bottom: 36px; }
+
+    .search-input {
+      width: 100%;
+      background: var(--white);
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      padding: 14px 20px;
+      color: var(--text-dark);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .search-input:focus { border-color: var(--primary); }
+
+    .doc-header {
+      background: var(--primary);
+      color: var(--white);
+      padding: 40px;
+      border-radius: 8px;
+      margin-bottom: 40px;
+    }
+
+    .doc-title { font-size: 2.5rem; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 12px; }
+    .doc-subtitle { color: rgba(255, 255, 255, 0.85); font-size: 1.1rem; line-height: 1.6; }
+
+    .category-title {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin: 48px 0 24px;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 8px;
+      scroll-margin-top: 40px;
+    }
+
+    .doc-section {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 32px;
+      margin-bottom: 24px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      scroll-margin-top: 40px;
+    }
+
+    .doc-section h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      color: var(--text-dark);
+    }
+
+    .doc-section p {
+      color: var(--text-dim);
+      font-size: 0.98rem;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .doc-section ul {
+      margin-left: 20px;
+      margin-bottom: 16px;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+
+    .code-block {
+      background: var(--secondary);
+      color: #e5e7eb;
+      border-radius: 6px;
+      padding: 18px;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    .callout {
+      background: rgba(44, 74, 58, 0.08);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 6px 6px 0;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+
+    .callout-title { font-weight: 700; color: var(--primary); margin-bottom: 4px; font-size: 0.95rem; }
+
+    .shortcut-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    .shortcut-table th, .shortcut-table td {
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .shortcut-table th {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--primary);
+      text-transform: uppercase;
+    }
+
+    kbd {
+      background: var(--light);
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-dark);
+    }
+
+    @media (max-width: 900px) {
+      .sidebar { display: none; }
+      .content-area { margin-left: 0; padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar Nav -->
+  <aside class="sidebar">
+    <a href="../" class="brand">
+      <img src="../../assets/actone-logo.png" alt="ActOne Logo" class="brand-logo">
+      <span>ActOne Docs</span>
+    </a>
+
+    <div>
+      <div class="nav-section-title">Getting Started</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#cat-getting-started">Overview & Welcome</a></li>
+        <li class="nav-item"><a href="#shortcuts">Shortcuts Reference</a></li>
+        <li class="nav-item"><a href="#command-palette">Command Palette</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="nav-section-title">Fountain Syntax</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#cat-fountain-syntax">Fountain Elements</a></li>
+        <li class="nav-item"><a href="#formatting">Formatting Rules</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="nav-section-title">Writing Tools</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#cat-writing-tools">Writing Modes</a></li>
+        <li class="nav-item"><a href="#search-replace">Search & Replace</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="nav-section-title">Workspace & Views</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#cat-workspace-views">Panels Overview</a></li>
+        <li class="nav-item"><a href="#xray-analysis">X-Ray Analyzer</a></li>
+        <li class="nav-item"><a href="#snapshots">Snapshots History</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="nav-section-title">Production & Specs</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#cat-production-features">Tagging & Structure</a></li>
+        <li class="nav-item"><a href="#cat-files-projects">.actone Bundle Spec</a></li>
+        <li class="nav-item"><a href="#cat-export">Export Engine</a></li>
+        <li class="nav-item"><a href="#cat-settings-customization">.actheme Theme Spec</a></li>
+        <li class="nav-item"><a href="#cat-ai-muse">BYOAI Muse Assistant</a></li>
+      </ul>
+    </div>
+
+    <div style="margin-top: auto; border-top: 1px solid #e5e7eb; padding-top: 16px;">
+      <a href="../" style="color: var(--text-dim); text-decoration: none; font-size: 0.9rem;">← Back to ActOne Screenplay</a>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="content-area">
+    <div class="search-box">
+      <input type="text" class="search-input" placeholder="Search 45+ ActOne articles (e.g. .actone, .actheme, shortcuts, X-Ray, Muse)..." id="docSearch" onkeyup="filterDocs()">
+    </div>
+
+    <div class="doc-header">
+      <h1 class="doc-title">ActOne Complete Documentation</h1>
+      <p class="doc-subtitle">Official user manual, comprehensive articles, and technical file format specifications for ActOne Screenplay.</p>
+    </div>
+
+    <!-- CATEGORY 1: GETTING STARTED -->
+    <h2 class="category-title" id="cat-getting-started">1. Getting Started</h2>
+
+    <div class="doc-section" id="welcome-screen">
+      <h3>Welcome Screen</h3>
+      <p>When you launch ActOne with no files open, the Welcome screen appears. From here you can create new projects, open existing screenplays (<code>.fountain</code>, <code>.txt</code>, <code>.actone</code>), import structural templates, access recent files, or launch interactive tutorials.</p>
+    </div>
+
+    <div class="doc-section" id="shortcuts">
+      <h3>Keyboard Shortcuts Reference</h3>
+      <table class="shortcut-table">
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Shortcut</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>New Screenplay Tab</td><td><kbd>Ctrl+N</kbd></td></tr>
+          <tr><td>Open File</td><td><kbd>Ctrl+O</kbd></td></tr>
+          <tr><td>Save File / Bundle</td><td><kbd>Ctrl+S</kbd></td></tr>
+          <tr><td>Save As (.actone / .fountain)</td><td><kbd>Ctrl+Shift+S</kbd></td></tr>
+          <tr><td>Command Palette</td><td><kbd>Ctrl+K</kbd></td></tr>
+          <tr><td>Toggle Sidebar</td><td><kbd>Ctrl+\</kbd></td></tr>
+          <tr><td>Toggle Zen Mode</td><td><kbd>Ctrl+Alt+Enter</kbd></td></tr>
+          <tr><td>Cycle Line Prefixes / Accept Ghost</td><td><kbd>Tab</kbd></td></tr>
+          <tr><td>Bold / Italic / Underline</td><td><kbd>Ctrl+B</kbd> / <kbd>Ctrl+I</kbd> / <kbd>Ctrl+U</kbd></td></tr>
+          <tr><td>Toggle Find & Replace</td><td><kbd>Ctrl+F</kbd></td></tr>
+          <tr><td>Open Settings</td><td><kbd>Ctrl+,</kbd></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="doc-section" id="command-palette">
+      <h3>Command Palette</h3>
+      <p>Press <kbd>Ctrl+K</kbd> to open the Command Palette. Type to filter commands across six categories: File, Edit, View, Format, Settings, and Help. Execute commands instantly without taking your hands off the keyboard.</p>
+    </div>
+
+    <!-- CATEGORY 2: FOUNTAIN SYNTAX -->
+    <h2 class="category-title" id="cat-fountain-syntax">2. Fountain Syntax</h2>
+
+    <div class="doc-section" id="fountain-elements">
+      <h3>Fountain Line Elements</h3>
+      <ul>
+        <li><strong>Scene Headings (Sluglines):</strong> Start a line with <code>INT.</code>, <code>EXT.</code>, <code>INT./EXT.</code>, or force with <code>.LOCATION</code>.</li>
+        <li><strong>Character Names:</strong> Uppercase line preceded by a blank line, or forced with <code>@CharacterName</code>.</li>
+        <li><strong>Dialogue:</strong> Text directly following a character line or parenthetical.</li>
+        <li><strong>Parentheticals:</strong> Directions wrapped in <code>(parentheses)</code> below character lines.</li>
+        <li><strong>Transitions:</strong> Uppercase lines ending in <code>TO:</code> or forced with <code>> FADE IN:</code>.</li>
+        <li><strong>Dual Dialogue:</strong> Append a carat <code>^</code> to the second character name (e.g. <code>MARA ^</code>) for parallel rendering.</li>
+        <li><strong>Sections & Hierarchy:</strong> Structural headings using <code># Act I</code> and <code>## Sequence A</code>.</li>
+        <li><strong>Synopses:</strong> Outline summary lines starting with <code>= Outline Note</code>.</li>
+      </ul>
+    </div>
+
+    <!-- CATEGORY 3: WRITING TOOLS -->
+    <h2 class="category-title" id="cat-writing-tools">3. Writing Tools & Focus Modes</h2>
+
+    <div class="doc-section" id="writing-modes">
+      <h3>Writing Modes & Automation</h3>
+      <p><strong>Tab-to-Cycle Line Prefixes:</strong> Press <kbd>Tab</kbd> at the start of a line to cycle prefixes: <code>@</code> → <code>.</code> → <code>></code> → normal.</p>
+      <p><strong>Typewriter Mode:</strong> Keeps your active cursor line centered vertically while scrolling the document.</p>
+      <p><strong>Hide Fountain Markup:</strong> Masks syntax prefixes on non-active lines for a clean manuscript view.</p>
+      <p><strong>Focus Mode:</strong> Dims all background lines, highlighting only the current active line.</p>
+      <p><strong>Smart Newline & Autocomplete:</strong> Auto-completes character names, locations, and 29 parenthetical extensions like <code>(V.O.)</code>, <code>(O.S.)</code>, <code>(CONT'D)</code>.</p>
+    </div>
+
+    <div class="doc-section" id="search-replace">
+      <h3>Search & Replace (<kbd>Ctrl+F</kbd>)</h3>
+      <p>Features match case, whole word, regular expressions, scene context match preview, and case-preserving replacement (UPPERCASE → UPPERCASE, Title Case → Title Case).</p>
+    </div>
+
+    <!-- CATEGORY 4: WORKSPACE & VIEWS -->
+    <h2 class="category-title" id="cat-workspace-views">4. Workspace & Views</h2>
+
+    <div class="doc-section" id="sidebar-panels">
+      <h3>Activity Bar & Sidebar Panels</h3>
+      <p>The Activity Bar provides 8 dedicated workspace panels: Outline Navigator, Scripts Manager (multi-script bundles), Notepad, Markers List, Tasks Checklist, Snapshots (Version History), Writing Sprint Timer, and Text Parking.</p>
+    </div>
+
+    <div class="doc-section" id="xray-analysis">
+      <h3>X-Ray Screenplay Analyzer</h3>
+      <p>Open via the bar-chart icon in the Status Bar or Command Palette. Features 5 analysis modes:</p>
+      <ul>
+        <li><strong>Statistics:</strong> Dialogue vs. Action ratios, day/night pie charts, top locations.</li>
+        <li><strong>Timing Report:</strong> Estimated screen duration per scene with cumulative runtimes.</li>
+        <li><strong>Characters:</strong> Track dialogue counts, character roles, and gender distribution.</li>
+        <li><strong>Connections:</strong> Circular node network graphs and matrix heatmaps for character co-occurrences.</li>
+        <li><strong>Pacing Chart:</strong> Interactive line/area pacing chart with fit-to-window and <kbd>Ctrl</kbd>+scroll zoom.</li>
+      </ul>
+    </div>
+
+    <div class="doc-section" id="snapshots">
+      <h3>Snapshots (Version History)</h3>
+      <p>Point-in-time version persistence with auto-snapshots, on-save snapshots, and manual tag/comment snapshots. Instant 1-click restore with auto-backup protection.</p>
+    </div>
+
+    <!-- CATEGORY 5: PRODUCTION FEATURES & SPECS -->
+    <h2 class="category-title" id="cat-production-features">5. Production Features & File Specs</h2>
+
+    <div class="doc-section" id="tagging-system">
+      <h3>Production Tagging & Breakdown</h3>
+      <p>Highlight text and right-click to assign breakdown tags across 15 department categories (Cast, Props, VFX, SFX, Costumes, Stunts, etc.). Fully integrated with the undo/redo stack (<kbd>Ctrl+Z</kbd> / <kbd>Ctrl+Y</kbd>) and exportable to CSV tag breakdown reports.</p>
+    </div>
+
+    <div class="doc-section" id="cat-files-projects">
+      <h3>.actone Bundle File Specification</h3>
+      <p>The <code>.actone</code> format is an uncompressed ZIP archive bundle containing the raw Fountain script files along with structured project metadata:</p>
+
+      <div class="code-block">
+my_movie.actone/
+├── manifest.json         # Package metadata, active script ID, and order
+├── scripts/              # Directory of screenplay documents
+│   ├── script_0.fountain # Primary screenplay file
+│   └── script_1.fountain # Secondary draft or episode
+├── characters.json       # Character roster, genders, and notes
+├── todos.json            # Task list state
+├── parking.json          # Text parking snippets
+└── notepad.json          # Freeform outline notes
+      </div>
+    </div>
+
+    <!-- CATEGORY 6: EXPORT ENGINE -->
+    <h2 class="category-title" id="cat-export">6. Export Engine</h2>
+
+    <div class="doc-section" id="export-engine">
+      <h3>PDF, FDX, and Fountain Exports (<kbd>Ctrl+P</kbd>)</h3>
+      <p><strong>PDF Export:</strong> Powered by Rust krilla engine with title page inclusion, bold headings, scene numbers, element B/I/U formatting, custom header/footer/center image watermarks, and smart orphan/widow pagination protection.</p>
+      <p><strong>FDX Export:</strong> Exports Final Draft XML format with scene color preservation for Final Draft and Fade In compatibility.</p>
+      <p><strong>Fountain Export:</strong> Exports clean standard Fountain text with app markers stripped.</p>
+    </div>
+
+    <!-- CATEGORY 7: SETTINGS & CUSTOM THEMES -->
+    <h2 class="category-title" id="cat-settings-customization">7. Settings & Custom Themes</h2>
+
+    <div class="doc-section" id="cat-settings-customization">
+      <h3>Theme Manager & .actheme Specification</h3>
+      <p>ActOne includes 17 built-in themes (Classic, Catppuccin, Pitch, Sunrise, Forest, Ocean, etc.) with system-adaptive light/dark auto-switching.</p>
+
+      <div class="callout">
+        <div class="callout-title">.actheme Theme Schema</div>
+        <p>Custom themes are saved and imported as <code>.actheme</code> JSON files containing theme metadata and hex color keys (<code>editor</code>, <code>text</code>, <code>accent</code>, <code>sidebar</code>, <code>button</code>, <code>isDark</code>).</p>
+      </div>
+
+      <div class="code-block">
+{
+  "$schema": "https://actone.app/schemas/theme.v1.json",
+  "name": "Midnight Forest",
+  "isDark": true,
+  "colors": {
+    "editor": "#1b2820",
+    "text": "#f4f5f6",
+    "accent": "#4c9d5d",
+    "sidebar": "#141e18",
+    "button": "#4c9d5d"
+  }
+}
+      </div>
+
+      <p><strong>PNG Theme Cards:</strong> ActOne can also export visual PNG theme preview cards with the <code>.actheme</code> JSON payload embedded inside a PNG <code>tEXt</code> metadata chunk (key: <code>ActOneTheme</code>). Users can drag and drop PNG theme cards directly into the app window to install them.</p>
+    </div>
+
+    <!-- CATEGORY 8: AI & MUSE -->
+    <h2 class="category-title" id="cat-ai-muse">8. BYOAI — Muse AI Assistant</h2>
+
+    <div class="doc-section" id="cat-ai-muse">
+      <h3>Muse AI Assistant</h3>
+      <p>Open via <kbd>Alt+M</kbd> or Status Bar AI icon. Provides zero lock-in BYOAI flexibility with local Ollama or OpenAI API keys.</p>
+      <ul>
+        <li><code>@write-scene [description]</code>: Generates Fountain-formatted scenes directly into code blocks with 1-click editor insertion.</li>
+        <li><code>@q [question]</code>: Queries your active screenplay document for context-aware answers.</li>
+        <li><code>@lookup [term]</code>: Returns concise 1-2 sentence definitions for terms.</li>
+        <li><code>@synonyms [word]</code>: Returns a list of alternative word suggestions.</li>
+      </ul>
+    </div>
+  </main>
+
+  <script>
+    function filterDocs() {
+      const q = document.getElementById('docSearch').value.toLowerCase();
+      document.querySelectorAll('.doc-section, .category-title').forEach(sec => {
+        const text = sec.innerText.toLowerCase();
+        sec.style.display = text.includes(q) ? 'block' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
