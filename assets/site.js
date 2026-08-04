@@ -63,30 +63,29 @@ document.addEventListener('DOMContentLoaded', () => {
       cursor.className = 'typing-cursor';
       cursor.textContent = '|';
 
-      elHeading.appendChild(cursor);
-
       let i = 0;
       let j = 0;
 
       function typeH() {
-        if (i < fullHeading.length) {
-          elHeading.textContent = fullHeading.substring(0, i + 1);
+        if (i <= fullHeading.length) {
+          elHeading.innerHTML = fullHeading.substring(0, i);
           elHeading.appendChild(cursor);
           i++;
           setTimeout(typeH, 45);
         } else {
-          setTimeout(startEmphasis, 150);
+          setTimeout(startEmphasis, 120);
         }
       }
 
       function startEmphasis() {
+        elEmphasis.innerHTML = "";
         elEmphasis.appendChild(cursor);
         typeE();
       }
 
       function typeE() {
-        if (j < fullEmphasis.length) {
-          elEmphasis.textContent = fullEmphasis.substring(0, j + 1);
+        if (j <= fullEmphasis.length) {
+          elEmphasis.innerHTML = fullEmphasis.substring(0, j);
           elEmphasis.appendChild(cursor);
           j++;
           setTimeout(typeE, 55);
