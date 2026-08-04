@@ -50,36 +50,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Generic Hero Typewriter Animation helper
+  // Hero Typewriter Animation helper with cursor tracking last letter
   function setupTypewriter(headingId, emphasisId, fullHeading, fullEmphasis) {
     const elHeading = document.getElementById(headingId);
     const elEmphasis = document.getElementById(emphasisId);
-    const cursor = elHeading ? elHeading.parentElement.querySelector('.typing-cursor') : null;
 
     if (elHeading && elEmphasis) {
       elHeading.textContent = "";
       elEmphasis.textContent = "";
       
+      const cursor = document.createElement('span');
+      cursor.className = 'typing-cursor';
+      cursor.textContent = '|';
+
+      elHeading.appendChild(cursor);
+
       let i = 0;
       let j = 0;
 
       function typeH() {
         if (i < fullHeading.length) {
-          elHeading.textContent += fullHeading.charAt(i);
+          elHeading.textContent = fullHeading.substring(0, i + 1);
+          elHeading.appendChild(cursor);
           i++;
           setTimeout(typeH, 45);
         } else {
-          setTimeout(typeE, 120);
+          setTimeout(startEmphasis, 150);
         }
+      }
+
+      function startEmphasis() {
+        elEmphasis.appendChild(cursor);
+        typeE();
       }
 
       function typeE() {
         if (j < fullEmphasis.length) {
-          elEmphasis.textContent += fullEmphasis.charAt(j);
+          elEmphasis.textContent = fullEmphasis.substring(0, j + 1);
+          elEmphasis.appendChild(cursor);
           j++;
           setTimeout(typeE, 55);
         } else {
-          if (cursor) cursor.classList.add('is-done');
+          cursor.classList.add('is-done');
         }
       }
 
