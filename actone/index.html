@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ActOne | Screenplay workspace</title><link rel="stylesheet" href="../assets/site.css"></head>
 <body class="product-page actone-theme">
-  <header class="site-header"><a class="iyal-mark" href="../"><img class="iyal-mark-img" src="../assets/IyalLogo.svg" alt="iyal.ink"></a><button class="menu-toggle" aria-label="Open menu" aria-expanded="false">Menu</button><nav class="site-nav"><a href="#features">Features</a><a href="#docs">Docs</a><a href="downloads/">Download</a><a href="../blog/">Blog</a></nav></header>
+  <header class="site-header"><a class="iyal-mark" href="../"><img class="iyal-mark-img" src="../assets/IyalLogo.svg" alt="iyal.ink"></a><button class="menu-toggle" aria-label="Open menu" aria-expanded="false">Menu</button><nav class="site-nav"><a href="#features">Features</a><a href="#docs">Docs</a><a href="downloads/">Download</a><a href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">Discord</a><a href="../blog/">Blog</a><button id="themeToggleBtn" class="mode-toggle-btn" title="Toggle Theme"><span id="themeIcon">☀️</span> <span id="themeLabel">Light</span></button></nav></header>
   <main>
-    <section class="hero product-hero"><div><div class="actone-app-lockup"><span class="actone-square"><img src="../assets/ActOne_apptile.png" alt="ActOne logo"></span></div><p class="eyebrow">ACTONE / NATIVE FOUNTAIN SCREENPLAY EDITOR</p><h1>The script<br><em>in full view.</em></h1><p class="lede">Just as macOS has Highland 2, Highland Pro, and Beat, ActOne is the only native Fountain screenplay editor for Windows and the only Fountain screenplay app built natively for Linux.</p><div class="actions"><a class="button button-actone" href="downloads/">Download ActOne</a><a class="button button-outline" href="#docs">Read the docs</a></div></div><div class="placeholder product-placeholder"><span>ActOne hero image placeholder</span><small>App screenshot goes here</small></div></section>
+    <section class="hero product-hero"><div><div class="actone-app-lockup"><span class="actone-square"><img src="../assets/ActOne_apptile.png" alt="ActOne logo"></span></div><p class="eyebrow">ACTONE / NATIVE FOUNTAIN SCREENPLAY EDITOR</p><h1>The script<br><em>in full view.</em></h1><p class="lede">Just as macOS has Highland 2, Highland Pro, and Beat, ActOne is the only native Fountain screenplay editor for Windows and the only Fountain screenplay app built natively for Linux.</p><div class="actions"><a class="button button-actone" href="downloads/">Download ActOne</a><a class="button button-outline" href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">Join Discord</a><a class="button button-outline" href="#docs">Read the docs</a></div></div><div class="placeholder product-placeholder"><span>ActOne hero image placeholder</span><small>App screenshot goes here</small></div></section>
     <section id="features" class="section"><div class="section-intro"><p class="eyebrow">THE DESKTOP WORKSPACE</p><h2>From first line<br>to final export.</h2></div><div class="feature-grid-detailed">
       <article class="feature-block">
         <div class="feature-info">
@@ -86,6 +86,35 @@
         <div class="placeholder feature-placeholder"><span>PDF Export & Theme Builder Placeholder</span><small>Rust export dialog & custom theme picker</small></div>
       </article>
     </div></section>
+    <section id="community" class="section media-section"><div><p class="eyebrow">COMMUNITY & LINUX BUILDS</p><h2>Join the ActOne<br>Discord server.</h2><p>The Linux version of ActOne is fully compiled and ready, but not hosted yet. Join our Discord community to request early Linux binaries, report feedback, and chat with fellow screenwriters.</p><a class="button button-actone" href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">Join Discord Community</a></div></section>
     <section id="docs" class="section media-section"><div><p class="eyebrow">DOCUMENTATION</p><h2>Everything<br>has a place.</h2><p>Search the complete ActOne help library for writing, workspace, production, files, exports, settings, and Muse.</p><a class="button button-outline" href="docs/">Open ActOne Docs</a></div></section>
-  </main><footer class="site-footer"><span>iyal.ink / ActOne</span><span><a href="downloads/">Download</a> <a href="../support/">Support</a></span><span>Local-first</span></footer><script src="../assets/site.js"></script>
+  </main><footer class="site-footer"><span>iyal.ink / ActOne</span><span><a href="downloads/">Download</a> <a href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">Discord</a> <a href="../support/">Support</a></span><span>Local-first</span></footer><script src="../assets/site.js"></script>
+  <script>
+    (function(){
+      const btn = document.getElementById('themeToggleBtn');
+      const icon = document.getElementById('themeIcon');
+      const label = document.getElementById('themeLabel');
+      let currentMode = localStorage.getItem('actone_web_theme') || 'light';
+
+      function applyMode(mode) {
+        if(mode === 'dark') {
+          document.body.classList.add('is-dark');
+          icon.textContent = '🌙';
+          label.textContent = 'Dark';
+        } else {
+          document.body.classList.remove('is-dark');
+          icon.textContent = '☀️';
+          label.textContent = 'Light';
+        }
+        localStorage.setItem('actone_web_theme', mode);
+      }
+
+      applyMode(currentMode);
+
+      btn.addEventListener('click', function() {
+        currentMode = currentMode === 'light' ? 'dark' : 'light';
+        applyMode(currentMode);
+      });
+    })();
+  </script>
 </body></html>

@@ -1,64 +1,136 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Fount | Blockbusters in Terminal</title><link rel="stylesheet" href="../assets/site.css"></head>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fount | Blockbusters in Terminal</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
 <body class="product-page fount-theme">
-  <header class="site-header"><a class="iyal-mark" href="../"><img class="iyal-mark-img" src="../assets/IyalLogo.svg" alt="iyal.ink"></a><button class="menu-toggle" aria-label="Open menu" aria-expanded="false">Menu</button><nav class="site-nav"><a href="#features">Features</a><a href="#docs">Docs</a><a href="downloads/">Download</a><a href="../blog/">Blog</a></nav></header>
+  <header class="site-header">
+    <a class="iyal-mark" href="../"><img class="iyal-mark-img" src="../assets/IyalLogo.svg" alt="iyal.ink"></a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <nav class="site-nav">
+      <a href="#features">Features</a>
+      <a href="#docs">Docs</a>
+      <a href="downloads/">Download</a>
+      <a href="../blog/">Blog</a>
+    </nav>
+  </header>
+  
   <main>
-    <section class="hero product-hero"><div><div class="product-lockup large-lockup"><span class="product-logo fount-logo"><img src="../assets/Fount_newlogo.png" alt="Fount logo"></span></div><p class="eyebrow">FOUNT / TERMINAL SCREENPLAY EDITOR</p><h1>Blockbusters<br><em>in Terminal.</em></h1><p class="lede">A minimal, distraction-free terminal screenplay editor and Fountain editor built for writers who live in the terminal.</p><div class="actions"><a class="button button-accent" href="downloads/">Download Fount</a><a class="button button-outline" href="#docs">Read the docs</a></div></div><div class="feature-media"><img src="assets/demo/navigator.gif" alt="Fount Terminal Screenplay Navigator GIF" style="width:100%; border:1px solid var(--line); border-radius:4px; display:block;"></div></section>
-    <section id="features" class="section"><div class="section-intro"><p class="eyebrow">UNDER THE SURFACE</p><h2>Stay with<br>the page.</h2></div><div class="feature-grid-detailed">
-      <article class="feature-block">
-        <div class="feature-info">
-          <b>01</b>
-          <h3>Fountain, Rendered</h3>
-          <p>Write plain text in terminal with instant live Fountain screenplay syntax highlighting. Jump across scene headings, characters, and dialogue without leaving your home row keys.</p>
+    <section class="hero product-hero fount-bg-hero">
+      <div class="fount-hero-content">
+        <div class="product-lockup large-lockup">
+          <span class="product-logo fount-logo"><img src="../assets/Fount_newlogo.png" alt="Fount logo"></span>
         </div>
-        <div class="feature-media"><img src="assets/demo/navigator.gif" alt="Fount Scene Navigator Demo" style="width:100%; border:1px solid var(--line); border-radius:4px;"></div>
-      </article>
+        <p class="eyebrow">FOUNT / TERMINAL SCREENPLAY EDITOR</p>
+        <h1>Blockbusters<br><em>in Terminal.</em></h1>
+        <p class="lede">A minimal, distraction-free terminal screenplay editor and Fountain editor built for writers who live in the terminal.</p>
+        <div class="actions">
+          <a class="button button-accent" href="downloads/">Download Fount</a>
+          <a class="button button-outline" href="#docs">Read the docs</a>
+        </div>
+      </div>
+    </section>
 
-      <article class="feature-block">
-        <div class="feature-info">
-          <b>02</b>
-          <h3>Index Cards & Scene Tree</h3>
-          <p>Visualize script structure with interactive Index Cards and hierarchical Scene Tree navigation. Reorganize scenes instantly directly within the terminal.</p>
-        </div>
-        <div class="feature-media"><img src="assets/demo/index_cards.gif" alt="Fount Index Cards Demo" style="width:100%; border:1px solid var(--line); border-radius:4px;"></div>
-      </article>
+    <section id="features" class="section">
+      <div class="section-intro">
+        <p class="eyebrow">UNDER THE SURFACE</p>
+        <h2>Stay with<br>the page.</h2>
+      </div>
+      
+      <div class="feature-grid-detailed">
+        <article class="feature-block">
+          <div class="feature-info">
+            <b>01</b>
+            <h3>Fountain, Rendered</h3>
+            <p>Write plain text in terminal with instant live Fountain screenplay syntax highlighting. Jump across scene headings, characters, and dialogue without leaving your home row keys.</p>
+          </div>
+          <div class="media-preview-container">
+            <img src="assets/demo/navigator.gif" alt="Fount Scene Navigator Demo">
+            <button class="enlarge-btn">🔍 Enlarge [🔍]</button>
+          </div>
+        </article>
 
-      <article class="feature-block">
-        <div class="feature-info">
-          <b>03</b>
-          <h3>X-Ray Analysis & Pacing</h3>
-          <p>Deep analytical inspection of your screenplay directly in the terminal—monitor dialogue vs. action ratios, scene timing, and character co-occurrence charts.</p>
-        </div>
-        <div class="feature-media"><img src="assets/demo/xray.gif" alt="Fount X-Ray Analysis Demo" style="width:100%; border:1px solid var(--line); border-radius:4px;"></div>
-      </article>
+        <article class="feature-block">
+          <div class="feature-info">
+            <b>02</b>
+            <h3>Index Cards & Scene Tree</h3>
+            <p>Visualize script structure with interactive Index Cards and hierarchical Scene Tree navigation. Reorganize scenes instantly directly within the terminal.</p>
+          </div>
+          <div class="media-preview-container">
+            <img src="assets/demo/index_cards.gif" alt="Fount Index Cards Demo">
+            <button class="enlarge-btn">🔍 Enlarge [🔍]</button>
+          </div>
+        </article>
 
-      <article class="feature-block">
-        <div class="feature-info">
-          <b>04</b>
-          <h3>Writing Sprint Timer</h3>
-          <p>Set timed writing sprints with real-time words-per-minute (WPM) speed calculation and automatic session snapshots to keep you in flow state.</p>
-        </div>
-        <div class="feature-media"><img src="assets/demo/sprint.gif" alt="Fount Writing Sprint Timer Demo" style="width:100%; border:1px solid var(--line); border-radius:4px;"></div>
-      </article>
+        <article class="feature-block">
+          <div class="feature-info">
+            <b>03</b>
+            <h3>X-Ray Analysis & Pacing</h3>
+            <p>Deep analytical inspection of your screenplay directly in the terminal—monitor dialogue vs. action ratios, scene timing, and character co-occurrence charts.</p>
+          </div>
+          <div class="media-preview-container">
+            <img src="assets/demo/xray.gif" alt="Fount X-Ray Analysis Demo">
+            <button class="enlarge-btn">🔍 Enlarge [🔍]</button>
+          </div>
+        </article>
 
-      <article class="feature-block">
-        <div class="feature-info">
-          <b>05</b>
-          <h3>Instant Terminal Search</h3>
-          <p>Global text search and replace panel designed for high-velocity keyboard editing. Search character names, dialogue, and markers across your entire manuscript.</p>
-        </div>
-        <div class="feature-media"><img src="assets/demo/search.gif" alt="Fount Search Panel Demo" style="width:100%; border:1px solid var(--line); border-radius:4px;"></div>
-      </article>
+        <article class="feature-block">
+          <div class="feature-info">
+            <b>04</b>
+            <h3>Writing Sprint Timer</h3>
+            <p>Set timed writing sprints with real-time words-per-minute (WPM) speed calculation and automatic session snapshots to keep you in flow state.</p>
+          </div>
+          <div class="media-preview-container">
+            <img src="assets/demo/sprint.gif" alt="Fount Writing Sprint Timer Demo">
+            <button class="enlarge-btn">🔍 Enlarge [🔍]</button>
+          </div>
+        </article>
 
-      <article class="feature-block">
-        <div class="feature-info">
-          <b>06</b>
-          <h3>Terminal Themes</h3>
-          <p>Choose from crisp terminal color themes designed to match your command line setup, from classic matrix greens and e-ink light modes to dark contrast themes.</p>
-        </div>
-        <div class="feature-media"><img src="assets/demo/themes.gif" alt="Fount Themes Demo" style="width:100%; border:1px solid var(--line); border-radius:4px;"></div>
-      </article>
-    </div></section>
-    <section id="docs" class="section media-section"><div><p class="eyebrow">DOCUMENTATION</p><h2>A calm place<br>to get unstuck.</h2><p>Installation, Fountain markup, commands, shortcuts, exports, themes, snapshots, and troubleshooting.</p><a class="button button-outline" href="https://github.com/BeetleBot/FountTUI/tree/main/docs">Open Fount Documentation</a></div></section>
-  </main><footer class="site-footer"><span>iyal.ink / Fount</span><span><a href="downloads/">Download</a> <a href="../support/">Support</a></span><span>Open source</span></footer><script src="../assets/site.js"></script>
-</body></html>
+        <article class="feature-block">
+          <div class="feature-info">
+            <b>05</b>
+            <h3>Instant Terminal Search</h3>
+            <p>Global text search and replace panel designed for high-velocity keyboard editing. Search character names, dialogue, and markers across your entire manuscript.</p>
+          </div>
+          <div class="media-preview-container">
+            <img src="assets/demo/search.gif" alt="Fount Search Panel Demo">
+            <button class="enlarge-btn">🔍 Enlarge [🔍]</button>
+          </div>
+        </article>
+
+        <article class="feature-block">
+          <div class="feature-info">
+            <b>06</b>
+            <h3>Terminal Themes</h3>
+            <p>Choose from crisp terminal color themes designed to match your command line setup, from classic matrix greens and e-ink light modes to dark contrast themes.</p>
+          </div>
+          <div class="media-preview-container">
+            <img src="assets/demo/themes.gif" alt="Fount Themes Demo">
+            <button class="enlarge-btn">🔍 Enlarge [🔍]</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="docs" class="section media-section">
+      <div>
+        <p class="eyebrow">DOCUMENTATION</p>
+        <h2>A calm place<br>to get unstuck.</h2>
+        <p>Installation, Fountain markup, commands, shortcuts, exports, themes, snapshots, and troubleshooting.</p>
+        <a class="button button-outline" href="https://github.com/BeetleBot/FountTUI/tree/main/docs">Open Fount Documentation</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>iyal.ink / Fount</span>
+    <span><a href="downloads/">Download</a> <a href="../support/">Support</a></span>
+    <span>Open source</span>
+  </footer>
+
+  <script src="../assets/site.js"></script>
+</body>
+</html>
