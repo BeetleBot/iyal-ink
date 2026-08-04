@@ -50,44 +50,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Hero Typewriter Animation
-  const typedHeading = document.getElementById('typedHeading');
-  const typedEmphasis = document.getElementById('typedEmphasis');
-  const typingCursor = document.querySelector('.typing-cursor');
+  // Generic Hero Typewriter Animation helper
+  function setupTypewriter(headingId, emphasisId, fullHeading, fullEmphasis) {
+    const elHeading = document.getElementById(headingId);
+    const elEmphasis = document.getElementById(emphasisId);
+    const cursor = elHeading ? elHeading.parentElement.querySelector('.typing-cursor') : null;
 
-  if (typedHeading && typedEmphasis) {
-    const fullTextHeading = "Tools for the";
-    const fullTextEmphasis = "story in progress.";
-    
-    typedHeading.textContent = "";
-    typedEmphasis.textContent = "";
-    
-    let i = 0;
-    let j = 0;
+    if (elHeading && elEmphasis) {
+      elHeading.textContent = "";
+      elEmphasis.textContent = "";
+      
+      let i = 0;
+      let j = 0;
 
-    function typeHeading() {
-      if (i < fullTextHeading.length) {
-        typedHeading.textContent += fullTextHeading.charAt(i);
-        i++;
-        setTimeout(typeHeading, 45);
-      } else {
-        setTimeout(typeEmphasis, 120);
-      }
-    }
-
-    function typeEmphasis() {
-      if (j < fullTextEmphasis.length) {
-        typedEmphasis.textContent += fullTextEmphasis.charAt(j);
-        j++;
-        setTimeout(typeEmphasis, 55);
-      } else {
-        // Keep cursor blinking softly at the end
-        if (typingCursor) {
-          typingCursor.classList.add('is-done');
+      function typeH() {
+        if (i < fullHeading.length) {
+          elHeading.textContent += fullHeading.charAt(i);
+          i++;
+          setTimeout(typeH, 45);
+        } else {
+          setTimeout(typeE, 120);
         }
       }
-    }
 
-    setTimeout(typeHeading, 150);
+      function typeE() {
+        if (j < fullEmphasis.length) {
+          elEmphasis.textContent += fullEmphasis.charAt(j);
+          j++;
+          setTimeout(typeE, 55);
+        } else {
+          if (cursor) cursor.classList.add('is-done');
+        }
+      }
+
+      setTimeout(typeH, 150);
+    }
   }
+
+  // Initialize Typewriter Animations for all landing page heroes
+  setupTypewriter('typedHeading', 'typedEmphasis', "Tools for the", "story in progress.");
+  setupTypewriter('typedFountHeading', 'typedFountEmphasis', "Blockbusters", "in Terminal.");
+  setupTypewriter('typedActOneHeading', 'typedActOneEmphasis', "The script", "in full view.");
 });
