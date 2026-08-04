@@ -1,3 +1,3 @@
-# iyal.inc
+# iyal.ink
 
-Brand website for ActOne and FountTUI — screenplay tools by iyal.inc
+Brand website for ActOne and Fount TUI — screenplay tools by iyal.ink
