@@ -99,8 +99,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function setupSingleTypewriter(id, text) {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    element.innerHTML = `<span style="visibility:hidden">${text}</span>`;
+    const cursor = document.createElement('span');
+    cursor.className = 'typing-cursor';
+    cursor.textContent = '|';
+    let i = 0;
+
+    function type() {
+      if (i <= text.length) {
+        element.innerHTML = text.substring(0, i);
+        element.appendChild(cursor);
+        i++;
+        setTimeout(type, 55);
+      } else {
+        cursor.classList.add('is-done');
+      }
+    }
+
+    setTimeout(type, 180);
+  }
+
   // Initialize Typewriter Animations for all landing page heroes
   setupTypewriter('typedHeading', 'typedEmphasis', "Tools for the", "story in progress.");
   setupTypewriter('typedFountHeading', 'typedFountEmphasis', "Blockbusters", "in Terminal.");
   setupTypewriter('typedActOneHeading', 'typedActOneEmphasis', "The script", "in full view.");
+  setupSingleTypewriter('typedFountDownloadTitle', 'Fount TUI');
+  setupSingleTypewriter('typedActOneDownloadTitle', 'ActOne Screenplay');
 });
