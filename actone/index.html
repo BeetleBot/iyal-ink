@@ -1,638 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ActOne Screenplay is a desktop screenwriting studio with visual storyboards, production tagging, ambient audio, and optional Muse screenplay assistant. Available for Windows and Linux.">
-  <link rel="canonical" href="https://iyal.ink/actone/">
-  
-  <!-- OpenGraph -->
-  <meta property="og:title" content="ActOne Screenplay — Desktop Screenwriting Studio">
-  <meta property="og:description" content="A feature-packed desktop screenwriting studio with storyboards, production tagging, ambient audio, and Muse screenplay assistant.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://iyal.ink/actone/">
-  <meta property="og:image" content="https://iyal.ink/assets/actone-icon.png">
-
-  <!-- JSON-LD Structured Data for Software -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "ActOne Screenplay",
-    "operatingSystem": "Windows, Linux",
-    "applicationCategory": "MultimediaApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "description": "Desktop screenwriting studio supporting standard Fountain plain-text scripts, visual storyboards, ambient audio, and production breakdown tagging."
-  }
-  </script>
-  <link rel="icon" type="image/svg+xml" href="../assets/@iyal.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    @font-face {
-      font-family: 'Courier Prime';
-      src: url('../assets/CourierPrime-Regular.ttf') format('truetype');
-      font-weight: 400;
-    }
-    @font-face {
-      font-family: 'Courier Prime';
-      src: url('../assets/CourierPrime-Bold.ttf') format('truetype');
-      font-weight: 700;
-    }
-
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --primary: #2C4A3A;
-      --secondary: #1E2022;
-      --light: #F4F5F7;
-      --white: #FFFFFF;
-      --border-color: #E2E8F0;
-      --text-dark: #1E2022;
-      --text-light: #FFFFFF;
-      --text-dim: #64748B;
-      --font-display: 'Outfit', sans-serif;
-      --font-mono: 'Courier Prime', monospace;
-    }
-
-    html, body {
-      font-family: var(--font-display);
-      min-height: 100vh;
-      background: var(--light);
-      color: var(--text-dark);
-      scroll-behavior: smooth;
-    }
-
-    /* Green Hero Section */
-    .hero-section {
-      background: var(--primary);
-      color: var(--text-light);
-      padding-bottom: 80px;
-    }
-
-    header {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 24px 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--text-light);
-      font-weight: 800;
-      font-size: 1.4rem;
-    }
-
-    .brand-logo { height: 38px; width: auto; object-fit: contain; }
-
-    nav { display: flex; align-items: center; gap: 20px; }
-    nav a { color: rgba(255, 255, 255, 0.85); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
-    nav a:hover { color: var(--white); }
-
-    .top-right-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      padding: 6px 14px;
-      border-radius: 6px;
-      color: var(--white);
-      font-size: 0.85rem;
-      font-family: var(--font-mono);
-      font-weight: 700;
-    }
-
-    .top-right-badge img {
-      height: 20px;
-      width: auto;
-      filter: brightness(0) invert(1);
-      object-fit: contain;
-    }
-
-    .btn-discord {
-      background: var(--white);
-      color: var(--primary);
-      padding: 8px 16px;
-      border-radius: 4px;
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-
-    .hero-body {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 60px 32px 40px;
-      text-align: center;
-    }
-
-    .badge-beta {
-      display: inline-block;
-      font-family: var(--font-mono);
-      background: rgba(255, 255, 255, 0.15);
-      color: var(--white);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-      letter-spacing: 0.05em;
-    }
-
-    .hero-title {
-      font-size: clamp(3rem, 6vw, 5rem);
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      margin-bottom: 20px;
-    }
-
-    .hero-tagline {
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
-      color: rgba(255, 255, 255, 0.85);
-      max-width: 720px;
-      margin: 0 auto 40px;
-      line-height: 1.6;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: var(--white);
-      color: var(--primary);
-      padding: 14px 28px;
-      border-radius: 6px;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: background 0.2s;
-    }
-    .btn-primary:hover { background: #e2e8f0; }
-
-    .btn-secondary {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      color: var(--white);
-      padding: 14px 28px;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: border-color 0.2s;
-    }
-    .btn-secondary:hover { border-color: var(--white); }
-
-    /* Features Section */
-    .features-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 90px 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 100px;
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto -20px;
-    }
-
-    .section-title {
-      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      margin-bottom: 16px;
-    }
-
-    .section-sub {
-      color: var(--text-dim);
-      font-size: 1.15rem;
-      line-height: 1.6;
-    }
-
-    /* Alternating Feature Item */
-    .feature-item {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .feature-item.reverse { grid-template-columns: 1fr 1fr; }
-
-    .feature-content {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .feature-heading {
-      font-size: clamp(1.8rem, 3vw, 2.3rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      color: var(--text-dark);
-    }
-
-    .feature-desc {
-      color: var(--text-dim);
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-
-    .feature-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 4px;
-    }
-
-    .feature-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 1rem;
-      color: var(--text-dark);
-      font-weight: 500;
-    }
-
-    .feature-list li::before {
-      content: "✓";
-      color: var(--primary);
-      font-weight: 900;
-      font-size: 1.1rem;
-    }
-
-    .feature-media {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      background: var(--white);
-      border: 2px dashed #CBD5E1;
-      border-radius: 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 32px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-      transition: border-color 0.3s ease;
-    }
-
-    .feature-media:hover { border-color: var(--primary); }
-
-    .placeholder-icon { width: 48px; height: 48px; color: #94A3B8; }
-    .placeholder-text { font-family: var(--font-mono); font-size: 0.95rem; color: #64748B; font-weight: 700; text-align: center; }
-    .placeholder-sub { font-size: 0.85rem; color: #94A3B8; }
-
-    /* Compact Formats Grid */
-    .formats-box {
-      background: var(--white);
-      border-radius: 16px;
-      border: 1px solid var(--border-color);
-      padding: 40px;
-      margin-top: 40px;
-    }
-
-    .formats-title {
-      font-size: 1.6rem;
-      font-weight: 800;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .formats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-    }
-
-    .format-card {
-      background: var(--light);
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    .format-card h4 {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 6px;
-    }
-
-    .format-card p {
-      font-size: 0.9rem;
-      color: var(--text-dim);
-    }
-
-    @media (max-width: 900px) {
-      .feature-item, .feature-item.reverse { grid-template-columns: 1fr; gap: 32px; }
-      .feature-item.reverse .feature-media { order: -1; }
-      .features-container { gap: 70px; padding: 60px 24px; }
-    }
-
-    footer {
-      background: var(--secondary);
-      color: var(--text-light);
-      padding: 40px 32px;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-
-    footer a { color: var(--white); text-decoration: underline; }
-  </style>
-</head>
-<body>
-
-  <div class="hero-section">
-    <header>
-      <a href="../" class="brand">
-        <img src="../assets/actone-logo.png" alt="ActOne Screenplay Logo" class="brand-logo">
-        <span>ActOne Screenplay</span>
-      </a>
-      <nav>
-        <a href="downloads/">Downloads</a>
-        <a href="docs/index.html">Documentation</a>
-        <a href="https://discord.gg/actone" target="_blank" class="btn-discord">Discord ↗</a>
-        <div class="top-right-badge">
-          <img src="../assets/actone-icon.png" alt="ActOne Icon">
-          <span>ACTONE</span>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ActOne | Screenplay workspace</title><link rel="stylesheet" href="../assets/site.css"></head>
+<body class="product-page actone-theme">
+  <header class="site-header"><a class="iyal-mark" href="../"><img class="iyal-mark-img" src="../assets/IyalLogo.svg" alt="iyal.ink"></a><button class="menu-toggle" aria-label="Open menu" aria-expanded="false">Menu</button><nav class="site-nav"><a href="#features">Features</a><a href="#docs">Docs</a><a href="downloads/">Download</a><a href="../blog/">Blog</a></nav></header>
+  <main>
+    <section class="hero product-hero"><div><div class="actone-app-lockup"><span class="actone-square"><img src="../assets/ActOne_apptile.png" alt="ActOne logo"></span></div><p class="eyebrow">ACTONE / NATIVE FOUNTAIN SCREENPLAY EDITOR</p><h1>The script<br><em>in full view.</em></h1><p class="lede">Just as macOS has Highland 2, Highland Pro, and Beat, ActOne is the only native Fountain screenplay editor for Windows and the only Fountain screenplay app built natively for Linux.</p><div class="actions"><a class="button button-actone" href="downloads/">Download ActOne</a><a class="button button-outline" href="#docs">Read the docs</a></div></div><div class="placeholder product-placeholder"><span>ActOne hero image placeholder</span><small>App screenshot goes here</small></div></section>
+    <section id="features" class="section"><div class="section-intro"><p class="eyebrow">THE DESKTOP WORKSPACE</p><h2>From first line<br>to final export.</h2></div><div class="feature-grid-detailed">
+      <article class="feature-block">
+        <div class="feature-info">
+          <b>01</b>
+          <h3>Native Fountain Screenplay Editing</h3>
+          <ul>
+            <li><strong>Live Formatting & Highlighting:</strong> Built-in CodeMirror 6 engine with real-time Fountain syntax coloring and clean manuscript rendering.</li>
+            <li><strong>Smart Formatting Tools:</strong> Automatic line-spacing, Tab-to-cycle Fountain prefixes (@, ., >), and auto-closing wrylies/parentheticals.</li>
+            <li><strong>Character & Location Autocomplete:</strong> Real-time ghost text suggestions for character names, locations, and parentheticals.</li>
+          </ul>
         </div>
-      </nav>
-    </header>
+        <div class="placeholder feature-placeholder"><span>Native Fountain Editor Screenshot Placeholder</span><small>CodeMirror 6 editor & syntax highlighting</small></div>
+      </article>
 
-    <div class="hero-body">
-      <div class="badge-beta">PUBLIC BETA — 100% FREE</div>
-      <h1 class="hero-title">ActOne Screenplay</h1>
-      <p class="hero-tagline">A modern desktop screenplay studio featuring storyboards, production breakdown tagging, ambient focus audio, and Muse screenplay assistant.</p>
-
-      <div class="hero-buttons">
-        <a href="downloads/" class="btn-primary">Download ActOne Screenplay</a>
-        <a href="docs/index.html" class="btn-secondary">Read Documentation</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Features Showcase -->
-  <main class="features-container">
-
-    <div class="section-header">
-      <h2 class="section-title">Built for Storytellers</h2>
-      <p class="section-sub">Industry-standard screenplay formatting, visual storyboarding, breakdown tagging, and multi-script organization for professional writers.</p>
-    </div>
-
-    <!-- Feature 1: Write Without Stopping -->
-    <section class="feature-item">
-      <div class="feature-content">
-        <h3 class="feature-heading">Write Without Stopping to Format</h3>
-        <p class="feature-desc">ActOne automatically formats scene headings, character names, parentheticals, dialogue, and transitions as you type.</p>
-        <ul class="feature-list">
-          <li>Smart prefix cycling and automatic capitalizations</li>
-          <li>Dual dialogue side-by-side formatting</li>
-          <li>Strict Fountain screenplay standard compatibility</li>
-        </ul>
-      </div>
-      <div class="feature-media">
-        <svg class="placeholder-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 002-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-        </svg>
-        <span class="placeholder-text">[ Feature Image Placeholder: Live Formatting ]</span>
-        <span class="placeholder-sub">Recommended resolution: 1200 x 750px</span>
-      </div>
-    </section>
-
-    <!-- Feature 2: Planning Board Storyboarding -->
-    <section class="feature-item reverse">
-      <div class="feature-media">
-        <svg class="placeholder-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/>
-        </svg>
-        <span class="placeholder-text">[ Feature Image Placeholder: Visual Planning Board ]</span>
-        <span class="placeholder-sub">Recommended resolution: 1200 x 750px</span>
-      </div>
-      <div class="feature-content">
-        <h3 class="feature-heading">Storyboard Your Plot on a Planning Board</h3>
-        <p class="feature-desc">Switch seamlessly to a visual kanban-style storyboard view. Drag and rearrange scenes, sections, and story beats with live synopsis updates.</p>
-        <ul class="feature-list">
-          <li>Visual column organization for acts, sections, and sequences</li>
-          <li>Draggable scene cards with color highlights</li>
-          <li>Instant sync between board view and text editor</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Feature 3: Multi-Script Project Bundles -->
-    <section class="feature-item">
-      <div class="feature-content">
-        <h3 class="feature-heading">Keep Your Entire Story Bible Organized</h3>
-        <p class="feature-desc">Package multiple script drafts, character notes, title page metadata, and scratchpad notes into a single portable `.actone` project file.</p>
-        <ul class="feature-list">
-          <li>Multi-script project sidebar manager</li>
-          <li>Integrated Document Notepad and character profiles</li>
-          <li>Single portable file for clean backups and sharing</li>
-        </ul>
-      </div>
-      <div class="feature-media">
-        <svg class="placeholder-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 8h14M5 8a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2H7a2 2 0 01-2-2V8zm14 0l-4 4m0 0l-4-4m4 4V3"/>
-        </svg>
-        <span class="placeholder-text">[ Feature Image Placeholder: Project Bundles ]</span>
-        <span class="placeholder-sub">Recommended resolution: 1200 x 750px</span>
-      </div>
-    </section>
-
-    <!-- Feature 4: Color Markers -->
-    <section class="feature-item reverse">
-      <div class="feature-media">
-        <svg class="placeholder-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
-        </svg>
-        <span class="placeholder-text">[ Feature Image Placeholder: Color Markers ]</span>
-        <span class="placeholder-sub">Recommended resolution: 1200 x 750px</span>
-      </div>
-      <div class="feature-content">
-        <h3 class="feature-heading">Color Markers & Storyline Indexing</h3>
-        <p class="feature-desc">Drop 11-color inline markers directly into your script to bookmark beats, organize subplots, and filter storylines in the dedicated Markers pane.</p>
-        <ul class="feature-list">
-          <li>11 distinct color tags with custom description notes</li>
-          <li>Filtered Markers sidebar tab with storyline popovers</li>
-          <li>Stripped cleanly from final exports</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Feature 5: Production Breakdown -->
-    <section class="feature-item">
-      <div class="feature-content">
-        <h3 class="feature-heading">Inline Production Breakdown Tagging</h3>
-        <p class="feature-desc">Tag cast, props, costumes, stunts, and VFX inline via right-click menus, fully integrated into the editor's history stack.</p>
-        <ul class="feature-list">
-          <li>Coverage across 15 production breakdown departments</li>
-          <li>Right-click inline tagging with departmental highlights</li>
-          <li>Tag Manager grid and CSV export for production sides</li>
-        </ul>
-      </div>
-      <div class="feature-media">
-        <svg class="placeholder-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 11h.01M7 15h.01M13 7h7M13 11h7M13 15h7M4 19h16a2 2 0 002-2V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-        </svg>
-        <span class="placeholder-text">[ Feature Image Placeholder: Production Breakdown ]</span>
-        <span class="placeholder-sub">Recommended resolution: 1200 x 750px</span>
-      </div>
-    </section>
-
-    <!-- Feature 6: X-Ray Analyzer -->
-    <section class="feature-item reverse">
-      <div class="feature-media">
-        <svg class="placeholder-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-        </svg>
-        <span class="placeholder-text">[ Feature Image Placeholder: X-Ray Analyzer ]</span>
-        <span class="placeholder-sub">Recommended resolution: 1200 x 750px</span>
-      </div>
-      <div class="feature-content">
-        <h3 class="feature-heading">X-Ray Screenplay Analyzer</h3>
-        <p class="feature-desc">A deep analytical dashboard tracking dialogue distribution, scene length graphs, pacing metrics, and character interaction frequency.</p>
-        <ul class="feature-list">
-          <li>Live statistical charts updating as you write</li>
-          <li>Gender breakdown and dialogue line frequency ratios</li>
-          <li>Scene duration graph and structural pacing reports</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Feature 7: Indic Scripts -->
-    <section class="feature-item">
-      <div class="feature-content">
-        <h3 class="feature-heading">Indic Script Typography & PDF Exports</h3>
-        <p class="feature-desc">Full native rendering for Indian languages and complex scripts with dedicated glyph descender clearance, PDF watermarking, and Final Draft FDX output.</p>
-        <ul class="feature-list">
-          <li>Native support for Tamil, Hindi, Telugu, Malayalam, Kannada, Bengali & Oriya</li>
-          <li>Export industry-standard Final Draft FDX and formatted PDF</li>
-          <li>Custom security watermarks and header/footer margins</li>
-        </ul>
-      </div>
-      <div class="feature-media">
-        <svg class="placeholder-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-        </svg>
-        <span class="placeholder-text">[ Feature Image Placeholder: Indic Typography ]</span>
-        <span class="placeholder-sub">Recommended resolution: 1200 x 750px</span>
-      </div>
-    </section>
-
-    <!-- Feature 8: Zen Mode & Ambient Audio -->
-    <section class="feature-item reverse">
-      <div class="feature-media">
-        <svg class="placeholder-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
-        </svg>
-        <span class="placeholder-text">[ Feature Image Placeholder: Ambient Audio & Zen Mode ]</span>
-        <span class="placeholder-sub">Recommended resolution: 1200 x 750px</span>
-      </div>
-      <div class="feature-content">
-        <h3 class="feature-heading">Zen Mode & Ambient Focus Audio</h3>
-        <p class="feature-desc">Distraction-free focus environment with typewriter scrolling, line-focus highlighting, and built-in focus soundscapes.</p>
-        <ul class="feature-list">
-          <li>High-quality audio loops (Light Rain, Coffee Shop, Wind, Ocean Waves)</li>
-          <li>Typewriter line centering and Focus Mode dimming</li>
-          <li>Custom theme manager with `.actheme` import/export</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Feature 9: Silent Auto-Save & Crash Protection -->
-    <section class="feature-item">
-      <div class="feature-content">
-        <h3 class="feature-heading">Never Lose a Line of Your Script</h3>
-        <p class="feature-desc">Automatic saving and safe buffer writing prevent data loss. Session recovery keeps your screenplay intact even if your system restarts.</p>
-        <ul class="feature-list">
-          <li>Silent background autosave</li>
-          <li>Crash-proof file saving protection</li>
-          <li>Automatic session recovery</li>
-        </ul>
-      </div>
-      <div class="feature-media">
-        <svg class="placeholder-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/>
-        </svg>
-        <span class="placeholder-text">[ Feature Image Placeholder: Crash Protection ]</span>
-        <span class="placeholder-sub">Recommended resolution: 1200 x 750px</span>
-      </div>
-    </section>
-
-    <!-- Feature 10: Muse Assistant -->
-    <section class="feature-item reverse">
-      <div class="feature-media">
-        <svg class="placeholder-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
-        </svg>
-        <span class="placeholder-text">[ Feature Image Placeholder: Muse Assistant ]</span>
-        <span class="placeholder-sub">Recommended resolution: 1200 x 750px</span>
-      </div>
-      <div class="feature-content">
-        <h3 class="feature-heading">Muse Assistant</h3>
-        <p class="feature-desc">Discuss with Muse, Translate with Muse, and Rephrase with Muse. This is an optional feature and requires users to bring their own API key or LocalLLM.</p>
-        <ul class="feature-list">
-          <li>Discuss scenes, translate dialogue, or rephrase lines</li>
-          <li>Connect your own API key or local model</li>
-          <li>100% optional, client-side, and privacy-focused</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Export Formats Grid -->
-    <div class="formats-box">
-      <h3 class="formats-title">Export Everywhere</h3>
-      <div class="formats-grid">
-        <div class="format-card">
-          <h4>PDF</h4>
-          <p>Formatted screenplay ready for printing and pitch submissions</p>
+      <article class="feature-block">
+        <div class="feature-info">
+          <b>02</b>
+          <h3>Comprehensive Screenplay Workspace</h3>
+          <ul>
+            <li><strong>Outline Navigator:</strong> Collapsible hierarchical tree view of sections (#), scenes, and synopses (=) with scene color dots and storyline badges.</li>
+            <li><strong>Drag-and-Drop Scene Reordering:</strong> Reorder entire screenplay scenes directly in the Outline Navigator while preserving formatting.</li>
+            <li><strong>Multi-Script Bundles (.actone):</strong> Store multiple screenplay drafts, notes, character data, and tasks in a unified ZIP archive.</li>
+            <li><strong>Document Notepad & Text Parking:</strong> Dedicated sidebar for freeform outline notes and a temporary text clipboard to park snippets while editing.</li>
+          </ul>
         </div>
-        <div class="format-card">
-          <h4>Final Draft (.fdx)</h4>
-          <p>Industry-standard FDX for production collaboration</p>
-        </div>
-        <div class="format-card">
-          <h4>Fountain (.fountain)</h4>
-          <p>Universal open plain-text format</p>
-        </div>
-        <div class="format-card">
-          <h4>Fade In (.fadein)</h4>
-          <p>Cross-platform XML screenplay format</p>
-        </div>
-        <div class="format-card">
-          <h4>CSV Breakdown</h4>
-          <p>Production breakdown department spreadsheets</p>
-        </div>
-      </div>
-    </div>
+        <div class="placeholder feature-placeholder"><span>Workspace & Outline Navigator Screenshot Placeholder</span><small>Tree view, multi-script manager & parking</small></div>
+      </article>
 
-  </main>
+      <article class="feature-block">
+        <div class="feature-info">
+          <b>03</b>
+          <h3>Writing Focus & Productivity Tools</h3>
+          <ul>
+            <li><strong>Distraction-Free Zen Mode:</strong> One-key toggle (Ctrl+Alt+Enter) to hide all UI bars for full manuscript focus.</li>
+            <li><strong>Typewriter & Focus Mode:</strong> Vertical center-scrolling cursor option with single-line focus fading out non-active text.</li>
+            <li><strong>Writing Sprint Timer:</strong> Integrated countdown timer with live WPM calculation, sprint session history, and personal best leaderboards.</li>
+            <li><strong>Automatic Snapshots & Rollback:</strong> Continuous version history with manual, auto-interval, and save-triggered snapshots.</li>
+          </ul>
+        </div>
+        <div class="placeholder feature-placeholder"><span>Focus & Zen Mode Screenshot Placeholder</span><small>Typewriter mode & sprint timer interface</small></div>
+      </article>
 
-  <footer>
-    <p>© 2026 iyal.inc — <a href="../">iyal.ink Home</a> | <a href="downloads/">Downloads</a> | <a href="docs/index.html">ActOne Documentation</a></p>
-  </footer>
+      <article class="feature-block">
+        <div class="feature-info">
+          <b>04</b>
+          <h3>Production & Analysis Suite</h3>
+          <ul>
+            <li><strong>X-Ray Screenplay Analyzer:</strong> Live analytical dashboard for Dialogue vs. Action ratios, day/night distributions, scene timing, and pacing charts.</li>
+            <li><strong>Character Network & Co-Occurrence Graph:</strong> Interactive circular graph and matrix heatmaps for character interaction analysis.</li>
+            <li><strong>Tag Manager & Breakdown Reports:</strong> Categorize elements into 15 production categories (Cast, Props, VFX, SFX, Camera, Extras) with CSV export.</li>
+            <li><strong>Structure Templates:</strong> 8 pre-loaded story beat sheets (Three-Act, Save the Cat!, Hero's Journey, Dan Harmon's Circle, etc.).</li>
+          </ul>
+        </div>
+        <div class="placeholder feature-placeholder"><span>X-Ray Analyzer & Production Breakdown Placeholder</span><small>Network co-occurrence graph & tag reports</small></div>
+      </article>
 
-</body>
-</html>
+      <article class="feature-block">
+        <div class="feature-info">
+          <b>05</b>
+          <h3>AI Writing Assistant — Muse</h3>
+          <ul>
+            <li><strong>Connect Your Own Model:</strong> Bring OpenAI-compatible API keys or connect to local Ollama instances for complete privacy.</li>
+            <li><strong>Specialized @ Commands:</strong> Use @write-scene, @q (ask questions about your script), @lookup, and @synonyms directly inside chat.</li>
+            <li><strong>Context-Aware Responses:</strong> Muse reads your screenplay context to offer feedback, generate Fountain blocks, and refine scenes.</li>
+          </ul>
+        </div>
+        <div class="placeholder feature-placeholder"><span>Muse AI Assistant Panel Placeholder</span><small>Interactive chat & @write-scene preview</small></div>
+      </article>
+
+      <article class="feature-block">
+        <div class="feature-info">
+          <b>06</b>
+          <h3>Professional Export & Customization</h3>
+          <ul>
+            <li><strong>High-Quality PDF Engine:</strong> Powered by Rust (krilla + cosmic-text) with bold headings, scene numbers, watermarks, and orphan/widow protection.</li>
+            <li><strong>Final Draft XML (.fdx) & Fountain Export:</strong> Full compatibility with Final Draft and Fade In with scene color preservation.</li>
+            <li><strong>17 Custom Built-in Themes:</strong> Adaptive light/dark themes (Catppuccin, Pitch e-ink, Sunset, Forest, Mint) plus custom theme builder.</li>
+          </ul>
+        </div>
+        <div class="placeholder feature-placeholder"><span>PDF Export & Theme Builder Placeholder</span><small>Rust export dialog & custom theme picker</small></div>
+      </article>
+    </div></section>
+    <section id="docs" class="section media-section"><div><p class="eyebrow">DOCUMENTATION</p><h2>Everything<br>has a place.</h2><p>Search the complete ActOne help library for writing, workspace, production, files, exports, settings, and Muse.</p><a class="button button-outline" href="docs/">Open ActOne Docs</a></div></section>
+  </main><footer class="site-footer"><span>iyal.ink / ActOne</span><span><a href="downloads/">Download</a> <a href="../support/">Support</a></span><span>Local-first</span></footer><script src="../assets/site.js"></script>
+</body></html>

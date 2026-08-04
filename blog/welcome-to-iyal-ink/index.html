@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to iyal.ink — Reclaiming Freedom for Screenwriters | iyal.ink</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+  <style>
+    .article-container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 28px 120px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--ink);
+    }
+    .article-container h2 {
+      font-size: 2.2rem;
+      margin-top: 55px;
+      margin-bottom: 20px;
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+    }
+    .article-container h3 {
+      font-size: 1.4rem;
+      margin-top: 35px;
+      margin-bottom: 15px;
+    }
+    .article-container p {
+      margin-bottom: 28px;
+    }
+    .article-container blockquote {
+      border-left: 3px solid var(--ink);
+      margin: 40px 0;
+      padding-left: 24px;
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: 1.35rem;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+    .article-container ul {
+      margin-bottom: 32px;
+      padding-left: 28px;
+    }
+    .article-container li {
+      margin-bottom: 12px;
+    }
+    .article-image {
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--ink);
+      margin: 40px 0 12px;
+      display: block;
+    }
+    .article-image-caption {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: CourierPrime, monospace;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body class="product-page">
+  <header class="site-header">
+    <a class="iyal-mark" href="../../"><img class="iyal-mark-img" src="../../assets/IyalLogo.svg" alt="iyal.ink"></a>
+    <nav class="site-nav">
+      <a href="../">Journal</a>
+      <a href="../../fount/">Fount</a>
+      <a href="../../actone/">ActOne</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="subpage-hero" style="padding-bottom: 40px;">
+      <p class="eyebrow">AUGUST 04, 2026 / MANIFESTO</p>
+      <h1>Welcome to<br><em>iyal.ink.</em></h1>
+      <p class="lede">Why we are building open, local-first tools to give screenwriters back their freedom, privacy, and peace of mind.</p>
+    </section>
+
+    <article class="article-container">
+      <p>Screenwriting has always been an art of pure imagination—a blank page, a blinking cursor, and the cadence of narrative rhythm. Yet over the past two decades, the software tools available to screenwriters have gradually evolved in a direction that pulls creators away from their core craft. What used to be simple desktop applications have slowly turned into bloated subscription services, opaque proprietary binary file formats, cloud-gated locking mechanisms, and distraction-heavy interfaces.</p>
+
+      <p>At <strong>iyal.ink</strong>, we believe it is time for a paradigm shift. We built iyal.ink on a simple premise: screenwriters deserve absolute freedom over their work, their files, their computing platforms, and their creative environment.</p>
+
+      <blockquote>
+        "Your stories belong to you—not to a proprietary file extension, a monthly subscription server, or a cloud vendor lock-in."
+      </blockquote>
+
+      <h2>Moving Away from Bizarre Formats</h2>
+
+      <p>Over the years, screenwriting software has often drifted toward bizarre, closed file formats. If you open a screenplay saved in some of these formats outside the specific application that created it, all you see is binary clutter. If that software isn't installed, reading your own work becomes unnecessarily complex.</p>
+
+      <p>Furthermore, many modern writing suites push mandatory cloud synchronization by default. Every word typed travels across third-party remote servers before landing on disk. In an era where creative intellectual property privacy is paramount, relying on cloud-first tools creates unnecessary friction for writers.</p>
+
+      <p>We asked ourselves: Why should a screenwriter on Windows or Linux settle for compromised, port-over experiences or web app wrappers? Why should macOS writers have access to dedicated native Fountain applications while PC writers are left behind? Why can't a screenplay editor be blazing fast, offline-first, portable, and beautiful?</p>
+
+      <h2>Enter Fountain: Plain Text for Screenwriters</h2>
+
+      <p>The foundation of everything we build at iyal.ink rests on <strong>Fountain</strong>—an open, plain-text markup syntax for screenplays. Fountain allows you to write a screenplay in any editor, on any device, using simple human-readable conventions. A scene heading starts with <code>INT.</code> or <code>EXT.</code>, a character name is written in uppercase, and dialogue sits right beneath it.</p>
+
+      <p>ActOne and Fount are both Fountain-ready applications designed to work directly with standard Fountain files. ActOne uses the <code>.actone</code> format only when you need extended workspace features like multi-script project bundles, character cards, notes, and task markers. Under the hood, <code>.actone</code> is basically a Fountain file packaged inside a standard ZIP archive. An official converter will be available soon, but you can already open any <code>.actone</code> archive using standard tools like WinZip or 7-Zip, extract it, and find your raw Fountain screenplay file right inside.</p>
+
+      <ul>
+        <li><strong>Fountain-Ready Applications:</strong> Both Fount and ActOne write plain Fountain files directly. The <code>.actone</code> format is used only when you need extra project bundle features, and can be extracted with WinZip anytime to get your raw Fountain file.</li>
+        <li><strong>Automated Snapshot System:</strong> Built-in version history continuously creates local snapshots so you can review and restore earlier drafts instantly without cloud dependency.</li>
+        <li><strong>Privacy & Local Control:</strong> ActOne operates locally and uses the internet strictly for checking app updates and submitting crash reports—never for uploading your creative writing.</li>
+      </ul>
+
+      <h2>Our Ecosystem: Fount & ActOne</h2>
+
+      <p>To serve screenwriters across every workflow and preference, iyal.ink offers two distinct tools built from the ground up for Fountain:</p>
+
+      <h3>1. Fount — The Minimalist Terminal Screenplay Editor</h3>
+      <p><strong>Fount</strong> is built for writers who crave pure, distraction-free velocity. Operating directly inside your terminal, Fount delivers instant start times, zero memory bloat, keyboard-driven navigation, and automatic session snapshotting to ensure you never lose a single keypress. It brings the tactile focus of a mechanical typewriter straight into the modern terminal.</p>
+
+      <h3>2. ActOne — The Native Fountain Screenplay Workspace for PC</h3>
+      <p>While macOS users have enjoyed native Fountain apps like Highland and Beat for years, Windows and Linux screenwriters have lacked a dedicated native environment. <strong>ActOne</strong> closes that gap. Built with React, Rust, and CodeMirror 6, ActOne is the <em>only native Fountain screenplay editor for Windows and Linux</em>.</p>
+
+      <p>ActOne combines live Fountain auto-formatting and syntax highlighting with a complete production workspace: hierarchical Outline Navigators with drag-and-drop scene reordering, X-Ray analytical graphs for character co-occurrences, production tagging for 15 department categories, local-first AI writing assistance via Ollama, and high-performance Rust PDF generation.</p>
+
+      <h2>The Pillars of Screenwriter Freedom</h2>
+
+      <p>When you choose tools from iyal.ink, you are choosing software designed around four non-negotiable promises:</p>
+
+      <p><strong>1. Local-First Sovereignty</strong><br>
+      Your data is stored locally on your storage drive. We don't track your writing, harvest your text, or force cloud logins. You own your environment.</p>
+
+      <p><strong>2. True Cross-Platform Parity</strong><br>
+      Linux and Windows users are first-class citizens. Every feature in ActOne and Fount is engineered to perform identically and natively on PC platforms.</p>
+
+      <p><strong>3. Open Standards & Interoperability</strong><br>
+      Export seamlessly to PDF, Final Draft XML (.fdx), or Fade In at any time. Your Fountain files remain standard plain text forever.</p>
+
+      <p><strong>4. Craft Over Clutter</strong><br>
+      We build interfaces that honor the writing process. From one-key Zen modes to vertical typewriter scrolling, our design aesthetics are tailored to keep you focused on the page.</p>
+
+      <h2>Join the Workbench</h2>
+
+      <p>iyal.ink is more than a software suite—it is a commitment to independent screenwriters who value control, privacy, and speed. We invite you to explore <strong>Fount</strong> and <strong>ActOne</strong>, download them for your platform, and experience the quiet confidence of writing with total creative freedom.</p>
+
+      <p>Welcome to the workbench. Let's write.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span>iyal.ink / Journal</span>
+    <a href="../">Back to Journal</a>
+  </footer>
+  <script src="../../assets/site.js"></script>
+</body>
+</html>

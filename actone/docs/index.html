@@ -1,503 +1,541 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ActOne Screenplay — Complete Help Base & Specifications</title>
-  <link rel="icon" type="image/svg+xml" href="../../assets/@iyal.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ActOne Documentation | iyal.ink</title>
+  <link rel="stylesheet" href="../../assets/site.css">
   <style>
-    @font-face {
-      font-family: 'Courier Prime';
-      src: url('../../assets/CourierPrime-Regular.ttf') format('truetype');
-      font-weight: 400;
-    }
-    @font-face {
-      font-family: 'Courier Prime';
-      src: url('../../assets/CourierPrime-Bold.ttf') format('truetype');
-      font-weight: 700;
-    }
-
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
-      --primary: #2C4A3A;
-      --secondary: #1E2022;
-      --light: #F4F5F7;
-      --white: #FFFFFF;
-      --text-dark: #1E2022;
-      --text-light: #FFFFFF;
-      --text-dim: #6B7280;
-      --font-display: 'Outfit', sans-serif;
-      --font-mono: 'Courier Prime', monospace;
+      --docs-sidebar-w: 280px;
+      --docs-toc-w: 220px;
     }
-
-    html, body {
-      font-family: var(--font-display);
-      min-height: 100vh;
-      background: var(--light);
-      color: var(--text-dark);
-      scroll-behavior: smooth;
+    body.actone-theme {
+      background: var(--paper);
     }
-
-    body { display: flex; }
-
-    /* Sidebar Navigation */
-    .sidebar {
-      width: 290px;
-      background: var(--white);
-      border-right: 1px solid #e5e7eb;
-      padding: 32px 20px;
-      position: fixed;
+    .docs-layout {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: var(--docs-sidebar-w) minmax(0, 1fr) var(--docs-toc-w);
+      min-height: calc(100vh - 64px);
+    }
+    
+    /* Left Sidebar */
+    .docs-sidebar {
+      position: sticky;
       top: 0;
-      bottom: 0;
-      left: 0;
+      height: calc(100vh - 64px);
       overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      z-index: 100;
+      border-right: 1px solid var(--line);
+      background: #e9e6de;
+      padding: 24px 16px;
     }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--text-dark);
-      font-weight: 800;
-      font-size: 1.2rem;
+    .docs-search-box {
+      margin-bottom: 20px;
     }
-
-    .brand-logo { height: 34px; width: auto; object-fit: contain; }
-
-    .nav-section-title {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--primary);
-      margin-bottom: 8px;
+    .docs-search-input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--ink);
+      background: var(--paper);
+      font-family: inherit;
+      font-size: 0.85rem;
+      outline: none;
+    }
+    .docs-search-input:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 2px rgba(40, 88, 214, 0.2);
+    }
+    .nav-group-title {
+      font-size: 0.72rem;
       font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 8px 10px;
     }
-
-    .nav-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
+    .nav-group-title:first-child {
+      margin-top: 0;
     }
-
-    .nav-item a {
-      color: var(--text-dim);
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
-      padding: 6px 10px;
-      border-radius: 4px;
+    .nav-item {
       display: block;
-      transition: all 0.2s;
+      padding: 7px 12px;
+      font-size: 0.85rem;
+      color: var(--ink);
+      border-radius: 4px;
+      margin-bottom: 2px;
+      cursor: pointer;
+      line-height: 1.3;
     }
-
-    .nav-item a:hover, .nav-item a.active {
-      background: rgba(44, 74, 58, 0.1);
-      color: var(--primary);
-      font-weight: 600;
+    .nav-item:hover {
+      background: rgba(0, 0, 0, 0.05);
+      color: var(--blue);
+    }
+    .nav-item.active {
+      font-weight: 700;
+      background: var(--ink);
+      color: var(--paper);
     }
 
     /* Main Content Area */
-    .content-area {
-      margin-left: 290px;
-      flex: 1;
-      padding: 48px 64px 90px;
-      max-width: 1000px;
+    .docs-main {
+      padding: 40px 60px;
+      max-width: 860px;
     }
-
-    .search-box { margin-bottom: 36px; }
-
-    .search-input {
-      width: 100%;
-      background: var(--white);
-      border: 1px solid #e5e7eb;
-      border-radius: 6px;
-      padding: 14px 20px;
-      color: var(--text-dark);
-      font-family: var(--font-display);
-      font-size: 1rem;
-      outline: none;
-      transition: border-color 0.2s;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    .docs-breadcrumb {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 12px;
     }
-
-    .search-input:focus { border-color: var(--primary); }
-
-    .doc-header {
-      background: var(--primary);
-      color: var(--white);
-      padding: 40px;
-      border-radius: 8px;
-      margin-bottom: 40px;
+    .docs-article-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
     }
-
-    .doc-title { font-size: 2.5rem; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 12px; }
-    .doc-subtitle { color: rgba(255, 255, 255, 0.85); font-size: 1.1rem; line-height: 1.6; }
-
-    .category-title {
-      font-size: 1.8rem;
-      font-weight: 900;
-      color: var(--primary);
-      margin: 48px 0 24px;
-      border-bottom: 2px solid var(--primary);
+    .docs-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 36px;
+    }
+    .tag-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      font-family: CourierPrime, monospace;
+      background: #dfdcd4;
+      border: 1px solid var(--line);
+      padding: 3px 8px;
+    }
+    .docs-content {
+      font-size: 1.02rem;
+      line-height: 1.65;
+      color: var(--ink);
+    }
+    .docs-content h2 {
+      font-size: 1.7rem;
+      margin-top: 48px;
+      margin-bottom: 16px;
       padding-bottom: 8px;
-      scroll-margin-top: 40px;
+      border-bottom: 1px solid var(--line);
     }
-
-    .doc-section {
-      background: var(--white);
-      border-radius: 8px;
-      padding: 32px;
+    .docs-content h3 {
+      font-size: 1.25rem;
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+    .docs-content p {
+      margin-bottom: 20px;
+    }
+    .docs-content ul, .docs-content ol {
       margin-bottom: 24px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-      scroll-margin-top: 40px;
+      padding-left: 24px;
     }
-
-    .doc-section h3 {
-      font-size: 1.35rem;
-      font-weight: 800;
-      margin-bottom: 14px;
-      color: var(--text-dark);
+    .docs-content li {
+      margin-bottom: 8px;
     }
-
-    .doc-section p {
-      color: var(--text-dim);
-      font-size: 0.98rem;
-      line-height: 1.7;
-      margin-bottom: 16px;
+    .docs-content code {
+      font-family: CourierPrime, monospace;
+      background: #e3e0d6;
+      padding: 3px 6px;
+      font-size: 0.9em;
+      border-radius: 3px;
     }
-
-    .doc-section ul {
-      margin-left: 20px;
-      margin-bottom: 16px;
-      color: var(--text-dim);
-      line-height: 1.7;
+    .docs-content kbd {
+      font-family: CourierPrime, monospace;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 3px 7px;
+      font-size: 0.78rem;
+      border-radius: 3px;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.2);
     }
-
-    .code-block {
-      background: var(--secondary);
-      color: #e5e7eb;
-      border-radius: 6px;
-      padding: 18px;
-      font-family: var(--font-mono);
-      font-size: 0.88rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
+    .docs-content pre {
+      background: #181817;
+      color: #e7e4dc;
+      padding: 20px;
       overflow-x: auto;
-      white-space: pre-wrap;
+      font-family: CourierPrime, monospace;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 24px;
+      border-left: 4px solid var(--blue);
     }
-
-    .callout {
-      background: rgba(44, 74, 58, 0.08);
-      border-left: 4px solid var(--primary);
-      border-radius: 0 6px 6px 0;
-      padding: 16px 20px;
-      margin-bottom: 20px;
-    }
-
-    .callout-title { font-weight: 700; color: var(--primary); margin-bottom: 4px; font-size: 0.95rem; }
-
-    .shortcut-table {
+    .docs-table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 20px;
+      margin: 28px 0;
+      font-size: 0.9rem;
     }
-
-    .shortcut-table th, .shortcut-table td {
+    .docs-table th, .docs-table td {
+      border: 1px solid var(--line);
       padding: 10px 14px;
       text-align: left;
-      border-bottom: 1px solid #e5e7eb;
+    }
+    .docs-table th {
+      background: #dedbd2;
+      font-weight: 700;
     }
 
-    .shortcut-table th {
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      color: var(--primary);
+    /* Article Footer Navigation (Prev / Next) */
+    .docs-article-footer {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .nav-card {
+      border: 1px solid var(--ink);
+      padding: 16px 20px;
+      flex: 1;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .nav-card:hover {
+      background: #dedbd2;
+      transform: translateY(-2px);
+    }
+    .nav-card-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--muted);
       text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .nav-card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .nav-card.next { text-align: right; }
+
+    /* Right Table of Contents (TOC) */
+    .docs-toc {
+      position: sticky;
+      top: 0;
+      height: calc(100vh - 64px);
+      overflow-y: auto;
+      padding: 32px 20px;
+      border-left: 1px solid var(--line);
+      font-size: 0.8rem;
+    }
+    .toc-title {
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .toc-item {
+      margin-bottom: 8px;
+    }
+    .toc-item a {
+      color: var(--muted);
+      line-height: 1.3;
+      display: block;
+    }
+    .toc-item a:hover {
+      color: var(--blue);
     }
 
-    kbd {
-      background: var(--light);
-      border: 1px solid #d1d5db;
-      border-radius: 4px;
-      padding: 2px 6px;
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      color: var(--text-dark);
+    @media(max-width:1100px){
+      .docs-layout { grid-template-columns: var(--docs-sidebar-w) minmax(0, 1fr); }
+      .docs-toc { display: none; }
     }
-
-    @media (max-width: 900px) {
-      .sidebar { display: none; }
-      .content-area { margin-left: 0; padding: 24px; }
+    @media(max-width:760px){
+      .docs-layout { grid-template-columns: 1fr; }
+      .docs-sidebar { position: relative; height: auto; max-height: 380px; }
+      .docs-main { padding: 30px 20px; }
     }
   </style>
 </head>
-<body>
+<body class="product-page actone-theme">
+  <header class="site-header">
+    <a class="iyal-mark" href="../../"><img class="iyal-mark-img" src="../../assets/IyalLogo.svg" alt="iyal.ink"></a>
+    <nav class="site-nav">
+      <a href="../">ActOne Workspace</a>
+      <a href="../../support/">Support</a>
+      <a href="../../blog/">Blog</a>
+    </nav>
+  </header>
 
-  <!-- Sidebar Nav -->
-  <aside class="sidebar">
-    <a href="../" class="brand">
-      <img src="../../assets/actone-logo.png" alt="ActOne Logo" class="brand-logo">
-      <span>ActOne Docs</span>
-    </a>
-
-    <div>
-      <div class="nav-section-title">Getting Started</div>
-      <ul class="nav-list">
-        <li class="nav-item"><a href="#cat-getting-started">Overview & Welcome</a></li>
-        <li class="nav-item"><a href="#shortcuts">Shortcuts Reference</a></li>
-        <li class="nav-item"><a href="#command-palette">Command Palette</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <div class="nav-section-title">Fountain Syntax</div>
-      <ul class="nav-list">
-        <li class="nav-item"><a href="#cat-fountain-syntax">Fountain Elements</a></li>
-        <li class="nav-item"><a href="#formatting">Formatting Rules</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <div class="nav-section-title">Writing Tools</div>
-      <ul class="nav-list">
-        <li class="nav-item"><a href="#cat-writing-tools">Writing Modes</a></li>
-        <li class="nav-item"><a href="#search-replace">Search & Replace</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <div class="nav-section-title">Workspace & Views</div>
-      <ul class="nav-list">
-        <li class="nav-item"><a href="#cat-workspace-views">Panels Overview</a></li>
-        <li class="nav-item"><a href="#xray-analysis">X-Ray Analyzer</a></li>
-        <li class="nav-item"><a href="#snapshots">Snapshots History</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <div class="nav-section-title">Production & Specs</div>
-      <ul class="nav-list">
-        <li class="nav-item"><a href="#cat-production-features">Tagging & Structure</a></li>
-        <li class="nav-item"><a href="#cat-files-projects">.actone Bundle Spec</a></li>
-        <li class="nav-item"><a href="#cat-export">Export Engine</a></li>
-        <li class="nav-item"><a href="#cat-settings-customization">.actheme Theme Spec</a></li>
-        <li class="nav-item"><a href="#cat-ai-muse">BYOAI Muse Assistant</a></li>
-      </ul>
-    </div>
-
-    <div style="margin-top: auto; border-top: 1px solid #e5e7eb; padding-top: 16px;">
-      <a href="../" style="color: var(--text-dim); text-decoration: none; font-size: 0.9rem;">← Back to ActOne Screenplay</a>
-    </div>
-  </aside>
-
-  <!-- Main Content Area -->
-  <main class="content-area">
-    <div class="search-box">
-      <input type="text" class="search-input" placeholder="Search 45+ ActOne articles (e.g. .actone, .actheme, shortcuts, X-Ray, Muse)..." id="docSearch" onkeyup="filterDocs()">
-    </div>
-
-    <div class="doc-header">
-      <h1 class="doc-title">ActOne Complete Documentation</h1>
-      <p class="doc-subtitle">Official user manual, comprehensive articles, and technical file format specifications for ActOne Screenplay.</p>
-    </div>
-
-    <!-- CATEGORY 1: GETTING STARTED -->
-    <h2 class="category-title" id="cat-getting-started">1. Getting Started</h2>
-
-    <div class="doc-section" id="welcome-screen">
-      <h3>Welcome Screen</h3>
-      <p>When you launch ActOne with no files open, the Welcome screen appears. From here you can create new projects, open existing screenplays (<code>.fountain</code>, <code>.txt</code>, <code>.actone</code>), import structural templates, access recent files, or launch interactive tutorials.</p>
-    </div>
-
-    <div class="doc-section" id="shortcuts">
-      <h3>Keyboard Shortcuts Reference</h3>
-      <table class="shortcut-table">
-        <thead>
-          <tr>
-            <th>Action</th>
-            <th>Shortcut</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>New Screenplay Tab</td><td><kbd>Ctrl+N</kbd></td></tr>
-          <tr><td>Open File</td><td><kbd>Ctrl+O</kbd></td></tr>
-          <tr><td>Save File / Bundle</td><td><kbd>Ctrl+S</kbd></td></tr>
-          <tr><td>Save As (.actone / .fountain)</td><td><kbd>Ctrl+Shift+S</kbd></td></tr>
-          <tr><td>Command Palette</td><td><kbd>Ctrl+K</kbd></td></tr>
-          <tr><td>Toggle Sidebar</td><td><kbd>Ctrl+\</kbd></td></tr>
-          <tr><td>Toggle Zen Mode</td><td><kbd>Ctrl+Alt+Enter</kbd></td></tr>
-          <tr><td>Cycle Line Prefixes / Accept Ghost</td><td><kbd>Tab</kbd></td></tr>
-          <tr><td>Bold / Italic / Underline</td><td><kbd>Ctrl+B</kbd> / <kbd>Ctrl+I</kbd> / <kbd>Ctrl+U</kbd></td></tr>
-          <tr><td>Toggle Find & Replace</td><td><kbd>Ctrl+F</kbd></td></tr>
-          <tr><td>Open Settings</td><td><kbd>Ctrl+,</kbd></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="doc-section" id="command-palette">
-      <h3>Command Palette</h3>
-      <p>Press <kbd>Ctrl+K</kbd> to open the Command Palette. Type to filter commands across six categories: File, Edit, View, Format, Settings, and Help. Execute commands instantly without taking your hands off the keyboard.</p>
-    </div>
-
-    <!-- CATEGORY 2: FOUNTAIN SYNTAX -->
-    <h2 class="category-title" id="cat-fountain-syntax">2. Fountain Syntax</h2>
-
-    <div class="doc-section" id="fountain-elements">
-      <h3>Fountain Line Elements</h3>
-      <ul>
-        <li><strong>Scene Headings (Sluglines):</strong> Start a line with <code>INT.</code>, <code>EXT.</code>, <code>INT./EXT.</code>, or force with <code>.LOCATION</code>.</li>
-        <li><strong>Character Names:</strong> Uppercase line preceded by a blank line, or forced with <code>@CharacterName</code>.</li>
-        <li><strong>Dialogue:</strong> Text directly following a character line or parenthetical.</li>
-        <li><strong>Parentheticals:</strong> Directions wrapped in <code>(parentheses)</code> below character lines.</li>
-        <li><strong>Transitions:</strong> Uppercase lines ending in <code>TO:</code> or forced with <code>> FADE IN:</code>.</li>
-        <li><strong>Dual Dialogue:</strong> Append a carat <code>^</code> to the second character name (e.g. <code>MARA ^</code>) for parallel rendering.</li>
-        <li><strong>Sections & Hierarchy:</strong> Structural headings using <code># Act I</code> and <code>## Sequence A</code>.</li>
-        <li><strong>Synopses:</strong> Outline summary lines starting with <code>= Outline Note</code>.</li>
-      </ul>
-    </div>
-
-    <!-- CATEGORY 3: WRITING TOOLS -->
-    <h2 class="category-title" id="cat-writing-tools">3. Writing Tools & Focus Modes</h2>
-
-    <div class="doc-section" id="writing-modes">
-      <h3>Writing Modes & Automation</h3>
-      <p><strong>Tab-to-Cycle Line Prefixes:</strong> Press <kbd>Tab</kbd> at the start of a line to cycle prefixes: <code>@</code> → <code>.</code> → <code>></code> → normal.</p>
-      <p><strong>Typewriter Mode:</strong> Keeps your active cursor line centered vertically while scrolling the document.</p>
-      <p><strong>Hide Fountain Markup:</strong> Masks syntax prefixes on non-active lines for a clean manuscript view.</p>
-      <p><strong>Focus Mode:</strong> Dims all background lines, highlighting only the current active line.</p>
-      <p><strong>Smart Newline & Autocomplete:</strong> Auto-completes character names, locations, and 29 parenthetical extensions like <code>(V.O.)</code>, <code>(O.S.)</code>, <code>(CONT'D)</code>.</p>
-    </div>
-
-    <div class="doc-section" id="search-replace">
-      <h3>Search & Replace (<kbd>Ctrl+F</kbd>)</h3>
-      <p>Features match case, whole word, regular expressions, scene context match preview, and case-preserving replacement (UPPERCASE → UPPERCASE, Title Case → Title Case).</p>
-    </div>
-
-    <!-- CATEGORY 4: WORKSPACE & VIEWS -->
-    <h2 class="category-title" id="cat-workspace-views">4. Workspace & Views</h2>
-
-    <div class="doc-section" id="sidebar-panels">
-      <h3>Activity Bar & Sidebar Panels</h3>
-      <p>The Activity Bar provides 8 dedicated workspace panels: Outline Navigator, Scripts Manager (multi-script bundles), Notepad, Markers List, Tasks Checklist, Snapshots (Version History), Writing Sprint Timer, and Text Parking.</p>
-    </div>
-
-    <div class="doc-section" id="xray-analysis">
-      <h3>X-Ray Screenplay Analyzer</h3>
-      <p>Open via the bar-chart icon in the Status Bar or Command Palette. Features 5 analysis modes:</p>
-      <ul>
-        <li><strong>Statistics:</strong> Dialogue vs. Action ratios, day/night pie charts, top locations.</li>
-        <li><strong>Timing Report:</strong> Estimated screen duration per scene with cumulative runtimes.</li>
-        <li><strong>Characters:</strong> Track dialogue counts, character roles, and gender distribution.</li>
-        <li><strong>Connections:</strong> Circular node network graphs and matrix heatmaps for character co-occurrences.</li>
-        <li><strong>Pacing Chart:</strong> Interactive line/area pacing chart with fit-to-window and <kbd>Ctrl</kbd>+scroll zoom.</li>
-      </ul>
-    </div>
-
-    <div class="doc-section" id="snapshots">
-      <h3>Snapshots (Version History)</h3>
-      <p>Point-in-time version persistence with auto-snapshots, on-save snapshots, and manual tag/comment snapshots. Instant 1-click restore with auto-backup protection.</p>
-    </div>
-
-    <!-- CATEGORY 5: PRODUCTION FEATURES & SPECS -->
-    <h2 class="category-title" id="cat-production-features">5. Production Features & File Specs</h2>
-
-    <div class="doc-section" id="tagging-system">
-      <h3>Production Tagging & Breakdown</h3>
-      <p>Highlight text and right-click to assign breakdown tags across 15 department categories (Cast, Props, VFX, SFX, Costumes, Stunts, etc.). Fully integrated with the undo/redo stack (<kbd>Ctrl+Z</kbd> / <kbd>Ctrl+Y</kbd>) and exportable to CSV tag breakdown reports.</p>
-    </div>
-
-    <div class="doc-section" id="cat-files-projects">
-      <h3>.actone Bundle File Specification</h3>
-      <p>The <code>.actone</code> format is an uncompressed ZIP archive bundle containing the raw Fountain script files along with structured project metadata:</p>
-
-      <div class="code-block">
-my_movie.actone/
-├── manifest.json         # Package metadata, active script ID, and order
-├── scripts/              # Directory of screenplay documents
-│   ├── script_0.fountain # Primary screenplay file
-│   └── script_1.fountain # Secondary draft or episode
-├── characters.json       # Character roster, genders, and notes
-├── todos.json            # Task list state
-├── parking.json          # Text parking snippets
-└── notepad.json          # Freeform outline notes
+  <div class="docs-layout">
+    <!-- Left Navigation Sidebar -->
+    <aside class="docs-sidebar">
+      <div class="docs-search-box">
+        <input type="text" id="searchInput" class="docs-search-input" placeholder="Search documentation…">
       </div>
-    </div>
+      <nav id="docsNav"></nav>
+    </aside>
 
-    <!-- CATEGORY 6: EXPORT ENGINE -->
-    <h2 class="category-title" id="cat-export">6. Export Engine</h2>
+    <!-- Main Content Area -->
+    <main class="docs-main">
+      <div class="docs-breadcrumb" id="articleCategory"></div>
+      <h1 class="docs-article-title" id="articleTitle">Loading documentation…</h1>
+      <div class="docs-tags" id="articleTags"></div>
+      <article class="docs-content" id="articleBody"></article>
 
-    <div class="doc-section" id="export-engine">
-      <h3>PDF, FDX, and Fountain Exports (<kbd>Ctrl+P</kbd>)</h3>
-      <p><strong>PDF Export:</strong> Powered by Rust krilla engine with title page inclusion, bold headings, scene numbers, element B/I/U formatting, custom header/footer/center image watermarks, and smart orphan/widow pagination protection.</p>
-      <p><strong>FDX Export:</strong> Exports Final Draft XML format with scene color preservation for Final Draft and Fade In compatibility.</p>
-      <p><strong>Fountain Export:</strong> Exports clean standard Fountain text with app markers stripped.</p>
-    </div>
-
-    <!-- CATEGORY 7: SETTINGS & CUSTOM THEMES -->
-    <h2 class="category-title" id="cat-settings-customization">7. Settings & Custom Themes</h2>
-
-    <div class="doc-section" id="cat-settings-customization">
-      <h3>Theme Manager & .actheme Specification</h3>
-      <p>ActOne includes 17 built-in themes (Classic, Catppuccin, Pitch, Sunrise, Forest, Ocean, etc.) with system-adaptive light/dark auto-switching.</p>
-
-      <div class="callout">
-        <div class="callout-title">.actheme Theme Schema</div>
-        <p>Custom themes are saved and imported as <code>.actheme</code> JSON files containing theme metadata and hex color keys (<code>editor</code>, <code>text</code>, <code>accent</code>, <code>sidebar</code>, <code>button</code>, <code>isDark</code>).</p>
+      <div class="docs-article-footer">
+        <div class="nav-card prev" id="prevCard" style="display:none;" onclick="navigatePrev()">
+          <div class="nav-card-label">← Previous</div>
+          <div class="nav-card-title" id="prevTitle"></div>
+        </div>
+        <div class="nav-card next" id="nextCard" style="display:none;" onclick="navigateNext()">
+          <div class="nav-card-label">Next →</div>
+          <div class="nav-card-title" id="nextTitle"></div>
+        </div>
       </div>
+    </main>
 
-      <div class="code-block">
-{
-  "$schema": "https://actone.app/schemas/theme.v1.json",
-  "name": "Midnight Forest",
-  "isDark": true,
-  "colors": {
-    "editor": "#1b2820",
-    "text": "#f4f5f6",
-    "accent": "#4c9d5d",
-    "sidebar": "#141e18",
-    "button": "#4c9d5d"
-  }
-}
-      </div>
+    <!-- Right Table of Contents Sidebar -->
+    <aside class="docs-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list" id="tocList"></ul>
+    </aside>
+  </div>
 
-      <p><strong>PNG Theme Cards:</strong> ActOne can also export visual PNG theme preview cards with the <code>.actheme</code> JSON payload embedded inside a PNG <code>tEXt</code> metadata chunk (key: <code>ActOneTheme</code>). Users can drag and drop PNG theme cards directly into the app window to install them.</p>
-    </div>
+  <footer class="site-footer">
+    <span>iyal.ink / ActOne Documentation</span>
+    <a href="../">Back to ActOne Workspace</a>
+  </footer>
 
-    <!-- CATEGORY 8: AI & MUSE -->
-    <h2 class="category-title" id="cat-ai-muse">8. BYOAI — Muse AI Assistant</h2>
-
-    <div class="doc-section" id="cat-ai-muse">
-      <h3>Muse AI Assistant</h3>
-      <p>Open via <kbd>Alt+M</kbd> or Status Bar AI icon. Provides zero lock-in BYOAI flexibility with local Ollama or OpenAI API keys.</p>
-      <ul>
-        <li><code>@write-scene [description]</code>: Generates Fountain-formatted scenes directly into code blocks with 1-click editor insertion.</li>
-        <li><code>@q [question]</code>: Queries your active screenplay document for context-aware answers.</li>
-        <li><code>@lookup [term]</code>: Returns concise 1-2 sentence definitions for terms.</li>
-        <li><code>@synonyms [word]</code>: Returns a list of alternative word suggestions.</li>
-      </ul>
-    </div>
-  </main>
-
+  <script src="articles_data.js"></script>
   <script>
-    function filterDocs() {
-      const q = document.getElementById('docSearch').value.toLowerCase();
-      document.querySelectorAll('.doc-section, .category-title').forEach(sec => {
-        const text = sec.innerText.toLowerCase();
-        sec.style.display = text.includes(q) ? 'block' : 'none';
-      });
+    let docsData = { categories: [], articles: [] };
+    let activeArticleId = '';
+    let filteredArticles = [];
+
+    async function loadDocs() {
+      try {
+        if (typeof DOCS_DATA !== 'undefined') {
+          docsData = DOCS_DATA;
+        } else {
+          const res = await fetch('articles_data.json');
+          docsData = await res.json();
+        }
+        
+        // Initial setup
+        const hash = window.location.hash.replace('#', '');
+        activeArticleId = (hash && docsData.articles.some(a => a.id === hash)) ? hash : docsData.articles[0].id;
+        
+        renderNav();
+        renderArticle(activeArticleId);
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+          renderNav(e.target.value);
+        });
+
+        window.addEventListener('hashchange', () => {
+          const newHash = window.location.hash.replace('#', '');
+          if (newHash && docsData.articles.some(a => a.id === newHash)) {
+            renderArticle(newHash);
+          }
+        });
+      } catch (e) {
+        console.error('Failed to load docs data:', e);
+        document.getElementById('articleTitle').innerText = 'Error loading documentation.';
+      }
     }
+
+    function renderNav(searchQuery = '') {
+      const navEl = document.getElementById('docsNav');
+      const query = searchQuery.toLowerCase().trim();
+      let html = '';
+
+      docsData.categories.forEach(cat => {
+        let catArticles = docsData.articles.filter(a => a.category === cat);
+        if (query) {
+          catArticles = catArticles.filter(a => 
+            a.title.toLowerCase().includes(query) || 
+            a.content.toLowerCase().includes(query) ||
+            a.tags.some(t => t.toLowerCase().includes(query))
+          );
+        }
+
+        if (catArticles.length > 0) {
+          html += `<div class="nav-group-title">${cat}</div>`;
+          catArticles.forEach(art => {
+            const isActive = art.id === activeArticleId;
+            html += `<a class="nav-item ${isActive ? 'active' : ''}" onclick="selectArticle('${art.id}')">${art.title}</a>`;
+          });
+        }
+      });
+
+      if (!html) {
+        html = '<div style="font-size:0.85rem; color:var(--muted); padding:10px;">No matching articles.</div>';
+      }
+
+      navEl.innerHTML = html;
+    }
+
+    function selectArticle(id) {
+      window.location.hash = id;
+      renderArticle(id);
+    }
+
+    function renderArticle(id) {
+      activeArticleId = id;
+      const index = docsData.articles.findIndex(a => a.id === id);
+      const article = docsData.articles[index] || docsData.articles[0];
+
+      document.getElementById('articleCategory').innerText = article.category;
+      document.getElementById('articleTitle').innerText = article.title;
+      document.getElementById('articleTags').innerHTML = article.tags.map(t => `<span class="tag-badge">#${t}</span>`).join('');
+      
+      const bodyEl = document.getElementById('articleBody');
+      bodyEl.innerHTML = parseMarkdown(article.content);
+
+      // Render TOC for H2 headings
+      renderTOC();
+
+      // Render Prev / Next cards
+      renderFooterNav(index);
+
+      // Update Nav active highlight
+      document.querySelectorAll('.nav-item').forEach(el => {
+        if (el.innerText.trim() === article.title) {
+          el.classList.add('active');
+        } else {
+          el.classList.remove('active');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderTOC() {
+      const tocEl = document.getElementById('tocList');
+      const headings = document.querySelectorAll('.docs-content h2');
+      let html = '';
+
+      headings.forEach((h, i) => {
+        const id = 'heading-' + i;
+        h.id = id;
+        html += `<li class="toc-item"><a href="#${id}" onclick="event.preventDefault(); document.getElementById('${id}').scrollIntoView({behavior:'smooth'});">${h.innerText}</a></li>`;
+      });
+
+      if (headings.length === 0) {
+        html = '<li class="toc-item" style="color:var(--muted)">Overview</li>';
+      }
+
+      tocEl.innerHTML = html;
+    }
+
+    function renderFooterNav(currentIndex) {
+      const prevCard = document.getElementById('prevCard');
+      const nextCard = document.getElementById('nextCard');
+
+      if (currentIndex > 0) {
+        const prevArticle = docsData.articles[currentIndex - 1];
+        document.getElementById('prevTitle').innerText = prevArticle.title;
+        prevCard.style.display = 'block';
+      } else {
+        prevCard.style.display = 'none';
+      }
+
+      if (currentIndex < docsData.articles.length - 1) {
+        const nextArticle = docsData.articles[currentIndex + 1];
+        document.getElementById('nextTitle').innerText = nextArticle.title;
+        nextCard.style.display = 'block';
+      } else {
+        nextCard.style.display = 'none';
+      }
+    }
+
+    function navigatePrev() {
+      const index = docsData.articles.findIndex(a => a.id === activeArticleId);
+      if (index > 0) {
+        selectArticle(docsData.articles[index - 1].id);
+      }
+    }
+
+    function navigateNext() {
+      const index = docsData.articles.findIndex(a => a.id === activeArticleId);
+      if (index < docsData.articles.length - 1) {
+        selectArticle(docsData.articles[index + 1].id);
+      }
+    }
+
+    function parseMarkdown(md) {
+      let html = md;
+      
+      // Code blocks
+      html = html.replace(/```([a-z]*)\n([\s\S]*?)```/g, '<pre><code class="language-$1">$2</code></pre>');
+      
+      // Headings
+      html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+      html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+      html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+      
+      // Formatting
+      html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+      html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+      html = html.replace(/<kbd>(.*?)<\/kbd>/g, '<kbd>$1</kbd>');
+      
+      // Tables
+      const lines = html.split('\n');
+      let inTable = false;
+      let tableHtml = '';
+      let newLines = [];
+      
+      for (let i = 0; i < lines.length; i++) {
+        let line = lines[i].trim();
+        if (line.startsWith('|') && line.endsWith('|')) {
+          if (!inTable) {
+            inTable = true;
+            tableHtml = '<table class="docs-table"><thead>';
+            let headers = line.split('|').slice(1, -1).map(h => h.trim());
+            tableHtml += '<tr>' + headers.map(h => `<th>${h}</th>`).join('') + '</tr></thead><tbody>';
+          } else if (line.includes('---')) {
+            continue;
+          } else {
+            let cells = line.split('|').slice(1, -1).map(c => c.trim());
+            tableHtml += '<tr>' + cells.map(c => `<td>${c}</td>`).join('') + '</tr>';
+          }
+        } else {
+          if (inTable) {
+            inTable = false;
+            tableHtml += '</tbody></table>';
+            newLines.push(tableHtml);
+            tableHtml = '';
+          }
+          newLines.push(line);
+        }
+      }
+      if (inTable) {
+        tableHtml += '</tbody></table>';
+        newLines.push(tableHtml);
+      }
+      
+      html = newLines.join('\n');
+      html = html.replace(/^\- (.*$)/gim, '<li>$1</li>');
+
+      let paragraphs = html.split(/\n\n+/);
+      return paragraphs.map(p => {
+        p = p.trim();
+        if (p.startsWith('<h') || p.startsWith('<pre') || p.startsWith('<table') || p.startsWith('<ul') || p.startsWith('<li')) {
+          return p;
+        }
+        return `<p>${p.replace(/\n/g, '<br>')}</p>`;
+      }).join('\n');
+    }
+
+    loadDocs();
   </script>
 </body>
 </html>
