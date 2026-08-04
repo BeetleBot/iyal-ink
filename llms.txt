@@ -4,7 +4,7 @@
 
 ## Products
 
-- [ActOne Screenplay Editor](https://iyal.ink/actone/): Desktop Fountain screenplay editor featuring live syntax formatting, outline tree navigator, focus mode, X-Ray screenplay analytics, production breakdown tagging, Rust PDF export engine, and the Muse AI screenplay assistant. Available for Windows and Linux.
+- [ActOne Screenplay Editor](https://iyal.ink/actone/): Desktop Fountain screenplay editor featuring live syntax formatting, outline tree navigator, focus mode, X-Ray screenplay analytics, Rust PDF export engine, and the Muse AI screenplay assistant. Available for Windows and Linux.
 - [Fount TUI Screenplay Editor](https://iyal.ink/fount/): Open-source Rust terminal (TUI) screenplay editor built for writers who prefer terminal speed, keyboard navigation, Catppuccin Mocha themes, automated session snapshots, and distraction-free writing. Available for Linux, Windows, and macOS via Cargo.
 
 ## Core Concepts & Standards
