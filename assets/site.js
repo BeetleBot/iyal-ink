@@ -49,4 +49,45 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Hero Typewriter Animation
+  const typedHeading = document.getElementById('typedHeading');
+  const typedEmphasis = document.getElementById('typedEmphasis');
+  const typingCursor = document.querySelector('.typing-cursor');
+
+  if (typedHeading && typedEmphasis) {
+    const fullTextHeading = "Tools for the";
+    const fullTextEmphasis = "story in progress.";
+    
+    typedHeading.textContent = "";
+    typedEmphasis.textContent = "";
+    
+    let i = 0;
+    let j = 0;
+
+    function typeHeading() {
+      if (i < fullTextHeading.length) {
+        typedHeading.textContent += fullTextHeading.charAt(i);
+        i++;
+        setTimeout(typeHeading, 45);
+      } else {
+        setTimeout(typeEmphasis, 120);
+      }
+    }
+
+    function typeEmphasis() {
+      if (j < fullTextEmphasis.length) {
+        typedEmphasis.textContent += fullTextEmphasis.charAt(j);
+        j++;
+        setTimeout(typeEmphasis, 55);
+      } else {
+        // Keep cursor blinking softly at the end
+        if (typingCursor) {
+          typingCursor.classList.add('is-done');
+        }
+      }
+    }
+
+    setTimeout(typeHeading, 150);
+  }
 });
