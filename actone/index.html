@@ -44,7 +44,7 @@
   </script>
 </head>
 <body class="product-page actone-theme">
-  <header class="site-header"><a class="iyal-mark" href="../"><img class="iyal-mark-img" src="../assets/IyalLogo.svg" alt="iyal.ink"></a><button class="menu-toggle" aria-label="Open menu" aria-expanded="false">Menu</button><nav class="site-nav"><a href="#features">Features</a><a href="#docs">Docs</a><a href="downloads/">Download</a><a href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">Discord</a><a href="../blog/">Blog</a><button id="themeToggleBtn" class="mode-toggle-btn" title="Toggle Theme"><span id="themeIcon">☀️</span> <span id="themeLabel">Light</span></button></nav></header>
+  <header class="site-header"><a class="iyal-mark" href="../"><img class="iyal-mark-img" src="../assets/IyalLogo.svg" alt="iyal.ink"></a><button class="menu-toggle" aria-label="Open menu" aria-expanded="false">Menu</button><nav class="site-nav"><a href="#features">Features</a><a href="#docs">Docs</a><a href="downloads/">Download</a><a href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">Discord</a><a href="../blog/">Blog</a></nav></header>
   <main>
     <section class="hero product-hero">
       <div class="actone-hero-content">
@@ -158,32 +158,4 @@
     <section id="community" class="section media-section"><div><p class="eyebrow">COMMUNITY & LINUX BUILDS</p><h2>Join the ActOne<br>Discord server.</h2><p>The Linux version of ActOne is fully compiled and ready, but not hosted yet. Join our Discord community to request early Linux binaries, report feedback, and chat with fellow screenwriters.</p><a class="button button-actone" href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">Join Discord Community</a></div></section>
     <section id="docs" class="section media-section"><div><p class="eyebrow">DOCUMENTATION</p><h2>Everything<br>has a place.</h2><p>Search the complete ActOne help library for writing, workspace, production, files, exports, settings, and Muse.</p><a class="button button-outline" href="docs/">Open ActOne Docs</a></div></section>
   </main><footer class="site-footer"><span>iyal.ink / ActOne</span><span><a href="downloads/">Download</a> <a href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">Discord</a> <a href="../support/">Support</a></span><span>Local-first</span></footer><script src="../assets/site.js"></script>
-  <script>
-    (function(){
-      const btn = document.getElementById('themeToggleBtn');
-      const icon = document.getElementById('themeIcon');
-      const label = document.getElementById('themeLabel');
-      let currentMode = localStorage.getItem('actone_web_theme') || 'light';
-
-      function applyMode(mode) {
-        if(mode === 'dark') {
-          document.body.classList.add('is-dark');
-          icon.textContent = '🌙';
-          label.textContent = 'Dark';
-        } else {
-          document.body.classList.remove('is-dark');
-          icon.textContent = '☀️';
-          label.textContent = 'Light';
-        }
-        localStorage.setItem('actone_web_theme', mode);
-      }
-
-      applyMode(currentMode);
-
-      btn.addEventListener('click', function() {
-        currentMode = currentMode === 'light' ? 'dark' : 'light';
-        applyMode(currentMode);
-      });
-    })();
-  </script>
 </body></html>
