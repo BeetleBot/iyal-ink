@@ -1,11 +1,20 @@
-# Subdomain redirects & alias routes for iyal.ink
+# Hostname 200 URL Rewrites for Subdomains
+
+# actone.iyal.ink -> serves /actone/
+https://actone.iyal.ink/ /actone/ 200
+https://actone.iyal.ink/downloads /actone/downloads/ 200
+https://actone.iyal.ink/downloads/ /actone/downloads/ 200
+https://actone.iyal.ink/docs /actone/docs/ 200
+https://actone.iyal.ink/docs/ /actone/docs/ 200
+https://actone.iyal.ink/* /actone/:splat 200
+
+# fount.iyal.ink -> serves /fount/
+https://fount.iyal.ink/ /fount/ 200
+https://fount.iyal.ink/downloads /fount/downloads/ 200
+https://fount.iyal.ink/downloads/ /fount/downloads/ 200
+https://fount.iyal.ink/docs /fount/docs/ 200
+https://fount.iyal.ink/docs/ /fount/docs/ 200
+https://fount.iyal.ink/* /fount/:splat 200
 
 # Redirect founttui.iyal.ink -> fount.iyal.ink
 https://founttui.iyal.ink/* https://fount.iyal.ink/:splat 301
-
-# Subdomain shortcuts to product hubs
-https://fount.iyal.ink/downloads https://iyal.ink/fount/downloads/ 301
-https://fount.iyal.ink/docs https://iyal.ink/fount/docs/ 301
-
-https://actone.iyal.ink/downloads https://iyal.ink/actone/downloads/ 301
-https://actone.iyal.ink/docs https://iyal.ink/actone/docs/ 301
