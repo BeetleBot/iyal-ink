@@ -1,2 +1,6 @@
 # Redirect founttui.iyal.ink -> fount.iyal.ink
 https://founttui.iyal.ink/* https://fount.iyal.ink/:splat 301
+
+# Redirect subdomains -> canonical subpaths so static assets resolve correctly
+https://fount.iyal.ink/* https://iyal.ink/fount/:splat 301
+https://actone.iyal.ink/* https://iyal.ink/actone/:splat 301
