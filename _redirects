@@ -1,0 +1,11 @@
+# Subdomain redirects & alias routes for iyal.ink
+
+# Redirect founttui.iyal.ink -> fount.iyal.ink
+https://founttui.iyal.ink/* https://fount.iyal.ink/:splat 301
+
+# Subdomain shortcuts to product hubs
+https://fount.iyal.ink/downloads https://iyal.ink/fount/downloads/ 301
+https://fount.iyal.ink/docs https://iyal.ink/fount/docs/ 301
+
+https://actone.iyal.ink/downloads https://iyal.ink/actone/downloads/ 301
+https://actone.iyal.ink/docs https://iyal.ink/actone/docs/ 301
