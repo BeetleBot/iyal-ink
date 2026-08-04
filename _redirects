@@ -1,20 +1,2 @@
-# Hostname 200 URL Rewrites for Subdomains
-
-# actone.iyal.ink -> serves /actone/
-https://actone.iyal.ink/ /actone/ 200
-https://actone.iyal.ink/downloads /actone/downloads/ 200
-https://actone.iyal.ink/downloads/ /actone/downloads/ 200
-https://actone.iyal.ink/docs /actone/docs/ 200
-https://actone.iyal.ink/docs/ /actone/docs/ 200
-https://actone.iyal.ink/* /actone/:splat 200
-
-# fount.iyal.ink -> serves /fount/
-https://fount.iyal.ink/ /fount/ 200
-https://fount.iyal.ink/downloads /fount/downloads/ 200
-https://fount.iyal.ink/downloads/ /fount/downloads/ 200
-https://fount.iyal.ink/docs /fount/docs/ 200
-https://fount.iyal.ink/docs/ /fount/docs/ 200
-https://fount.iyal.ink/* /fount/:splat 200
-
 # Redirect founttui.iyal.ink -> fount.iyal.ink
 https://founttui.iyal.ink/* https://fount.iyal.ink/:splat 301
