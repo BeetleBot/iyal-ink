@@ -50,14 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Hero Typewriter Animation helper with cursor tracking last letter
+  // Hero Typewriter Animation helper with height reservation
   function setupTypewriter(headingId, emphasisId, fullHeading, fullEmphasis) {
     const elHeading = document.getElementById(headingId);
     const elEmphasis = document.getElementById(emphasisId);
 
     if (elHeading && elEmphasis) {
-      elHeading.textContent = "";
-      elEmphasis.textContent = "";
+      // Pre-set full text invisible placeholder to lock height immediately
+      elHeading.innerHTML = `<span style="visibility:hidden">${fullHeading}</span>`;
+      elEmphasis.innerHTML = `<span style="visibility:hidden">${fullEmphasis}</span>`;
       
       const cursor = document.createElement('span');
       cursor.className = 'typing-cursor';
