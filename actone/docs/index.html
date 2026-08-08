@@ -4,15 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ActOne Screenplay Documentation & User Guide | Free Fountain Editor</title>
-  <link rel="stylesheet" href="https://iyal.ink/assets/site.css">
+  <link rel="stylesheet" href="../../assets/site.css">
   <link rel="icon" type="image/png" href="https://iyal.ink/assets/actone-icon.png">
   <style>
     :root {
+      --paper: #EEEEEE;
+      --ink: #101010;
+      --line: rgba(0, 0, 0, 0.10);
+      --muted: rgba(0, 0, 0, 0.54);
+      --blue: #555555;
+      --sidebar-bg: #E5E5E5;
       --docs-sidebar-w: 280px;
       --docs-toc-w: 220px;
     }
     body.actone-theme {
       background: var(--paper);
+      color: var(--ink);
     }
     .docs-layout {
       max-width: 1440px;
@@ -29,7 +36,7 @@
       height: calc(100vh - 64px);
       overflow-y: auto;
       border-right: 1px solid var(--line);
-      background: #e9e6de;
+      background: var(--sidebar-bg);
       padding: 24px 16px;
     }
     .docs-search-box {
@@ -109,7 +116,7 @@
       font-size: 0.7rem;
       font-weight: 700;
       font-family: CourierPrime, monospace;
-      background: #dfdcd4;
+      background: var(--sidebar-bg);
       border: 1px solid var(--line);
       padding: 3px 8px;
     }
@@ -142,7 +149,7 @@
     }
     .docs-content code {
       font-family: CourierPrime, monospace;
-      background: #e3e0d6;
+      background: var(--sidebar-bg);
       padding: 3px 6px;
       font-size: 0.9em;
       border-radius: 3px;
@@ -157,8 +164,8 @@
       box-shadow: 0 2px 0 rgba(0,0,0,0.2);
     }
     .docs-content pre {
-      background: #181817;
-      color: #e7e4dc;
+      background: #222222;
+      color: #eeeeee;
       padding: 20px;
       overflow-x: auto;
       font-family: CourierPrime, monospace;
@@ -179,7 +186,7 @@
       text-align: left;
     }
     .docs-table th {
-      background: #dedbd2;
+      background: var(--sidebar-bg);
       font-weight: 700;
     }
 
@@ -193,14 +200,15 @@
       gap: 20px;
     }
     .nav-card {
-      border: 1px solid var(--ink);
+      border: 1px solid var(--line);
+      background: #FFFFFF;
       padding: 16px 20px;
       flex: 1;
       cursor: pointer;
       transition: background 0.2s ease, transform 0.2s ease;
     }
     .nav-card:hover {
-      background: #dedbd2;
+      background: var(--sidebar-bg);
       transform: translateY(-2px);
     }
     .nav-card-label {
@@ -268,8 +276,8 @@
   <header class="site-header">
     <a class="iyal-mark" href="https://iyal.ink/"><img class="iyal-mark-img" src="https://iyal.ink/assets/IyalLogo.svg" alt="iyal.ink"></a>
     <nav class="site-nav">
-      <a href="https://iyal.ink/actone/">ActOne Screenplay Workspace</a>
-      <a href="https://iyal.ink/blog/">Blog</a>
+      <a href="https://iyal.ink/actone/">ActOne</a>
+      <a href="https://iyal.ink/actone/downloads/">Download</a>
     </nav>
   </header>
 
