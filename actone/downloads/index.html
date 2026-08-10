@@ -23,21 +23,19 @@
   <main>
     <section class="section download-hero">
       <p class="eyebrow">DOWNLOAD</p>
-      <div class="version-line"><div class="version-display">v0.4.11</div><span class="version-beta">(beta)</span></div>
+      <div class="version-line"><div class="version-display">v0.4.12</div><span class="version-beta">(beta)</span></div>
       <h1>Download ActOne Screenplay</h1>
       <p class="lede">Available for Windows and Linux.</p>
     </section>
 
     <section class="section">
       <div class="section-intro">
-        <p class="eyebrow">RELEASE NOTES / V0.4.11</p>
+        <p class="eyebrow">RELEASE NOTES / V0.4.12</p>
         <h2>What's new</h2>
       </div>
       <ul class="changelog">
-        <li><strong>Scene Renumbering &amp; Clearing Fix</strong> — Fixed "Renumber Scene Headings" and "Clear Scene Numbers" in the Command Palette by dispatching document changes directly to CodeMirror's editor view.</li>
-        <li><strong>Classic Dark Theme Contrast Fix</strong> — Fixed text rendering contrast on selected active items in the Classic Dark theme.</li>
-        <li><strong>Enhanced Indic Script Support</strong> — Integrated font fallback chains for Indian languages including Malayalam, Hindi/Marathi, Telugu, Bengali, Gujarati, Kannada, Punjabi, and Odia.</li>
-        <li><strong>Global UI Font Engine &amp; Layout Polish</strong> — Standardized the application interface to Inter font across UI elements, fixed tab sizing in header bar, added hover delay for tooltips, and redesigned the Outline View scene cards.</li>
+        <li><strong>Windows App Shutdown Crash Fix</strong> — Fixed an intermittent Windows application crash (<code>tao</code> event loop runner panic: <code>cannot move state from Destroyed</code>) when closing the app by intercepting exit signals cleanly.</li>
+        <li><strong>Graceful App Shutdown Sequence</strong> — Implemented a clean process teardown sequence that automatically aborts active background streaming/AI requests (<code>ollama::cancel_all_sessions</code>), flushes pending panic/error logs to disk, and safely releases OS system resources before process exit.</li>
       </ul>
     </section>
 
@@ -50,7 +48,7 @@
       <article class="download-card">
         <h2>Download For Linux</h2>
         <p>Download the archive, extract it, and run <code>sudo ./install.sh</code> to install ActOne Screenplay.</p>
-        <a class="button button-actone" href="https://downloads.iyal.ink/ActOne-Linux-x64-0.4.11.tar.gz">Download Linux Package</a>
+        <a class="button button-actone" href="https://downloads.iyal.ink/ActOne-Linux-x64-0.4.12.tar.gz">Download Linux Package</a>
       </article>
     </section>
   </main>
