@@ -42,25 +42,34 @@
     </section>
 
     <section class="download-grid">
-      <article class="download-card">
-        <h2>Download For Windows</h2>
-        <p>Install ActOne Screenplay from the Microsoft Store and keep it updated through Windows.</p>
-        <a class="button button-actone" href="https://apps.microsoft.com/detail/9PJMKR0937KK">Get ActOne Screenplay from Microsoft Store</a>
-      </article>
-      <article class="download-card">
-        <h2>Download For Linux</h2>
-        <p>Install ActOne Screenplay using Flatpak for all modern Linux distributions.</p>
-        
-        <div style="margin-top: 20px; margin-bottom: 24px;">
-          <a class="button button-actone" href="https://downloads.iyal.ink/ActOne_v0.4.13_x86_64.flatpak">Download .flatpak Bundle (v0.4.13)</a>
+      <article class="download-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div class="eyebrow" style="margin-bottom: 8px;">MICROSOFT STORE</div>
+          <h2>Download For Windows</h2>
+          <p>Install ActOne Screenplay from the Microsoft Store with automatic background updates.</p>
         </div>
+        <div>
+          <a class="button button-actone" style="width: 100%; text-align: center; box-sizing: border-box;" href="https://apps.microsoft.com/detail/9PJMKR0937KK">Get ActOne from Microsoft Store</a>
+          <div style="margin-top: 18px; background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.08); padding: 14px 16px; font-size: 0.82rem; color: var(--mocha-subtext); line-height: 1.5;">
+            <div style="font-weight: 700; color: var(--mocha-text); margin-bottom: 4px;">System Requirement:</div>
+            <div>Windows 10 / 11 (64-bit). Native desktop application with 100% offline functionality.</div>
+          </div>
+        </div>
+      </article>
 
-        <div style="border-top: 1px solid var(--mocha-overlay); padding-top: 20px; font-size: 0.88rem; color: var(--mocha-subtext);">
-          <strong style="color: var(--mocha-text); display: block; margin-bottom: 8px;">Flatpak Installation Instructions:</strong>
-          <ul style="padding-left: 20px; margin: 0; line-height: 1.6;">
-            <li style="margin-bottom: 6px;"><strong>GUI:</strong> Double-click the downloaded <code>.flatpak</code> file to install using your default Software app (e.g. GNOME Software, KDE Discover).</li>
-            <li><strong>Terminal:</strong> Run <code>flatpak install --user ActOne_v0.4.13_x86_64.flatpak</code></li>
-          </ul>
+      <article class="download-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div class="eyebrow" style="margin-bottom: 8px;">STANDALONE FLATPAK BUNDLE</div>
+          <h2>Download For Linux</h2>
+          <p>Install ActOne Screenplay using Flatpak for Ubuntu, Fedora, Arch, Debian, and all modern distros.</p>
+        </div>
+        <div>
+          <a class="button button-actone" style="width: 100%; text-align: center; box-sizing: border-box;" href="https://downloads.iyal.ink/ActOne_v0.4.13_x86_64.flatpak">Download .flatpak Bundle (v0.4.13)</a>
+          <div style="margin-top: 18px; background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.08); padding: 14px 16px; font-size: 0.82rem; color: var(--mocha-subtext); line-height: 1.5;">
+            <div style="font-weight: 700; color: var(--mocha-text); margin-bottom: 4px;">Flatpak Installation:</div>
+            <div style="margin-bottom: 4px;">• Double-click <code>.flatpak</code> file to install via Software Center</div>
+            <div>• Terminal: <code style="display: inline-block; margin-top: 4px; padding: 4px 8px; background: #FFFFFF; border: 1px solid rgba(0,0,0,0.12); font-family: CourierPrime, monospace; font-size: 0.78rem; color: #101010; word-break: break-all;">flatpak install --user ActOne_v0.4.13_x86_64.flatpak</code></div>
+          </div>
         </div>
       </article>
     </section>
