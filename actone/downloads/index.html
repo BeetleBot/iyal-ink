@@ -23,21 +23,21 @@
   <main>
     <section class="section download-hero">
       <p class="eyebrow">DOWNLOAD</p>
-      <div class="version-line"><div class="version-display">v0.4.14</div><span class="version-beta">(beta)</span></div>
+      <div class="version-line"><div class="version-display">v0.4.15</div><span class="version-beta">(beta)</span></div>
       <h1>Download ActOne Screenplay</h1>
       <p class="lede">Available for Windows and Linux.</p>
     </section>
 
     <section class="section">
       <div class="section-intro">
-        <p class="eyebrow">RELEASE NOTES / V0.4.14</p>
+        <p class="eyebrow">RELEASE NOTES / V0.4.15</p>
         <h2>What's new</h2>
       </div>
       <ul class="changelog">
-        <li><strong>Scene Navigation Fix</strong> — Intercepted <code>Alt-ArrowUp</code> and <code>Alt-ArrowDown</code> keybindings in CodeMirror to prevent default line dragging and ensure smooth scene heading navigation.</li>
-        <li><strong>Quick Guide Overlay (F1)</strong> — Pressing <code>F1</code> opens the Quick Guide modal featuring sticky tabs for Keyboard Shortcuts and Fountain Syntax Reference.</li>
-        <li><strong>Previous & Next Scene Navigation</strong> — Jump between scene headings rapidly with <code>Alt+↑</code> / <code>Alt+PageUp</code> (Previous Scene) and <code>Alt+↓</code> / <code>Alt+PageDown</code> (Next Scene).</li>
-        <li><strong>Linux CodeMirror Layout Crash Fix</strong> — Refactored scroll position measurements to eliminate <code>TypeError: undefined is not an object (evaluating 'p.top')</code> crashes on WebKit / Linux.</li>
+        <li><strong>Large Screenplays & .actone Bundle Save Fix</strong> — Resolved a critical saving freeze on large screenplays (80–100+ pages) by restoring synchronous direct zipping (<code>zipSync</code>) and converting byte buffers before Tauri IPC transfer.</li>
+        <li><strong>Infinite Page Breaks Loop Fix</strong> — Eliminated a main-thread deadlock in <code>paginateScreenplay</code> where backtracking for consecutive scene headings or character names at page breaks created an infinite pagination loop.</li>
+        <li><strong>Project-Centric Snapshots</strong> — Standardized screenplay snapshot backups to save exclusively inside the <code>.snapshots/</code> folder within your active project directory.</li>
+        <li><strong>Safeguarded Event Cleanup</strong> — Wrapped event unlisten handlers with safety guards to prevent crash errors during hot-reloads and unmounts.</li>
       </ul>
     </section>
 
@@ -46,11 +46,11 @@
         <div style="display: flex; flex-direction: column; gap: 8px;">
           <div class="eyebrow" style="margin-bottom: 4px;">MICROSOFT STORE</div>
           <h2 style="margin-bottom: 8px;">Download For Windows</h2>
-          <p style="margin: 0; min-height: 2.8em;">Install ActOne Screenplay from the Microsoft Store with automatic background updates.</p>
+          <p style="margin: 0; min-height: 2.8em;">Install ActOne Screenplay for Windows from the Microsoft Store with automatic background updates.</p>
         </div>
 
         <div>
-          <a class="button button-actone" style="display: block; width: 100%; text-align: center; box-sizing: border-box;" href="https://apps.microsoft.com/detail/9PJMKR0937KK">Get ActOne from Microsoft Store</a>
+          <a class="button button-actone" style="display: block; width: 100%; text-align: center; box-sizing: border-box;" href="https://apps.microsoft.com/detail/9PJMKR0937KK">Download ActOne for Windows</a>
         </div>
 
         <div style="background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.08); padding: 14px 16px; font-size: 0.82rem; color: var(--mocha-subtext); line-height: 1.5; min-height: 90px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center;">
@@ -67,7 +67,7 @@
         </div>
 
         <div>
-          <a class="button button-actone" style="display: block; width: 100%; text-align: center; box-sizing: border-box;" href="https://downloads.iyal.ink/ActOne-Linux-x64-0.4.14.tar.gz">Download Linux Package (v0.4.14)</a>
+          <a class="button button-actone" style="display: block; width: 100%; text-align: center; box-sizing: border-box;" href="https://downloads.iyal.ink/ActOne-Linux-x64-0.4.15.tar.gz">Download ActOne for Linux</a>
         </div>
 
         <div style="background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.08); padding: 14px 16px; font-size: 0.82rem; color: var(--mocha-subtext); line-height: 1.5; min-height: 90px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center;">
