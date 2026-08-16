@@ -24,21 +24,24 @@
   <main>
     <section class="section download-hero">
       <p class="eyebrow">DOWNLOAD</p>
-      <div class="version-line"><div class="version-display">v0.4.15</div><span class="version-beta">(beta)</span></div>
+      <div class="version-line"><div class="version-display">v0.4.16</div><span class="version-beta">(beta)</span></div>
       <h1>Download ActOne Screenplay</h1>
       <p class="lede">Completely open-source and available for Windows and Linux.</p>
     </section>
 
     <section class="section">
       <div class="section-intro">
-        <p class="eyebrow">RELEASE NOTES / V0.4.15</p>
+        <p class="eyebrow">RELEASE NOTES / V0.4.16</p>
         <h2>What's new</h2>
       </div>
       <ul class="changelog">
-        <li><strong>Large Screenplays & .actone Bundle Save Fix</strong> — Resolved a critical saving freeze on large screenplays (80–100+ pages) by restoring synchronous direct zipping (<code>zipSync</code>) and converting byte buffers before Tauri IPC transfer.</li>
-        <li><strong>Infinite Page Breaks Loop Fix</strong> — Eliminated a main-thread deadlock in <code>paginateScreenplay</code> where backtracking for consecutive scene headings or character names at page breaks created an infinite pagination loop.</li>
-        <li><strong>Project-Centric Snapshots</strong> — Standardized screenplay snapshot backups to save exclusively inside the <code>.snapshots/</code> folder within your active project directory.</li>
-        <li><strong>Safeguarded Event Cleanup</strong> — Wrapped event unlisten handlers with safety guards to prevent crash errors during hot-reloads and unmounts.</li>
+        <li><strong>Native Rust Spellcheck Engine</strong> — Integrated a high-performance, pure-Rust spellchecking engine (<code>spellbook</code>) with an embedded offline English dictionary, plus on-demand multi-language dictionary downloads.</li>
+        <li><strong>Screenplay Element Awareness</strong> — Scene Headings, Character, Dual Character, and Transition lines — along with Fountain terms like <code>INT</code>, <code>EXT</code>, <code>POV</code>, <code>VO</code>, and <code>SLUGLINE</code> — are intelligently excluded from spellchecking.</li>
+        <li><strong>Context Menu Corrections & Dictionary</strong> — Right-click any flagged typo for instant spelling suggestions, <strong>"Add '[word]' to Dictionary"</strong> (persisted across sessions), and <strong>"Ignore '[word]'"</strong>.</li>
+        <li><strong>Spellcheck Settings Tab & Status Bar Menu</strong> — A dedicated Spellcheck tab in Settings with master toggle, language selector, and dictionary management, plus a status bar language indicator with quick-menu.</li>
+        <li><strong>Script Importers (Final Draft, Fade In & Fountain)</strong> — Import <code>.fdx</code>, <code>.fadein</code>, and <code>.fountain</code> files directly, with forced Fountain element formatting and instant <code>.actone</code> project conversion.</li>
+        <li><strong>Stable Editor Pagination</strong> — Harmonized editor status bar pagination with native Rust PDF export metrics and eliminated rapid page number jumping while typing.</li>
+        <li><strong>Window Size & Position Retention</strong> — The main editor window now remembers its size, position, and maximized state across sessions on Windows, Linux, and macOS.</li>
       </ul>
     </section>
 
@@ -68,7 +71,7 @@
         </div>
 
         <div>
-          <a class="button button-actone" style="display: block; width: 100%; text-align: center; box-sizing: border-box;" href="https://downloads.iyal.ink/ActOne-Linux-x64-0.4.15.tar.gz">Download ActOne for Linux</a>
+          <a class="button button-actone" style="display: block; width: 100%; text-align: center; box-sizing: border-box;" href="https://downloads.iyal.ink/ActOne-Linux-x64-0.4.16.tar.gz">Download ActOne for Linux</a>
         </div>
 
         <div style="background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.08); padding: 14px 16px; font-size: 0.82rem; color: var(--mocha-subtext); line-height: 1.5; min-height: 90px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center;">
