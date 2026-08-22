@@ -60,7 +60,7 @@ const DOCS_DATA = {
         "file-tabs",
         "recent-files"
       ],
-      "content": "Press <kbd>Ctrl+O</kbd> or use the Command Palette (<kbd>Ctrl+K</kbd>) → \"Open Screenplay…\" to open .fountain, .txt, or .actone files via the native file dialog.\n\nWhen launched from the command line, ActOne accepts file paths as arguments. The app also listens for OS-level file-open events (e.g., double-clicking a .fountain or .actone file)."
+      "content": "Press <kbd>Ctrl+O</kbd> or use the Command Palette (<kbd>Ctrl+K</kbd>) → \"Open Screenplay…\" to open .fountain, .txt, or .actone files via the native file dialog.\n\n  When launched from the command line, ActOne accepts file paths as arguments. The app also listens for OS-level file-open events (e.g., double-clicking a .fountain or .actone file).\n\nImporting other screenplay formats is separate from opening an existing project. Use **Import Screenplay...** for <code>.fdx</code>, <code>.fadein</code>, <code>.fountain</code>, <code>.txt</code>, or <code>.spmd</code> files. ActOne converts the selected file to Fountain and creates a new <code>.actone</code> project."
     },
     {
       "id": "recent-files",
@@ -90,7 +90,7 @@ const DOCS_DATA = {
       "relatedIds": [
         "command-palette"
       ],
-      "content": "ActOne is designed for keyboard-driven writing. Below is the complete list of shortcuts.\n\n**File Operations**\n\n| Action | Shortcut |\n|--------|----------|\n| New screenplay tab | <kbd>Ctrl+N</kbd> |\n| Open file | <kbd>Ctrl+O</kbd> |\n| Save | <kbd>Ctrl+S</kbd> |\n| Save as | <kbd>Ctrl+Shift+S</kbd> |\n| Close active tab | <kbd>Alt+Q</kbd> |\n| Export dialog | <kbd>Ctrl+P</kbd> |\n| Next tab | <kbd>Ctrl+Tab</kbd> / <kbd>Ctrl+PageDown</kbd> |\n| Previous tab | <kbd>Ctrl+Shift+Tab</kbd> / <kbd>Ctrl+PageUp</kbd> |\n\n**Editing & Formatting**\n\n| Action | Shortcut |\n|--------|----------|\n| Undo | <kbd>Ctrl+Z</kbd> |\n| Redo | <kbd>Ctrl+Y</kbd> |\n| Cut | <kbd>Ctrl+X</kbd> |\n| Copy | <kbd>Ctrl+C</kbd> |\n| Paste | <kbd>Ctrl+V</kbd> |\n| Select all | <kbd>Ctrl+A</kbd> |\n| Bold (`**`) | <kbd>Ctrl+B</kbd> |\n| Italic (`*`) | <kbd>Ctrl+I</kbd> |\n| Underline (`_`) | <kbd>Ctrl+U</kbd> |\n| Clean screenplay spaces | <kbd>Shift+Alt+C</kbd> |\n| Cycle line prefixes | <kbd>Tab</kbd> |\n| Accept autocomplete ghost | <kbd>Tab</kbd> |\n| Force autocomplete dropdown | <kbd>ArrowDown</kbd> |\n\n**View & Navigation**\n\n| Action | Shortcut |\n|--------|----------|\n| Toggle Find & Replace | <kbd>Ctrl+F</kbd> |\n| Toggle sidebar | <kbd>Ctrl+\\\\</kbd> |\n| Command palette | <kbd>Ctrl+K</kbd> |\n| Settings | <kbd>Ctrl+,</kbd> |\n| Toggle Zen Mode | <kbd>Ctrl+Alt+Enter</kbd> |\n| Focus editor | <kbd>Escape</kbd> |\n| Open help guide | <kbd>F1</kbd> |\n| Zoom in | <kbd>Ctrl+=</kbd> |\n| Zoom out | <kbd>Ctrl+-</kbd> |\n| Reset zoom | <kbd>Ctrl+0</kbd> |"
+      "content": "ActOne is designed for keyboard-driven writing. Below is the complete list of shortcuts, automatically generated from system settings.\n\n**File & Document**\n\n| Action | Shortcut |\n|--------|----------|\n| New Screenplay | <kbd>Ctrl</kbd> + <kbd>N</kbd> |\n| Open File | <kbd>Ctrl</kbd> + <kbd>O</kbd> |\n| Save | <kbd>Ctrl</kbd> + <kbd>S</kbd> |\n| Save As | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> |\n| Close Tab | <kbd>Alt</kbd> + <kbd>Q</kbd> |\n| Export PDF / FDX | <kbd>Ctrl</kbd> + <kbd>P</kbd> |\n| Next Tab | <kbd>Ctrl</kbd> + <kbd>Tab</kbd> |\n| Previous Tab | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd> |\n\n**Editor & Formatting**\n\n| Action | Shortcut |\n|--------|----------|\n| Bold Text (**) | <kbd>Ctrl</kbd> + <kbd>B</kbd> |\n| Italic Text (*) | <kbd>Ctrl</kbd> + <kbd>I</kbd> |\n| Underline Text (_) | <kbd>Ctrl</kbd> + <kbd>U</kbd> |\n| Cycle Line Element Prefix | <kbd>Tab</kbd> |\n| Accept Autocomplete Suggestion | <kbd>Tab</kbd> |\n| Undo | <kbd>Ctrl</kbd> + <kbd>Z</kbd> |\n| Redo | <kbd>Ctrl</kbd> + <kbd>Y</kbd> |\n\n**Navigation & View**\n\n| Action | Shortcut |\n|--------|----------|\n| Previous Scene | <kbd>Alt</kbd> + <kbd>↑</kbd> |\n| Next Scene | <kbd>Alt</kbd> + <kbd>↓</kbd> |\n| Keyboard Shortcuts Modal | <kbd>F1</kbd> |\n| Command Palette | <kbd>Ctrl</kbd> + <kbd>K</kbd> |\n| Find & Replace | <kbd>Ctrl</kbd> + <kbd>F</kbd> |\n| Toggle Sidebar | <kbd>Ctrl</kbd> + <kbd>\\</kbd> |\n| Toggle Zen Mode | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Enter</kbd> |\n| Open Muse AI | <kbd>Alt</kbd> + <kbd>M</kbd> |\n| Open Snapshots | <kbd>Alt</kbd> + <kbd>S</kbd> |\n| Settings | <kbd>Ctrl</kbd> + <kbd>,</kbd> |\n\n**Zoom & Interface**\n\n| Action | Shortcut |\n|--------|----------|\n| Zoom In Editor | <kbd>Ctrl</kbd> + <kbd>=</kbd> |\n| Zoom Out Editor | <kbd>Ctrl</kbd> + <kbd>-</kbd> |\n| Reset Editor Zoom | <kbd>Ctrl</kbd> + <kbd>0</kbd> |\n| Scale App UI In | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>=</kbd> |\n| Scale App UI Out | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>-</kbd> |\n| Reset App UI Scale | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>0</kbd> |"
     },
     {
       "id": "command-palette",
@@ -105,7 +105,26 @@ const DOCS_DATA = {
       "relatedIds": [
         "keyboard-shortcuts"
       ],
-      "content": "Press <kbd>Ctrl+K</kbd> to open the Command Palette. Type to filter commands across six categories:\n\n**File:** New Screenplay, Open Screenplay, Save, Save As, Close Active File, Export.\n\n**Edit:** Undo, Redo, Cut, Copy, Paste, Find/Search, Replace.\n\n**View:** Toggle Sidebar, Switch Sidebar Tab (Outline / Notepad), Typewriter Mode, Zen Mode, Focus Mode, Zoom In / Zoom Out / Reset Editor Scale, Reset Interface Scale, Show/Hide Fountain Markup, Show/Hide Tags, Open X-Ray Analysis, Show Snapshots.\n\n**Format:** Tag Manager, Edit Title Page, Import Structure Template, Renumber Scene Headings, Clear Scene Numbers.\n\n**Settings:** Open Settings, Set Font (Courier Prime / Courier Prime Sans), Set Paper Size (Letter / A4), Theme Manager.\n\n**Help:** Help Guide, Interactive Tutorial, Fountain Syntax Guide, Report a Bug.\n\nEach command shows its keyboard shortcut when available. Navigate with arrow keys and press Enter to execute. Press Escape to close. Available even when modals are open."
+      "content": "Press <kbd>Ctrl+K</kbd> to open the Command Palette. Type to filter commands across six categories:\n\n**File:** New Screenplay, Open Screenplay, Import Screenplay, Save, Save As, Close Active File, Export.\n\n**Edit:** Undo, Redo, Cut, Copy, Paste, Find/Search, and Enable/Disable Spellcheck.\n\n**View:** Toggle Sidebar, Switch Sidebar Tab (Outline / Notepad), Typewriter Mode, Zen Mode, Focus Mode, Zoom In / Zoom Out / Reset Editor Scale, Reset Interface Scale, Show/Hide Fountain Markup, Open X-Ray Analysis, Show Snapshots.\n\n**Format:** Edit Title Page, Import Structure Template, Renumber Scene Headings, Clear Scene Numbers.\n\n**Settings:** Open Settings, Open Spellcheck Settings, Set Font (Courier Prime / Courier Prime Sans), Set Paper Size (Letter / A4), Theme Manager.\n\n**Help:** Help Guide, Interactive Tutorial, Fountain Syntax Guide, Report a Bug.\n\nEach command shows its keyboard shortcut when available. Navigate with arrow keys and press Enter to execute. Press Escape to close. Available even when modals are open."
+    },
+    {
+      "id": "script-import",
+      "title": "Importing Screenplays",
+      "category": "Getting Started",
+      "tags": [
+        "import",
+        "fdx",
+        "fadein",
+        "fountain",
+        "spmd",
+        "convert"
+      ],
+      "relatedIds": [
+        "open-file",
+        "new-screenplay",
+        "actone-bundle"
+      ],
+      "content": "Use **Import Screenplay...** from the Welcome screen, editor, or Command Palette (<kbd>Ctrl+K</kbd>) to convert an existing screenplay into an ActOne project.\n\nSupported formats are:\n- Final Draft XML (<code>.fdx</code>)\n- Fade In project files (<code>.fadein</code>)\n- Fountain (<code>.fountain</code>)\n- Plain text (<code>.txt</code>)\n- Screenplay text (<code>.spmd</code>)\n\nActOne converts the source to Fountain, creates a new project, and opens the save workflow so you can preserve the imported work as a <code>.actone</code> bundle."
     },
     {
       "id": "interactive-tutorial",
@@ -488,6 +507,23 @@ const DOCS_DATA = {
       "content": "Toggle Focus Mode via Settings or Command Palette to fade out all lines except the one your cursor is on. The active line stays fully visible while every other line is dimmed. Helps you concentrate on one line at a time. Combine with Typewriter Mode and Hide Syntax for a truly distraction-free experience."
     },
     {
+      "id": "fix-formatting",
+      "title": "Fix Formatting",
+      "category": "Writing Tools",
+      "tags": [
+        "fix formatting",
+        "format",
+        "clean spaces",
+        "dialogue",
+        "spacing"
+      ],
+      "relatedIds": [
+        "inline-formatting",
+        "search-replace"
+      ],
+      "content": "Run **Fix Formatting** via the Command Palette (<kbd>Ctrl+K</kbd>) to instantly clean and reformat your screenplay according to industry standard layout rules.\n\n**What Fix Formatting does:**\n- **Compact Dialogue**: Removes extraneous blank lines between Character, Parenthetical, and Dialogue blocks.\n- **Element Separation**: Ensures exactly 1 blank line between distinct elements (e.g. Scene Headings, Action, Dialogue) and collapses 2+ consecutive blank lines down to 1.\n- **Paragraph Preservation**: Retains multi-line action and lyric paragraphs without forcing them into a single line.\n- **Syntax Prefix & Note Trimming**: Trims whitespace after forced syntax symbols (`.`, `#`, `=`, `@`, `!`, `~`) and inside inline note brackets `[[ ]]`.\n- **Title Page Cleaning**: Normalizes extra empty lines in title page metadata header block.\n\nUpon execution, a summary modal opens displaying the total number of lines removed, dialogue spaces collapsed, syntax prefixes trimmed, and note spaces cleaned."
+    },
+    {
       "id": "editor-zoom",
       "title": "Editor Zoom",
       "category": "Writing Tools",
@@ -822,12 +858,11 @@ const DOCS_DATA = {
       ],
       "relatedIds": [
         "scene-highlighting",
-        "tag-manager",
         "transform-case",
         "parking",
         "notes-markers"
       ],
-      "content": "Right-click anywhere in the editor for quick access. Press <kbd>Ctrl</kbd> while right-clicking for **Quick Tag Mode** (direct access to production tags without the submenu).\n\n**Normal mode:**\n\n- **Selection Stats** (if text selected): word count and character count.\n- **Cut / Copy / Paste** — standard clipboard (disabled without selection).\n- **Tag** → submenu with 15 production categories: Cast (Character), Prop, VFX, SFX (Special Effect), Camera, Animal, Extras, Vehicle, Costume, Makeup, Music, Sound, Stunt, Set Design, Other. If cursor is on an existing tag, shows **Remove Tag**.\n- **Highlight Scene** → 7 colors: Red, Orange, Yellow, Green, Blue, Purple, Pink, plus Clear.\n- **Drop Marker** → submenu with 11 colors (Blue, Brown, Cyan, Green, Magenta, Orange, Pink, Purple, Red, Yellow, Default Orange). Prompts for a description.\n- **Format** → Bold, Italic, Underline.\n- **Transform Case** → UPPERCASE, Title Case, lowercase.\n- **Look Up Word** → Google search selection.\n- **Create Task** → adds selected text as a to-do item.\n- **Park Selection** → cuts selected text and stores in Parking sidebar.\n\n**Quick Tag Mode (<kbd>Ctrl</kbd>+right-click):**\n\nShows clickable colored dots for each category. Click a dot to tag the selected text directly without navigating a submenu. If the cursor is already on a tagged word, shows a \"Remove\" option."
+      "content": "Right-click anywhere in the editor for quick access:\n\n- **Selection Stats** (if text selected): word count and character count.\n- **Cut / Copy / Paste** — standard clipboard (disabled without selection).\n- **Highlight Scene** → 7 colors: Red, Orange, Yellow, Green, Blue, Purple, Pink, plus Clear.\n- **Drop Marker** → submenu with 11 colors (Blue, Brown, Cyan, Green, Magenta, Orange, Pink, Purple, Red, Yellow, Default Orange). Prompts for a description.\n- **Format** → Bold, Italic, Underline.\n- **Transform Case** → UPPERCASE, Title Case, lowercase.\n- **Look Up Word** → Google search selection.\n- **Create Task** → adds selected text as a to-do item.\n- **Park Selection** → cuts selected text and stores in Parking sidebar."
     },
     {
       "id": "status-bar",
@@ -892,30 +927,10 @@ const DOCS_DATA = {
         "color code"
       ],
       "relatedIds": [
-        "tag-manager",
         "notes-markers",
         "outline-navigator"
       ],
       "content": "Right-click a scene heading and choose **Highlight Scene** → pick a color (Red, Orange, Yellow, Green, Blue, Purple, Pink) or **Clear Highlight** to remove it. Color is stored as `[[color name]]` on the scene heading line. Hex codes also work: `[[#ff0000]]`\n\n**7 supported named colors:** red, orange, yellow, green, blue, purple, pink.\n\nHighlighted scenes show a colored left border in the editor, a colored dot in the Outline Navigator, and are exported as color-tagged elements in FDX format. The Outline Navigator's filter popover lets you filter by scene color with count badges."
-    },
-    {
-      "id": "tag-manager",
-      "title": "Tag Manager",
-      "category": "Production Features",
-      "tags": [
-        "tag",
-        "breakdown",
-        "props",
-        "cast",
-        "vfx",
-        "production"
-      ],
-      "relatedIds": [
-        "scene-highlighting",
-        "notes-markers",
-        "context-menu"
-      ],
-      "content": "Tag production elements directly in your script without cluttering the text. Select text, right-click → **Tag**, and choose a category (or <kbd>Ctrl</kbd>+right-click for Quick Tag Mode):\n\n**15 categories:** Cast (Character), Prop, VFX, SFX (Special Effect), Camera, Animal, Extras, Vehicle, Costume, Makeup, Music, Sound, Stunt, Set Design, Other.\n\nCharacter names are automatically detected and tagged as Cast. Tags are serialized in .actone bundles as `production_tags.json`.\n\nOpen the **Tag Manager** (Command Palette → \"Open Tag Manager…\") with two tabs:\n\n- **Tag Reports** — Two views:\n  - **Scene by Scene**: a dense table showing all scenes with their tags in category columns. Filter by category and search by scene or tag name. Click any tag to jump directly to that scene. Export the breakdown as CSV.\n  - **List by Tag**: accordion list grouped by category → definition → scene list. Each definition shows its usage count and clickable scene entries.\n- **Edit Tags** — Browse all tag definitions organized by category. Select a definition to view a detail panel with rename (inline text field + save/cancel), two-click delete confirmation, and a table of all tagged scenes with clickable navigation.\n\nQuick-tag from the editor with <kbd>Ctrl</kbd>+right-click to bypass the tag type menu."
     },
     {
       "id": "notes-markers",
@@ -929,8 +944,7 @@ const DOCS_DATA = {
         "color"
       ],
       "relatedIds": [
-        "markers-list",
-        "tag-manager"
+        "markers-list"
       ],
       "content": "Insert inline notes anywhere using double-bracket syntax: `[[marker color: description]]`\n\n**Example:** `[[marker red: Fix description here]]`\n\n**11 supported marker colors:** blue, brown, cyan, green, magenta, orange (default), pink, purple, red, yellow, none. Hex codes also work: `[[marker #ff6600: Note]]`\n\nUse the right-click menu → **Drop Marker** to insert markers without remembering syntax. View and filter all markers in the Markers sidebar (filter by text or color). Markers are visible in the editor with a colored indicator but are stripped from Fountain exports."
     },
@@ -962,7 +976,6 @@ const DOCS_DATA = {
         "beat sheet"
       ],
       "relatedIds": [
-        "tag-manager",
         "sections",
         "outline-navigator"
       ],
@@ -1100,6 +1113,57 @@ const DOCS_DATA = {
       "content": "Export your screenplay as Final Draft XML (.fdx) for compatibility with Final Draft, Fade In, and other professional screenwriting applications. Scene colors are preserved using Final Draft's color format. No toggle options — the title page is always included; sections and synopses are stripped."
     },
     {
+      "id": "spellcheck",
+      "title": "Spellcheck",
+      "category": "Settings & Customization",
+      "tags": [
+        "spellcheck",
+        "dictionary",
+        "language",
+        "typo",
+        "words"
+      ],
+      "relatedIds": [
+        "settings-overview",
+        "editor-context-menu",
+        "status-bar"
+      ],
+      "content": "ActOne includes an optional native Rust spellcheck engine. It is disabled by default so you can enable it when you want spelling assistance without changing screenplay-specific capitalization.\n\n**Enable it:** Use Settings → Spellcheck, the Command Palette (<kbd>Ctrl+K</kbd>), or the language indicator in the Status Bar.\n\n**Languages:** English is bundled with the application. Other available dictionaries can be downloaded from Settings → Spellcheck and are cached for offline use.\n\n**Corrections:** Right-click a flagged word to choose a suggestion, **Add to Dictionary**, or **Ignore**. Added words persist across sessions; ignored words apply only to the current session.\n\nScreenplay terms, scene headings, character names, transitions, and other Fountain elements are excluded from normal spelling checks."
+    },
+    {
+      "id": "window-state",
+      "title": "Window Size and Position",
+      "category": "Workspace & Views",
+      "tags": [
+        "window",
+        "size",
+        "position",
+        "maximize",
+        "desktop"
+      ],
+      "relatedIds": [
+        "welcome-screen",
+        "settings-overview"
+      ],
+      "content": "The desktop application remembers the main editor window's size, position, and maximized state. The previous geometry is restored when ActOne starts. This is managed by the native desktop shell and does not require a project file or account."
+    },
+    {
+      "id": "quick-guide",
+      "title": "Quick Guide (F1)",
+      "category": "Getting Started",
+      "tags": [
+        "quick guide",
+        "f1",
+        "shortcuts",
+        "syntax"
+      ],
+      "relatedIds": [
+        "keyboard-shortcuts",
+        "command-palette"
+      ],
+      "content": "Press <kbd>F1</kbd> to open the Quick Guide. The guide has two tabs:\n\n- **Shortcuts:** The current keyboard shortcut registry, including file actions, navigation, editor commands, and zoom controls.\n- **Syntax Reference:** The current Fountain syntax registry, including scene headings, characters, transitions, actions, shots, lyrics, centered text, dual dialogue, sections, synopses, markers, storylines, and scene colors.\n\nThe Quick Guide is generated from the same registries used by the application, so its shortcut and syntax entries stay aligned with the editor."
+    },
+    {
       "id": "settings-overview",
       "title": "Settings Overview",
       "category": "Settings & Customization",
@@ -1115,7 +1179,7 @@ const DOCS_DATA = {
         "interface-scale",
         "editor-settings"
       ],
-      "content": "Press <kbd>Ctrl+,</kbd> or use the Command Palette → \"Open Settings…\" to open the Settings dialog. Two tabs:\n\n**General:** Visual Theme, Paper Size (Letter / A4), Interface Scale (75%–300%), Auto-Save toggle and interval.\n\n**Editor:** Font Style (Courier Prime / Courier Prime Sans), Editor Zoom (50%–400%), Typewriter Mode, Autocomplete, Smart Quotes, Auto-Match Parentheses, Hide Fountain Markup, Focus Mode.\n\nQuick Settings are also available from the Activity Bar gear icon for common adjustments without opening the full modal."
+      "content": "Press <kbd>Ctrl+,</kbd> or use the Command Palette → \"Open Settings…\" to open the Settings window. It has five tabs:\n\n**General:** Paper Size (Letter / A4), Interface Scale (75%–300%), Icon Style, Auto-Save toggle and interval, and Reset Settings.\n\n**Editor:** Font Style (Courier Prime / Courier Prime Sans), Editor Zoom (50%–400%), Typewriter Mode, Autocomplete, Smart Quotes, Auto-Match Parentheses, Hide Fountain Markup, Focus Mode, and Syntax Colors.\n\n**Spellcheck:** Enable spellcheck, choose an installed language, download dictionaries, manage installed languages, and clear the custom dictionary.\n\n**Snapshots:** Enable snapshots, review the project-local storage location, configure automatic and save-triggered snapshots, and set retention.\n\n**Muse:** Configure the AI provider, model, temperatures, translation languages, and custom instructions.\n\nQuick Settings are also available from the Activity Bar gear icon for common adjustments without opening the full modal."
     },
     {
       "id": "theme-manager",
@@ -1217,10 +1281,10 @@ const DOCS_DATA = {
       ],
       "relatedIds": [
         "muse-configure",
-        "muse-commands",
+        "muse-tools",
         "muse-chat"
       ],
-      "content": "**Muse** is ActOne's AI screenwriting assistant — kind, intelligent, and concise. It helps you write scenes, research terms, look up definitions, and brainstorm ideas without leaving your editor.\n\n**How to open Muse:**\n- Press `Alt+M` (or `Ctrl+K` → \"Open Muse Pane\").\n- Click the Muse square at the far right of the Status Bar.\n- The Muse panel opens on the right side of the window.\n\n**Status Bar indicator:**\n- **Green**: AI provider is configured and ready — click to open the Muse pane.\n- **Red**: No AI provider configured — click to open Muse Settings.\n\n**Key features:**\n- **Chat**: Ask questions about screenwriting, get feedback on your script, or brainstorm ideas.\n- **@ Commands**: Type `@write-scene`, `@q`, `@lookup`, or `@synonyms` in the chat input for specialized actions.\n- **Per-file history**: Each screenplay has its own separate chat history, stored in localStorage.\n- **Streaming responses**: Muse streams its replies in real-time as they generate.\n- **Copy & Insert**: Copy any response or insert Fountain-formatted text directly at your cursor position."
+      "content": "**Muse** is ActOne's AI screenwriting assistant — kind, intelligent, and concise. It helps you discuss your screenplay, analyze scenes and characters, draft Fountain text, and apply selected screenplay actions without leaving your editor.\n\n**How to open Muse:**\n- Press `Alt+M`.\n- Click the Muse square at the far right of the Status Bar.\n- The Muse panel opens on the right side of the window.\n\n**Status Bar indicator:**\n- **Green**: AI provider is configured and ready — click to open the Muse pane.\n- **Red**: No AI provider configured — click to open Muse Settings.\n\n**Key features:**\n- **Screenplay-aware chat**: Ask questions about the active screenplay, scenes, characters, locations, and title page.\n- **Analysis tools**: Ask Muse to search the screenplay, inspect scenes, calculate statistics, or find character dialogue.\n- **Fountain drafting**: Ask for Fountain-formatted writing and use the Insert controls on returned Fountain blocks.\n- **Reviewable scene drafts**: Scene replacement requests appear as a pending review card before they are applied.\n\n- **Per-file history**: Each screenplay has its own separate chat history, stored in localStorage.\n- **Streaming responses**: Muse streams its replies in real-time as they generate.\n- **Copy & Insert**: Copy any response or insert Fountain-formatted text directly at your cursor position.\n\nMuse does not currently provide @command autocomplete. Write requests in normal language."
     },
     {
       "id": "muse-configure",
@@ -1238,29 +1302,9 @@ const DOCS_DATA = {
       ],
       "relatedIds": [
         "muse-overview",
-        "muse-commands",
         "settings-overview"
       ],
-      "content": "Before using Muse, you need to configure an AI provider. Go to **Settings** (`Ctrl+,`) → **Muse** tab or open the Command Palette (`Ctrl+K`) → \"Open Settings\" → select the Muse tab.\n\n**Supported Providers:**\n\n**1. OpenAI API** — Use any OpenAI-compatible API endpoint.\n  - **Provider dropdown**: Select \"OpenAI API\".\n  - **Active Model**: Choose from your configured API entries in the dropdown.\n  - **Configure Providers**: Click \"Configure Providers\" to manage multiple API connections.\n    - Click **\"Add API\"** to create a new entry.\n    - Fill in: **Name**, **Endpoint URL**, **API Key**, and **Model**.\n    - Click an entry card to select it as active.\n    - Use the pencil icon to edit, trash icon to delete.\n    - The endpoint URL is used as-is — no `/chat/completions` is appended automatically.\n\n**2. Ollama (Local)** — Run models locally on your machine.\n  - **Provider dropdown**: Select \"Ollama (Local)\".\n  - **Ollama URL**: Defaults to `http://localhost:11434`.\n  - **Model**: Select from the dropdown of models available on your Ollama server.\n\n**System Prompt:**\n- The default system prompt defines Muse's personality: kind, intelligent, concise, and screenwriting-focused.\n- You can customize the system prompt via **Settings → Muse → System Prompt**.\n- Specialty prompts for @ commands (write-scene, q, lookup, synonyms) can be customized under **Custom Instructions** in the Providers dialog.\n\n**Temperature:**\n- Controls randomness (0.0 = deterministic, 1.0 = creative).\n- Default chat temperature: 0.7; rephrase temperature: 0.1."
-    },
-    {
-      "id": "muse-commands",
-      "title": "Muse @ Commands",
-      "category": "AI & Muse",
-      "tags": [
-        "muse",
-        "commands",
-        "@write-scene",
-        "@q",
-        "@lookup",
-        "@synonyms"
-      ],
-      "relatedIds": [
-        "muse-overview",
-        "muse-configure",
-        "muse-chat"
-      ],
-      "content": "Muse supports **@ commands** — type them in the chat input for specialized actions:\n\n**@write-scene**\n  Generates a Fountain-formatted scene based on your description.\n  - Type `@write-scene` followed by your scene description.\n  - Muse outputs the scene wrapped in a ```fountain``` code block.\n  - Use the **Insert** button to insert the scene at your cursor in the editor.\n  - The response is post-processed to ensure only the Fountain block is kept.\n\n**@q**\n  Asks a question about your current screenplay document.\n  - Type `@q` followed by your question.\n  - Muse receives the full screenplay text as context and answers based on it.\n  - Useful for: \"What is the theme?\", \"How many scenes have John?\"\n\n**@lookup**\n  Defines a term or concept.\n  - Type `@lookup` followed by the term.\n  - Muse returns a concise 1-2 sentence definition.\n  - No preamble, no extra context — just the definition.\n\n**@synonyms**\n  Lists alternative words.\n  - Type `@synonyms` followed by the word.\n  - Muse returns 6-10 synonyms as a markdown bullet list.\n\n**Using @ commands:**\n- Type `@` in the chat input to see the autocomplete suggestions dropdown.\n- Press `Enter` or `Tab` to select a command, then type your request.\n- Click the `@command` tag to remove it and edit the input.\n- You can also type the command directly: `@write-scene A tense car chase through city streets`"
+      "content": "Before using Muse, you need to configure an AI provider. Go to **Settings** (`Ctrl+,`) → **Muse** tab or open the Command Palette (`Ctrl+K`) → **Open Settings** → select the Muse tab.\n\n**Supported Providers:**\n\n**1. OpenAI-compatible API** — Use any compatible chat-completion endpoint.\n  - **Provider**: Select \"OpenAI API\".\n  - **Active Model**: Choose from your configured API entries in the Muse panel or Settings.\n  - **Configure Providers**: Click \"Configure Providers\" to manage multiple API connections.\n    - Click **\"Add API\"** to create a new entry.\n    - Fill in: **Name**, **Endpoint URL**, **API Key**, and **Model**.\n    - Click an entry card to select it as active.\n    - Use the pencil icon to edit, trash icon to delete.\n    - The endpoint URL is used as-is — no `/chat/completions` is appended automatically.\n\n**2. Ollama (Local)** — Run models locally on your machine.\n  - **Provider dropdown**: Select \"Ollama (Local)\".\n  - **Ollama URL**: Defaults to `http://localhost:11434`.\n  - **Model**: Select from the dropdown of models available on your Ollama server.\n\n**System Prompt:**\n- The default system prompt defines Muse's personality: kind, intelligent, concise, and screenwriting-focused.\n- You can customize the system prompt via **Settings → Muse → System Prompt**.\n**Temperature:**\n- Controls randomness (0.0 = more precise, 1.0 = more creative).\n- Chat default: 0.7. Rephrase default: 0.1. Translation default: 0.1.\n\n**Provider data:** When OpenAI-compatible is selected, prompts and screenplay context are sent to the configured endpoint. When Ollama is selected, they are sent to the configured Ollama server. API keys are currently stored in localStorage."
     },
     {
       "id": "muse-chat",
@@ -1275,10 +1319,30 @@ const DOCS_DATA = {
       ],
       "relatedIds": [
         "muse-overview",
-        "muse-commands",
         "muse-configure"
       ],
-      "content": "The Muse panel provides a full chat interface:\n\n**Starting a conversation:**\n- Type in the \"Message Muse...\" input and press `Enter` (or click the send button).\n- Press `Shift+Enter` for a newline without sending.\n- Muse streams the response in real-time.\n\n**Chat history:**\n- Each screenplay file has its own separate chat history (keyed by file path in localStorage).\n- Click the **clock icon** to view and switch between past chat sessions.\n- Click the **+ icon** to start a new chat session for the current file.\n- Click the **trash icon** to clear the current session's messages.\n\n**Working with responses:**\n- **Copy** — Hover over a Muse response and click the copy button in the top-right corner to copy the full response text.\n- **Insert** — Fountain blocks (```fountain```) have an Insert button that places the scene text directly at your cursor in the editor.\n- **Error copy** — If an error occurs, the error message has a copy button for easy debugging.\n\n**Provider & Model selector:**\n- The **Provider** dropdown at the bottom of the panel lets you switch between OpenAI API and Ollama.\n- The **Active Model** dropdown shows all configured API entries (for OpenAI) or available models (for Ollama).\n- Selecting a different API entry updates the endpoint, API key, and model automatically.\n\n**Tips:**\n- Muse's context includes your current screenplay for document-aware answers.\n- Use `@q` with a question about your script for document-specific responses.\n- Muse remembers the conversation within a session, so you can ask follow-up questions."
+      "content": "The Muse panel provides a full chat interface:\n\n**Starting a conversation:**\n- Type in the \"Message Muse...\" input and press `Enter` (or click the send button).\n- Press `Shift+Enter` for a newline without sending.\n- Muse streams the response in real-time.\n\n**Chat history:**\n- Each screenplay file has its own separate chat history (keyed by file path in localStorage).\n- Click the **clock icon** to view and switch between past chat sessions.\n- Click the **+ icon** to start a new chat session for the current file.\n- Click the **trash icon** to clear the current session's messages.\n\n**Working with responses:**\n- **Copy** — Hover over a Muse response and click the copy button in the top-right corner to copy the full response text.\n- **Insert** — Fountain blocks (```fountain```) have an Insert button that places the scene text directly at your cursor in the editor.\n- **Apply draft** — A scene replacement draft has an Apply control after you review the Fountain text.\n- **Error copy** — If an error occurs, the error message has a copy button for easy debugging.\n\n**Provider & Model selector:**\n- The **Provider** dropdown at the bottom of the panel lets you switch between OpenAI API and Ollama.\n- The **Active Model** dropdown shows all configured API entries (for OpenAI) or available models (for Ollama).\n- Selecting a different API entry updates the endpoint, API key, and model automatically.\n\n**Tips:**\n- Muse's context includes your current screenplay for document-aware answers.\n- Muse remembers the conversation within a session, so you can ask follow-up questions.\n- Press **Escape** or click the stop button to cancel a response.\n- Small local models may struggle with multi-scene analysis and structured actions; larger models generally follow instructions more reliably."
+    },
+    {
+      "id": "muse-tools",
+      "title": "Muse Tools and Screenplay Actions",
+      "category": "AI & Muse",
+      "tags": [
+        "muse",
+        "ai",
+        "tools",
+        "analysis",
+        "scene",
+        "x-ray",
+        "fountain"
+      ],
+      "relatedIds": [
+        "muse-overview",
+        "muse-chat",
+        "xray-analysis",
+        "notes-markers"
+      ],
+      "content": "Muse can use structured tools when a request requires screenplay information or an ActOne action. You do not need to type a special command. Ask in normal language, for example:\n\n- \"Read scene 3 and summarize the conflict.\"\n- \"Find every scene where MAYA appears.\"\n- \"Search for references to the red suitcase.\"\n- \"Draft a replacement for the current scene in Fountain.\"\n- \"Add a purple tag to scene 5.\"\n- \"Create a profile for the protagonist and show it in X-Ray.\"\n\n**Read and analysis tools include:**\n\n- Read a scene by its scene index.\n- Search screenplay lines.\n- Find a character's scenes and co-stars.\n- Find scenes by location.\n- Calculate screenplay statistics.\n- Search a character's dialogue.\n- Read the lines around the active cursor.\n- Read title-page metadata.\n- Read saved todos, parking notes, and character profiles.\n\n**Action tools include:**\n\n- Draft a scene replacement for review.\n- Add a project todo.\n- Add a parking note.\n- Add a color or storyline tag to a scene heading.\n- Create or update an X-Ray character profile.\n- Open the X-Ray window.\n\n**Review behavior:**\n\n- Scene replacement is shown as a pending Fountain draft. Review it before applying it to the editor.\n- Other current settings and editor actions may be applied immediately when Muse calls them. Check the affected file and save a snapshot before large operations.\n- Scene references currently use the screenplay's ordinal scene index. If the screenplay uses printed Fountain scene numbers such as `#42#`, state the heading as well to avoid ambiguity.\n\n**Important limitations:**\n\n- Muse's current tool protocol is model-generated JSON/text, so tool calls may fail with smaller models.\n- The current implementation does not provide a universal approval dialog for every mutation.\n- Todos, parking notes, and character profiles are ActOne metadata. Save the screenplay as an ActOne Bundle (`.actone`) when you need those settings to persist with the project.\n- Treat generated facts and profile details as suggestions. Verify them against the screenplay before relying on them."
     }
   ]
 };
