@@ -1,99 +1,48 @@
 const fs = require('fs');
 const path = require('path');
 
-// Read the helpArticles.tsx source file
-const content = fs.readFileSync('/home/nkr/Projects/Iyal-Inc Family/ActOneCode/src/data/helpArticles.tsx', 'utf8');
+// Single source of truth — do not edit generated files directly
+const HELP_PATH = '/home/nkr/Projects/Iyal-Inc Family/ActOne-Screenplay/src/data/helpArticles.tsx';
+const SHORTCUTS_PATH = '/home/nkr/Projects/Iyal-Inc Family/ActOne-Screenplay/src/constants/shortcuts.ts';
+const OUT_JSON = path.join(__dirname, 'actone/docs/articles_data.json');
+const OUT_JS   = path.join(__dirname, 'actone/docs/articles_data.js');
 
-// Parse out categories
-const categoriesMatch = content.match(/export const categories = \[(.*?)\];/s);
-let categories = [];
-if (categoriesMatch) {
-  categories = eval('[' + categoriesMatch[1] + ']');
+function loadShortcutsMarkdown() {
+  const src = fs.readFileSync(SHORTCUTS_PATH, 'utf8');
+  const registry = [];
+  const re = /\{\s*id:\s*"([^"]+)"\s*,\s*label:\s*"([^"]+)"\s*,\s*category:\s*"([^"]+)"\s*,\s*keys:\s*\[([^\]]+)\]/g;
+  let m;
+  while ((m = re.exec(src)) !== null) {
+    const keys = [...m[4].matchAll(/"([^"]+)"/g)].map(k => k[1]);
+    registry.push({ label: m[2], category: m[3], keys });
+  }
+  const cats = ["File & Document","Editor & Formatting","Navigation & View","Zoom & Interface"];
+  let md = "ActOne is designed for keyboard-driven writing. Below is the complete list of shortcuts, automatically generated from system settings.\n\n";
+  for (const cat of cats) {
+    const items = registry.filter(i => i.category === cat);
+    if (!items.length) continue;
+    md += `**${cat}**\n\n`;
+    md += `| Action | Shortcut |\n|--------|----------|\n`;
+    for (const it of items) md += `| ${it.label} | ${it.keys.map(k => `<kbd>${k}</kbd>`).join(" + ")} |\n`;
+    md += `\n`;
+  }
+  return md.trim();
 }
 
-// Extract articles array content
-const articlesMatch = content.match(/export const articles: HelpArticle\[\] = (\[.*?\]);\s*export const categories/s);
-let articles = [];
-if (articlesMatch) {
-  articles = eval(articlesMatch[1]);
-}
+const shortcutsMarkdown = loadShortcutsMarkdown();
+let content = fs.readFileSync(HELP_PATH, 'utf8');
+content = content.replace(/content:\s*generateShortcutsHelpMarkdown\(\)/g, `content: ${JSON.stringify(shortcutsMarkdown)}`);
+
+const categories = eval('[' + content.match(/export const categories = \[(.*?)\];/s)[1] + ']');
+const articles = eval('(' + content.match(/export const articles: HelpArticle\[\] = (\[.*?\]);\s*export const categories/s)[1] + ')');
 
 console.log(`Loaded ${articles.length} articles across ${categories.length} categories.`);
+for (const c of categories) console.log(`  ${c}: ${articles.filter(a => a.category === c).length}`);
 
-// Simple markdown to HTML converter for article content
-function mdToHtml(md) {
-  let html = md;
-  
-  // Code blocks
-  html = html.replace(/```([a-z]*)\n([\s\S]*?)```/g, '<pre><code class="language-$1">$2</code></pre>');
-  
-  // Headers
-  html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-  html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
-  html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
-  
-  // Bold & Italic
-  html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-  html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
-  html = html.replace(/<kbd>(.*?)<\/kbd>/g, '<kbd>$1</kbd>');
-  
-  // Tables
-  const lines = html.split('\n');
-  let inTable = false;
-  let tableHtml = '';
-  let newLines = [];
-  
-  for (let i = 0; i < lines.length; i++) {
-    let line = lines[i].trim();
-    if (line.startsWith('|') && line.endsWith('|')) {
-      if (!inTable) {
-        inTable = true;
-        tableHtml = '<table class="docs-table"><thead>';
-        let headers = line.split('|').slice(1, -1).map(h => h.trim());
-        tableHtml += '<tr>' + headers.map(h => `<th>${h}</th>`).join('') + '</tr></thead><tbody>';
-      } else if (line.includes('---')) {
-        // Separator line, skip
-        continue;
-      } else {
-        let cells = line.split('|').slice(1, -1).map(c => c.trim());
-        tableHtml += '<tr>' + cells.map(c => `<td>${c}</td>`).join('') + '</tr>';
-      }
-    } else {
-      if (inTable) {
-        inTable = false;
-        tableHtml += '</tbody></table>';
-        newLines.push(tableHtml);
-        tableHtml = '';
-      }
-      newLines.push(line);
-    }
-  }
-  if (inTable) {
-    tableHtml += '</tbody></table>';
-    newLines.push(tableHtml);
-  }
-  
-  html = newLines.join('\n');
+const payload = { categories, articles };
+fs.writeFileSync(OUT_JSON, JSON.stringify(payload, null, 2) + '\n');
+console.log(`Wrote ${OUT_JSON}`);
 
-  // Lists
-  html = html.replace(/^\- (.*$)/gim, '<li>$1</li>');
-  html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>'); // basic wrapper
-  
-  // Paragraphs (double newline)
-  let paragraphs = html.split(/\n\n+/);
-  html = paragraphs.map(p => {
-    p = p.trim();
-    if (p.startsWith('<h') || p.startsWith('<pre') || p.startsWith('<table') || p.startsWith('<ul') || p.startsWith('<hr')) {
-      return p;
-    }
-    return `<p>${p.replace(/\n/g, '<br>')}</p>`;
-  }).join('\n');
-
-  return html;
-}
-
-// Generate doc cards JSON for frontend index or build static single-page app
-fs.writeFileSync('/home/nkr/Projects/Iyal-Inc Family/iyal-ink website/actone/docs/articles_data.json', JSON.stringify({ categories, articles }, null, 2));
-
-console.log('Saved articles_data.json successfully.');
+const header = `// AUTO-GENERATED — DO NOT EDIT MANUALLY\n// Source: ActOne-Screenplay/src/data/helpArticles.tsx (single source of truth)\n// Generated: ${new Date().toISOString()}\n// To regenerate: node generate_docs.js\n// Categories: ${categories.length} | Articles: ${articles.length}\n`;
+fs.writeFileSync(OUT_JS, header + `const DOCS_DATA = ${JSON.stringify(payload, null, 2)};\n`);
+console.log(`Wrote ${OUT_JS}`);
