@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fountain Syntax Guide: How to Write a Screenplay in Plain Text | iyal.ink</title>
+  <meta name="description" content="Learn Fountain syntax with simple examples. Write scene headings, action, character and dialogue in plain text and see how ActOne Screenplay writes Fountain for you on Windows and Linux.">
+  <link rel="canonical" href="https://iyal.ink/blog/fountain-syntax-guide/">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://iyal.ink/blog/fountain-syntax-guide/">
+  <meta property="og:title" content="Fountain Syntax Guide: How to Write a Screenplay in Plain Text">
+  <meta property="og:description" content="A human friendly Fountain guide with a cheatsheet and real examples. Write screenplays in plain text and open them anywhere.">
+  <meta property="og:image" content="https://iyal.ink/assets/ActOne_apptile.png">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="icon" type="image/svg+xml" href="../../assets/iyal-favicon.svg">
+  <style>
+    .article-container{max-width:820px;margin:0 auto;padding:0 28px 120px;font-size:1.1rem;line-height:1.8;color:var(--ink)}
+    .article-container h2{font-size:2.2rem;margin-top:55px;margin-bottom:20px;line-height:1.15;letter-spacing:-.04em}
+    .article-container h3{font-size:1.45rem;margin-top:35px;margin-bottom:15px}
+    .article-container p{margin-bottom:28px}
+    .article-container ul,.article-container ol{margin-bottom:32px;padding-left:28px}
+    .article-container li{margin-bottom:12px}
+    .article-container blockquote{border-left:3px solid var(--ink);margin:40px 0;padding-left:24px;font-family:Georgia,serif;font-style:italic;font-size:1.35rem;line-height:1.45;color:var(--ink)}
+    .article-container pre{background:#1a1a1a;color:#eaeaea;padding:18px 20px;overflow-x:auto;font-family:CourierPrime,monospace;font-size:0.95rem;line-height:1.55;margin:28px 0;border-radius:6px}
+    .article-container code{font-family:CourierPrime,monospace;background:rgba(0,0,0,0.06);padding:2px 6px;border-radius:4px;font-size:0.92em}
+    .article-container pre code{background:none;padding:0;border-radius:0}
+    .tldr{border:1px solid var(--ink);padding:22px 24px;margin:36px 0;background:rgba(0,0,0,0.03)}
+    .tldr strong{font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase}
+    .cheatsheet{width:100%;border-collapse:collapse;margin:32px 0;font-size:0.95rem}
+    .cheatsheet th,.cheatsheet td{border:1px solid var(--line);padding:10px 14px;text-align:left}
+    .cheatsheet th{background:#dedbd2;font-weight:700}
+    .article-cta{border:1px solid var(--ink);padding:28px;margin-top:48px}
+    .article-cta p{margin-bottom:18px}
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Fountain Syntax Guide: How to Write a Screenplay in Plain Text","description":"Learn Fountain syntax with simple examples and a cheatsheet. Write screenplays in plain text on Windows and Linux with ActOne.","author":{"@type":"Organization","name":"iyal.ink"},"publisher":{"@type":"Organization","name":"iyal.ink","logo":{"@type":"ImageObject","url":"https://iyal.ink/assets/IyalLogo.svg"}},"datePublished":"2026-08-26","dateModified":"2026-08-26","mainEntityOfPage":"https://iyal.ink/blog/fountain-syntax-guide/"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Fountain?","acceptedAnswer":{"@type":"Answer","text":"Fountain is a plain text markup for screenplays. You write a screenplay using simple conventions like INT. for scene headings and uppercase for character names. Any Fountain file is readable as text and can be opened in many apps."}},{"@type":"Question","name":"Do I need to memorize Fountain to use ActOne?","acceptedAnswer":{"@type":"Answer","text":"No. ActOne writes Fountain for you. Type normally and it handles spacing, capitalization and formatting. Knowing the basics just helps if you ever edit the file by hand."}},{"@type":"Question","name":"Is Fountain better than FDX?","acceptedAnswer":{"@type":"Answer","text":"Fountain is open and portable. FDX is tied to Final Draft. Many writers keep Fountain as the source and export to FDX or PDF only when they need to share with production."}}]}</script>
+</head>
+<body class="product-page iyal-theme">
+  <header class="site-header">
+    <a class="iyal-mark" href="../../"><img class="iyal-mark-img" src="../../assets/IyalLogo.svg" alt="iyal.ink"></a>
+    <nav class="site-nav"><a href="../">Journal</a><a href="../../fount/">FountTUI</a><a href="../../actone/">ActOne Screenplay</a></nav>
+  </header>
+  <main>
+    <section class="subpage-hero" style="padding-bottom:40px;">
+      <p class="eyebrow">AUGUST 26, 2026 / FOUNTAIN GUIDE</p>
+      <h1>Fountain Syntax,<br><em>Plain and Simple.</em></h1>
+      <p class="lede">You should be able to write a screenplay in any text editor and still have it look like a screenplay. That is what Fountain is for.</p>
+    </section>
+    <article class="article-container">
+      <div class="tldr"><strong>TL;DR</strong><p style="margin-top:10px;margin-bottom:0;">Fountain is plain text. Write <code>INT. KITCHEN - DAY</code> for a scene heading, put a character name in uppercase like <code>JESS</code> and put dialogue right under it. ActOne Screenplay on Windows and Linux formats it live, so you get a clean manuscript without thinking about markup.</p></div>
+
+      <p>I used to keep screenplays in a word processor and fight with margins. Every revision meant reapplying styles. When I tried Fountain for the first time, I just typed and it worked. No template, no hidden formatting. The file was still readable if I opened it in Notepad ten years later. That feeling of ownership is the point.</p>
+
+      <p>Fountain is not a new file type you have to learn. It is a handful of simple conventions on top of plain text. If you can write a scene heading and a character name the way you normally would, you already know most of it. The rest is there when you need it.</p>
+
+      <h2>The cheatsheet you can keep</h2>
+      <p>Here is the whole surface of Fountain in one table. You will use the first four rows ninety percent of the time.</p>
+      <table class="cheatsheet">
+        <thead><tr><th>Element</th><th>How you type it</th><th>What you get</th></tr></thead>
+        <tbody>
+          <tr><td>Scene Heading</td><td><code>INT. KITCHEN - DAY</code> or <code>.INT. KITCHEN - DAY</code></td><td>Uppercase, numbered scene heading</td></tr>
+          <tr><td>Action</td><td>Just write a normal paragraph</td><td>Action block</td></tr>
+          <tr><td>Character</td><td><code>JESS</code> on its own line</td><td>Character cue, centered</td></tr>
+          <tr><td>Dialogue</td><td>Line under the character name</td><td>Dialogue block</td></tr>
+          <tr><td>Parenthetical</td><td><code>(quietly)</code> under the character</td><td>Wryly beside the character</td></tr>
+          <tr><td>Transition</td><td><code>FADE TO:</code> or <code>&gt; FADE TO:</code></td><td>Right aligned transition</td></tr>
+          <tr><td>Centered</td><td><code>&gt; The End &lt;</code></td><td>Centered text</td></tr>
+          <tr><td>Note</td><td><code>[[This is a note]]</code></td><td>Hidden note, not printed</td></tr>
+          <tr><td>Section / Synopsis</td><td><code># Act One</code> / <code>= A quiet opening</code></td><td>Outline headings for navigation</td></tr>
+        </tbody>
+      </table>
+
+      <h2>A real scene, in Fountain</h2>
+      <p>Copy this into any text editor. It is already a screenplay.</p>
+<pre><code>INT. KITCHEN - DAY
+
+Sunlight hits a small apartment kitchen. JESS (30s) pours coffee like it is a ritual.
+
+JESS
+You said you would call.
+
+MARK (O.S.)
+I did. You did not pick up.
+
+JESS
+(softly)
+Try again.
+
+FADE TO:
+
+INT. HALLWAY - NIGHT
+
+They stand a little too close. Neither moves.</code></pre>
+
+      <p>That is it. No formatting panel, no style menu. In ActOne, you see the same text turn into a properly paginated manuscript as you type, with ghost text hints for character names you have used before.</p>
+
+      <h3>Small tips that save time</h3>
+      <ul>
+        <li><strong>Start headings with INT. or EXT.</strong> ActOne will catch them even if you forget the dot, but starting with those words keeps it consistent.</li>
+        <li><strong>Use uppercase for characters.</strong> If you type <code>jess</code>, ActOne will still offer <code>JESS</code> as a suggestion.</li>
+        <li><strong>Parentheticals need parentheses.</strong> Put them on their own line under the character. ActOne will close the bracket for you.</li>
+        <li><strong>Keep notes with [[ ]]</strong> for anything you do not want in the PDF, like a reminder to research a location.</li>
+      </ul>
+
+      <h2>Do you need to memorize this?</h2>
+      <p>Not really. ActOne is a Fountain editor, not a Fountain test. You type, it detects. You press Tab to cycle prefixes like <code>@</code> for a character or <code>.</code> for a heading if something is ambiguous. The point of knowing the syntax is lighter: if you ever open the file in another app, on your phone, or ten years from now, you can still read it and fix it by hand.</p>
+
+      <p>I keep a few old scripts as <code>.fountain</code> files in a folder, tracked with simple file backups. They have survived three computers. That would not be true for a proprietary binary that needs a specific version of a specific app.</p>
+
+      <h2>Fountain and your files</h2>
+      <p>ActOne edits <code>.fountain</code> directly. When you need more than one script plus notes in the same place, it bundles them into <code>.actone</code>. That bundle is just a ZIP you can open with any unzip tool. Your Fountain file is still inside, untouched.</p>
+
+      <p>If you write in Tamil, Hindi, or another Indic language, Fountain handles Unicode fine. The same file holds the same characters. Export to PDF will use fonts that support your language, which is a separate font question, not a Fountain question.</p>
+
+      <h2>How to start today</h2>
+      <ol>
+        <li>Open ActOne and create a new project. Start with a single Fountain file.</li>
+        <li>Write one scene using the example above. Do not worry about perfect formatting.</li>
+        <li>Press the export shortcut and check the PDF. If the scene looks right there, your Fountain is right.</li>
+        <li>Save and close. Reopen the file in any plain text editor to see that it is still readable.</li>
+      </ol>
+
+      <blockquote>Fountain is not there to be noticed. It is there to get out of the way so the story stays readable.</blockquote>
+
+      <h2>FAQ</h2>
+      <h3>What is Fountain?</h3>
+      <p>A plain text way to write screenplays. Simple conventions turn normal text into a formatted script without proprietary software.</p>
+      <h3>Do I need to learn Fountain to use ActOne?</h3>
+      <p>No. ActOne formats as you type. Knowing a little Fountain just helps if you ever hand edit or share the file.</p>
+      <h3>Can I share a Fountain file with someone on a Mac?</h3>
+      <p>Yes. Fountain is platform independent. They can open it in Beat, Highland, or any Fountain app, and you can still export to FDX or PDF when needed.</p>
+
+      <div class="article-cta">
+        <p><strong>Want to try it without reading another manual?</strong></p>
+        <p>Open ActOne on Windows or Linux, paste the example scene, and export it. You will see Fountain working.</p>
+        <a class="button button-actone" href="../../actone/downloads/">Download ActOne Screenplay</a>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer"><span>iyal.ink / Journal</span><a href="../">Back to Journal</a></footer>
+  <script src="../../assets/site.js"></script>
+</body>
+</html>
