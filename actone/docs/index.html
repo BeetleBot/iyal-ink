@@ -45,15 +45,20 @@
     .docs-search-input {
       width: 100%;
       padding: 10px 14px;
-      border: 1px solid var(--ink);
+      border: 1px solid var(--line);
       background: var(--paper);
+      color: var(--ink);
       font-family: inherit;
       font-size: 0.85rem;
       outline: none;
     }
+    .docs-search-input::placeholder {
+      color: var(--muted);
+      opacity: 1;
+    }
     .docs-search-input:focus {
       border-color: var(--blue);
-      box-shadow: 0 0 0 2px rgba(40, 88, 214, 0.2);
+      box-shadow: 0 0 0 2px rgba(85, 85, 85, 0.25);
     }
     .nav-group-title {
       font-size: 0.72rem;
