@@ -37,12 +37,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fount.iyal.ink/docs/</loc>
-    <lastmod>2026-08-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://iyal.ink/blog/why-linux-screenwriters-deserve-better-tools/</loc>
     <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>

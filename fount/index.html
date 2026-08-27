@@ -3,137 +3,404 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FountTUI — Free & Open Source Terminal Screenplay Editor</title>
-  <meta name="description" content="FountTUI is a free and open-source terminal screenplay editor for Linux, macOS & Windows, built for writers who live in the terminal.">
-  <link rel="stylesheet" href="../assets/site.css">
-  <link rel="icon" type="image/png" href="https://iyal.ink/assets/fount-icon.png">
+  <title>FountTUI — Terminal Screenplay Engine for Writers</title>
+  <meta name="description" content="A blazing-fast, distraction-free terminal screenplay editor built with Rust and Ratatui for writers who live in the command line.">
+  <link rel="icon" type="image/png" href="../assets/fount-icon.png">
+  <link rel="stylesheet" href="fount.css">
 </head>
-<body class="product-page fount-theme">
-  <header class="site-header">
-    <a class="iyal-mark" href="https://iyal.ink/"><img class="iyal-mark-img" src="../assets/IyalLogo.svg" alt="iyal.ink"></a>
-    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">Menu</button>
-    <nav class="site-nav">
-      <a href="#features">Features</a>
-      <a href="#docs">Docs</a>
-      <a href="downloads/">Download</a>
-      <a href="https://github.com/BeetleBot/FountTUI" target="_blank">GitHub</a>
-    </nav>
+<body>
+
+  <!-- Aspen Architectural Header -->
+  <header class="aspen-header">
+    <a class="header-brand-cell" href="https://iyal.ink/fount/">
+      <span class="header-brand-icon">
+        <img src="../assets/Fount_newlogo.png" alt="Fount TUI Logo">
+      </span>
+      <span>FOUNT<span style="color:var(--accent);">TUI</span></span>
+      <span class="brand-badge">v0.11.5</span>
+    </a>
+
+    <div class="header-center-cell">
+      <div class="header-telemetry">
+        <span class="telemetry-item">
+          <span class="live-dot"></span>
+          <span>TTY: /dev/pts/0</span>
+        </span>
+        <span class="telemetry-item">
+          <span>TIME:</span>
+          <span id="header-live-time" style="color:var(--fg); font-weight:700;">--:--:--</span>
+        </span>
+        <span class="telemetry-item">
+          <span>ENGINE:</span>
+          <span style="color:var(--accent); font-weight:700;">RUST+RATATUI</span>
+        </span>
+      </div>
+
+      <nav class="header-nav">
+        <a class="nav-link" href="#features"><span>Features</span></a>
+        <a class="nav-link" href="#philosophy"><span>Philosophy</span></a>
+        <a class="nav-link" href="https://github.com/BeetleBot/FountTUI" target="_blank" rel="noopener"><span>GitHub ↗</span></a>
+      </nav>
+    </div>
+
+    <div class="header-actions-cell">
+      <div class="theme-switcher" title="Select Terminal Color Palette">
+        <button class="theme-btn active" data-set-theme="mint" title="Aspen Mint"></button>
+        <button class="theme-btn" data-set-theme="amber" title="Amber CRT Phosphor"></button>
+        <button class="theme-btn" data-set-theme="matrix" title="Matrix Green"></button>
+        <button class="theme-btn" data-set-theme="mauve" title="Catppuccin Mauve"></button>
+        <button class="theme-btn" data-set-theme="cyan" title="Cyber Cyan"></button>
+      </div>
+
+      <a class="btn-aspen" href="downloads/">
+        <span>Get Fount</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </a>
+    </div>
   </header>
-  
-  <main>
-    <section class="hero product-hero fount-bg-hero">
-      <div class="fount-hero-content">
-        <div class="product-lockup large-lockup">
-          <span class="product-logo fount-logo"><img src="../assets/Fount_newlogo.png" alt="Fount logo"></span>
-          <span class="product-title-big">FountTUI</span>
+
+  <main class="aspen-container">
+
+    <!-- Aspen Pure Architectural Hero Zone -->
+    <section class="hero-section">
+      <!-- Multi-Depth Raining Courier Prime Background Canvas -->
+      <canvas class="hero-rain-canvas" id="courierRainCanvas"></canvas>
+      <div class="hero-rain-overlay"></div>
+
+      <div class="hero-content-wrap">
+        <div class="hero-meta-bar">
+          <span>[ SYSTEM: FOUNT-TUI ]</span>
+          <span>//</span>
+          <span>[ BUILD: v0.11.5-RELEASE ]</span>
+          <span>//</span>
+          <span>[ OPEN SOURCE ]</span>
+          <span>//</span>
+          <span>[ RUST + RATATUI ]</span>
         </div>
-        <h1 class="typing-title"><span id="typedFountHeading">Open Source</span><br><em id="typedFountEmphasis">in Terminal.</em></h1>
-        <p class="lede">A free, open-source, distraction-free terminal screenplay editor built for writers who live in the command line.</p>
-        <div class="actions">
-          <a class="button button-accent" href="downloads/">Download FountTUI</a>
-          <a class="button button-outline" href="https://github.com/BeetleBot/FountTUI" target="_blank">Source Code</a>
-          <a class="button button-outline" href="#docs">Read the docs</a>
+
+        <h1 class="hero-title">
+          The screenplay engine<br>for the <em>command line.</em>
+        </h1>
+
+        <p class="hero-tagline">
+          A distraction-free, blazingly fast terminal screenplay editor built for writers who live in the keyboard. Outline, write, and export industry-standard scripts without ever leaving your terminal.
+        </p>
+
+        <div class="hero-cta-group">
+          <div class="cta-buttons-row">
+            <a class="btn-aspen btn-aspen-accent" href="downloads/">
+              <span>Download Fount v0.11.5</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+            <a class="btn-aspen btn-aspen-outline" href="https://github.com/BeetleBot/FountTUI" target="_blank" rel="noopener">
+              <span>View Source on GitHub ↗</span>
+            </a>
+          </div>
+
+          <div class="quick-install-box">
+            <span>$ <code>cargo install fount</code></span>
+            <button class="copy-cmd-btn" id="copyInstallCmd" title="Copy to clipboard">COPY CMD 📋</button>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="features" class="section">
-      <div class="section-intro">
-        <p class="eyebrow">FEATURES</p>
-        <h2>Features</h2>
+    <!-- Telemetry Performance Strip -->
+    <section class="telemetry-strip">
+      <div class="telemetry-cell">
+        <span class="telemetry-cell-num">01 // PERFORMANCE</span>
+        <h3 class="telemetry-cell-title">Sub-4ms Latency</h3>
+        <p class="telemetry-cell-desc">Zero web runtimes, zero garbage collector pauses. Pure Rust compilation renders every keypress instantly to ANSI buffers.</p>
       </div>
-      
-      <div class="feature-grid-detailed">
-        <article class="feature-block">
-          <div class="feature-info">
-            <b>01</b>
-            <h3>Fountain, Rendered</h3>
-            <p>Write plain text in terminal with instant live Fountain screenplay syntax highlighting. Jump across scene headings, characters, and dialogue without leaving your home row keys.</p>
-          </div>
-          <div class="media-preview-container">
-            <img src="assets/demo/navigator.gif" alt="Fount Scene Navigator Demo">
-            <button class="enlarge-btn" aria-label="Enlarge Image"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-          </div>
-        </article>
 
-        <article class="feature-block">
-          <div class="feature-info">
-            <b>02</b>
-            <h3>Index Cards & Scene Tree</h3>
-            <p>Visualize script structure with interactive Index Cards and hierarchical Scene Tree navigation. Reorganize scenes instantly directly within the terminal.</p>
-          </div>
-          <div class="media-preview-container">
-            <img src="assets/demo/index_cards.gif" alt="Fount Index Cards Demo">
-            <button class="enlarge-btn" aria-label="Enlarge Image"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-          </div>
-        </article>
+      <div class="telemetry-cell">
+        <span class="telemetry-cell-num">02 // FOOTPRINT</span>
+        <h3 class="telemetry-cell-title">&lt; 15MB Memory</h3>
+        <p class="telemetry-cell-desc">Light enough to run smoothly on a Raspberry Pi, inside tmux over SSH, or alongside heavyweight compilation pipelines.</p>
+      </div>
 
-        <article class="feature-block">
-          <div class="feature-info">
-            <b>03</b>
-            <h3>X-Ray Analysis & Pacing</h3>
-            <p>Deep analytical inspection of your screenplay directly in the terminal—monitor dialogue vs. action ratios, scene timing, and character co-occurrence charts.</p>
-          </div>
-          <div class="media-preview-container">
-            <img src="assets/demo/xray.gif" alt="Fount X-Ray Analysis Demo">
-            <button class="enlarge-btn" aria-label="Enlarge Image"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-          </div>
-        </article>
+      <div class="telemetry-cell">
+        <span class="telemetry-cell-num">03 // FORMAT INTEGRITY</span>
+        <h3 class="telemetry-cell-title">100% Plain Fountain</h3>
+        <p class="telemetry-cell-desc">Your stories remain human-readable forever. Commit to git repositories, diff scene revisions, and edit with standard Unix tools.</p>
+      </div>
 
-        <article class="feature-block">
-          <div class="feature-info">
-            <b>04</b>
-            <h3>Writing Sprint Timer</h3>
-            <p>Set timed writing sprints with real-time words-per-minute (WPM) speed calculation and automatic session snapshots to keep you in flow state.</p>
-          </div>
-          <div class="media-preview-container">
-            <img src="assets/demo/sprint.gif" alt="Fount Writing Sprint Timer Demo">
-            <button class="enlarge-btn" aria-label="Enlarge Image"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-          </div>
-        </article>
-
-        <article class="feature-block">
-          <div class="feature-info">
-            <b>05</b>
-            <h3>Instant Terminal Search</h3>
-            <p>Global text search and replace panel designed for high-velocity keyboard editing. Search character names, dialogue, and markers across your entire manuscript.</p>
-          </div>
-          <div class="media-preview-container">
-            <img src="assets/demo/search.gif" alt="Fount Search Panel Demo">
-            <button class="enlarge-btn" aria-label="Enlarge Image"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-          </div>
-        </article>
-
-        <article class="feature-block">
-          <div class="feature-info">
-            <b>06</b>
-            <h3>Terminal Themes</h3>
-            <p>Choose from crisp terminal color themes designed to match your command line setup, from classic matrix greens and e-ink light modes to dark contrast themes.</p>
-          </div>
-          <div class="media-preview-container">
-            <img src="assets/demo/themes.gif" alt="Fount Themes Demo">
-            <button class="enlarge-btn" aria-label="Enlarge Image"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-          </div>
-        </article>
+      <div class="telemetry-cell">
+        <span class="telemetry-cell-num">04 // INTEROPERABILITY</span>
+        <h3 class="telemetry-cell-title">Studio-Ready Exports</h3>
+        <p class="telemetry-cell-desc">One-key export to industry-standard Final Draft (.fdx), Fade In (.fadein), formatted PDF, and standalone HTML.</p>
       </div>
     </section>
 
-    <section id="docs" class="section media-section">
+    <!-- Section Intro -->
+    <div class="section-header-row" id="features">
       <div>
-        <p class="eyebrow">DOCUMENTATION</p>
-        <h2>A calm place<br>to get unstuck.</h2>
-        <p>Installation, Fountain markup, commands, shortcuts, exports, themes, snapshots, and troubleshooting.</p>
-        <a class="button button-outline" href="https://github.com/BeetleBot/FountTUI/wiki">Open FountTUI Documentation</a>
+        <p class="section-label">02 // ARCHITECTURE &amp; CAPABILITIES</p>
+        <h2 class="section-title">Engineered for keyboard velocity.</h2>
+      </div>
+      <p class="section-subtitle">
+        Everything you need to outline, draft, analyze, and format feature screenplays without touching a mouse.
+      </p>
+    </div>
+
+    <!-- Features 2-Column Architectural Grid -->
+    <section class="features-grid">
+
+      <!-- Feature 01 -->
+      <article class="feature-cell">
+        <div>
+          <div class="feature-top-meta">
+            <span class="feature-num">01</span>
+            <span class="feature-keybind">Ctrl + N</span>
+          </div>
+          <h3 class="feature-heading">Fountain, Rendered Live</h3>
+          <p class="feature-desc">Write in standard Fountain syntax and watch scene headings, character dialog, parentheticals, and transitions format automatically in real time.</p>
+          <ul class="feature-specs-list">
+            <li>Instant home-row navigation across scenes and acts</li>
+            <li>Scene number auto-indexing and page estimation</li>
+            <li>Automatic character cue capitalization and auto-complete</li>
+          </ul>
+        </div>
+        <div class="feature-media-frame">
+          <img src="assets/demo/navigator.gif" alt="Fount Scene Navigator Demo" loading="lazy">
+          <span class="media-corner-tag">ZOOM PREVIEW 🔍</span>
+        </div>
+      </article>
+
+      <!-- Feature 02 -->
+      <article class="feature-cell">
+        <div>
+          <div class="feature-top-meta">
+            <span class="feature-num">02</span>
+            <span class="feature-keybind">F2 / Tab</span>
+          </div>
+          <h3 class="feature-heading">Index Cards &amp; Beat Tree</h3>
+          <p class="feature-desc">Step back from the text with an interactive TUI Corkboard. Reorder beats, group sequences into 3-Act or Hero's Journey structures with instant visual feedback.</p>
+          <ul class="feature-specs-list">
+            <li>Hierarchical outline tree with collapsible acts</li>
+            <li>Interactive index cards with synopsis and emotional beats</li>
+            <li>Instant re-sequencing without breaking Fountain structure</li>
+          </ul>
+        </div>
+        <div class="feature-media-frame">
+          <img src="assets/demo/index_cards.gif" alt="Fount Index Cards Demo" loading="lazy">
+          <span class="media-corner-tag">ZOOM PREVIEW 🔍</span>
+        </div>
+      </article>
+
+      <!-- Feature 03 -->
+      <article class="feature-cell">
+        <div>
+          <div class="feature-top-meta">
+            <span class="feature-num">03</span>
+            <span class="feature-keybind">F3 / :xray</span>
+          </div>
+          <h3 class="feature-heading">X-Ray Pacing &amp; Analysis</h3>
+          <p class="feature-desc">Deep analytical inspection of your screenplay directly in the terminal—monitor dialogue vs. action density, scene timing distribution, and character co-occurrence charts.</p>
+          <ul class="feature-specs-list">
+            <li>Real-time dialogue vs. action pacing histograms</li>
+            <li>Character dialogue frequency and scene presence graphs</li>
+            <li>Estimated running time breakdown per sequence</li>
+          </ul>
+        </div>
+        <div class="feature-media-frame">
+          <img src="assets/demo/xray.gif" alt="Fount X-Ray Analysis Demo" loading="lazy">
+          <span class="media-corner-tag">ZOOM PREVIEW 🔍</span>
+        </div>
+      </article>
+
+      <!-- Feature 04 -->
+      <article class="feature-cell">
+        <div>
+          <div class="feature-top-meta">
+            <span class="feature-num">04</span>
+            <span class="feature-keybind">F4 / :sprint</span>
+          </div>
+          <h3 class="feature-heading">Writing Sprint Speedometer</h3>
+          <p class="feature-desc">Set timed writing sprints with live words-per-minute velocity calculation, session milestones, and automatic snapshots to keep you locked in deep flow state.</p>
+          <ul class="feature-specs-list">
+            <li>Customizable sprint intervals (15m, 25m Pomodoro, 60m)</li>
+            <li>Real-time WPM speedometer and word-count delta metrics</li>
+            <li>Automated session snapshot archives preventing any loss</li>
+          </ul>
+        </div>
+        <div class="feature-media-frame">
+          <img src="assets/demo/sprint.gif" alt="Fount Writing Sprint Demo" loading="lazy">
+          <span class="media-corner-tag">ZOOM PREVIEW 🔍</span>
+        </div>
+      </article>
+
+      <!-- Feature 05 -->
+      <article class="feature-cell">
+        <div>
+          <div class="feature-top-meta">
+            <span class="feature-num">05</span>
+            <span class="feature-keybind">Ctrl + F / /</span>
+          </div>
+          <h3 class="feature-heading">Instant Regex Search</h3>
+          <p class="feature-desc">Global text search and multi-line replacement designed for high-velocity editing. Search character names, dialogue patterns, and markers across 120-page drafts.</p>
+          <ul class="feature-specs-list">
+            <li>Sub-millisecond full-script regex search</li>
+            <li>Interactive match preview list with instant jump-to-line</li>
+            <li>Safe multi-file and character batch renaming</li>
+          </ul>
+        </div>
+        <div class="feature-media-frame">
+          <img src="assets/demo/search.gif" alt="Fount Search Panel Demo" loading="lazy">
+          <span class="media-corner-tag">ZOOM PREVIEW 🔍</span>
+        </div>
+      </article>
+
+      <!-- Feature 06 -->
+      <article class="feature-cell">
+        <div>
+          <div class="feature-top-meta">
+            <span class="feature-num">06</span>
+            <span class="feature-keybind">:theme</span>
+          </div>
+          <h3 class="feature-heading">High-Contrast Terminal Themes</h3>
+          <p class="feature-desc">Custom-tailored color themes designed to match your terminal setup—from phosphor amber and cyber matrix to catppuccin mauve and monochrome e-ink.</p>
+          <ul class="feature-specs-list">
+            <li>Native 16-color ANSI and 24-bit TrueColor support</li>
+            <li>Distraction-free typewriter focus modes</li>
+            <li>Custom JSON theme definition files supported</li>
+          </ul>
+        </div>
+        <div class="feature-media-frame">
+          <img src="assets/demo/themes.gif" alt="Fount Themes Demo" loading="lazy">
+          <span class="media-corner-tag">ZOOM PREVIEW 🔍</span>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Philosophy / Manifesto Row -->
+    <section class="manifesto-row" id="philosophy">
+      <div class="manifesto-left">
+        <p class="section-label">03 // DESIGN PHILOSOPHY</p>
+        <blockquote class="manifesto-quote">
+          "The fastest screenplay is written when nothing stands between your fingers and the page."
+        </blockquote>
+        <div style="font-size:0.75rem; color:var(--fg-dim); margin-top:24px;">
+          FOUNTTUI MANIFESTO // 2026
+        </div>
+      </div>
+
+      <div class="manifesto-right">
+        <div class="manifesto-point">
+          <h4>Zero GUI Clutter</h4>
+          <p>No popups, toolbars, or floating dialogs. Your entire narrative canvas is focused on typography and story structure.</p>
+        </div>
+        <div class="manifesto-point">
+          <h4>Vim &amp; Emacs Synergy</h4>
+          <p>Familiar ergonomic keybindings, instant buffer navigation, and full command-line piping capabilities for power users.</p>
+        </div>
+        <div class="manifesto-point">
+          <h4>Git-Native Revisioning</h4>
+          <p>Because Fountain files are clean UTF-8 text, you get pristine branch diffs, collaborative merges, and permanent ownership.</p>
+        </div>
+        <div class="manifesto-point">
+          <h4>Free &amp; Open Source</h4>
+          <p>Licensed under MIT / Apache-2.0. No subscriptions, no cloud vendor lock-in, and zero analytics telemetry.</p>
+        </div>
       </div>
     </section>
+
   </main>
 
-  <footer class="site-footer">
-    <span>iyal.ink / FountTUI</span>
-    <span><a href="downloads/">Download</a> <a href="https://github.com/BeetleBot/FountTUI" target="_blank">GitHub</a></span>
-    <span>Free & Open Source</span>
+  <!-- Aspen Full-Bleed Architectural Footer -->
+  <footer class="aspen-footer">
+    <div class="aspen-container" style="border-bottom:none;">
+      
+      <!-- Top Row: Big Headline + Wipe CTA -->
+      <div class="footer-top-row">
+        <div class="footer-headline-cell">
+          <span class="section-label" style="margin-bottom:20px;">04 // GET STARTED</span>
+          <h2 class="footer-big-title">
+            Write faster.<br>
+            Zero friction.
+          </h2>
+          <div style="font-size:0.75rem; color:var(--fg-dim); margin-top:24px;">
+            AVAILABLE FOR LINUX, WINDOWS &amp; MACOS VIA CARGO
+          </div>
+        </div>
+
+        <a class="footer-interactive-cta" href="downloads/">
+          <div class="cta-top-text">
+            Download<br>
+            FountTUI
+          </div>
+          <div class="cta-bottom-row">
+            <span class="cta-bottom-label">Install v0.11.5 Now</span>
+            <svg class="cta-arrow-svg" viewBox="0 0 115 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.354 114.5L114.354 0.5M0.354 0.5H114.354V114.5" stroke="currentColor" stroke-width="2"></path>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      <!-- Middle Row: Navigation Links & Live World Clocks -->
+      <div class="footer-nav-row">
+        <div class="footer-links-col">
+          <ul class="footer-nav-list">
+            <li><strong style="color:var(--fg); font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase;">Product</strong></li>
+            <li><a href="#features">Features Overview</a></li>
+            <li><a href="#philosophy">Design Philosophy</a></li>
+            <li><a href="downloads/">Download Releases</a></li>
+            <li><a href="https://github.com/BeetleBot/FountTUI/releases" target="_blank" rel="noopener">Changelog (v0.11.5) ↗</a></li>
+          </ul>
+
+          <ul class="footer-nav-list">
+            <li><strong style="color:var(--fg); font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase;">Ecosystem</strong></li>
+            <li><a href="https://github.com/BeetleBot/FountTUI" target="_blank" rel="noopener">GitHub Repository ↗</a></li>
+            <li><a href="https://crates.io/crates/fount" target="_blank" rel="noopener">Rust Crates.io ↗</a></li>
+            <li><a href="https://apps.microsoft.com/detail/9nz3hv7n30s2" target="_blank" rel="noopener">Microsoft Store ↗</a></li>
+            <li><a href="https://iyal.ink/actone/">ActOne Screenplay ↗</a></li>
+            <li><a href="https://iyal.ink/">Iyal.ink Home ↗</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-clocks-col">
+          <div class="clocks-grid">
+            <div class="clock-card">
+              <span class="clock-label">NYC TIME</span>
+              <span class="clock-val" id="clock-nyc">--:--:--</span>
+            </div>
+            <div class="clock-card">
+              <span class="clock-label">LA TIME</span>
+              <span class="clock-val" id="clock-la">--:--:--</span>
+            </div>
+            <div class="clock-card">
+              <span class="clock-label">SYSTEM UTC</span>
+              <span class="clock-val" id="clock-utc">--:--:--</span>
+            </div>
+          </div>
+
+          <div style="font-size:0.75rem; color:var(--fg-dim); line-height:1.5;">
+            Built with <span style="color:var(--accent);">Rust</span> &amp; <span style="color:var(--accent);">Ratatui</span> by <a href="https://iyal.ink/" style="color:var(--fg); text-decoration:underline;">iyal.ink</a>. Distributed under the MIT &amp; Apache 2.0 licenses.
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <span>© 2026 iyal.ink / FountTUI — Free &amp; Open Source</span>
+        <span>
+          <a href="https://github.com/BeetleBot/FountTUI" target="_blank" rel="noopener">GitHub</a> &nbsp;•&nbsp; 
+          <a href="https://crates.io/crates/fount" target="_blank" rel="noopener">Crates.io</a> &nbsp;•&nbsp; 
+          <a href="https://iyal.ink/">iyal.ink</a>
+        </span>
+      </div>
+
+    </div>
   </footer>
 
-  <script src="https://iyal.ink/assets/site.js"></script>
+  <script src="fount.js"></script>
 </body>
 </html>

@@ -3,62 +3,221 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Download FountTUI — Terminal Fountain Screenplay Editor</title>
-  <link rel="stylesheet" href="https://iyal.ink/assets/site.css">
-  <link rel="icon" type="image/png" href="https://iyal.ink/assets/fount-icon.png">
+  <title>Download FountTUI — Releases &amp; Installation</title>
+  <meta name="description" content="Download FountTUI for Linux, Windows, and via Rust Cargo. Free and open source terminal screenplay editor.">
+  <link rel="icon" type="image/png" href="../../assets/fount-icon.png">
+  <link rel="stylesheet" href="../fount.css">
 </head>
-<body class="product-page fount-theme">
-  <header class="site-header">
-    <a class="iyal-mark" href="https://iyal.ink/"><img class="iyal-mark-img" src="https://iyal.ink/assets/IyalLogo.svg" alt="iyal.ink"></a>
-    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">Menu</button>
-    <nav class="site-nav">
-      <a href="https://iyal.ink/fount/">Fount TUI</a>
-    </nav>
+<body>
+
+  <!-- Aspen Architectural Header -->
+  <header class="aspen-header">
+    <a class="header-brand-cell" href="../">
+      <span class="header-brand-icon">
+        <img src="../../assets/Fount_newlogo.png" alt="Fount TUI Logo">
+      </span>
+      <span>FOUNT<span style="color:var(--accent);">TUI</span></span>
+      <span class="brand-badge">DOWNLOAD</span>
+    </a>
+
+    <div class="header-center-cell">
+      <div class="header-telemetry">
+        <span class="telemetry-item">
+          <span class="live-dot"></span>
+          <span>RELEASE: v0.11.5</span>
+        </span>
+        <span class="telemetry-item">
+          <span>CHANNEL:</span>
+          <span style="color:var(--accent); font-weight:700;">STABLE</span>
+        </span>
+      </div>
+
+      <nav class="header-nav">
+        <a class="nav-link" href="../#features"><span>Features</span></a>
+        <a class="nav-link" href="../#philosophy"><span>Philosophy</span></a>
+        <a class="nav-link" href="https://github.com/BeetleBot/FountTUI" target="_blank" rel="noopener"><span>GitHub ↗</span></a>
+      </nav>
+    </div>
+
+    <div class="header-actions-cell">
+      <div class="theme-switcher" title="Select Terminal Color Palette">
+        <button class="theme-btn active" data-set-theme="mint" title="Aspen Mint"></button>
+        <button class="theme-btn" data-set-theme="amber" title="Amber CRT Phosphor"></button>
+        <button class="theme-btn" data-set-theme="matrix" title="Matrix Green"></button>
+        <button class="theme-btn" data-set-theme="mauve" title="Catppuccin Mauve"></button>
+        <button class="theme-btn" data-set-theme="cyan" title="Cyber Cyan"></button>
+      </div>
+
+      <a class="btn-aspen" href="../">
+        <span>Back to Home</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+      </a>
+    </div>
   </header>
 
-  <main>
-    <section class="section download-hero">
-      <p class="eyebrow">DOWNLOAD</p>
-      <div class="version-display">v0.11.5</div>
-      <h1>Download Fount TUI</h1>
-      <p class="lede">Free and open source. Available for Linux, Windows, and via Cargo.</p>
+  <main class="aspen-container">
+
+    <!-- Download Hero Zone -->
+    <section class="download-hero-grid">
+      <div class="download-hero-left">
+        <div>
+          <div class="hero-meta-bar">
+            <span>[ SYSTEM: FOUNT-TUI RELEASES ]</span>
+            <span>//</span>
+            <span>[ ARCH: X86_64, AARCH64 ]</span>
+          </div>
+
+          <div class="version-massive">v0.11.5</div>
+
+          <h1 style="font-family:var(--font-sans); font-size:clamp(2rem, 3.8vw, 3.2rem); font-weight:900; letter-spacing:-0.03em; margin-bottom:16px;">
+            Install Fount across any platform.
+          </h1>
+
+          <p style="font-size:1.05rem; color:var(--fg-dim); line-height:1.6; max-width:34rem;">
+            Free, open source, and lightweight. Download native binaries for Linux and Windows, or build directly from crates.io with Rust Cargo.
+          </p>
+        </div>
+
+        <div style="font-size:0.75rem; color:var(--fg-muted); padding-top:24px; border-top:1px solid var(--border); margin-top:32px;">
+          LICENSE: MIT / APACHE-2.0 &nbsp;•&nbsp; NO TELEMETRY &nbsp;•&nbsp; ZERO RUNTIME DEPENDENCIES
+        </div>
+      </div>
+
+      <div style="padding:60px 44px; display:flex; flex-direction:column; justify-content:space-between; background:var(--bg-subtle);">
+        <div>
+          <span class="section-label">QUICK START (ALL PLATFORMS)</span>
+          <h3 style="font-family:var(--font-sans); font-size:1.4rem; font-weight:800; margin-bottom:14px; color:var(--fg);">
+            Install via Cargo
+          </h3>
+          <p style="font-size:0.82rem; color:var(--fg-dim); line-height:1.6; margin-bottom:20px;">
+            If you already have the Rust toolchain installed, run the following command to compile and install Fount directly to your user path:
+          </p>
+
+          <div class="quick-install-box" style="max-width:none; margin-bottom:20px;">
+            <span>$ <code>cargo install fount --locked</code></span>
+            <button class="copy-cmd-btn" id="copyInstallCmd" title="Copy to clipboard">COPY CMD 📋</button>
+          </div>
+        </div>
+
+        <div style="font-size:0.72rem; color:var(--fg-dim); display:flex; flex-direction:column; gap:6px;">
+          <span>▸ Crates.io package: <a href="https://crates.io/crates/fount" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:underline;">crates.io/crates/fount ↗</a></span>
+          <span>▸ Source code repository: <a href="https://github.com/BeetleBot/FountTUI" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:underline;">github.com/BeetleBot/FountTUI ↗</a></span>
+        </div>
+      </div>
     </section>
 
-    <section class="section">
-      <div class="section-intro">
-        <p class="eyebrow">RELEASE NOTES / V0.11.5</p>
-        <h2>What's new</h2>
+    <!-- 3-Column Platforms Grid -->
+    <section class="download-platforms-grid">
+
+      <!-- Linux -->
+      <article class="platform-card">
+        <div>
+          <span class="platform-badge">01 // LINUX</span>
+          <h2 class="platform-title">Linux Tarball &amp; Scripts</h2>
+          <p class="platform-desc">
+            Download the pre-compiled standalone tarball, extract it, and execute <code>sudo ./install.sh</code> to configure desktop and terminal shortcuts.
+          </p>
+          <div style="font-size:0.75rem; color:var(--fg-dim); margin-bottom:24px;">
+            <strong>Includes:</strong> <code>fount</code> x86_64 binary, <code>.desktop</code> entry, icon tile, and manpage.
+          </div>
+        </div>
+
+        <a class="btn-aspen btn-aspen-accent" href="https://github.com/BeetleBot/FountTUI/releases" target="_blank" rel="noopener" style="width:100%; justify-content:center;">
+          <span>Download for Linux ↗</span>
+        </a>
+      </article>
+
+      <!-- Windows -->
+      <article class="platform-card">
+        <div>
+          <span class="platform-badge">02 // WINDOWS</span>
+          <h2 class="platform-title">Microsoft Store</h2>
+          <p class="platform-desc">
+            Install directly from the official Microsoft Store for instant automatic background updates and seamless Windows Terminal integration.
+          </p>
+          <div style="font-size:0.75rem; color:var(--fg-dim); margin-bottom:24px;">
+            <strong>Supports:</strong> Windows 10 &amp; 11 (64-bit). Works inside PowerShell, CMD, and Windows Terminal.
+          </div>
+        </div>
+
+        <a class="btn-aspen btn-aspen-outline" href="https://apps.microsoft.com/detail/9nz3hv7n30s2" target="_blank" rel="noopener" style="width:100%; justify-content:center;">
+          <span>Get from Microsoft Store ↗</span>
+        </a>
+      </article>
+
+      <!-- Cargo / Build from Source -->
+      <article class="platform-card">
+        <div>
+          <span class="platform-badge">03 // CARGO &amp; SOURCE</span>
+          <h2 class="platform-title">Rust Crates.io</h2>
+          <p class="platform-desc">
+            Build and install directly from crates.io or compile from the Git source repository on any POSIX/Windows system.
+          </p>
+          <div style="font-size:0.75rem; color:var(--fg-dim); margin-bottom:24px;">
+            <strong>Requirements:</strong> <code>rustc 1.75+</code> and <code>cargo</code> toolchain installed.
+          </div>
+        </div>
+
+        <a class="btn-aspen btn-aspen-outline" href="https://crates.io/crates/fount" target="_blank" rel="noopener" style="width:100%; justify-content:center;">
+          <span>View on Crates.io ↗</span>
+        </a>
+      </article>
+
+    </section>
+
+    <!-- Release Notes / Changelog Box -->
+    <section class="changelog-box">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:16px;">
+        <div>
+          <span class="section-label">RELEASE LOG // V0.11.5</span>
+          <h2 style="font-family:var(--font-sans); font-size:2rem; font-weight:800; color:var(--fg);">
+            What's new in this version
+          </h2>
+        </div>
+        <a href="https://github.com/BeetleBot/FountTUI/releases" target="_blank" rel="noopener" style="font-size:0.75rem; color:var(--accent); text-decoration:underline;">
+          View full release history on GitHub ↗
+        </a>
       </div>
-      <ul class="changelog">
-        <li><strong>Final Draft (.fdx) export</strong> — export screenplays to standard Final Draft XML format (<code>.fdx</code>) directly from the Export Pane.</li>
-        <li><strong>Fade In (.fadein) export</strong> — export screenplays to Open Screenplay Format (OSF 2.0) packed inside <code>.fadein</code> ZIP archives.</li>
-        <li><strong>Export Pane UI integration</strong> — cycle through PDF, Fountain, FDX, and FadeIn formats with custom default filenames and extensions.</li>
+
+      <ul class="changelog-items">
+        <li>
+          <strong>Final Draft (.fdx) Native Export</strong> — Full industry-standard XML format export allowing seamless round-trip interchange with studio production suites.
+        </li>
+        <li>
+          <strong>Fade In (.fadein) Open Screenplay Format</strong> — Complete OSF 2.0 compressed archive generation with scene markers and character metadata.
+        </li>
+        <li>
+          <strong>Interactive Export UI Pane</strong> — Real-time format switching (PDF, Fountain, FDX, FadeIn) with customizable output file paths directly within the TUI.
+        </li>
+        <li>
+          <strong>Enhanced Fountain Parser</strong> — Faster parsing of forced scene headings, title page metadata blocks, dual dialogue cues, and lyric lines.
+        </li>
+        <li>
+          <strong>Performance &amp; Memory Optimizations</strong> — Reduced peak memory consumption to under 15MB for large 150-page manuscripts.
+        </li>
       </ul>
     </section>
 
-    <section class="download-grid">
-      <article class="download-card">
-        <h2>Download For Linux</h2>
-        <p>Download the archive, extract it, and run <code>sudo ./install.sh</code> to install Fount TUI.</p>
-        <a class="button button-accent" href="https://github.com/BeetleBot/FountTUI/releases">Get Fount TUI from GitHub</a>
-      </article>
-      <article class="download-card">
-        <h2>Download For Windows</h2>
-        <p>Install Fount TUI from the Microsoft Store and keep it updated through Windows.</p>
-        <a class="button button-outline" href="https://apps.microsoft.com/detail/9nz3hv7n30s2">Get Fount TUI from Microsoft Store</a>
-      </article>
-      <article class="download-card">
-        <h2>Install With Cargo</h2>
-        <p>If Rust is already installed, use Cargo to install Fount TUI directly on any OS.</p>
-        <a class="button button-outline" href="https://crates.io/crates/fount">Get Fount TUI from Cargo</a>
-      </article>
-    </section>
   </main>
 
-  <footer class="site-footer">
-    <span>iyal.ink / Fount TUI Download</span>
-    <a href="https://iyal.ink/fount/">Back to Fount TUI</a>
+  <!-- Aspen Footer -->
+  <footer class="aspen-footer">
+    <div class="aspen-container" style="border-bottom:none;">
+      <div class="footer-bottom-bar">
+        <span>© 2026 iyal.ink / FountTUI — Free &amp; Open Source</span>
+        <span>
+          <a href="../">FountTUI Home</a> &nbsp;•&nbsp; 
+          <a href="https://github.com/BeetleBot/FountTUI" target="_blank" rel="noopener">GitHub</a> &nbsp;•&nbsp; 
+          <a href="https://crates.io/crates/fount" target="_blank" rel="noopener">Crates.io</a> &nbsp;•&nbsp; 
+          <a href="https://iyal.ink/">iyal.ink</a>
+        </span>
+      </div>
+    </div>
   </footer>
-  <script src="https://iyal.ink/assets/site.js"></script>
+
+  <script src="../fount.js"></script>
 </body>
 </html>
