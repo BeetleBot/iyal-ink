@@ -533,25 +533,26 @@ img, svg, video {
 }
 
 .feature-bullets li {
-  font-size: 0.88rem;
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.9rem;
   color: var(--fg-dim);
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .feature-bullets li strong {
   color: var(--fg);
   font-weight: 700;
+  margin-right: 4px;
 }
 
 .feature-bullets li::before {
   content: '●';
+  position: absolute;
+  left: 0;
+  top: 1px;
   color: var(--accent);
   font-size: 0.65rem;
-  margin-top: 5px;
-  flex-shrink: 0;
 }
 
 .feature-media-col {
@@ -733,12 +734,6 @@ img, svg, video {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   box-sizing: border-box;
-}
-
-.discord-topic-icon {
-  font-size: 1.5rem;
-  line-height: 1;
-  flex-shrink: 0;
 }
 
 .discord-topic-item strong {
