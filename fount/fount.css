@@ -1467,13 +1467,40 @@ img, svg, video {
   .aspen-header {
     grid-template-columns: 1fr auto auto;
   }
+  .hero-section {
+    padding: 64px 18px 48px;
+  }
+  .hero-title {
+    font-size: clamp(2.3rem, 9vw, 3.4rem);
+    margin-bottom: 20px;
+  }
+  .hero-tagline {
+    font-size: 0.98rem;
+    margin-bottom: 28px;
+  }
+  .hero-cta-group {
+    width: 100%;
+  }
+  .cta-buttons-row {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cta-buttons-row .btn-aspen {
+    width: 100%;
+    justify-content: center;
+    height: 46px;
+  }
+  .code-install-box {
+    width: 100%;
+  }
   .section-header-row {
     grid-template-columns: 1fr;
     gap: 16px;
-    padding: 40px 20px 24px;
+    padding: 32px 18px 20px;
   }
   .feature-cell, .manifesto-left, .manifesto-right, .footer-headline-cell, .footer-interactive-cta, .footer-links-col, .footer-clocks-col {
-    padding: 32px 20px;
+    padding: 28px 18px;
   }
   .manifesto-right {
     grid-template-columns: 1fr;
@@ -1488,8 +1515,9 @@ img, svg, video {
   .footer-bottom-bar {
     flex-direction: column;
     gap: 12px;
-    align-items: flex-start;
-    padding: 20px;
+    align-items: center;
+    text-align: center;
+    padding: 18px;
   }
   .mobile-nav-panel {
     display: none;

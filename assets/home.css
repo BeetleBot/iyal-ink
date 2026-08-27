@@ -462,24 +462,101 @@ a {
   gap: 16px;
 }
 
-/* Responsive */
+/* Responsive Mobile Architecture */
 @media (max-width: 768px) {
   .landing-products-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
   .iyal-header {
-    padding: 0 20px;
+    padding: 0 16px;
+    height: 60px;
+  }
+  .iyal-brand {
+    font-size: 1rem;
+  }
+  .iyal-brand img {
+    height: 26px;
+  }
+  .btn-header-blog {
+    padding: 6px 12px;
+    font-size: 0.72rem;
   }
   .landing-main {
-    padding: 30px 20px 60px;
+    padding: 30px 16px 56px;
+  }
+  .landing-tagline-badge {
+    font-size: 0.68rem;
+    padding: 4px 10px;
+    margin-bottom: 20px;
+  }
+  .landing-title {
+    font-size: clamp(2.1rem, 8.8vw, 3.2rem);
+    margin-bottom: 16px;
+  }
+  .landing-lede {
+    font-size: 0.98rem;
+    margin-bottom: 36px;
+  }
+  .product-action-card {
+    padding: 26px 20px;
+  }
+  .card-title {
+    font-size: 1.45rem;
+  }
+  .card-description {
+    font-size: 0.86rem;
+    margin-bottom: 20px;
   }
   .article-page-main {
-    padding: 20px 20px 60px;
+    padding: 24px 16px 60px;
+  }
+  .article-hero {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+  }
+  .article-body {
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+  .article-body h2 {
+    font-size: 1.45rem;
+    margin-top: 36px;
+  }
+  .article-body h3 {
+    font-size: 1.2rem;
+    margin-top: 28px;
+  }
+  .article-body blockquote {
+    padding: 16px 18px;
+    font-size: 1rem;
+    margin: 24px 0;
+  }
+  .article-cta-box {
+    padding: 24px 18px;
+  }
+  .blog-container {
+    padding: 30px 16px 60px;
+  }
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .blog-card {
+    padding: 24px 18px;
+  }
+  .blog-title {
+    font-size: 1.2rem;
   }
   .iyal-footer {
     flex-direction: column;
     gap: 12px;
-    padding: 20px;
+    padding: 20px 16px;
     text-align: center;
+  }
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
   }
 }
