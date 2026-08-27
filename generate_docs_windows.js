@@ -1,14 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-// Single source of truth — auto-detects Linux vs Windows/relative path
-const LINUX_HELP = '/home/nkr/Projects/Iyal-Inc Family/ActOne-Screenplay/src/data/helpArticles.tsx';
-const LINUX_SHORTCUTS = '/home/nkr/Projects/Iyal-Inc Family/ActOne-Screenplay/src/constants/shortcuts.ts';
-const REL_HELP = path.resolve(__dirname, '../ActOne-Screenplay/src/data/helpArticles.tsx');
-const REL_SHORTCUTS = path.resolve(__dirname, '../ActOne-Screenplay/src/constants/shortcuts.ts');
-
-const HELP_PATH = fs.existsSync(LINUX_HELP) ? LINUX_HELP : REL_HELP;
-const SHORTCUTS_PATH = fs.existsSync(LINUX_SHORTCUTS) ? LINUX_SHORTCUTS : REL_SHORTCUTS;
+// Single source of truth — do not edit generated files directly
+const HELP_PATH = path.resolve(__dirname, '../ActOne-Screenplay/src/data/helpArticles.tsx');
+const SHORTCUTS_PATH = path.resolve(__dirname, '../ActOne-Screenplay/src/constants/shortcuts.ts');
 const OUT_JSON = path.join(__dirname, 'actone/docs/articles_data.json');
 const OUT_JS   = path.join(__dirname, 'actone/docs/articles_data.js');
 
@@ -48,6 +43,6 @@ const payload = { categories, articles };
 fs.writeFileSync(OUT_JSON, JSON.stringify(payload, null, 2) + '\n');
 console.log(`Wrote ${OUT_JSON}`);
 
-const header = `// AUTO-GENERATED — DO NOT EDIT MANUALLY\n// Source: ActOne-Screenplay/src/data/helpArticles.tsx (single source of truth)\n// Generated: ${new Date().toISOString()}\n// To regenerate: node generate_docs.js\n// Categories: ${categories.length} | Articles: ${articles.length}\n`;
+const header = `// AUTO-GENERATED — DO NOT EDIT MANUALLY\n// Source: ActOne-Screenplay/src/data/helpArticles.tsx (single source of truth)\n// Generated: ${new Date().toISOString()}\n// To regenerate: node generate_docs_windows.js\n// Categories: ${categories.length} | Articles: ${articles.length}\n`;
 fs.writeFileSync(OUT_JS, header + `const DOCS_DATA = ${JSON.stringify(payload, null, 2)};\n`);
 console.log(`Wrote ${OUT_JS}`);
