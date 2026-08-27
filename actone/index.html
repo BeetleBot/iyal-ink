@@ -1,28 +1,29 @@
 <!doctype html>
-<html lang="en"><head>
+<html lang="en">
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Best Free Fountain Screenplay Editor for Windows and Linux — ActOne</title>
-  <meta name="description" content="ActOne is a completely open-source Fountain screenplay editor for Windows and Linux. Write screenplays effortlessly with live formatting, outline navigator, X-Ray analytics, and Muse AI assistant.">
+  <title>ActOne Screenplay — The Studio Screenplay Editor for Modern Writers</title>
+  <meta name="description" content="ActOne is a sophisticated, completely open-source Fountain screenplay editor for Windows and Linux. Native manuscript paper, hierarchical outline tree, X-Ray analytics, and Muse AI.">
   <link rel="canonical" href="https://iyal.ink/actone/">
   
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://iyal.ink/actone/">
-  <meta property="og:title" content="The Best Free Fountain Screenplay Editor for Windows and Linux — ActOne">
-  <meta property="og:description" content="ActOne is a completely open-source Fountain screenplay editor for Windows and Linux. Featuring live syntax formatting, outline navigator, X-Ray analytics, and Muse AI assistant.">
+  <meta property="og:title" content="ActOne Screenplay — The Studio Screenplay Editor for Modern Writers">
+  <meta property="og:description" content="Native Fountain screenplay workspace for Windows and Linux with outline tree, X-Ray analytics, production breakdown tags, and Muse AI.">
   <meta property="og:image" content="https://iyal.ink/assets/ActOne_apptile.png">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The Best Free Fountain Screenplay Editor for Windows and Linux — ActOne">
-  <meta name="twitter:description" content="The native Fountain screenplay editor for Windows and Linux.">
+  <meta name="twitter:title" content="ActOne Screenplay — The Studio Screenplay Editor for Modern Writers">
+  <meta name="twitter:description" content="Native Fountain screenplay workspace for Windows and Linux.">
   <meta name="twitter:image" content="https://iyal.ink/assets/ActOne_apptile.png">
 
-  <link rel="stylesheet" href="../assets/site.css">
-  <link rel="icon" type="image/png" href="https://iyal.ink/assets/ActOne_apptile.png">
+  <link rel="stylesheet" href="actone.css">
+  <link rel="icon" type="image/png" href="../assets/ActOne_apptile.png">
 
-  <!-- Schema.org JSON-LD Structured Data for ActOne Screenplay -->
+  <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -44,132 +45,382 @@
   }
   </script>
 </head>
-<body class="product-page actone-theme">
-  <header class="site-header"><a class="iyal-mark" href="https://iyal.ink/"><img class="iyal-mark-img" src="../assets/IyalLogo.svg" alt="iyal.ink"></a><button class="menu-toggle" aria-label="Open menu" aria-expanded="false">Menu</button><nav class="site-nav"><a href="#features">Features</a><a href="#docs">Docs</a><a href="downloads/">Download</a><a href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener">GitHub</a><a href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">Discord</a></nav></header>
-  <main>
-    <section class="hero product-hero">
-      <div class="actone-hero-content">
-        <div class="product-lockup large-lockup"><span class="actone-square"><img src="../assets/ActOne_apptile.png" alt="ActOne Screenplay logo"></span><span class="product-title-big">ActOne Screenplay</span></div>
-        <h1 class="typing-title"><span id="typedActOneHeading">The script</span><br><em id="typedActOneEmphasis">in full view.</em></h1>
-         <p class="eyebrow">COMPLETELY OPEN SOURCE</p>
-         <p class="lede">ActOne Screenplay is a free, completely open-source Fountain screenplay editor natively built for Windows and Linux. Own your words, own your tools.</p>
-        <div class="actions">
-           <a class="button button-actone" href="downloads/">Download ActOne Screenplay</a>
-           <a class="button button-outline" href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener">View Source on GitHub</a>
-           <a class="button button-outline" href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">Join Discord</a>
+<body>
+
+  <!-- Aspen Header -->
+  <header class="aspen-header">
+    <div class="header-brand-cell">
+      <a href="https://iyal.ink/" style="display:flex; align-items:center; gap:10px;">
+        <img class="brand-icon" src="../assets/ActOne_apptile.png" alt="ActOne Logo">
+        <span>ACTONE</span>
+      </a>
+      <span class="brand-badge">STUDIO</span>
+    </div>
+
+    <div class="header-meta-cell">
+      <div class="meta-telemetry">
+        <span class="telemetry-item">
+          <span>TIME:</span>
+          <span id="header-live-time" style="color:var(--fg); font-weight:700;">--:--:--</span>
+        </span>
+        <span class="telemetry-item">
+          <span>ENGINE:</span>
+          <span style="color:var(--accent); font-weight:700;">TAURI+RUST</span>
+        </span>
+      </div>
+
+      <nav class="header-nav">
+        <a class="nav-link" href="#features"><span>Features</span></a>
+        <a class="nav-link" href="#studio"><span>Studio</span></a>
+        <a class="nav-link" href="#philosophy"><span>Philosophy</span></a>
+        <a class="nav-link" href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener"><span>GitHub ↗</span></a>
+        <a class="nav-link" href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener"><span>Discord ↗</span></a>
+      </nav>
+    </div>
+
+    <div class="header-actions-cell">
+      <div class="theme-switcher" title="Select Color Palette">
+        <button class="theme-btn active" data-set-theme="mint" title="Aspen Mint"></button>
+        <button class="theme-btn" data-set-theme="amber" title="Amber CRT Phosphor"></button>
+        <button class="theme-btn" data-set-theme="matrix" title="Matrix Green"></button>
+        <button class="theme-btn" data-set-theme="mauve" title="Catppuccin Mauve"></button>
+        <button class="theme-btn" data-set-theme="cyan" title="Cyber Cyan"></button>
+      </div>
+
+      <a class="btn-aspen" href="downloads/">
+        <span>Get ActOne</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <main class="aspen-container">
+
+    <!-- Striking Centered Hero Zone (Aspen Architecture with Cascading Letters) -->
+    <section class="hero-section">
+      <!-- Multi-Depth Raining Courier Prime Background Canvas -->
+      <canvas class="hero-rain-canvas" id="courierRainCanvas"></canvas>
+      <div class="hero-rain-overlay"></div>
+
+      <div class="hero-content-wrap">
+        <div class="hero-meta-bar">
+          <span>[ SYSTEM: ACTONE-SCREENPLAY ]</span>
+          <span>//</span>
+          <span>[ BUILD: v0.4.20-STABLE ]</span>
+          <span>//</span>
+          <span>[ OPEN SOURCE ]</span>
+          <span>//</span>
+          <span>[ TAURI + RUST ]</span>
+        </div>
+
+        <h1 class="hero-title">
+          The screenplay studio<br>for <em>modern writers.</em>
+        </h1>
+
+        <p class="hero-tagline">
+          A distraction-free, desktop-native screenplay workspace built for cinematic storytellers. Pure Fountain plain text, hierarchical outline navigation, X-Ray pacing analytics, and zero cloud lock-in.
+        </p>
+
+        <div class="hero-cta-group">
+          <div class="cta-buttons-row">
+            <a class="btn-aspen btn-aspen-accent" href="downloads/">
+              <span>Download ActOne v0.4.20</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+            <a class="btn-aspen btn-aspen-outline" href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener">
+              <span>View Source on GitHub ↗</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
-    <section id="features" class="section"><div class="section-intro"><p class="eyebrow">FEATURES</p><h2>Features</h2></div><div class="feature-grid-detailed">
-      <article class="feature-block">
-        <div class="feature-info">
-          <b>01</b>
-          <h3>Native Fountain Screenplay Editing</h3>
-          <ul>
-            <li><strong>Live Formatting & Highlighting:</strong> Built-in CodeMirror 6 engine with real-time Fountain syntax coloring and clean manuscript rendering.</li>
-            <li><strong>Smart Formatting Tools:</strong> Automatic line-spacing, Tab-to-cycle Fountain prefixes (@, ., >), and auto-closing wrylies/parentheticals.</li>
-            <li><strong>Character Autocomplete:</strong> Real-time ghost text suggestions for character names, locations, and parentheticals.</li>
-          </ul>
-        </div>
-        <div class="media-preview-container">
-          <img src="../assets/website images/A1-Editor.png" alt="ActOne Screenplay Native Fountain Screenplay Editor">
-          <button class="enlarge-btn" aria-label="Enlarge Image"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-        </div>
-      </article>
 
-      <article class="feature-block">
-        <div class="feature-info">
-          <b>02</b>
-          <h3>Outline Tree Navigator</h3>
-          <ul>
-            <li><strong>Hierarchical View:</strong> Collapsible tree structure mapping sections (#), scene headings, and synopses (=) instantly.</li>
-            <li><strong>Scene Highlights & Storylines:</strong> Visual color markers and plot arc badges attached to scene headers in outline.</li>
-          </ul>
-        </div>
-        <div class="media-preview-container">
-          <img src="../assets/website images/A1-Navigator.png" alt="ActOne Screenplay Outline Navigator and Workspace">
-          <button class="enlarge-btn" aria-label="Enlarge Image"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-        </div>
-      </article>
+    <!-- Telemetry Performance Strip -->
+    <section class="telemetry-strip">
+      <div class="telemetry-cell">
+        <div class="telemetry-label">01 // ARCHITECTURE</div>
+        <div class="telemetry-value">TAURI + <span>RUST</span></div>
+      </div>
+      <div class="telemetry-cell">
+        <div class="telemetry-label">02 // DATA FORMAT</div>
+        <div class="telemetry-value">100% <span>FOUNTAIN</span></div>
+      </div>
+      <div class="telemetry-cell">
+        <div class="telemetry-label">03 // WORKSPACE BUNDLE</div>
+        <div class="telemetry-value"><span>SCRIPT &amp; PROSE</span></div>
+      </div>
+      <div class="telemetry-cell">
+        <div class="telemetry-label">04 // PRODUCTION EXPORT</div>
+        <div class="telemetry-value">PDF &amp; <span>FDX NATIVE</span></div>
+      </div>
+    </section>
 
-      <article class="feature-block">
-        <div class="feature-info">
-          <b>03</b>
-          <h3>Prose &amp; Multi-Document Projects (.actone)</h3>
-          <ul>
-            <li><strong>Prose &amp; Markdown Notes:</strong> Write treatments, outlines, character bibles, and story notes in native Markdown right alongside your screenplays.</li>
-            <li><strong>Unified Project Workspace:</strong> Keep multiple screenplays (<code>.fountain</code>), prose documents (<code>.md</code>), and draft revisions neatly organized in a single project bundle.</li>
-            <li><strong>Context-Aware Stats &amp; PDF Export:</strong> Automatic word counts and reading times for prose, with clean PDF export for sharing notes and treatments.</li>
+    <!-- Section: 01 Fountain Manuscript Engine -->
+    <div class="section-header-row" id="features">
+      <span class="section-num">01</span>
+      <span class="section-title">NATIVE FOUNTAIN MANUSCRIPT ENGINE</span>
+      <span class="section-tag">[ AUTO-FORMATTING // US LETTER &amp; A4 ]</span>
+    </div>
+    <section class="feature-split-block">
+      <div class="feature-editorial-col">
+        <div>
+          <span class="feature-meta-tag">// 01: MANUSCRIPT TYPOGRAPHY</span>
+          <h2 class="feature-heading">Authentic US Letter &amp; A4 Paper Formatting</h2>
+          <p class="feature-desc">
+            ActOne renders your screenplay in pixel-perfect Courier Prime on authentic US Letter or A4 manuscript paper with real-time Fountain syntax coloring. Write continuously without fiddling with margins.
+          </p>
+          <ul class="feature-bullets">
+            <li><strong>Intelligent Tab Cycling:</strong> Press Tab to cycle through character names, parentheticals, and scene headers automatically.</li>
+            <li><strong>Autocomplete Suggestions:</strong> Ghost-text autocompletion for recurring characters, locations, and transitions.</li>
+            <li><strong>Plain Text Portability:</strong> 100% Fountain plain text format. Git-diffable, future-proof, and open forever.</li>
           </ul>
         </div>
-        <div class="media-preview-container">
-          <img src="../assets/website images/A1-Multi-Scripts.png" alt="ActOne Screenplay Prose Editor and Project Pane">
-          <button class="enlarge-btn" aria-label="Enlarge Image"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      </div>
+      <div class="feature-media-col">
+        <div class="feature-media-frame">
+          <img src="../assets/website images/A1-Editor.png" alt="ActOne Native Fountain Editor">
+          <span class="media-zoom-tag">[ CLICK TO ZOOM ⊕ ]</span>
         </div>
-      </article>
+      </div>
+    </section>
 
-      <article class="feature-block">
-        <div class="feature-info">
-          <b>04</b>
-          <h3>Automatic Version Snapshots</h3>
-          <ul>
-            <li><strong>Interval Backups:</strong> Auto-interval, manual, and save-triggered local snapshots keep track of every paragraph revision history.</li>
-            <li><strong>One-Click Restores:</strong> Compare differences and rollback to past snapshots instantly without relying on cloud servers.</li>
+    <!-- Section: 02 Outline Tree Navigator -->
+    <div class="section-header-row">
+      <span class="section-num">02</span>
+      <span class="section-title">HIERARCHICAL OUTLINE TREE NAVIGATOR</span>
+      <span class="section-tag">[ ACT STRUCTURE // SCENE CARDS ]</span>
+    </div>
+    <section class="feature-split-block">
+      <div class="feature-editorial-col">
+        <div>
+          <span class="feature-meta-tag">// 02: STRUCTURAL CLARITY</span>
+          <h2 class="feature-heading">Map your story from 30,000 feet</h2>
+          <p class="feature-desc">
+            Instantly visualize three-act structure, scene headings, and beat synopses in an interactive collapsible tree. Jump across a 120-page screenplay with zero latency.
+          </p>
+          <ul class="feature-bullets">
+            <li><strong>Visual Scene Markers:</strong> Assign storyline color tags and plot arc badges to scenes.</li>
+            <li><strong>Synopses &amp; Section Hierarchy:</strong> Collapse and reorder sections (`#`) and synopses (`=`) effortlessly.</li>
+            <li><strong>Contextual Scene Info:</strong> View estimated page length and character counts per scene.</li>
           </ul>
         </div>
-        <div class="media-preview-container">
-          <img src="../assets/website images/A1snapshot.png" alt="ActOne Screenplay Snapshots and Version History">
-          <button class="enlarge-btn" aria-label="Enlarge Image"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      </div>
+      <div class="feature-media-col">
+        <div class="feature-media-frame">
+          <img src="../assets/website images/A1-Navigator.png" alt="ActOne Outline Tree Navigator">
+          <span class="media-zoom-tag">[ CLICK TO ZOOM ⊕ ]</span>
         </div>
-      </article>
+      </div>
+    </section>
 
-      <article class="feature-block">
-        <div class="feature-info">
-          <b>05</b>
-          <h3>X-Ray Screenplay Analytics</h3>
-          <ul>
-            <li><strong>Act Structure &amp; Beat Balance:</strong> Interactive visual timelines mapping scene densities, beat lengths, and word distributions across the story.</li>
-            <li><strong>Cast &amp; Pacing Intelligence:</strong> Instant metrics on runtime estimation, dialogue lines, speaking cast counts, and scene pacing.</li>
+    <!-- Section: 03 Script & Prose Projects -->
+    <div class="section-header-row">
+      <span class="section-num">03</span>
+      <span class="section-title">SCRIPT &amp; PROSE PROJECTS</span>
+      <span class="section-tag">[ MULTI-DOCUMENT SUITE // MARKDOWN NOTES ]</span>
+    </div>
+    <section class="feature-split-block">
+      <div class="feature-editorial-col">
+        <div>
+          <span class="feature-meta-tag">// 03: UNIFIED PROJECT SUITE</span>
+          <h2 class="feature-heading">All your story collateral in one bundle</h2>
+          <p class="feature-desc">
+            Store character bibles, treatments, draft revisions, and multiple screenplays together in a single unified project workspace.
+          </p>
+          <ul class="feature-bullets">
+            <li><strong>Markdown Prose Editor:</strong> Write outlines and treatments in clean Markdown right alongside your script.</li>
+            <li><strong>Multi-Script Project Suite:</strong> Keep shooting drafts, alt scenes, and pitch notes organized.</li>
+            <li><strong>Automated Local Snapshots:</strong> Time-stamped interval backups keep track of your full revision history.</li>
           </ul>
         </div>
-        <div class="media-preview-container">
-          <img src="../assets/website images/A1-Xray.png" alt="ActOne Screenplay X-Ray Screenplay Analytics Dashboard">
-          <button class="enlarge-btn" aria-label="Enlarge Image"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      </div>
+      <div class="feature-media-col">
+        <div class="feature-media-frame">
+          <img src="../assets/website images/A1-Multi-Scripts.png" alt="ActOne Prose and Multi-Script Projects">
+          <span class="media-zoom-tag">[ CLICK TO ZOOM ⊕ ]</span>
         </div>
-      </article>
+      </div>
+    </section>
 
-      <article class="feature-block">
-        <div class="feature-info">
-          <b>06</b>
-          <h3>Muse AI Writing Assistant</h3>
-          <ul>
-            <li><strong>Local & Cloud Models:</strong> Connect via local Ollama instances for 100% private models or secure API keys.</li>
-            <li><strong>Command Integrations:</strong> Use @write-scene, @lookup, and @synonyms directly in context-aware screenplay chat threads.</li>
+    <!-- Section: 04 X-Ray Screenplay Analytics -->
+    <div class="section-header-row" id="studio">
+      <span class="section-num">04</span>
+      <span class="section-title">X-RAY SCREENPLAY ANALYTICS</span>
+      <span class="section-tag">[ PACING METRICS // RUNTIME DIAGNOSTICS ]</span>
+    </div>
+    <section class="feature-split-block">
+      <div class="feature-editorial-col">
+        <div>
+          <span class="feature-meta-tag">// 04: DRAMATIC METRICS</span>
+          <h2 class="feature-heading">Structural rhythm and pacing diagnostics</h2>
+          <p class="feature-desc">
+            Gain deep insight into your story's dramatic pulse. X-Ray visualizes dialogue vs. action density, tracks character dialogue presence, and computes screen runtime.
+          </p>
+          <ul class="feature-bullets">
+            <li><strong>Pacing Density Histogram:</strong> Track dialogue vs. action balance across all three acts.</li>
+            <li><strong>Character Dialogue Distribution:</strong> Analyze character speaking frequency and scene dialogue breakdown.</li>
+            <li><strong>Page-to-Minute Timing:</strong> Industry standard timing algorithms estimate screen duration accurately.</li>
           </ul>
         </div>
-        <div class="media-preview-container">
-          <img src="../assets/website images/A1-Muse.png" alt="ActOne Screenplay Muse AI Co-Pilot Assistant">
-          <button class="enlarge-btn" aria-label="Enlarge Image"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      </div>
+      <div class="feature-media-col">
+        <div class="feature-media-frame">
+          <img src="../assets/website images/A1-Xray.png" alt="ActOne X-Ray Screenplay Analytics">
+          <span class="media-zoom-tag">[ CLICK TO ZOOM ⊕ ]</span>
         </div>
-      </article>
+      </div>
+    </section>
 
-      <article class="feature-block">
-        <div class="feature-info">
-          <b>07</b>
-          <h3>High-Performance Rust PDF & FDX Export</h3>
-          <ul>
-            <li><strong>Rust Rendering Engine:</strong> Pixel-perfect formatting with cosmic-text rendering, customizable scene numbers, and orphan protection.</li>
-            <li><strong>Final Draft Compatibility:</strong> Exports screenplay directly to Final Draft (.fdx) format, preserving section and color highlights.</li>
+    <!-- Section: 05 Muse Local AI Co-Pilot -->
+    <div class="section-header-row">
+      <span class="section-num">05</span>
+      <span class="section-title">MUSE LOCAL AI CO-PILOT</span>
+      <span class="section-tag">[ 100% PRIVATE // ZERO CLOUD ]</span>
+    </div>
+    <section class="feature-split-block">
+      <div class="feature-editorial-col">
+        <div>
+          <span class="feature-meta-tag">// 05: LOCAL INTELLIGENCE</span>
+          <h2 class="feature-heading">Brainstorm dialogue without leaking IP</h2>
+          <p class="feature-desc">
+            Brainstorm character backstory, generate dialogue variants, or analyze narrative beats with local or custom AI models that never send your creative intellectual property to third-party cloud servers.
+          </p>
+          <ul class="feature-bullets">
+            <li><strong>Configurable Backends:</strong> Connect to local Ollama/LMStudio instances or custom OpenAI-compatible endpoints.</li>
+            <li><strong>Scene Context Awareness:</strong> Muse analyzes active scene characters, beat synopses, and dramatic tone.</li>
+            <li><strong>Zero Training Telemetry:</strong> Your script data stays 100% on your local machine.</li>
           </ul>
-          <p style="margin-top: 20px; font-weight: bold; color: var(--mocha-lavender); font-size: 1rem; font-family: CourierPrime, monospace;">And Much More!</p>
         </div>
-        <div class="media-preview-container">
-          <img src="../assets/website images/A1-Export.png" alt="ActOne Screenplay Export & PDF Dialog">
-          <button class="enlarge-btn" aria-label="Enlarge Image"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      </div>
+      <div class="feature-media-col">
+        <div class="feature-media-frame">
+          <img src="../assets/website images/A1-Muse.png" alt="ActOne Muse AI Co-Pilot">
+          <span class="media-zoom-tag">[ CLICK TO ZOOM ⊕ ]</span>
         </div>
-      </article>
-    </div></section>
-    <section id="community" class="section media-section"><div><p class="eyebrow">COMPLETELY OPEN SOURCE</p><h2>The code is<br>yours to inspect.</h2><p>ActOne Screenplay is now completely open source. Explore the code, contribute improvements, or build it yourself on GitHub.</p><a class="button button-actone" href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener">View ActOne on GitHub</a> <a class="button button-outline" href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">Join Discord Community</a></div></section>
-    <section id="docs" class="section media-section"><div><p class="eyebrow">DOCUMENTATION</p><h2>Everything<br>has a place.</h2><p>Search the complete ActOne Screenplay help library for writing, workspace, production, files, exports, settings, and Muse.</p><a class="button button-outline" href="docs/">Open ActOne Screenplay Docs</a></div></section>
-  </main><footer class="site-footer"><span>iyal.ink / ActOne Screenplay</span><span><a href="downloads/">Download</a> <a href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener">GitHub</a> <a href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">Discord</a></span><span>Completely Open-Source Fountain Screenplay Editor</span></footer><script src="https://iyal.ink/assets/site.js"></script>
-</body></html>
+      </div>
+    </section>
+
+    <!-- Section: 06 Studio-Ready PDF & FDX Exporter -->
+    <div class="section-header-row">
+      <span class="section-num">06</span>
+      <span class="section-title">STUDIO-READY PDF &amp; FDX EXPORTER</span>
+      <span class="section-tag">[ PRODUCTION READY // TAGGING ]</span>
+    </div>
+    <section class="feature-split-block">
+      <div class="feature-editorial-col">
+        <div>
+          <span class="feature-meta-tag">// 06: PRODUCTION EXPORT</span>
+          <h2 class="feature-heading">Pixel-perfect industry exports</h2>
+          <p class="feature-desc">
+            Export studio-ready PDFs with title pages, header watermarks, and scene numbers, or round-trip Final Draft (.fdx) files for seamless collaboration with producers and production crews.
+          </p>
+          <ul class="feature-bullets">
+            <li><strong>Native PDF Engine:</strong> Generates industry-standard PDFs with exact typography and margins.</li>
+            <li><strong>Final Draft (.fdx) Compatibility:</strong> Full two-way support for industry production workflows.</li>
+            <li><strong>Breakdown Tagging:</strong> Tag props, wardrobe, stunts, and VFX directly in your script.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="feature-media-col">
+        <div class="feature-media-frame">
+          <img src="../assets/website images/A1-Export.png" alt="ActOne Studio Ready Export">
+          <span class="media-zoom-tag">[ CLICK TO ZOOM ⊕ ]</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy 3-Column Grid -->
+    <div class="section-header-row" id="philosophy">
+      <span class="section-num">07</span>
+      <span class="section-title">CORE STUDIO PHILOSOPHY</span>
+      <span class="section-tag">[ 03 PRINCIPLES ]</span>
+    </div>
+    <section class="philosophy-grid">
+      <div class="philosophy-cell">
+        <div class="philosophy-num">01 // OFFLINE-FIRST</div>
+        <h3 class="philosophy-heading">Distraction-Free Sanctuary</h3>
+        <p class="philosophy-text">
+          No subscriptions, no mandatory sign-ins, no online sync dependencies. ActOne runs 100% locally on your machine at native speed.
+        </p>
+      </div>
+      <div class="philosophy-cell">
+        <div class="philosophy-num">02 // ZERO TELEMETRY</div>
+        <h3 class="philosophy-heading">Your Words Are Yours</h3>
+        <p class="philosophy-text">
+          Every word you write is stored on your local disk in standard Fountain plain text. Zero cloud tracking, zero AI model harvesting.
+        </p>
+      </div>
+      <div class="philosophy-cell">
+        <div class="philosophy-num">03 // OPEN SOURCE</div>
+        <h3 class="philosophy-heading">Built with Transparency</h3>
+        <p class="philosophy-text">
+          ActOne is completely open-source under permissive licensing. Inspect the code, contribute features, and build on a studio tool you own forever.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Full-Bleed Architectural Aspen Footer -->
+  <footer class="aspen-footer">
+    <div class="footer-top-grid">
+      <div class="footer-brand-col">
+        <div>
+          <div style="display:flex; align-items:center; gap:12px; font-weight:800; font-size:1.1rem; margin-bottom:12px;">
+            <img class="brand-icon" src="../assets/ActOne_apptile.png" alt="ActOne Logo">
+            <span>ACTONE SCREENPLAY</span>
+          </div>
+          <p style="color:var(--fg-dim); font-size:0.85rem; max-width:320px; line-height:1.5;">
+            The desktop-native Fountain screenplay studio for modern writers and filmmakers.
+          </p>
+        </div>
+
+        <div style="margin-top:28px; font-size:0.75rem; color:var(--fg-muted);">
+          <span>PART OF THE </span><a href="https://iyal.ink/" style="color:var(--accent); font-weight:700;">IYAL.INK</a><span> FAMILY</span>
+        </div>
+      </div>
+
+      <div class="footer-cta-col">
+        <div>
+          <div style="font-size:0.7rem; color:var(--accent); letter-spacing:0.08em; font-weight:700; margin-bottom:8px;">// GET STARTED</div>
+          <h3 style="font-size:1.6rem; font-weight:800; color:var(--fg); margin-bottom:12px;">Ready to write your next script?</h3>
+          <p style="color:var(--fg-dim); font-size:0.85rem; max-width:360px; margin-bottom:24px;">
+            Download ActOne Screenplay for Windows and Linux. 100% free and open-source.
+          </p>
+        </div>
+
+        <div>
+          <a class="btn-aspen btn-aspen-accent" href="downloads/">
+            <span>Download ActOne v0.4.20</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>
+        <span>© 2026 iyal.ink / ActOne Screenplay — Free &amp; Open Source</span>
+      </div>
+
+      <div class="footer-links-row">
+        <a class="footer-link" href="../fount/">Fount (CLI)</a>
+        <a class="footer-link" href="downloads/">Downloads</a>
+        <a class="footer-link" href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="footer-link" href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">Discord ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="actone.js"></script>
+</body>
+</html>

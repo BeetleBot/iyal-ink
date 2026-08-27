@@ -1,13 +1,12 @@
 /**
- * Fount TUI — Interactive Engine
- * Aspen Search × Terminal Aesthetic Fusion
- * Multi-Depth Raining Courier Prime Letters Canvas Engine
+ * ActOne Screenplay — Interactive Script Engine
+ * Aspen Search Grid Architecture x Multi-Depth Courier Prime Cascading Rain
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Theme Switcher System (Header Swatches)
   const themeBtns = document.querySelectorAll('.theme-btn');
-  const savedTheme = localStorage.getItem('fount_theme') || 'mint';
+  const savedTheme = localStorage.getItem('actone_theme') || 'mint';
   
   function applyTheme(themeName) {
     if (themeName === 'mint') {
@@ -15,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       document.documentElement.setAttribute('data-theme', themeName);
     }
-    localStorage.setItem('fount_theme', themeName);
+    localStorage.setItem('actone_theme', themeName);
     
     themeBtns.forEach(btn => {
       if (btn.dataset.setTheme === themeName) {
@@ -25,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Update rain colors if canvas is active
     if (window.updateRainTheme) window.updateRainTheme();
   }
 
@@ -55,24 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(updateClocks, 1000);
   updateClocks();
 
-  // 3. Quick Copy Command
-  const copyBtn = document.getElementById('copyInstallCmd');
-  if (copyBtn) {
-    copyBtn.addEventListener('click', () => {
-      const code = 'cargo install fount';
-      navigator.clipboard.writeText(code).then(() => {
-        const originalText = copyBtn.textContent;
-        copyBtn.textContent = 'COPIED ✓';
-        copyBtn.style.color = 'var(--accent)';
-        setTimeout(() => {
-          copyBtn.textContent = originalText;
-          copyBtn.style.color = '';
-        }, 2000);
-      });
-    });
-  }
-
-  // 4. Subtle, Multi-Depth Individual Falling Courier Prime Letters Engine
+  // 3. Multi-Depth Cascading Courier Prime Letters Engine with Trailing Motion Effects
   const canvas = document.getElementById('courierRainCanvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
@@ -87,11 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5 Deep, Immersive Layers with Darkened, Clearly Visible Typography
     const DEPTH_LAYERS = [
-      { count: 90, fontSize: 10, speedMin: 0.40, speedMax: 0.85, baseAlpha: 0.22, isAccent: false, trailLength: 2 }, // Deepest horizon
-      { count: 75, fontSize: 13, speedMin: 0.85, speedMax: 1.45, baseAlpha: 0.35, isAccent: false, trailLength: 3 }, // Deep midground
-      { count: 55, fontSize: 17, speedMin: 1.45, speedMax: 2.20, baseAlpha: 0.48, isAccent: false, trailLength: 3 }, // True midground
-      { count: 35, fontSize: 23, speedMin: 2.20, speedMax: 3.20, baseAlpha: 0.62, isAccent: true,  trailLength: 4 }, // Foreground
-      { count: 18, fontSize: 30, speedMin: 3.20, speedMax: 4.40, baseAlpha: 0.75, isAccent: true,  trailLength: 4 }  // Near focus
+      { count: 90, fontSize: 10, speedMin: 0.40, speedMax: 0.85, baseAlpha: 0.22, isAccent: false, trailLength: 2 },
+      { count: 75, fontSize: 13, speedMin: 0.85, speedMax: 1.45, baseAlpha: 0.35, isAccent: false, trailLength: 3 },
+      { count: 55, fontSize: 17, speedMin: 1.45, speedMax: 2.20, baseAlpha: 0.48, isAccent: false, trailLength: 3 },
+      { count: 35, fontSize: 23, speedMin: 2.20, speedMax: 3.20, baseAlpha: 0.62, isAccent: true,  trailLength: 4 },
+      { count: 18, fontSize: 30, speedMin: 3.20, speedMax: 4.40, baseAlpha: 0.75, isAccent: true,  trailLength: 4 }
     ];
 
     let particles = [];
@@ -164,23 +145,19 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.clearRect(0, 0, width, height);
 
       particles.forEach(p => {
-        // Track recent positions for trailing effect
         p.trail.unshift({ y: p.y, char: p.char });
         if (p.trail.length > p.trailLength) {
           p.trail.pop();
         }
 
-        // Individual downward fall
         p.y += p.speed * delta;
         p.morphTimer += delta;
 
-        // Occasional mid-fall character morphing
         if (p.morphTimer >= p.morphInterval) {
           p.morphTimer = 0;
           p.char = getRandomGlyph();
         }
 
-        // Edge vertical fading for smooth entry at top and exit at bottom
         let edgeFade = 1.0;
         if (p.y < 50) edgeFade = Math.max(0, p.y / 50);
         else if (p.y > height - 50) edgeFade = Math.max(0, (height - p.y) / 50);
@@ -189,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         ctx.font = `${p.layer >= 3 ? '700 ' : '500 '}${p.fontSize}px 'CourierPrime', Courier, monospace`;
 
-        // 1. Render Trailing Ghost Letters
+        // 1. Trailing Ghost Letters
         for (let t = p.trail.length - 1; t >= 0; t--) {
           const ghost = p.trail[t];
           const trailRatio = 1 - ((t + 1) / (p.trail.length + 1));
@@ -205,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
 
-        // 2. Render Main Head Letter
+        // 2. Main Head Letter
         if (p.isAccent) {
           ctx.fillStyle = `rgba(${accentRgb}, ${currentAlpha * 0.90})`;
           if (p.layer === 4) {
@@ -215,7 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.shadowBlur = 0;
           }
         } else {
-          // Darkened slate / charcoal steel tone
           ctx.fillStyle = `rgba(165, 175, 190, ${currentAlpha * 0.75})`;
           ctx.shadowBlur = 0;
         }
@@ -223,7 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.fillText(p.char, p.x, p.y);
         ctx.shadowBlur = 0;
 
-        // When reaching the bottom, respawn cleanly from above the top
         if (p.y > height + 40) {
           p.y = -20 - Math.random() * 40;
           p.x = Math.random() * width;
@@ -239,13 +214,13 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(renderRain);
   }
 
-  // 5. Media Lightbox
+  // 4. Media Lightbox
   const lightbox = document.createElement('div');
   lightbox.className = 'media-lightbox';
   lightbox.innerHTML = `
     <div class="lightbox-content">
       <button class="lightbox-close-btn" id="lightboxClose">[ESC] CLOSE ✕</button>
-      <img id="lightboxImg" src="" alt="Enlarged preview">
+      <img id="lightboxImg" src="" alt="Enlarged screenshot">
     </div>
   `;
   document.body.appendChild(lightbox);
@@ -283,15 +258,4 @@ document.addEventListener('DOMContentLoaded', () => {
       if (img) openLightbox(img.src, img.alt);
     });
   });
-
-  // 6. Mobile Menu Toggle
-  const mobileToggle = document.getElementById('mobileMenuToggle');
-  const mobileNav = document.getElementById('mobileNavPanel');
-
-  if (mobileToggle && mobileNav) {
-    mobileToggle.addEventListener('click', () => {
-      const isOpen = mobileNav.classList.toggle('is-open');
-      mobileToggle.textContent = isOpen ? 'CLOSE ✕' : 'MENU ☰';
-    });
-  }
 });

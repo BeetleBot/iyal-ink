@@ -157,7 +157,7 @@
         <div>
           <div class="feature-top-meta">
             <span class="feature-num">01</span>
-            <span class="feature-keybind">Ctrl + N</span>
+
           </div>
           <h3 class="feature-heading">Fountain, Rendered Live</h3>
           <p class="feature-desc">Write in standard Fountain syntax and watch scene headings, character dialog, parentheticals, and transitions format automatically in real time.</p>
@@ -178,7 +178,7 @@
         <div>
           <div class="feature-top-meta">
             <span class="feature-num">02</span>
-            <span class="feature-keybind">F2 / Tab</span>
+
           </div>
           <h3 class="feature-heading">Index Cards &amp; Beat Tree</h3>
           <p class="feature-desc">Step back from the text with an interactive TUI Corkboard. Reorder beats, group sequences into 3-Act or Hero's Journey structures with instant visual feedback.</p>
@@ -199,7 +199,7 @@
         <div>
           <div class="feature-top-meta">
             <span class="feature-num">03</span>
-            <span class="feature-keybind">F3 / :xray</span>
+
           </div>
           <h3 class="feature-heading">X-Ray Pacing &amp; Analysis</h3>
           <p class="feature-desc">Deep analytical inspection of your screenplay directly in the terminal—monitor dialogue vs. action density, scene timing distribution, and character co-occurrence charts.</p>
@@ -220,7 +220,7 @@
         <div>
           <div class="feature-top-meta">
             <span class="feature-num">04</span>
-            <span class="feature-keybind">F4 / :sprint</span>
+
           </div>
           <h3 class="feature-heading">Writing Sprint Speedometer</h3>
           <p class="feature-desc">Set timed writing sprints with live words-per-minute velocity calculation, session milestones, and automatic snapshots to keep you locked in deep flow state.</p>
@@ -241,7 +241,7 @@
         <div>
           <div class="feature-top-meta">
             <span class="feature-num">05</span>
-            <span class="feature-keybind">Ctrl + F / /</span>
+
           </div>
           <h3 class="feature-heading">Instant Regex Search</h3>
           <p class="feature-desc">Global text search and multi-line replacement designed for high-velocity editing. Search character names, dialogue patterns, and markers across 120-page drafts.</p>
@@ -262,7 +262,7 @@
         <div>
           <div class="feature-top-meta">
             <span class="feature-num">06</span>
-            <span class="feature-keybind">:theme</span>
+
           </div>
           <h3 class="feature-heading">High-Contrast Terminal Themes</h3>
           <p class="feature-desc">Custom-tailored color themes designed to match your terminal setup—from phosphor amber and cyber matrix to catppuccin mauve and monochrome e-ink.</p>
@@ -345,9 +345,9 @@
         </a>
       </div>
 
-      <!-- Middle Row: Navigation Links & Live World Clocks -->
-      <div class="footer-nav-row">
-        <div class="footer-links-col">
+      <!-- Middle Row: Navigation Links -->
+      <div class="footer-nav-row" style="grid-template-columns: 1fr; padding: 44px;">
+        <div class="footer-links-col" style="justify-content: flex-start; gap: 64px;">
           <ul class="footer-nav-list">
             <li><strong style="color:var(--fg); font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase;">Product</strong></li>
             <li><a href="#features">Features Overview</a></li>
@@ -364,25 +364,9 @@
             <li><a href="https://iyal.ink/actone/">ActOne Screenplay ↗</a></li>
             <li><a href="https://iyal.ink/">Iyal.ink Home ↗</a></li>
           </ul>
-        </div>
 
-        <div class="footer-clocks-col">
-          <div class="clocks-grid">
-            <div class="clock-card">
-              <span class="clock-label">NYC TIME</span>
-              <span class="clock-val" id="clock-nyc">--:--:--</span>
-            </div>
-            <div class="clock-card">
-              <span class="clock-label">LA TIME</span>
-              <span class="clock-val" id="clock-la">--:--:--</span>
-            </div>
-            <div class="clock-card">
-              <span class="clock-label">SYSTEM UTC</span>
-              <span class="clock-val" id="clock-utc">--:--:--</span>
-            </div>
-          </div>
-
-          <div style="font-size:0.75rem; color:var(--fg-dim); line-height:1.5;">
+          <div style="font-size:0.75rem; color:var(--fg-dim); line-height:1.6; max-width: 320px; margin-left: auto;">
+            <div style="font-weight:700; color:var(--fg); margin-bottom:6px;">FOUNTTUI SCREENPLAY ENGINE</div>
             Built with <span style="color:var(--accent);">Rust</span> &amp; <span style="color:var(--accent);">Ratatui</span> by <a href="https://iyal.ink/" style="color:var(--fg); text-decoration:underline;">iyal.ink</a>. Distributed under the MIT &amp; Apache 2.0 licenses.
           </div>
         </div>

@@ -3,87 +3,207 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Download Free Fountain Screenplay Writer for Windows & Linux | ActOne</title>
-  <link rel="stylesheet" href="../../assets/site.css">
-  <link rel="icon" type="image/png" href="https://iyal.ink/assets/ActOne_apptile.png">
+  <title>Download ActOne Screenplay — Free Studio Screenplay Writer for Windows &amp; Linux</title>
+  <meta name="description" content="Download ActOne Screenplay for Windows and Linux. Completely open-source, offline-first, native Fountain manuscript workspace.">
+  <link rel="stylesheet" href="../actone.css">
+  <link rel="icon" type="image/png" href="../../assets/ActOne_apptile.png">
 </head>
-<body class="product-page actone-theme">
-  <header class="site-header">
-    <a class="iyal-mark" href="https://iyal.ink/"><img class="iyal-mark-img" src="https://iyal.ink/assets/IyalLogo.svg" alt="iyal.ink"></a>
-    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">Menu</button>
-    <nav class="site-nav">
-      <a href="https://iyal.ink/actone/">ActOne</a>
-      <a href="https://iyal.ink/actone/#features">Features</a>
-      <a href="https://iyal.ink/actone/#docs">Docs</a>
-      <a href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">Discord</a>
-    </nav>
+<body>
+
+  <!-- Aspen Header -->
+  <header class="aspen-header">
+    <div class="header-brand-cell">
+      <a href="../" style="display:flex; align-items:center; gap:10px;">
+        <img class="brand-icon" src="../../assets/ActOne_apptile.png" alt="ActOne Logo">
+        <span>ACTONE</span>
+      </a>
+      <span class="brand-badge">DOWNLOADS</span>
+    </div>
+
+    <div class="header-meta-cell">
+      <div class="meta-telemetry">
+        <span class="telemetry-item">
+          <span>CHANNEL:</span>
+          <span style="color:var(--accent); font-weight:700;">STABLE // v0.4.20</span>
+        </span>
+      </div>
+
+      <nav class="header-nav">
+        <a class="nav-link" href="../"><span>Overview</span></a>
+        <a class="nav-link" href="../#features"><span>Features</span></a>
+        <a class="nav-link" href="../#studio"><span>Studio</span></a>
+        <a class="nav-link" href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener"><span>GitHub ↗</span></a>
+      </nav>
+    </div>
+
+    <div class="header-actions-cell">
+      <div class="theme-switcher" title="Select Color Palette">
+        <button class="theme-btn active" data-set-theme="mint" title="Aspen Mint"></button>
+        <button class="theme-btn" data-set-theme="amber" title="Amber CRT Phosphor"></button>
+        <button class="theme-btn" data-set-theme="matrix" title="Matrix Green"></button>
+        <button class="theme-btn" data-set-theme="mauve" title="Catppuccin Mauve"></button>
+        <button class="theme-btn" data-set-theme="cyan" title="Cyber Cyan"></button>
+      </div>
+
+      <a class="btn-aspen" href="../">
+        <span>Back to Site</span>
+      </a>
+    </div>
   </header>
 
-  <main>
-    <section class="section download-hero">
-      <p class="eyebrow">DOWNLOAD</p>
-      <div class="version-line"><div class="version-display">v0.4.20</div><span class="version-beta">(beta)</span></div>
-      <h1>Download ActOne Screenplay</h1>
-      <p class="lede">Completely open-source and available for Windows and Linux.</p>
-    </section>
+  <main class="aspen-container">
+    <!-- Download Hero Zone -->
+    <section class="hero-section" style="padding: 72px 44px 56px;">
+      <canvas class="hero-rain-canvas" id="courierRainCanvas"></canvas>
+      <div class="hero-rain-overlay"></div>
 
-    <section class="section">
-      <div class="section-intro">
-        <p class="eyebrow">RELEASE NOTES / V0.4.20</p>
-        <h2>What's new</h2>
+      <div class="hero-content-wrap">
+        <div class="hero-meta-bar">
+          <span>[ RELEASE: STABLE ]</span>
+          <span>//</span>
+          <span>[ VERSION: v0.4.20 ]</span>
+          <span>//</span>
+          <span>[ ZERO CLOUD LOCK-IN ]</span>
+        </div>
+
+        <h1 class="hero-title" style="font-size:clamp(2.6rem, 5.5vw, 4.4rem); margin-bottom:16px;">
+          Download <em>ActOne Screenplay</em>
+        </h1>
+
+        <p class="hero-tagline" style="margin-bottom:0;">
+          Completely free, open-source, and native for Windows and Linux.
+        </p>
       </div>
-      <ul class="changelog">
-        <li><strong>Comprehensive UI Overhaul &amp; Design System Unification</strong> — Unified all UI elements with consistent border radii (pill buttons, rounded cards, dialog surfaces) and soft multi-layered elevation shadows across both light and dark modes.</li>
-        <li><strong>Redesigned Welcome Screen</strong> — Modernized welcome experience with floating window controls, an enlarged ActOne brand mark, elevated floating island cards with smooth hover feedback, and a StatusBar-styled footer with centered copyright info.</li>
-        <li><strong>Streamlined TitleBar Across All Windows</strong> — Cleaned up TitleBar headers across all secondary windows and modals (Settings, Help, Export, Themes, X-Ray, About, Tutorials, Fix Formatting, Title Page Editor, Structure Import) by removing redundant icons and resolving hardware-accelerated tile clipping on WebKitGTK.</li>
-        <li><strong>Feature &amp; Footprint Cleanup</strong> — Completely removed legacy ambient sound features and dependencies, streamlining application settings and memory footprint.</li>
-        <li><strong>Welcome Screen File Picker Stability</strong> — Prevented duplicate dialog triggers when dismissing or canceling the file picker on the Welcome Screen.</li>
-        <li><strong>WebKitGTK Compositor Fix</strong> — Fixed hardware-accelerated clipping and uninitialized tile artifacts on borderless windows under Linux WebKitGTK.</li>
-      </ul>
     </section>
 
-    <section class="download-grid">
-      <article class="download-card" style="display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <div class="eyebrow" style="margin-bottom: 4px;">MICROSOFT STORE</div>
-          <h2 style="margin-bottom: 8px;">Download For Windows</h2>
-          <p style="margin: 0; min-height: 2.8em;">Install ActOne Screenplay for Windows from the Microsoft Store with automatic background updates.</p>
+    <!-- Platform Download Grid -->
+    <div class="section-header-row">
+      <span class="section-num">01</span>
+      <span class="section-title">CHOOSE YOUR OPERATING SYSTEM</span>
+      <span class="section-tag">[ NATIVE BINARIES ]</span>
+    </div>
+
+    <section class="grid-2 aspen-row divide-x">
+      <!-- Windows Store Card -->
+      <div style="padding: 44px; display: flex; flex-direction: column; justify-content: space-between; background: var(--bg-subtle);">
+        <div>
+          <span class="feature-meta-tag">// WINDOWS 10 / 11 (64-BIT)</span>
+          <h2 style="font-family: var(--font-sans); font-size: 1.8rem; font-weight: 800; color: var(--fg); margin-bottom: 12px;">
+            Microsoft Store
+          </h2>
+          <p style="color: var(--fg-dim); font-size: 0.9rem; line-height: 1.6; margin-bottom: 28px;">
+            Install ActOne Screenplay from the official Microsoft Store with seamless background automatic updates and sandboxed security.
+          </p>
         </div>
 
         <div>
-          <a class="button button-actone" style="display: block; width: 100%; text-align: center; box-sizing: border-box;" href="https://apps.microsoft.com/detail/9PJMKR0937KK">Download ActOne for Windows</a>
-        </div>
+          <a class="btn-aspen btn-aspen-accent" style="width: 100%; justify-content: center; height: 48px;" href="https://apps.microsoft.com/detail/9PJMKR0937KK" target="_blank" rel="noopener">
+            <span>Get on Microsoft Store ↗</span>
+          </a>
 
-        <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); padding: 14px 16px; font-size: 0.82rem; color: var(--mocha-subtext); line-height: 1.5; min-height: 90px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center;">
-          <div style="font-weight: 700; color: var(--mocha-text); margin-bottom: 4px;">System Requirement:</div>
-          <div>Windows 10 / 11 (64-bit). Native desktop application with 100% offline functionality.</div>
+          <div style="margin-top: 18px; padding: 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); font-size: 0.72rem; color: var(--fg-muted);">
+            <strong>Requirement:</strong> Windows 10 build 17763+, Windows 11. 100% offline desktop app.
+          </div>
         </div>
-      </article>
+      </div>
 
-      <article class="download-card" style="display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <div class="eyebrow" style="margin-bottom: 4px;">STANDALONE LINUX TARBALL</div>
-          <h2 style="margin-bottom: 8px;">Download For Linux</h2>
-          <p style="margin: 0; min-height: 2.8em;">Download the standalone archive for Ubuntu, Fedora, Arch Linux, Debian, openSUSE, and all Linux distros.</p>
+      <!-- Linux Tarball Card -->
+      <div style="padding: 44px; display: flex; flex-direction: column; justify-content: space-between; background: var(--bg-subtle);">
+        <div>
+          <span class="feature-meta-tag">// ALL LINUX DISTRIBUTIONS</span>
+          <h2 style="font-family: var(--font-sans); font-size: 1.8rem; font-weight: 800; color: var(--fg); margin-bottom: 12px;">
+            Standalone Linux Tarball
+          </h2>
+          <p style="color: var(--fg-dim); font-size: 0.9rem; line-height: 1.6; margin-bottom: 28px;">
+            Standalone portable archive tested across Ubuntu, Fedora, Arch Linux, Debian, openSUSE, and Pop!_OS.
+          </p>
         </div>
 
         <div>
-          <a class="button button-actone" style="display: block; width: 100%; text-align: center; box-sizing: border-box;" href="https://downloads.iyal.ink/ActOne-Linux-x64-0.4.20.tar.gz">Download ActOne for Linux</a>
-        </div>
+          <a class="btn-aspen btn-aspen-accent" style="width: 100%; justify-content: center; height: 48px;" href="https://downloads.iyal.ink/ActOne-Linux-x64-0.4.20.tar.gz">
+            <span>Download Linux x64 (.tar.gz) ↓</span>
+          </a>
 
-        <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); padding: 14px 16px; font-size: 0.82rem; color: var(--mocha-subtext); line-height: 1.5; min-height: 90px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center;">
-          <div style="font-weight: 700; color: var(--mocha-text); margin-bottom: 4px;">Tarball Installation:</div>
-          <div>Extract the archive, open terminal in the extracted directory, and run: <code>sudo ./install.sh</code></div>
+          <div style="margin-top: 18px; padding: 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); font-size: 0.72rem; color: var(--fg-muted);">
+            <strong>Install:</strong> Extract archive, open terminal in folder, run <code>sudo ./install.sh</code>.
+          </div>
         </div>
-      </article>
+      </div>
+    </section>
+
+    <!-- Changelog Section -->
+    <div class="section-header-row">
+      <span class="section-num">02</span>
+      <span class="section-title">RELEASE NOTES &amp; CHANGELOG</span>
+      <span class="section-tag">[ v0.4.20 ]</span>
+    </div>
+
+    <section style="padding: 44px; background: var(--bg-card); border-bottom: 1px solid var(--border);">
+      <ul class="feature-bullets" style="gap: 16px;">
+        <li><strong>Comprehensive UI Overhaul &amp; Design System Unification:</strong> Unified all UI elements with consistent border radii (pill buttons, rounded cards, dialog surfaces) and soft multi-layered elevation shadows.</li>
+        <li><strong>Redesigned Welcome Screen:</strong> Modernized welcome experience with floating window controls, enlarged brand mark, and elevated floating island cards.</li>
+        <li><strong>Streamlined TitleBar Across All Windows:</strong> Cleaned up TitleBar headers across all secondary windows and modals (Settings, Help, Export, Themes, X-Ray, About, Tutorials, Fix Formatting).</li>
+        <li><strong>Feature &amp; Footprint Cleanup:</strong> Completely removed legacy ambient sound dependencies, streamlining application memory footprint.</li>
+        <li><strong>Welcome Screen File Picker Stability:</strong> Prevented duplicate dialog triggers when dismissing or canceling the file picker.</li>
+        <li><strong>WebKitGTK Compositor Fix:</strong> Fixed hardware-accelerated clipping and uninitialized tile artifacts under Linux WebKitGTK.</li>
+      </ul>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <span>iyal.ink / ActOne Screenplay Download</span>
-    <span><a href="https://iyal.ink/actone/">Back to ActOne Screenplay</a> <a href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener">GitHub</a> <a href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">Discord Community</a></span>
+  <!-- Full-Bleed Architectural Aspen Footer -->
+  <footer class="aspen-footer">
+    <div class="footer-top-grid">
+      <div class="footer-brand-col">
+        <div>
+          <div style="display:flex; align-items:center; gap:12px; font-weight:800; font-size:1.1rem; margin-bottom:12px;">
+            <img class="brand-icon" src="../../assets/ActOne_apptile.png" alt="ActOne Logo">
+            <span>ACTONE SCREENPLAY</span>
+          </div>
+          <p style="color:var(--fg-dim); font-size:0.85rem; max-width:320px; line-height:1.5;">
+            The desktop-native Fountain screenplay studio for modern writers and filmmakers.
+          </p>
+        </div>
+
+        <div style="margin-top:28px; font-size:0.75rem; color:var(--fg-muted);">
+          <span>PART OF THE </span><a href="https://iyal.ink/" style="color:var(--accent); font-weight:700;">IYAL.INK</a><span> FAMILY</span>
+        </div>
+      </div>
+
+      <div class="footer-cta-col">
+        <div>
+          <div style="font-size:0.7rem; color:var(--accent); letter-spacing:0.08em; font-weight:700; margin-bottom:8px;">// OPEN SOURCE</div>
+          <h3 style="font-size:1.6rem; font-weight:800; color:var(--fg); margin-bottom:12px;">Explore the source code</h3>
+          <p style="color:var(--fg-dim); font-size:0.85rem; max-width:360px; margin-bottom:24px;">
+            ActOne Screenplay is licensed under permissive open-source licenses. Star or contribute on GitHub.
+          </p>
+        </div>
+
+        <div>
+          <a class="btn-aspen btn-aspen-accent" href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener">
+            <span>Star on GitHub ★</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>
+        <span>© 2026 iyal.ink / ActOne Screenplay — Free &amp; Open Source</span>
+      </div>
+
+      <div class="footer-links-row">
+        <a class="footer-link" href="../../fount/">Fount (CLI)</a>
+        <a class="footer-link" href="../">ActOne Overview</a>
+        <a class="footer-link" href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="footer-link" href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">Discord ↗</a>
+      </div>
+    </div>
   </footer>
-  <script src="https://iyal.ink/assets/site.js"></script>
+
+  <script src="../actone.js"></script>
 </body>
 </html>
