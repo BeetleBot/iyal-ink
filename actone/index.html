@@ -7,23 +7,22 @@
   <meta name="description" content="ActOne is a sophisticated, completely open-source Fountain screenplay editor for Windows and Linux. Native manuscript paper, hierarchical outline tree, X-Ray analytics, and Muse AI.">
   <link rel="canonical" href="https://iyal.ink/actone/">
   
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://iyal.ink/actone/">
   <meta property="og:title" content="ActOne Screenplay — The Studio Screenplay Editor for Modern Writers">
   <meta property="og:description" content="Native Fountain screenplay workspace for Windows and Linux with outline tree, X-Ray analytics, production breakdown tags, and Muse AI.">
   <meta property="og:image" content="https://iyal.ink/assets/ActOne_apptile.png">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ActOne Screenplay — The Studio Screenplay Editor for Modern Writers">
   <meta name="twitter:description" content="Native Fountain screenplay workspace for Windows and Linux.">
   <meta name="twitter:image" content="https://iyal.ink/assets/ActOne_apptile.png">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="actone.css">
   <link rel="icon" type="image/png" href="../assets/ActOne_apptile.png">
 
-  <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -47,44 +46,28 @@
 </head>
 <body>
 
-  <!-- Aspen Header -->
   <header class="aspen-header">
     <div class="header-brand-cell">
       <a href="https://iyal.ink/" style="display:flex; align-items:center; gap:10px;">
         <img class="brand-icon" src="../assets/ActOne_apptile.png" alt="ActOne Logo">
         <span>ACTONE</span>
       </a>
-      <span class="brand-badge">STUDIO</span>
     </div>
 
-    <div class="header-meta-cell">
-      <div class="meta-telemetry">
-        <span class="telemetry-item">
-          <span>TIME:</span>
-          <span id="header-live-time" style="color:var(--fg); font-weight:700;">--:--:--</span>
-        </span>
-        <span class="telemetry-item">
-          <span>ENGINE:</span>
-          <span style="color:var(--accent); font-weight:700;">TAURI+RUST</span>
-        </span>
-      </div>
-
-      <nav class="header-nav">
-        <a class="nav-link" href="#features"><span>Features</span></a>
-        <a class="nav-link" href="#studio"><span>Studio</span></a>
-        <a class="nav-link" href="#philosophy"><span>Philosophy</span></a>
-        <a class="nav-link" href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener"><span>GitHub ↗</span></a>
-        <a class="nav-link" href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener"><span>Discord ↗</span></a>
-      </nav>
-    </div>
+    <nav class="header-nav">
+      <a class="nav-link" href="#features"><span>Features</span></a>
+      <a class="nav-link" href="#philosophy"><span>Philosophy</span></a>
+      <a class="nav-link" href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener"><span>GitHub ↗</span></a>
+      <a class="nav-link" href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener"><span>Discord ↗</span></a>
+    </nav>
 
     <div class="header-actions-cell">
-      <div class="theme-switcher" title="Select Color Palette">
-        <button class="theme-btn active" data-set-theme="mint" title="Aspen Mint"></button>
-        <button class="theme-btn" data-set-theme="amber" title="Amber CRT Phosphor"></button>
-        <button class="theme-btn" data-set-theme="matrix" title="Matrix Green"></button>
-        <button class="theme-btn" data-set-theme="mauve" title="Catppuccin Mauve"></button>
-        <button class="theme-btn" data-set-theme="cyan" title="Cyber Cyan"></button>
+      <div class="theme-switcher" title="Select Pastel Color Palette">
+        <button class="theme-btn active" data-set-theme="lavender" title="Pastel Lavender"></button>
+        <button class="theme-btn" data-set-theme="mint" title="Pastel Sage Mint"></button>
+        <button class="theme-btn" data-set-theme="rose" title="Pastel Blush Rose"></button>
+        <button class="theme-btn" data-set-theme="sky" title="Pastel Sky Blue"></button>
+        <button class="theme-btn" data-set-theme="peach" title="Pastel Warm Peach"></button>
       </div>
 
       <a class="btn-aspen" href="downloads/">
@@ -99,21 +82,19 @@
 
   <main class="aspen-container">
 
-    <!-- Striking Centered Hero Zone (Aspen Architecture with Cascading Letters) -->
     <section class="hero-section">
-      <!-- Multi-Depth Raining Courier Prime Background Canvas -->
       <canvas class="hero-rain-canvas" id="courierRainCanvas"></canvas>
       <div class="hero-rain-overlay"></div>
 
       <div class="hero-content-wrap">
         <div class="hero-meta-bar">
-          <span>[ SYSTEM: ACTONE-SCREENPLAY ]</span>
-          <span>//</span>
-          <span>[ BUILD: v0.4.21-STABLE ]</span>
-          <span>//</span>
-          <span>[ OPEN SOURCE ]</span>
-          <span>//</span>
-          <span>[ TAURI + RUST ]</span>
+          <span class="hero-badge-accent">ACTONE STUDIO</span>
+          <span>•</span>
+          <span>v0.4.21 STABLE</span>
+          <span>•</span>
+          <span>OPEN SOURCE</span>
+          <span>•</span>
+          <span>TAURI + RUST</span>
         </div>
 
         <h1 class="hero-title">
@@ -141,36 +122,34 @@
       </div>
     </section>
 
-    <!-- Telemetry Performance Strip -->
     <section class="telemetry-strip">
       <div class="telemetry-cell">
-        <div class="telemetry-label">01 // ARCHITECTURE</div>
+        <div class="telemetry-label">01 · ARCHITECTURE</div>
         <div class="telemetry-value">TAURI + <span>RUST</span></div>
       </div>
       <div class="telemetry-cell">
-        <div class="telemetry-label">02 // DATA FORMAT</div>
+        <div class="telemetry-label">02 · DATA FORMAT</div>
         <div class="telemetry-value">100% <span>FOUNTAIN</span></div>
       </div>
       <div class="telemetry-cell">
-        <div class="telemetry-label">03 // WORKSPACE BUNDLE</div>
+        <div class="telemetry-label">03 · WORKSPACE BUNDLE</div>
         <div class="telemetry-value"><span>SCRIPT &amp; PROSE</span></div>
       </div>
       <div class="telemetry-cell">
-        <div class="telemetry-label">04 // PRODUCTION EXPORT</div>
+        <div class="telemetry-label">04 · PRODUCTION EXPORT</div>
         <div class="telemetry-value">PDF &amp; <span>FDX NATIVE</span></div>
       </div>
     </section>
 
-    <!-- Section: 01 Fountain Manuscript Engine -->
     <div class="section-header-row" id="features">
       <span class="section-num">01</span>
       <span class="section-title">NATIVE FOUNTAIN MANUSCRIPT ENGINE</span>
-      <span class="section-tag">[ AUTO-FORMATTING // US LETTER &amp; A4 ]</span>
+      <span class="section-tag">AUTO-FORMATTING · US LETTER &amp; A4</span>
     </div>
     <section class="feature-split-block">
       <div class="feature-editorial-col">
         <div>
-          <span class="feature-meta-tag">// 01: MANUSCRIPT TYPOGRAPHY</span>
+          <span class="feature-meta-tag">01 · MANUSCRIPT TYPOGRAPHY</span>
           <h2 class="feature-heading">Authentic US Letter &amp; A4 Paper Formatting</h2>
           <p class="feature-desc">
             ActOne renders your screenplay in pixel-perfect Courier Prime on authentic US Letter or A4 manuscript paper with real-time Fountain syntax coloring. Write continuously without fiddling with margins.
@@ -185,21 +164,20 @@
       <div class="feature-media-col">
         <div class="feature-media-frame">
           <img src="../assets/website images/A1-Editor.png" alt="ActOne Native Fountain Editor">
-          <span class="media-zoom-tag">[ CLICK TO ZOOM ⊕ ]</span>
+          <span class="media-zoom-tag">Click to Zoom ⊕</span>
         </div>
       </div>
     </section>
 
-    <!-- Section: 02 Outline Tree Navigator -->
     <div class="section-header-row">
       <span class="section-num">02</span>
       <span class="section-title">HIERARCHICAL OUTLINE TREE NAVIGATOR</span>
-      <span class="section-tag">[ ACT STRUCTURE // SCENE CARDS ]</span>
+      <span class="section-tag">ACT STRUCTURE · SCENE CARDS</span>
     </div>
     <section class="feature-split-block">
       <div class="feature-editorial-col">
         <div>
-          <span class="feature-meta-tag">// 02: STRUCTURAL CLARITY</span>
+          <span class="feature-meta-tag">02 · STRUCTURAL CLARITY</span>
           <h2 class="feature-heading">Map your story from 30,000 feet</h2>
           <p class="feature-desc">
             Instantly visualize three-act structure, scene headings, and beat synopses in an interactive collapsible tree. Jump across a 120-page screenplay with zero latency.
@@ -214,21 +192,20 @@
       <div class="feature-media-col">
         <div class="feature-media-frame">
           <img src="../assets/website images/A1-Navigator.png" alt="ActOne Outline Tree Navigator">
-          <span class="media-zoom-tag">[ CLICK TO ZOOM ⊕ ]</span>
+          <span class="media-zoom-tag">Click to Zoom ⊕</span>
         </div>
       </div>
     </section>
 
-    <!-- Section: 03 Script & Prose Projects -->
     <div class="section-header-row">
       <span class="section-num">03</span>
       <span class="section-title">SCRIPT &amp; PROSE PROJECTS</span>
-      <span class="section-tag">[ MULTI-DOCUMENT SUITE // MARKDOWN NOTES ]</span>
+      <span class="section-tag">MULTI-DOCUMENT SUITE · MARKDOWN NOTES</span>
     </div>
     <section class="feature-split-block">
       <div class="feature-editorial-col">
         <div>
-          <span class="feature-meta-tag">// 03: UNIFIED PROJECT SUITE</span>
+          <span class="feature-meta-tag">03 · UNIFIED PROJECT SUITE</span>
           <h2 class="feature-heading">All your story collateral in one bundle</h2>
           <p class="feature-desc">
             Store character bibles, treatments, draft revisions, and multiple screenplays together in a single unified project workspace.
@@ -243,21 +220,20 @@
       <div class="feature-media-col">
         <div class="feature-media-frame">
           <img src="../assets/website images/A1-Multi-Scripts.png" alt="ActOne Prose and Multi-Script Projects">
-          <span class="media-zoom-tag">[ CLICK TO ZOOM ⊕ ]</span>
+          <span class="media-zoom-tag">Click to Zoom ⊕</span>
         </div>
       </div>
     </section>
 
-    <!-- Section: 04 X-Ray Screenplay Analytics -->
     <div class="section-header-row" id="studio">
       <span class="section-num">04</span>
       <span class="section-title">X-RAY SCREENPLAY ANALYTICS</span>
-      <span class="section-tag">[ PACING METRICS // RUNTIME DIAGNOSTICS ]</span>
+      <span class="section-tag">PACING METRICS · RUNTIME DIAGNOSTICS</span>
     </div>
     <section class="feature-split-block">
       <div class="feature-editorial-col">
         <div>
-          <span class="feature-meta-tag">// 04: DRAMATIC METRICS</span>
+          <span class="feature-meta-tag">04 · DRAMATIC METRICS</span>
           <h2 class="feature-heading">Structural rhythm and pacing diagnostics</h2>
           <p class="feature-desc">
             Gain deep insight into your story's dramatic pulse. X-Ray visualizes dialogue vs. action density, tracks character dialogue presence, and computes screen runtime.
@@ -272,21 +248,20 @@
       <div class="feature-media-col">
         <div class="feature-media-frame">
           <img src="../assets/website images/A1-Xray.png" alt="ActOne X-Ray Screenplay Analytics">
-          <span class="media-zoom-tag">[ CLICK TO ZOOM ⊕ ]</span>
+          <span class="media-zoom-tag">Click to Zoom ⊕</span>
         </div>
       </div>
     </section>
 
-    <!-- Section: 05 Muse Local AI Co-Pilot -->
     <div class="section-header-row">
       <span class="section-num">05</span>
       <span class="section-title">MUSE LOCAL AI CO-PILOT</span>
-      <span class="section-tag">[ 100% PRIVATE // ZERO CLOUD ]</span>
+      <span class="section-tag">100% PRIVATE · ZERO CLOUD</span>
     </div>
     <section class="feature-split-block">
       <div class="feature-editorial-col">
         <div>
-          <span class="feature-meta-tag">// 05: LOCAL INTELLIGENCE</span>
+          <span class="feature-meta-tag">05 · LOCAL INTELLIGENCE</span>
           <h2 class="feature-heading">Brainstorm dialogue without leaking IP</h2>
           <p class="feature-desc">
             Brainstorm character backstory, generate dialogue variants, or analyze narrative beats with local or custom AI models that never send your creative intellectual property to third-party cloud servers.
@@ -301,21 +276,20 @@
       <div class="feature-media-col">
         <div class="feature-media-frame">
           <img src="../assets/website images/A1-Muse.png" alt="ActOne Muse AI Co-Pilot">
-          <span class="media-zoom-tag">[ CLICK TO ZOOM ⊕ ]</span>
+          <span class="media-zoom-tag">Click to Zoom ⊕</span>
         </div>
       </div>
     </section>
 
-    <!-- Section: 06 Studio-Ready PDF & FDX Exporter -->
     <div class="section-header-row">
       <span class="section-num">06</span>
       <span class="section-title">STUDIO-READY PDF &amp; FDX EXPORTER</span>
-      <span class="section-tag">[ PRODUCTION READY // TAGGING ]</span>
+      <span class="section-tag">PRODUCTION READY · TAGGING</span>
     </div>
     <section class="feature-split-block">
       <div class="feature-editorial-col">
         <div>
-          <span class="feature-meta-tag">// 06: PRODUCTION EXPORT</span>
+          <span class="feature-meta-tag">06 · PRODUCTION EXPORT</span>
           <h2 class="feature-heading">Pixel-perfect industry exports</h2>
           <p class="feature-desc">
             Export studio-ready PDFs with title pages, header watermarks, and scene numbers, or round-trip Final Draft (.fdx) files for seamless collaboration with producers and production crews.
@@ -330,34 +304,33 @@
       <div class="feature-media-col">
         <div class="feature-media-frame">
           <img src="../assets/website images/A1-Export.png" alt="ActOne Studio Ready Export">
-          <span class="media-zoom-tag">[ CLICK TO ZOOM ⊕ ]</span>
+          <span class="media-zoom-tag">Click to Zoom ⊕</span>
         </div>
       </div>
     </section>
 
-    <!-- Philosophy 3-Column Grid -->
     <div class="section-header-row" id="philosophy">
       <span class="section-num">07</span>
       <span class="section-title">CORE STUDIO PHILOSOPHY</span>
-      <span class="section-tag">[ 03 PRINCIPLES ]</span>
+      <span class="section-tag">03 PRINCIPLES</span>
     </div>
     <section class="philosophy-grid">
       <div class="philosophy-cell">
-        <div class="philosophy-num">01 // OFFLINE-FIRST</div>
+        <div class="philosophy-num">01 · OFFLINE-FIRST</div>
         <h3 class="philosophy-heading">Distraction-Free Sanctuary</h3>
         <p class="philosophy-text">
           No subscriptions, no mandatory sign-ins, no online sync dependencies. ActOne runs 100% locally on your machine at native speed.
         </p>
       </div>
       <div class="philosophy-cell">
-        <div class="philosophy-num">02 // ZERO TELEMETRY</div>
+        <div class="philosophy-num">02 · ZERO TELEMETRY</div>
         <h3 class="philosophy-heading">Your Words Are Yours</h3>
         <p class="philosophy-text">
           Every word you write is stored on your local disk in standard Fountain plain text. Zero cloud tracking, zero AI model harvesting.
         </p>
       </div>
       <div class="philosophy-cell">
-        <div class="philosophy-num">03 // OPEN SOURCE</div>
+        <div class="philosophy-num">03 · OPEN SOURCE</div>
         <h3 class="philosophy-heading">Built with Transparency</h3>
         <p class="philosophy-text">
           ActOne is completely open-source under permissive licensing. Inspect the code, contribute features, and build on a studio tool you own forever.
@@ -367,30 +340,29 @@
 
   </main>
 
-  <!-- Full-Bleed Architectural Aspen Footer -->
   <footer class="aspen-footer">
     <div class="footer-top-grid">
       <div class="footer-brand-col">
         <div>
-          <div style="display:flex; align-items:center; gap:12px; font-weight:800; font-size:1.1rem; margin-bottom:12px;">
+          <div style="display:flex; align-items:center; gap:12px; font-weight:800; font-size:1.15rem; margin-bottom:12px;">
             <img class="brand-icon" src="../assets/ActOne_apptile.png" alt="ActOne Logo">
             <span>ACTONE SCREENPLAY</span>
           </div>
-          <p style="color:var(--fg-dim); font-size:0.85rem; max-width:320px; line-height:1.5;">
+          <p style="color:var(--fg-dim); font-size:0.9rem; max-width:320px; line-height:1.6;">
             The desktop-native Fountain screenplay studio for modern writers and filmmakers.
           </p>
         </div>
 
-        <div style="margin-top:28px; font-size:0.75rem; color:var(--fg-muted);">
+        <div style="margin-top:28px; font-size:0.8rem; color:var(--fg-muted); font-weight:600;">
           <span>PART OF THE </span><a href="https://iyal.ink/" style="color:var(--accent); font-weight:700;">IYAL.INK</a><span> FAMILY</span>
         </div>
       </div>
 
       <div class="footer-cta-col">
         <div>
-          <div style="font-size:0.7rem; color:var(--accent); letter-spacing:0.08em; font-weight:700; margin-bottom:8px;">// GET STARTED</div>
-          <h3 style="font-size:1.6rem; font-weight:800; color:var(--fg); margin-bottom:12px;">Ready to write your next script?</h3>
-          <p style="color:var(--fg-dim); font-size:0.85rem; max-width:360px; margin-bottom:24px;">
+          <div style="font-size:0.75rem; color:var(--accent); letter-spacing:0.06em; font-weight:700; margin-bottom:8px;">GET STARTED</div>
+          <h3 style="font-size:1.7rem; font-weight:800; color:var(--fg); margin-bottom:12px; letter-spacing:-0.02em;">Ready to write your next script?</h3>
+          <p style="color:var(--fg-dim); font-size:0.92rem; max-width:360px; margin-bottom:24px; line-height:1.6;">
             Download ActOne Screenplay for Windows and Linux. 100% free and open-source.
           </p>
         </div>

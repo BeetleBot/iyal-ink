@@ -95,6 +95,9 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -103,7 +106,9 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
+  overflow-x: clip;
+  width: 100%;
+  max-width: 100%;
   position: relative;
 }
 
@@ -128,6 +133,7 @@ button {
 img, svg, video {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 /* Aspen Grid Architecture */
@@ -137,6 +143,8 @@ img, svg, video {
   margin: 0 auto;
   border-left: 1px solid var(--border);
   border-right: 1px solid var(--border);
+  box-sizing: border-box;
+  overflow-x: clip;
 }
 
 .aspen-row {
@@ -1458,28 +1466,82 @@ img, svg, video {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --header-h: 56px;
+  }
+  .aspen-container {
+    border-left: none;
+    border-right: none;
+  }
   .header-center-cell {
     display: none;
   }
   .mobile-menu-btn {
-    display: block;
+    display: none;
   }
   .aspen-header {
-    grid-template-columns: 1fr auto auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .header-brand-cell {
+    padding: 0;
+    border-right: none;
+    font-size: 0.82rem;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .brand-badge {
+    display: none;
+  }
+  .header-actions-cell {
+    border-left: none;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .theme-switcher {
+    padding: 0;
+    border-right: none;
+    gap: 4px;
+  }
+  .theme-btn {
+    width: 12px;
+    height: 12px;
+  }
+  .btn-aspen {
+    padding: 6px 10px;
+    height: 32px;
+    font-size: 0.72rem;
+    gap: 4px;
   }
   .hero-section {
-    padding: 64px 18px 48px;
+    padding: 56px 16px 40px;
+  }
+  .hero-meta-bar {
+    font-size: 0.65rem;
+    gap: 6px;
+    padding: 4px 8px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    max-width: 100%;
   }
   .hero-title {
-    font-size: clamp(2.3rem, 9vw, 3.4rem);
-    margin-bottom: 20px;
+    font-size: clamp(2rem, 8.5vw, 3.2rem);
+    margin-bottom: 18px;
+    word-break: break-word;
   }
   .hero-tagline {
-    font-size: 0.98rem;
-    margin-bottom: 28px;
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    word-break: break-word;
   }
   .hero-cta-group {
     width: 100%;
+    gap: 14px;
   }
   .cta-buttons-row {
     width: 100%;
@@ -1489,51 +1551,63 @@ img, svg, video {
   .cta-buttons-row .btn-aspen {
     width: 100%;
     justify-content: center;
-    height: 46px;
+    height: 44px;
   }
-  .code-install-box {
+  .quick-install-box {
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.78rem;
+    padding: 8px 12px;
   }
   .section-header-row {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 32px 18px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 24px 16px 18px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .section-title {
+    font-size: 1.35rem;
+    word-break: break-word;
   }
   .feature-cell, .manifesto-left, .manifesto-right, .footer-headline-cell, .footer-interactive-cta, .footer-links-col, .footer-clocks-col {
-    padding: 28px 18px;
+    padding: 24px 16px;
+    box-sizing: border-box;
+    word-break: break-word;
+  }
+  .feature-heading {
+    font-size: 1.35rem;
+    word-break: break-word;
+  }
+  .feature-media-frame {
+    max-width: 100%;
+    overflow: hidden;
   }
   .manifesto-right {
     grid-template-columns: 1fr;
   }
   .telemetry-strip {
     grid-template-columns: 1fr;
+    width: 100%;
+    box-sizing: border-box;
   }
   .telemetry-cell {
     border-right: none;
     border-bottom: 1px solid var(--border);
+    padding: 18px 16px;
+    box-sizing: border-box;
+    word-break: break-word;
   }
   .footer-bottom-bar {
     flex-direction: column;
     gap: 12px;
     align-items: center;
     text-align: center;
-    padding: 18px;
-  }
-  .mobile-nav-panel {
-    display: none;
-    position: fixed;
-    top: var(--header-h);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--bg);
-    z-index: 99;
-    flex-direction: column;
-    padding: 30px 20px;
-    gap: 20px;
-    border-top: 1px solid var(--border);
-  }
-  .mobile-nav-panel.is-open {
-    display: flex;
+    padding: 18px 16px;
+    box-sizing: border-box;
   }
 }

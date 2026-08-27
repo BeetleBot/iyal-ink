@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Download ActOne Screenplay — Free Studio Screenplay Writer for Windows &amp; Linux</title>
   <meta name="description" content="Download ActOne Screenplay for Windows and Linux. Completely open-source, offline-first, native Fountain manuscript workspace.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../actone.css">
   <link rel="icon" type="image/png" href="../../assets/ActOne_apptile.png">
 </head>
 <body>
 
-  <!-- Aspen Header -->
   <header class="aspen-header">
     <div class="header-brand-cell">
       <a href="../" style="display:flex; align-items:center; gap:10px;">
@@ -20,29 +21,19 @@
       <span class="brand-badge">DOWNLOADS</span>
     </div>
 
-    <div class="header-meta-cell">
-      <div class="meta-telemetry">
-        <span class="telemetry-item">
-          <span>CHANNEL:</span>
-          <span style="color:var(--accent); font-weight:700;">STABLE // v0.4.21</span>
-        </span>
-      </div>
-
-      <nav class="header-nav">
-        <a class="nav-link" href="../"><span>Overview</span></a>
-        <a class="nav-link" href="../#features"><span>Features</span></a>
-        <a class="nav-link" href="../#studio"><span>Studio</span></a>
-        <a class="nav-link" href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener"><span>GitHub ↗</span></a>
-      </nav>
-    </div>
+    <nav class="header-nav">
+      <a class="nav-link" href="../"><span>Overview</span></a>
+      <a class="nav-link" href="../#features"><span>Features</span></a>
+      <a class="nav-link" href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener"><span>GitHub ↗</span></a>
+    </nav>
 
     <div class="header-actions-cell">
-      <div class="theme-switcher" title="Select Color Palette">
-        <button class="theme-btn active" data-set-theme="mint" title="Aspen Mint"></button>
-        <button class="theme-btn" data-set-theme="amber" title="Amber CRT Phosphor"></button>
-        <button class="theme-btn" data-set-theme="matrix" title="Matrix Green"></button>
-        <button class="theme-btn" data-set-theme="mauve" title="Catppuccin Mauve"></button>
-        <button class="theme-btn" data-set-theme="cyan" title="Cyber Cyan"></button>
+      <div class="theme-switcher" title="Select Pastel Color Palette">
+        <button class="theme-btn active" data-set-theme="lavender" title="Pastel Lavender"></button>
+        <button class="theme-btn" data-set-theme="mint" title="Pastel Sage Mint"></button>
+        <button class="theme-btn" data-set-theme="rose" title="Pastel Blush Rose"></button>
+        <button class="theme-btn" data-set-theme="sky" title="Pastel Sky Blue"></button>
+        <button class="theme-btn" data-set-theme="peach" title="Pastel Warm Peach"></button>
       </div>
 
       <a class="btn-aspen" href="../">
@@ -52,18 +43,17 @@
   </header>
 
   <main class="aspen-container">
-    <!-- Download Hero Zone -->
-    <section class="hero-section" style="padding: 72px 44px 56px;">
+    <section class="hero-section" style="padding: 72px 36px 60px;">
       <canvas class="hero-rain-canvas" id="courierRainCanvas"></canvas>
       <div class="hero-rain-overlay"></div>
 
       <div class="hero-content-wrap">
         <div class="hero-meta-bar">
-          <span>[ RELEASE: STABLE ]</span>
-          <span>//</span>
-          <span>[ VERSION: v0.4.21 ]</span>
-          <span>//</span>
-          <span>[ ZERO CLOUD LOCK-IN ]</span>
+          <span class="hero-badge-accent">OFFICIAL RELEASE</span>
+          <span>•</span>
+          <span>v0.4.21 STABLE</span>
+          <span>•</span>
+          <span>ZERO CLOUD LOCK-IN</span>
         </div>
 
         <h1 class="hero-title" style="font-size:clamp(2.6rem, 5.5vw, 4.4rem); margin-bottom:16px;">
@@ -76,23 +66,21 @@
       </div>
     </section>
 
-    <!-- Platform Download Grid -->
     <div class="section-header-row">
       <span class="section-num">01</span>
       <span class="section-title">CHOOSE YOUR OPERATING SYSTEM</span>
-      <span class="section-tag">[ NATIVE BINARIES ]</span>
+      <span class="section-tag">NATIVE DESKTOP BINARIES</span>
     </div>
 
-    <section class="grid-2 aspen-row divide-x">
-      <!-- Windows Store Card -->
-      <div style="padding: 44px; display: flex; flex-direction: column; justify-content: space-between; background: var(--bg-subtle);">
+    <section class="download-card-grid">
+      <div class="download-card">
         <div>
-          <span class="feature-meta-tag">// WINDOWS 10 / 11 (64-BIT)</span>
-          <h2 style="font-family: var(--font-sans); font-size: 1.8rem; font-weight: 800; color: var(--fg); margin-bottom: 12px;">
+          <span class="download-platform-tag">Windows 10 / 11 (64-Bit)</span>
+          <h2 class="download-platform-title">
             Microsoft Store
           </h2>
-          <p style="color: var(--fg-dim); font-size: 0.9rem; line-height: 1.6; margin-bottom: 28px;">
-            Install ActOne Screenplay from the official Microsoft Store with seamless background automatic updates and sandboxed security.
+          <p class="download-platform-desc">
+            Install ActOne Screenplay directly from the official Microsoft Store with seamless background automatic updates and sandboxed security.
           </p>
         </div>
 
@@ -101,20 +89,19 @@
             <span>Get on Microsoft Store ↗</span>
           </a>
 
-          <div style="margin-top: 18px; padding: 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); font-size: 0.72rem; color: var(--fg-muted);">
-            <strong>Requirement:</strong> Windows 10 build 17763+, Windows 11. 100% offline desktop app.
+          <div style="margin-top: 18px; padding: 14px; background: var(--bg-subtle); border-radius: var(--radius-sm); border: 1px solid var(--border); font-size: 0.78rem; color: var(--fg-dim);">
+            <strong style="color:var(--fg);">Requirement:</strong> Windows 10 build 17763+, Windows 11. 100% offline desktop app.
           </div>
         </div>
       </div>
 
-      <!-- Linux Tarball Card -->
-      <div style="padding: 44px; display: flex; flex-direction: column; justify-content: space-between; background: var(--bg-subtle);">
+      <div class="download-card">
         <div>
-          <span class="feature-meta-tag">// ALL LINUX DISTRIBUTIONS</span>
-          <h2 style="font-family: var(--font-sans); font-size: 1.8rem; font-weight: 800; color: var(--fg); margin-bottom: 12px;">
+          <span class="download-platform-tag">All Linux Distributions</span>
+          <h2 class="download-platform-title">
             Standalone Linux Tarball
           </h2>
-          <p style="color: var(--fg-dim); font-size: 0.9rem; line-height: 1.6; margin-bottom: 28px;">
+          <p class="download-platform-desc">
             Standalone portable archive tested across Ubuntu, Fedora, Arch Linux, Debian, openSUSE, and Pop!_OS.
           </p>
         </div>
@@ -124,57 +111,55 @@
             <span>Download Linux x64 (.tar.gz) ↓</span>
           </a>
 
-          <div style="margin-top: 18px; padding: 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); font-size: 0.72rem; color: var(--fg-muted);">
-            <strong>Install:</strong> Extract archive, open terminal in folder, run <code>sudo ./install.sh</code>.
+          <div style="margin-top: 18px; padding: 14px; background: var(--bg-subtle); border-radius: var(--radius-sm); border: 1px solid var(--border); font-size: 0.78rem; color: var(--fg-dim);">
+            <strong style="color:var(--fg);">Install:</strong> Extract archive, open terminal in folder, run <code style="font-family:var(--font-mono); font-size:0.85em; background:var(--accent-pastel); padding:2px 6px; border-radius:4px; color:var(--accent-fg);">sudo ./install.sh</code>.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Changelog Section -->
     <div class="section-header-row">
       <span class="section-num">02</span>
       <span class="section-title">RELEASE NOTES &amp; CHANGELOG</span>
-      <span class="section-tag">[ v0.4.21 ]</span>
+      <span class="section-tag">VERSION 0.4.21</span>
     </div>
 
-    <section style="padding: 44px; background: var(--bg-card); border-bottom: 1px solid var(--border);">
+    <section style="padding: 48px 36px; background: var(--bg-card); border-bottom: 1px solid var(--border);">
       <ul class="feature-bullets" style="gap: 16px;">
-        <li><strong>Gen 3 Multi-Document Project Bundles:</strong> Standardized <code>.actone</code> project bundles so all screenplay and prose documents are cleanly organized inside a dedicated files directory with automatic migration for older projects.</li>
+        <li><strong>Gen 3 Multi-Document Project Bundles:</strong> Standardized <code style="font-family:var(--font-mono); font-size:0.85em; background:var(--bg-subtle); padding:2px 6px; border-radius:4px;">.actone</code> project bundles so all screenplay and prose documents are cleanly organized inside a dedicated files directory with automatic migration for older projects.</li>
         <li><strong>Automatic Script Metadata Migration:</strong> Renaming documents inside the Project Pane now automatically migrates all associated notes, tasks, parking lots, character profiles, and production tags to the new name—eliminating lost data.</li>
         <li><strong>Project Pane Right-Click Context Menu:</strong> Added instant right-click access across all document cards in the Project Pane to Rename, Move Up, Move Down, Duplicate, and Delete.</li>
         <li><strong>Instant 1:1 Scrollbar Pointer Tracking:</strong> Dragging the scrollbar thumb in the editor and sidebars now tracks the mouse pointer instantaneously with zero elastic lag or bounce.</li>
-        <li><strong>Save Pipeline Data Integrity &amp; Safety:</strong> Instant direct document saving with protection against file collisions during rapid <code>Ctrl+S</code> keystrokes.</li>
+        <li><strong>Save Pipeline Data Integrity &amp; Safety:</strong> Instant direct document saving with protection against file collisions during rapid <code style="font-family:var(--font-mono); font-size:0.85em; background:var(--bg-subtle); padding:2px 6px; border-radius:4px;">Ctrl+S</code> keystrokes.</li>
         <li><strong>Project Pane Rename Focus Fix:</strong> Resolved an issue where renaming files from the context menu could lose keyboard focus.</li>
         <li><strong>Streamlined Welcome Screen:</strong> Cleaned up the Welcome Screen launcher for a distraction-free, faster startup experience.</li>
       </ul>
     </section>
   </main>
 
-  <!-- Full-Bleed Architectural Aspen Footer -->
   <footer class="aspen-footer">
     <div class="footer-top-grid">
       <div class="footer-brand-col">
         <div>
-          <div style="display:flex; align-items:center; gap:12px; font-weight:800; font-size:1.1rem; margin-bottom:12px;">
+          <div style="display:flex; align-items:center; gap:12px; font-weight:800; font-size:1.15rem; margin-bottom:12px;">
             <img class="brand-icon" src="../../assets/ActOne_apptile.png" alt="ActOne Logo">
             <span>ACTONE SCREENPLAY</span>
           </div>
-          <p style="color:var(--fg-dim); font-size:0.85rem; max-width:320px; line-height:1.5;">
+          <p style="color:var(--fg-dim); font-size:0.9rem; max-width:320px; line-height:1.6;">
             The desktop-native Fountain screenplay studio for modern writers and filmmakers.
           </p>
         </div>
 
-        <div style="margin-top:28px; font-size:0.75rem; color:var(--fg-muted);">
+        <div style="margin-top:28px; font-size:0.8rem; color:var(--fg-muted); font-weight:600;">
           <span>PART OF THE </span><a href="https://iyal.ink/" style="color:var(--accent); font-weight:700;">IYAL.INK</a><span> FAMILY</span>
         </div>
       </div>
 
       <div class="footer-cta-col">
         <div>
-          <div style="font-size:0.7rem; color:var(--accent); letter-spacing:0.08em; font-weight:700; margin-bottom:8px;">// OPEN SOURCE</div>
-          <h3 style="font-size:1.6rem; font-weight:800; color:var(--fg); margin-bottom:12px;">Explore the source code</h3>
-          <p style="color:var(--fg-dim); font-size:0.85rem; max-width:360px; margin-bottom:24px;">
+          <div style="font-size:0.75rem; color:var(--accent); letter-spacing:0.06em; font-weight:700; margin-bottom:8px;">OPEN SOURCE</div>
+          <h3 style="font-size:1.7rem; font-weight:800; color:var(--fg); margin-bottom:12px; letter-spacing:-0.02em;">Explore the source code</h3>
+          <p style="color:var(--fg-dim); font-size:0.92rem; max-width:360px; margin-bottom:24px; line-height:1.6;">
             ActOne Screenplay is licensed under permissive open-source licenses. Star or contribute on GitHub.
           </p>
         </div>
