@@ -3,353 +3,514 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ActOne Screenplay Documentation & User Guide | Free Fountain Editor</title>
-  <link rel="stylesheet" href="../../assets/site.css">
+  <title>ActOne Screenplay Documentation &amp; User Guide | Free Fountain Editor</title>
+  <meta name="description" content="Comprehensive documentation, tutorials, keyboard shortcuts, and user guide for ActOne Screenplay studio.">
+  <link rel="canonical" href="https://iyal.ink/actone/docs/">
+  
+  <link rel="stylesheet" href="../actone.css">
   <link rel="icon" type="image/png" href="https://iyal.ink/assets/ActOne_apptile.png">
+  
   <style>
-    :root {
-      --paper: #101010;
-      --ink: #CCCCCC;
-      --line: rgba(255, 255, 255, 0.10);
-      --muted: rgba(204, 204, 204, 0.60);
-      --blue: #AAAAAA;
-      --sidebar-bg: #181818;
-      --docs-sidebar-w: 280px;
-      --docs-toc-w: 220px;
-    }
-    body.actone-theme {
-      background: var(--paper);
-      color: var(--ink);
-    }
-    .docs-layout {
-      max-width: 1440px;
+    .docs-page-container {
+      width: 100%;
+      max-width: 1360px;
       margin: 0 auto;
+      padding: 24px 20px 60px;
+      box-sizing: border-box;
+    }
+
+    .docs-layout {
       display: grid;
-      grid-template-columns: var(--docs-sidebar-w) minmax(0, 1fr) var(--docs-toc-w);
-      min-height: calc(100vh - 64px);
+      grid-template-columns: 280px minmax(0, 1fr) 220px;
+      gap: 24px;
+      align-items: start;
+      min-height: calc(100vh - 120px);
     }
     
     /* Left Sidebar */
     .docs-sidebar {
       position: sticky;
-      top: 0;
-      height: calc(100vh - 64px);
+      top: calc(var(--header-h) + 16px);
+      max-height: calc(100vh - var(--header-h) - 36px);
       overflow-y: auto;
-      border-right: 1px solid var(--line);
-      background: var(--sidebar-bg);
-      padding: 24px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: 20px 16px;
+      box-sizing: border-box;
     }
+
     .docs-search-box {
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
+
     .docs-search-input {
       width: 100%;
-      padding: 10px 14px;
-      border: 1px solid var(--line);
-      background: var(--paper);
-      color: var(--ink);
+      padding: 9px 14px;
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius-pill);
+      background: var(--bg-subtle);
+      color: var(--fg);
       font-family: inherit;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       outline: none;
+      box-sizing: border-box;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
     }
+
     .docs-search-input::placeholder {
-      color: var(--muted);
-      opacity: 1;
+      color: var(--fg-muted);
     }
+
     .docs-search-input:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 2px rgba(85, 85, 85, 0.25);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
     }
+
     .nav-group-title {
       font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--muted);
-      margin: 20px 0 8px 10px;
+      color: var(--fg-muted);
+      margin: 18px 0 6px 8px;
     }
+
     .nav-group-title:first-child {
       margin-top: 0;
     }
+
     .nav-item {
       display: block;
       padding: 7px 12px;
       font-size: 0.85rem;
-      color: var(--ink);
-      border-radius: 4px;
-      margin-bottom: 2px;
+      font-weight: 600;
+      color: var(--fg-dim);
+      border-radius: var(--radius-pill);
+      margin-bottom: 3px;
       cursor: pointer;
-      line-height: 1.3;
-    }
-    .nav-item:hover {
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--blue);
-    }
-    .nav-item.active {
-      font-weight: 700;
-      background: var(--ink);
-      color: var(--paper);
+      line-height: 1.35;
+      transition: background var(--transition-fast), color var(--transition-fast);
+      text-decoration: none;
     }
 
-    /* Main Content Area */
-    .docs-main {
-      padding: 40px 60px;
-      max-width: 860px;
+    .nav-item:hover {
+      background: var(--bg-subtle);
+      color: var(--fg);
     }
-    .docs-breadcrumb {
-      font-size: 0.75rem;
+
+    .nav-item.active {
       font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--blue);
+      background: var(--accent-pastel);
+      color: var(--accent-fg);
+      border: 1px solid var(--accent-border);
+    }
+
+    /* Main Content Canvas */
+    .docs-main-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: 48px 44px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .docs-breadcrumb {
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--accent);
       text-transform: uppercase;
       margin-bottom: 12px;
     }
+
     .docs-article-title {
-      font-size: 2.8rem;
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.04em;
+      font-family: var(--font-sans);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+      color: var(--fg);
       margin-bottom: 16px;
     }
+
     .docs-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       margin-bottom: 36px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
     }
+
     .tag-badge {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       font-weight: 700;
-      font-family: CourierPrime, monospace;
-      background: var(--sidebar-bg);
-      border: 1px solid var(--line);
-      padding: 3px 8px;
+      font-family: var(--font-mono);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      color: var(--fg-dim);
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
     }
+
     .docs-content {
       font-size: 1.02rem;
-      line-height: 1.65;
-      color: var(--ink);
+      line-height: 1.7;
+      color: var(--fg-dim);
     }
+
+    .docs-content strong {
+      color: var(--fg);
+    }
+
     .docs-content h2 {
-      font-size: 1.7rem;
-      margin-top: 48px;
+      font-family: var(--font-sans);
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--fg);
+      margin-top: 44px;
       margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--line);
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
     }
+
     .docs-content h3 {
+      font-family: var(--font-sans);
       font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--fg);
       margin-top: 32px;
       margin-bottom: 12px;
     }
+
     .docs-content p {
       margin-bottom: 20px;
     }
+
     .docs-content ul, .docs-content ol {
       margin-bottom: 24px;
       padding-left: 24px;
     }
+
     .docs-content li {
       margin-bottom: 8px;
     }
+
     .docs-content code {
-      font-family: CourierPrime, monospace;
-      background: var(--sidebar-bg);
-      padding: 3px 6px;
-      font-size: 0.9em;
-      border-radius: 3px;
+      font-family: var(--font-mono);
+      background: var(--bg-subtle);
+      color: var(--accent-fg);
+      border: 1px solid var(--border);
+      padding: 2px 7px;
+      font-size: 0.88em;
+      border-radius: 4px;
     }
+
     .docs-content kbd {
-      font-family: CourierPrime, monospace;
-      background: var(--ink);
-      color: var(--paper);
-      padding: 3px 7px;
+      font-family: var(--font-mono);
+      background: var(--bg-card);
+      color: var(--fg);
+      padding: 3px 8px;
       font-size: 0.78rem;
-      border-radius: 3px;
-      box-shadow: 0 2px 0 rgba(0,0,0,0.2);
+      font-weight: 700;
+      border-radius: 5px;
+      border: 1px solid var(--border-bright);
+      box-shadow: 0 2px 0 rgba(0,0,0,0.06);
     }
+
     .docs-content pre {
-      background: #222222;
-      color: #eeeeee;
-      padding: 20px;
+      background: var(--bg-subtle);
+      color: var(--fg);
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
       overflow-x: auto;
-      font-family: CourierPrime, monospace;
+      font-family: var(--font-mono);
       font-size: 0.9rem;
-      line-height: 1.5;
-      margin-bottom: 24px;
-      border-left: 4px solid var(--blue);
+      line-height: 1.55;
+      margin: 24px 0;
+      border-left: 4px solid var(--accent);
     }
+
     .docs-content blockquote {
-      border-left: 3px solid var(--blue);
-      margin: 16px 0;
-      padding: 10px 18px;
-      background: rgba(255, 255, 255, 0.03);
-      color: var(--muted);
+      border-left: 3px solid var(--accent);
+      margin: 20px 0;
+      padding: 12px 20px;
+      background: var(--bg-subtle);
+      color: var(--fg-dim);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
       font-style: italic;
     }
+
     .docs-content a {
-      color: var(--ink);
+      color: var(--accent);
       text-decoration: underline;
       text-underline-offset: 3px;
+      font-weight: 600;
     }
-    .docs-content a:hover {
-      color: var(--blue);
-    }
+
     .docs-table {
       width: 100%;
       border-collapse: collapse;
       margin: 28px 0;
       font-size: 0.9rem;
-    }
-    .docs-table th, .docs-table td {
-      border: 1px solid var(--line);
-      padding: 10px 14px;
-      text-align: left;
-    }
-    .docs-table th {
-      background: var(--sidebar-bg);
-      font-weight: 700;
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
     }
 
-    /* Article Footer Navigation (Prev / Next) */
+    .docs-table th, .docs-table td {
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      text-align: left;
+    }
+
+    .docs-table th {
+      background: var(--bg-subtle);
+      font-weight: 800;
+      color: var(--fg);
+    }
+
+    /* Article Footer Navigation */
     .docs-article-footer {
-      margin-top: 60px;
-      padding-top: 30px;
-      border-top: 1px solid var(--line);
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
-      gap: 20px;
+      gap: 16px;
+      flex-wrap: wrap;
     }
+
     .nav-card {
-      border: 1px solid var(--line);
-      background: #181818;
-      padding: 16px 20px;
+      border: 1px solid var(--border);
+      background: var(--bg-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
       flex: 1;
+      min-width: 200px;
       cursor: pointer;
-      transition: background 0.2s ease, transform 0.2s ease;
+      transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+      box-sizing: border-box;
     }
+
     .nav-card:hover {
-      background: #252525;
+      background: var(--bg-card);
+      border-color: var(--accent-border);
       transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
     }
+
     .nav-card-label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--accent);
       text-transform: uppercase;
       margin-bottom: 6px;
     }
+
     .nav-card-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--ink);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--fg);
     }
+
     .nav-card.next { text-align: right; }
 
-    /* Right Table of Contents (TOC) */
+    /* Right Table of Contents */
     .docs-toc {
       position: sticky;
-      top: 0;
-      height: calc(100vh - 64px);
+      top: calc(var(--header-h) + 16px);
+      max-height: calc(100vh - var(--header-h) - 36px);
       overflow-y: auto;
-      padding: 32px 20px;
-      border-left: 1px solid var(--line);
+      padding: 20px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
       font-size: 0.8rem;
+      box-sizing: border-box;
     }
+
     .toc-title {
-      font-weight: 700;
-      letter-spacing: 0.1em;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       font-size: 0.72rem;
-      color: var(--muted);
+      color: var(--fg-muted);
       margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
     }
+
     .toc-list {
       list-style: none;
       padding: 0;
       margin: 0;
-    }
-    .toc-item {
-      margin-bottom: 8px;
-    }
-    .toc-item a {
-      color: var(--muted);
-      line-height: 1.3;
-      display: block;
-    }
-    .toc-item a:hover {
-      color: var(--blue);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    @media(max-width:1100px){
-      .docs-layout { grid-template-columns: var(--docs-sidebar-w) minmax(0, 1fr); }
+    .toc-item a {
+      color: var(--fg-dim);
+      line-height: 1.4;
+      display: block;
+      transition: color var(--transition-fast);
+      text-decoration: none;
+    }
+
+    .toc-item a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 1100px) {
+      .docs-layout { grid-template-columns: 260px minmax(0, 1fr); }
       .docs-toc { display: none; }
     }
-    @media(max-width:760px){
-      .docs-layout { grid-template-columns: 1fr; }
-      .docs-sidebar { position: relative; height: auto; max-height: 380px; }
-      .docs-main { padding: 30px 20px; }
+
+    @media (max-width: 768px) {
+      .docs-page-container { padding: 16px 12px 40px; }
+      .docs-layout { grid-template-columns: 1fr; gap: 16px; }
+      .docs-sidebar { position: relative; top: 0; max-height: 320px; padding: 16px 12px; }
+      .docs-main-card { padding: 28px 18px; }
+      .docs-article-title { font-size: 1.8rem; }
     }
   </style>
 </head>
-<body class="product-page actone-theme">
-  <header class="site-header">
-    <a class="iyal-mark" href="https://iyal.ink/"><img class="iyal-mark-img" src="https://iyal.ink/assets/IyalLogo.svg" alt="iyal.ink"></a>
-    <nav class="site-nav">
-      <a href="https://iyal.ink/actone/">ActOne</a>
-      <a href="https://iyal.ink/actone/downloads/">Download</a>
-      <a href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener">GitHub</a>
+<body>
+
+  <!-- Studio Header -->
+  <header class="aspen-header">
+    <div class="header-brand-cell">
+      <a href="https://actone.iyal.ink/" style="display:flex; align-items:center; gap:10px;">
+        <img class="brand-icon" src="../../assets/ActOne_apptile.png" alt="ActOne Logo">
+        <span>ACTONE SCREENPLAY</span>
+      </a>
+      <span class="section-num" style="font-size:0.68rem; margin-left:4px;">DOCS</span>
+    </div>
+
+    <nav class="header-nav">
+      <a class="nav-link" href="../"><span>Overview</span></a>
+      <a class="nav-link" href="../#features"><span>Features</span></a>
+      <a class="nav-link" href="../#community"><span>Community</span></a>
     </nav>
+
+    <div class="header-actions-cell">
+      <a class="btn-aspen" href="../downloads/">
+        <span>Download</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </a>
+    </div>
   </header>
 
-  <div class="docs-layout">
-    <!-- Left Navigation Sidebar -->
-    <aside class="docs-sidebar">
-      <div class="docs-search-box">
-        <input type="text" id="searchInput" class="docs-search-input" placeholder="Search documentation…">
-      </div>
-      <nav id="docsNav"></nav>
-    </aside>
-
-    <!-- Main Content Area -->
-    <main class="docs-main">
-      <div class="docs-breadcrumb" id="articleCategory"></div>
-      <h1 class="docs-article-title" id="articleTitle">Loading documentation…</h1>
-      <div class="docs-tags" id="articleTags"></div>
-      <article class="docs-content" id="articleBody"></article>
-
-      <div class="docs-article-footer">
-        <div class="nav-card prev" id="prevCard" style="display:none;" onclick="navigatePrev()">
-          <div class="nav-card-label">← Previous</div>
-          <div class="nav-card-title" id="prevTitle"></div>
+  <!-- Docs Interactive Page Container -->
+  <div class="docs-page-container">
+    <div class="docs-layout">
+      <!-- Left Navigation Sidebar -->
+      <aside class="docs-sidebar">
+        <div class="docs-search-box">
+          <input type="text" id="searchInput" class="docs-search-input" placeholder="Search documentation…">
         </div>
-        <div class="nav-card next" id="nextCard" style="display:none;" onclick="navigateNext()">
-          <div class="nav-card-label">Next →</div>
-          <div class="nav-card-title" id="nextTitle"></div>
-        </div>
-      </div>
-    </main>
+        <nav id="docsNav"></nav>
+      </aside>
 
-    <!-- Right Table of Contents Sidebar -->
-    <aside class="docs-toc">
-      <div class="toc-title">On this page</div>
-      <ul class="toc-list" id="tocList"></ul>
-    </aside>
+      <!-- Main Article Canvas -->
+      <main class="docs-main-card">
+        <div class="docs-breadcrumb" id="articleCategory"></div>
+        <h1 class="docs-article-title" id="articleTitle">Loading documentation…</h1>
+        <div class="docs-tags" id="articleTags"></div>
+        <article class="docs-content" id="articleBody"></article>
+
+        <div class="docs-article-footer">
+          <div class="nav-card prev" id="prevCard" style="display:none;" onclick="navigatePrev()">
+            <div class="nav-card-label">← Previous</div>
+            <div class="nav-card-title" id="prevTitle"></div>
+          </div>
+          <div class="nav-card next" id="nextCard" style="display:none;" onclick="navigateNext()">
+            <div class="nav-card-label">Next →</div>
+            <div class="nav-card-title" id="nextTitle"></div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Right Table of Contents Sidebar -->
+      <aside class="docs-toc">
+        <div class="toc-title">On this page</div>
+        <ul class="toc-list" id="tocList"></ul>
+      </aside>
+    </div>
   </div>
 
-  <footer class="site-footer">
-    <span>iyal.ink / ActOne Screenplay Documentation</span>
-    <span>ActOne Screenplay is completely open source.</span>
-    <a href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener">View Source on GitHub</a>
-    <a href="../">Back to ActOne Screenplay Workspace</a>
+  <!-- Studio Footer -->
+  <footer class="aspen-footer">
+    <div class="footer-top-grid">
+      <div class="footer-brand-col">
+        <div>
+          <div style="display:flex; align-items:center; gap:12px; font-weight:800; font-size:1.15rem; margin-bottom:12px;">
+            <img class="brand-icon" src="../../assets/ActOne_apptile.png" alt="ActOne Logo">
+            <span>ACTONE SCREENPLAY</span>
+          </div>
+          <p style="color:var(--fg-dim); font-size:0.9rem; max-width:320px; line-height:1.6;">
+            The desktop-native Fountain screenplay studio for modern writers and filmmakers.
+          </p>
+        </div>
+
+        <div style="margin-top:28px; font-size:0.8rem; color:var(--fg-muted); font-weight:600;">
+          <span>PART OF THE </span><a href="https://iyal.ink/" style="color:var(--accent); font-weight:700;">IYAL.INK</a><span> FAMILY</span>
+        </div>
+      </div>
+
+      <div class="footer-cta-col">
+        <div>
+          <div style="font-size:0.75rem; color:var(--accent); letter-spacing:0.06em; font-weight:700; margin-bottom:8px;">NEED HELP?</div>
+          <h3 style="font-size:1.7rem; font-weight:800; color:var(--fg); margin-bottom:12px; letter-spacing:-0.02em;">Join our Creative Community</h3>
+          <p style="color:var(--fg-dim); font-size:0.92rem; max-width:360px; margin-bottom:24px; line-height:1.6;">
+            Ask questions, suggest features, and chat with fellow screenwriters and directors on Discord.
+          </p>
+        </div>
+
+        <div>
+          <a class="btn-aspen btn-aspen-accent" href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">
+            <span>Join Discord ↗</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>
+        <span>© 2026 iyal.ink / ActOne Screenplay — Free &amp; Open Source</span>
+      </div>
+
+      <div class="footer-links-row">
+        <a class="footer-link" href="../">ActOne Home</a>
+        <a class="footer-link" href="../downloads/">Downloads</a>
+        <a class="footer-link" href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
   </footer>
 
+  <script src="../actone.js"></script>
   <script src="articles_data.js"></script>
   <script>
     let docsData = { categories: [], articles: [] };
     let activeArticleId = '';
-    let filteredArticles = [];
 
     async function loadDocs() {
       try {
@@ -360,7 +521,6 @@
           docsData = await res.json();
         }
         
-        // Initial setup
         const hash = window.location.hash.replace('#', '');
         activeArticleId = (hash && docsData.articles.some(a => a.id === hash)) ? hash : docsData.articles[0].id;
         
@@ -408,7 +568,7 @@
       });
 
       if (!html) {
-        html = '<div style="font-size:0.85rem; color:var(--muted); padding:10px;">No matching articles.</div>';
+        html = '<div style="font-size:0.82rem; color:var(--fg-muted); padding:10px 8px;">No matching articles.</div>';
       }
 
       navEl.innerHTML = html;
@@ -431,13 +591,9 @@
       const bodyEl = document.getElementById('articleBody');
       bodyEl.innerHTML = parseMarkdown(article.content);
 
-      // Render TOC for H2 headings
       renderTOC();
-
-      // Render Prev / Next cards
       renderFooterNav(index);
 
-      // Update Nav active highlight
       document.querySelectorAll('.nav-item').forEach(el => {
         if (el.innerText.trim() === article.title) {
           el.classList.add('active');
@@ -461,7 +617,7 @@
       });
 
       if (headings.length === 0) {
-        html = '<li class="toc-item" style="color:var(--muted)">Overview</li>';
+        html = '<li class="toc-item" style="color:var(--fg-muted)">Overview</li>';
       }
 
       tocEl.innerHTML = html;
@@ -505,15 +661,10 @@
     function parseMarkdown(md) {
       let html = md;
       
-      // Code blocks
       html = html.replace(/```([a-z]*)\n([\s\S]*?)```/g, '<pre><code class="language-$1">$2</code></pre>');
-      
-      // Headings
       html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
       html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
       html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
-      
-      // Formatting
       html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
       html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
       html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
@@ -521,7 +672,6 @@
       html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
       html = html.replace(/^>\s*(.*$)/gim, '<blockquote>$1</blockquote>');
       
-      // Tables
       const lines = html.split('\n');
       let inTable = false;
       let tableHtml = '';

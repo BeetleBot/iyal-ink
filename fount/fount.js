@@ -5,38 +5,8 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Theme Switcher System (Header Swatches)
-  const themeBtns = document.querySelectorAll('.theme-btn');
-  const savedTheme = localStorage.getItem('fount_theme') || 'mint';
-  
-  function applyTheme(themeName) {
-    if (themeName === 'mint') {
-      document.documentElement.removeAttribute('data-theme');
-    } else {
-      document.documentElement.setAttribute('data-theme', themeName);
-    }
-    localStorage.setItem('fount_theme', themeName);
-    
-    themeBtns.forEach(btn => {
-      if (btn.dataset.setTheme === themeName) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
-    });
-
-    // Update rain colors if canvas is active
-    if (window.updateRainTheme) window.updateRainTheme();
-  }
-
-  applyTheme(savedTheme);
-
-  themeBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetTheme = btn.dataset.setTheme;
-      applyTheme(targetTheme);
-    });
-  });
+  document.documentElement.removeAttribute('data-theme');
+  try { localStorage.removeItem('fount_theme'); } catch(e) {}
 
   // 2. Real-Time Header Clock
   function updateClocks() {

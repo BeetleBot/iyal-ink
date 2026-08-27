@@ -47,38 +47,6 @@
   --transition-sweep: 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Color Theme Overrides */
-[data-theme="amber"] {
-  --accent: #f59e0b;
-  --accent-fg: #451a03;
-  --accent-dim: rgba(245, 158, 11, 0.12);
-  --accent-glow: rgba(245, 158, 11, 0.25);
-}
-[data-theme="matrix"] {
-  --accent: #22c55e;
-  --accent-fg: #052e16;
-  --accent-dim: rgba(34, 197, 94, 0.12);
-  --accent-glow: rgba(34, 197, 94, 0.25);
-}
-[data-theme="mauve"] {
-  --accent: #c084fc;
-  --accent-fg: #2e1065;
-  --accent-dim: rgba(192, 132, 252, 0.12);
-  --accent-glow: rgba(192, 132, 252, 0.25);
-}
-[data-theme="cyan"] {
-  --accent: #38bdf8;
-  --accent-fg: #082f49;
-  --accent-dim: rgba(56, 189, 248, 0.12);
-  --accent-glow: rgba(56, 189, 248, 0.25);
-}
-[data-theme="ghost"] {
-  --accent: #e2e8f0;
-  --accent-fg: #0f172a;
-  --accent-dim: rgba(226, 232, 240, 0.12);
-  --accent-glow: rgba(226, 232, 240, 0.25);
-}
-
 /* Reset & Base */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -312,34 +280,6 @@ img, svg, video {
   border-left: 1px solid var(--border);
   height: 100%;
 }
-
-.theme-switcher {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0 16px;
-  border-right: 1px solid var(--border);
-  height: 100%;
-}
-
-.theme-btn {
-  width: 14px;
-  height: 14px;
-  border-radius: 2px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: transform var(--transition-fast), border-color var(--transition-fast);
-}
-
-.theme-btn:hover, .theme-btn.active {
-  transform: scale(1.25);
-  border-color: #fff;
-}
-
-.theme-btn[data-set-theme="mint"] { background: #34d399; }
-.theme-btn[data-set-theme="amber"] { background: #f59e0b; }
-.theme-btn[data-set-theme="matrix"] { background: #22c55e; }
-.theme-btn[data-set-theme="mauve"] { background: #c084fc; }
-.theme-btn[data-set-theme="cyan"] { background: #38bdf8; }
 
 /* Aspen Sweep Buttons */
 .btn-aspen {
@@ -1502,15 +1442,6 @@ img, svg, video {
     border-left: none;
     gap: 6px;
     flex-shrink: 0;
-  }
-  .theme-switcher {
-    padding: 0;
-    border-right: none;
-    gap: 4px;
-  }
-  .theme-btn {
-    width: 12px;
-    height: 12px;
   }
   .btn-aspen {
     padding: 6px 10px;
