@@ -3,27 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>iyal.ink — Free Filmmaking & Screenwriting Tools</title>
-  <meta name="description" content="Independent filmmaking and screenwriting software powered by the Fountain standard. Featuring ActOne Screenplay — the best free Fountain writer for Windows & Linux — and FountTUI terminal editor.">
+  <title>iyal.ink — Free Screenwriting &amp; Filmmaking Tools</title>
+  <meta name="description" content="Independent screenwriting and filmmaking software powered by the open Fountain standard. Featuring ActOne Screenplay desktop studio and FountTUI terminal editor.">
   <link rel="canonical" href="https://iyal.ink/">
   
-  <!-- Open Graph / Social Media -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://iyal.ink/">
-  <meta property="og:title" content="iyal.ink — Free Filmmaking & Screenwriting Tools">
-  <meta property="og:description" content="Independent screenwriting software powered by open Fountain plain text. Featuring ActOne Screenplay desktop editor and FountTUI terminal screenplay editor.">
+  <meta property="og:title" content="iyal.ink — Free Screenwriting &amp; Filmmaking Tools">
+  <meta property="og:description" content="Independent screenwriting software powered by open Fountain plain text. Featuring ActOne Screenplay and FountTUI.">
   <meta property="og:image" content="https://iyal.ink/assets/ActOne_apptile.png">
 
-  <!-- Twitter Card -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="iyal.ink — Free Filmmaking & Screenwriting Tools">
-  <meta name="twitter:description" content="Independent, minimalist screenwriting software powered by Fountain plain text.">
+  <meta name="twitter:title" content="iyal.ink — Free Screenwriting &amp; Filmmaking Tools">
+  <meta name="twitter:description" content="Independent screenwriting software powered by open Fountain plain text.">
   <meta name="twitter:image" content="https://iyal.ink/assets/ActOne_apptile.png">
 
-  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/home.css">
   <link rel="icon" type="image/svg+xml" href="assets/iyal-favicon.svg">
 
-  <!-- Schema.org JSON-LD Structured Data for AI & Search Engines -->
+  <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -34,71 +34,107 @@
     "description": "Independent software studio engineering free screenwriting and filmmaking applications powered by the open Fountain format.",
     "sameAs": [
       "https://discord.gg/XTPjm93eNx",
-      "https://github.com/BeetleBot/FountTUI"
-    ],
-    "offers": [
-      {
-        "@type": "SoftwareApplication",
-        "name": "ActOne Screenplay Editor",
-        "operatingSystem": "Windows, Linux",
-        "applicationCategory": "DesktopEnhancementApplication",
-        "url": "https://actone.iyal.ink/"
-      },
-      {
-        "@type": "SoftwareApplication",
-        "name": "Fount TUI Screenplay Editor",
-        "operatingSystem": "Linux, Windows, macOS",
-        "applicationCategory": "DeveloperApplication",
-        "url": "https://fount.iyal.ink/"
-      }
+      "https://github.com/BeetleBot/FountTUI",
+      "https://github.com/beetlebot/ActOne-Screenplay"
     ]
   }
   </script>
 </head>
-<body class="iyal-theme">
-  <header class="site-header">
-    <a class="iyal-mark" href="index.html"><img class="iyal-mark-img" src="assets/IyalLogo.svg" alt="iyal.ink"></a>
-    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">Menu</button>
-    <nav class="site-nav">
-      <a href="#products">Products</a><a href="blog/">Blog</a><a href="#about">About</a>
-      <a class="nav-link" href="https://fount.iyal.ink">Fount TUI</a><a class="nav-link" href="https://actone.iyal.ink">ActOne Screenplay</a>
-    </nav>
+<body>
+
+  <!-- Ambient Backdrop -->
+  <div class="ambient-bg"></div>
+  <canvas class="home-rain-canvas" id="homeRainCanvas"></canvas>
+
+  <!-- Header -->
+  <header class="iyal-header">
+    <a class="iyal-brand" href="/">
+      <img src="assets/IyalLogo.svg" alt="iyal.ink logo">
+      <span>iyal.ink</span>
+    </a>
+
+    <a class="btn-header-blog" href="blog/">
+      <span>Journal / Blog ↗</span>
+    </a>
   </header>
 
-  <main>
-    <section class="hero home-hero">
-      <div class="home-hero-content">
-        <p class="eyebrow">FILMMAKING TOOLS</p>
-        <h1 class="typing-title"><span id="typedHeading">Tools for the</span><br><em id="typedEmphasis">story in progress.</em></h1>
-        <p class="lede">Free software for people who write, shape, and produce films.</p>
-      </div>
-    </section>
+  <!-- Main Landing Hero -->
+  <main class="landing-main">
+    <div class="landing-tagline-badge">
+      <span>OPEN SOURCE // FOUNTAIN ECOSYSTEM</span>
+    </div>
 
-    <section id="products" class="section products-section">
-      <div class="section-intro"><p class="eyebrow">THE WORKSPACE</p><h2>Choose how<br>you want to write.</h2></div>
-      <div class="product-grid">
-        <a class="product-card fount-card" href="https://fount.iyal.ink">
-          <div class="product-lockup"><span class="product-logo fount-logo"><img src="assets/Fount_newlogo.png" alt="Fount logo"></span></div>
-          <p class="eyebrow">OPEN SOURCE TERMINAL EDITOR</p><h3>Fount TUI</h3>
-          <p>Blockbusters in Terminal. A free, open-source focused terminal screenplay editor for writers who want the interface to disappear.</p>
-          <span class="text-link">Explore Fount TUI <b>-></b></span>
-        </a>
-        <a class="product-card actone-card" href="https://actone.iyal.ink">
-          <div class="product-lockup"><span class="actone-square"><img src="assets/ActOne_apptile.png" alt="ActOne Screenplay logo"></span></div>
-           <p class="eyebrow">COMPLETELY OPEN-SOURCE DESKTOP EDITOR</p><h3>ActOne Screenplay</h3>
-           <p>The completely open-source native Fountain screenplay editor for Windows and Linux—bringing dedicated Fountain writing features to PC platforms.</p>
-           <span class="text-link">Explore ActOne Screenplay <b>-></b></span>
-         </a>
-         <a class="text-link actone-source-link" href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener">View ActOne source on GitHub <b>-></b></a>
-      </div>
-    </section>
+    <h1 class="landing-title">
+      Tools for the<br><em>story in progress.</em>
+    </h1>
 
-    <section id="about" class="section manifesto">
-      <p class="eyebrow">THE PHILOSOPHY</p><blockquote>Good tools should make room for the work.</blockquote>
-      <div class="manifesto-copy"><p>Free software. Local files. Clear formats. Filmmaking tools made for the long middle of making something.</p><a class="button button-dark" href="blog/">Read the journal</a></div>
-    </section>
+    <p class="landing-lede">
+      Independent screenwriting and filmmaking software engineered for storytellers. Offline-first, plain text, and completely open-source.
+    </p>
+
+    <!-- Two Striking Product Action Cards -->
+    <div class="landing-products-grid">
+      <!-- Product 1: ActOne Screenplay -->
+      <a class="product-action-card card-actone" href="actone/">
+        <div>
+          <div class="card-top-row">
+            <img class="card-app-icon" src="assets/ActOne_apptile.png" alt="ActOne Screenplay icon">
+            <span class="card-badge card-badge-actone">DESKTOP STUDIO</span>
+          </div>
+          <h2 class="card-title">ActOne Screenplay</h2>
+          <p class="card-description">
+            The studio screenplay editor for Windows and Linux. Native US Letter &amp; A4 paper canvas, multi-act outline navigation, and X-Ray pacing analytics.
+          </p>
+        </div>
+
+        <div class="card-btn">
+          <span>Launch ActOne</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Product 2: FountTUI -->
+      <a class="product-action-card card-fount" href="fount/">
+        <div>
+          <div class="card-top-row">
+            <img class="card-app-icon" src="assets/Fount_newlogo.png" alt="FountTUI icon">
+            <span class="card-badge card-badge-fount">TERMINAL ENGINE</span>
+          </div>
+          <h2 class="card-title">FountTUI</h2>
+          <p class="card-description">
+            The distraction-free command-line screenplay engine. Blazingly fast, keyboard-driven terminal editor built with Rust and Ratatui.
+          </p>
+        </div>
+
+        <div class="card-btn">
+          <span>Launch Fount</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </div>
+      </a>
+    </div>
   </main>
-  <footer class="site-footer"><span>iyal.ink</span><span>Filmmaking Tools.</span><span><a href="blog/">Blog</a></span></footer>
-  <script src="assets/site.js"></script>
+
+  <!-- Footer -->
+  <footer class="iyal-footer">
+    <div>
+      <span>© 2026 iyal.ink — Free &amp; Open Source Screenwriting Tools</span>
+    </div>
+
+    <div class="footer-links">
+      <a href="actone/">ActOne</a>
+      <a href="fount/">FountTUI</a>
+      <a href="blog/">Blog</a>
+      <a href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">Discord ↗</a>
+    </div>
+  </footer>
+
+  <script src="assets/home.js"></script>
 </body>
 </html>

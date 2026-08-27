@@ -3,83 +3,239 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Screenwriting & Storytelling Journal — iyal.ink</title>
-  <link rel="stylesheet" href="../assets/site.css">
+  <title>Screenwriting Journal &amp; Field Notes — iyal.ink</title>
+  <meta name="description" content="Articles, guides, and field notes on screenwriting workflows, Fountain plain text syntax, offline-first tools, and filmmaking software.">
+  <link rel="canonical" href="https://iyal.ink/blog/">
+  
+  <link rel="stylesheet" href="../assets/home.css">
   <link rel="icon" type="image/svg+xml" href="../assets/iyal-favicon.svg">
+  <style>
+    .blog-container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 40px 32px 80px;
+      position: relative;
+      z-index: 1;
+    }
+    .blog-hero {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 56px;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+    }
+    .blog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-bright);
+      border-radius: 12px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+    }
+    .blog-meta {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .blog-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--fg);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .blog-card:hover .blog-title {
+      color: #ffffff;
+    }
+    .blog-summary {
+      font-size: 0.88rem;
+      color: var(--fg-dim);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .blog-link-btn {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--fg);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color var(--transition-fast);
+    }
+    .blog-card:hover .blog-link-btn {
+      color: var(--accent);
+    }
+  </style>
 </head>
-<body class="iyal-theme">
-  <header class="site-header">
-    <a class="iyal-mark" href="../"><img class="iyal-mark-img" src="../assets/IyalLogo.svg" alt="iyal.ink"></a>
-    <nav class="site-nav">
-      <a href="../">Home</a>
-      <a href="../fount/">FountTUI</a>
-      <a href="../actone/">ActOne Screenplay</a>
-    </nav>
+<body>
+
+  <!-- Ambient Backdrop -->
+  <div class="ambient-bg"></div>
+
+  <!-- Header -->
+  <header class="iyal-header">
+    <a class="iyal-brand" href="../">
+      <img src="../assets/IyalLogo.svg" alt="iyal.ink logo">
+      <span>iyal.ink</span>
+    </a>
+
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a class="btn-header-blog" style="background:transparent;" href="../actone/">ActOne</a>
+      <a class="btn-header-blog" style="background:transparent;" href="../fount/">FountTUI</a>
+      <a class="btn-header-blog" href="../">Home</a>
+    </div>
   </header>
 
-  <main>
-    <section class="subpage-hero">
-      <p class="eyebrow">JOURNAL & FIELD NOTES</p>
-      <h1>Notes from<br><em>the workbench.</em></h1>
-      <p class="lede">Writing, tools, software, and the things we learn while making them.</p>
-    </section>
+  <!-- Main Blog Index -->
+  <main class="blog-container">
+    <div class="blog-hero">
+      <div class="landing-tagline-badge">JOURNAL &amp; FIELD NOTES</div>
+      <h1 class="landing-title" style="font-size:clamp(2.4rem, 5vw, 4.2rem); margin-bottom:16px;">
+        Notes from the <em>workbench.</em>
+      </h1>
+      <p class="landing-lede" style="margin-bottom:0;">
+        Writing craft, open file formats, and the philosophy behind building distraction-free tools.
+      </p>
+    </div>
 
-    <section class="article-list">
-        <article class="article-featured">
-        <span class="eyebrow">AUGUST 26, 2026 / FOUNTAIN GUIDE</span>
-        <h2><a href="fountain-syntax-guide/">Fountain Syntax, Plain and Simple</a></h2>
-        <p>A human friendly Fountain cheatsheet with real examples. Write screenplays in plain text and let ActOne handle the formatting.</p>
-        <span class="text-link" style="margin-top:1.5rem; display:inline-block;"><a href="fountain-syntax-guide/">Read guide <b>-></b></a></span>
-      </article>
-        <article class="article-featured">
-        <span class="eyebrow">AUGUST 26, 2026 / WINDOWS SCREENWRITING</span>
-        <h2><a href="best-screenwriting-software-windows-11/">The Best Free Screenwriting Software for Windows 11</a></h2>
-        <p>Looking for a free screenwriting app that feels native on Windows 11? See what actually works well and why ActOne is built for Windows.</p>
-        <span class="text-link" style="margin-top:1.5rem; display:inline-block;"><a href="best-screenwriting-software-windows-11/">Read article <b>-></b></a></span>
-      </article>
-        <article>
-        <span class="eyebrow">AUGUST 26, 2026 / WORKFLOW GUIDE</span>
-        <h2><a href="import-fdx-fadein-fountain-to-actone/">Import Your Script Without Retyping It</a></h2>
-        <p>Move FDX, Fade In and Fountain files into ActOne in two clicks. Keep your formatting and keep writing in plain text.</p>
-        <span class="text-link" style="margin-top:1.5rem; display:inline-block;"><a href="import-fdx-fadein-fountain-to-actone/">Read guide <b>-></b></a></span>
-      </article>
-        <article>
-        <span class="eyebrow">AUGUST 26, 2026 / WRITING PRIVACY</span>
-        <h2><a href="why-offline-screenwriting-matters/">Offline Writing, Still Matters</a></h2>
-        <p>Why keeping your screenplay as local Fountain files beats living in a browser tab, and how ActOne keeps your work yours.</p>
-        <span class="text-link" style="margin-top:1.5rem; display:inline-block;"><a href="why-offline-screenwriting-matters/">Read article <b>-></b></a></span>
-      </article>
-        <article class="article-featured">
-        <span class="eyebrow">AUGUST 05, 2026 / LINUX SCREENWRITING</span>
-        <h2><a href="why-linux-screenwriters-deserve-better-tools/">Why Linux Screenwriters Deserve Better Tools</a></h2>
-        <p>Why Linux has fewer native creative tools, what a Linux Fountain editor should provide, and how ActOne Screenplay approaches the gap.</p>
-        <span class="text-link" style="margin-top:1.5rem; display:inline-block;"><a href="why-linux-screenwriters-deserve-better-tools/">Read article <b>-></b></a></span>
-      </article>
-      <article>
-        <span class="eyebrow">AUGUST 05, 2026 / INDIAN LANGUAGE SCREENWRITING</span>
-        <h2><a href="best-screenwriting-app-indian-languages/">Best Screenwriting App for Indian Languages</a></h2>
-        <p>What screenplay software needs to support Tamil, Malayalam, Telugu, Hindi, and other Indic languages.</p>
-        <span class="text-link" style="margin-top:1.5rem; display:inline-block;"><a href="best-screenwriting-app-indian-languages/">Read article <b>-></b></a></span>
-      </article>
-      <article>
-        <span class="eyebrow">AUGUST 04, 2026 / SCREENWRITING GUIDE</span>
-        <h2><a href="best-free-screenwriting-software/">Best Free Screenwriting Software for Windows, Linux & Mac</a></h2>
-        <p>A complete comparison of top free Fountain screenplay editors including ActOne Screenplay, FountTUI, WriterSolo, Beat, and Highland 2.</p>
-        <span class="text-link" style="margin-top:1.5rem; display:inline-block;"><a href="best-free-screenwriting-software/">Read guide <b>-></b></a></span>
-      </article>
-      <article>
-        <span class="eyebrow">AUGUST 04, 2026 / MANIFESTO</span>
-        <h2><a href="welcome-to-iyal-ink/">Welcome to iyal.ink</a></h2>
-        <p>Why we are building open, local-first tools to give screenwriters back their freedom, privacy, and peace of mind.</p>
-        <span class="text-link" style="margin-top:1.5rem; display:inline-block;"><a href="welcome-to-iyal-ink/">Read article <b>-></b></a></span>
-      </article>
-    </section>
+    <div class="blog-grid">
+      <!-- Article 1 -->
+      <a class="blog-card" href="fountain-syntax-guide/">
+        <div>
+          <div class="blog-meta">August 26, 2026 // Fountain Guide</div>
+          <h2 class="blog-title">Fountain Syntax, Plain and Simple</h2>
+          <p class="blog-summary">A human-friendly Fountain cheatsheet with real examples. Write screenplays in plain text and let ActOne and Fount handle the formatting.</p>
+        </div>
+        <div class="blog-link-btn">
+          <span>Read Guide</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Article 2 -->
+      <a class="blog-card" href="best-screenwriting-software-windows-11/">
+        <div>
+          <div class="blog-meta">August 26, 2026 // Windows Screenwriting</div>
+          <h2 class="blog-title">The Best Free Screenwriting Software for Windows 11</h2>
+          <p class="blog-summary">Looking for a free screenwriting app that feels native on Windows 11? See what actually works well and why ActOne is built for Windows.</p>
+        </div>
+        <div class="blog-link-btn">
+          <span>Read Article</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Article 3 -->
+      <a class="blog-card" href="import-fdx-fadein-fountain-to-actone/">
+        <div>
+          <div class="blog-meta">August 26, 2026 // Workflow Guide</div>
+          <h2 class="blog-title">Import Your Script Without Retyping It</h2>
+          <p class="blog-summary">Move FDX, Fade In and Fountain files into ActOne in two clicks. Keep your formatting and keep writing in plain text.</p>
+        </div>
+        <div class="blog-link-btn">
+          <span>Read Guide</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Article 4 -->
+      <a class="blog-card" href="why-offline-screenwriting-matters/">
+        <div>
+          <div class="blog-meta">August 26, 2026 // Writing Privacy</div>
+          <h2 class="blog-title">Offline Writing, Still Matters</h2>
+          <p class="blog-summary">Why keeping your screenplay as local Fountain files beats living in a browser tab, and how ActOne and Fount protect your creative sovereignty.</p>
+        </div>
+        <div class="blog-link-btn">
+          <span>Read Article</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Article 5 -->
+      <a class="blog-card" href="why-linux-screenwriters-deserve-better-tools/">
+        <div>
+          <div class="blog-meta">August 05, 2026 // Linux Screenwriting</div>
+          <h2 class="blog-title">Why Linux Screenwriters Deserve Better Tools</h2>
+          <p class="blog-summary">Why Linux has fewer native creative tools, what a Linux Fountain editor should provide, and how ActOne and Fount bridge the gap.</p>
+        </div>
+        <div class="blog-link-btn">
+          <span>Read Article</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Article 6 -->
+      <a class="blog-card" href="best-screenwriting-app-indian-languages/">
+        <div>
+          <div class="blog-meta">August 05, 2026 // Indic Typography</div>
+          <h2 class="blog-title">Best Screenwriting App for Indian Languages</h2>
+          <p class="blog-summary">What screenplay software needs to support Tamil, Malayalam, Telugu, Hindi, and other Indic languages with correct complex script rendering.</p>
+        </div>
+        <div class="blog-link-btn">
+          <span>Read Article</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Article 7 -->
+      <a class="blog-card" href="best-free-screenwriting-software/">
+        <div>
+          <div class="blog-meta">August 04, 2026 // Software Comparison</div>
+          <h2 class="blog-title">Best Free Screenwriting Software for Windows, Linux &amp; Mac</h2>
+          <p class="blog-summary">A complete comparison of top free Fountain screenplay editors including ActOne Screenplay, FountTUI, WriterSolo, Beat, and Highland 2.</p>
+        </div>
+        <div class="blog-link-btn">
+          <span>Read Guide</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Article 8 -->
+      <a class="blog-card" href="welcome-to-iyal-ink/">
+        <div>
+          <div class="blog-meta">August 04, 2026 // Manifesto</div>
+          <h2 class="blog-title">Welcome to iyal.ink</h2>
+          <p class="blog-summary">Why we are building open, local-first tools to give screenwriters back their freedom, privacy, and creative focus.</p>
+        </div>
+        <div class="blog-link-btn">
+          <span>Read Article</span>
+          <span>→</span>
+        </div>
+      </a>
+    </div>
   </main>
 
-  <footer class="site-footer">
-    <span>iyal.ink / Journal</span>
-    <a href="../">Back home</a>
+  <!-- Footer -->
+  <footer class="iyal-footer">
+    <div>
+      <span>© 2026 iyal.ink — Free &amp; Open Source Screenwriting Tools</span>
+    </div>
+
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="../actone/">ActOne</a>
+      <a href="../fount/">FountTUI</a>
+      <a href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://discord.gg/XTPjm93eNx" target="_blank" rel="noopener">Discord ↗</a>
+    </div>
   </footer>
-  <script src="../assets/site.js"></script>
+
 </body>
 </html>
