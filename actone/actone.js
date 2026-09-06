@@ -1,4 +1,53 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // --- Dynamic version injection (single source: actone/version.json) ---
+  (async () => {
+    const candidates = (() => {
+      const path = window.location.pathname;
+      // Derive candidate fetch URLs relative to site root
+      if (path.includes('/downloads/')) return ['../version.json', '/actone/version.json', 'version.json'];
+      if (path.includes('/actone/')) return ['version.json', './version.json', '/actone/version.json'];
+      return ['actone/version.json', '/actone/version.json', './version.json'];
+    })();
+
+    let version = null;
+    for (const url of candidates) {
+      try {
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) continue;
+        const data = await res.json();
+        if (data && typeof data.version === 'string' && /^\d+\.\d+\.\d+$/.test(data.version)) {
+          version = data.version;
+          break;
+        }
+      } catch (_) { /* try next */ }
+    }
+    if (!version) return;
+
+    function applyVersion(v) {
+      document.querySelectorAll('[data-version="badge"]').forEach(el => { el.textContent = `v${v} BETA`; });
+      document.querySelectorAll('[data-version="download-btn"]').forEach(el => { el.textContent = `Download ActOne v${v}`; });
+      document.querySelectorAll('[data-version="section-tag"]').forEach(el => { el.textContent = `VERSION ${v}`; });
+      document.querySelectorAll('[data-version="changelog-title"]').forEach(el => { el.textContent = `ActOne v${v}`; });
+      document.querySelectorAll('[data-version="linux-tgz"]').forEach(el => {
+        if (el instanceof HTMLAnchorElement) {
+          el.href = `https://downloads.iyal.ink/ActOne-Linux-x64-${v}.tar.gz`;
+        }
+      });
+      // Fallback: patch any stray hardcoded version strings (e.g. missed during build)
+      const versionPattern = /v0\.\d+\.\d+/g;
+      const barePattern = /0\.\d+\.\d+/g;
+      // Only patch text nodes that look like version displays to avoid over-replacing
+      document.querySelectorAll('span, h3, a').forEach(el => {
+        if (el.hasAttribute('data-version')) return;
+        if (el.textContent && /Download ActOne v0\.\d+\.\d+/.test(el.textContent)) {
+          el.textContent = el.textContent.replace(versionPattern, `v${v}`);
+        }
+      });
+    }
+
+    applyVersion(version);
+  })();
+
   const themeBtns = document.querySelectorAll('.theme-btn');
   const savedTheme = localStorage.getItem('actone_theme') || 'lavender';
 
