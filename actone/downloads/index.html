@@ -42,7 +42,7 @@
         <div class="hero-meta-bar">
           <span class="hero-badge-accent">OFFICIAL RELEASE</span>
           <span>•</span>
-          <span data-version="badge">v0.4.22 BETA</span>
+          <span data-version="badge">v0.4.23 BETA</span>
           <span>•</span>
           <span>ZERO CLOUD LOCK-IN</span>
         </div>
@@ -98,7 +98,7 @@
         </div>
 
         <div>
-          <a data-version="linux-tgz" class="btn-aspen btn-aspen-accent" style="width: 100%; justify-content: center; height: 48px;" href="https://downloads.iyal.ink/ActOne-Linux-x64-0.4.22.tar.gz">
+          <a data-version="linux-tgz" class="btn-aspen btn-aspen-accent" style="width: 100%; justify-content: center; height: 48px;" href="https://downloads.iyal.ink/ActOne-Linux-x64-0.4.23.tar.gz">
             <span>Download Linux x64 (.tar.gz) ↓</span>
           </a>
 
@@ -112,13 +112,13 @@
     <div class="section-header-row">
       <span class="section-num">02</span>
       <span class="section-title">RELEASE NOTES &amp; CHANGELOG</span>
-      <span class="section-tag" data-version="section-tag">VERSION 0.4.22</span>
+      <span class="section-tag" data-version="section-tag">VERSION 0.4.23</span>
     </div>
 
     <section class="changelog-card">
       <div class="changelog-header">
         <div class="changelog-version">
-          <h3 class="changelog-version-title" data-version="changelog-title">ActOne v0.4.22</h3>
+          <h3 class="changelog-version-title" data-version="changelog-title">ActOne v0.4.23</h3>
           <span class="changelog-badge">Latest Beta</span>
         </div>
         <span class="changelog-date">Production Release</span>
@@ -128,49 +128,42 @@
         <div class="changelog-item">
           <span class="changelog-tag new">New</span>
           <div>
-            <strong>Reimagined Full-Document Translation:</strong> Completely overhauled screenplay translation with scene-by-scene narrative continuity, a live streaming preview as words generate, automatic recovery with an instant "Retry Failed Lines" button, and 8 new languages including Arabic, Korean, Russian, Turkish, Telugu, Kannada, Malayalam, and Thai.
-          </div>
-        </div>
-
-        <div class="changelog-item">
-          <span class="changelog-tag new">New</span>
-          <div>
-            <strong>In-App Bug Reporting:</strong> Press <kbd>Ctrl+K</kbd> and select "Report a Bug" to send feedback or report issues directly from within the app, complete with reproducible steps and privacy-safe diagnostic info.
-          </div>
-        </div>
-
-        <div class="changelog-item">
-          <span class="changelog-tag new">New</span>
-          <div>
-            <strong>Automatic (CONT'D) Dialogue Tagging:</strong> ActOne now automatically appends <code>(CONT'D)</code> to character names during consecutive dialogue blocks, saving you repetitive typing.
+            <strong>Quick AI Model Switcher Palette (Alt+Shift+M):</strong> Minimal, fast floating dialog to switch between custom OpenAI-compatible API models and locally running Ollama models on the fly, with quick options to disable AI or jump straight to provider configuration in Settings.
           </div>
         </div>
 
         <div class="changelog-item">
           <span class="changelog-tag imp">Improved</span>
           <div>
-            <strong>Sleek Borderless Workspace &amp; Fluid Panes:</strong> A cleaner edge-to-edge layout with rounded editor corners, smooth animations, and automatic sidebar management—opening one side panel smoothly tucks away the other to keep your writing space uncluttered.
+            <strong>Scene-by-Scene Translation Architecture:</strong> Whole-document translation now uses narrative scene-by-scene units instead of fixed line batches, with adaptive sub-chunking for scenes exceeding 35 lines to preserve narrative context, character attributions, and emotional tone.
           </div>
         </div>
 
         <div class="changelog-item">
           <span class="changelog-tag imp">Improved</span>
           <div>
-            <strong>Handy Keyboard Shortcuts &amp; Saved Panel Sizes:</strong> Toggle Muse AI assistant on or off with <kbd>Alt+M</kbd>, jump straight to the Outline View with <kbd>Ctrl+\</kbd>, and enjoy sidebar and panel widths that remember your exact preferences across sessions.
+            <strong>Cleaner Translated Screenplays:</strong> Character glossaries no longer leak leading <code>@</code> symbols into AI prompts, model-generated surrounding quotes are stripped from dialogue, enclosing parentheses are stripped from action lines, and cross-lingual tokenizer bleeding (e.g. stray CJK or neighboring Indic glyphs) is automatically sanitized.
+          </div>
+        </div>
+
+        <div class="changelog-item">
+          <span class="changelog-tag imp">Improved</span>
+          <div>
+            <strong>Synchronous Script State Sync:</strong> Active script state now synchronizes immediately during script duplication, deletion, creation, switching, and reordering, preventing background updates from dropping or targeting outdated scripts.
           </div>
         </div>
 
         <div class="changelog-item">
           <span class="changelog-tag fix">Fix</span>
           <div>
-            <strong>Reliable Translation Line Filtering:</strong> Fixed element selection filters so choosing dialogue, action, headings, or transitions translates only the screenplay elements you want.
+            <strong>Drag-and-Drop Listener Lifecycle Guard:</strong> Hardened window event listener cleanup against Tauri <code>TypeError: Cannot read properties of undefined (reading 'handlerId')</code> crashes during React unmounts and hot reloads.
           </div>
         </div>
 
         <div class="changelog-item">
-          <span class="changelog-tag fix">Fix</span>
+          <span class="changelog-tag imp">Improved</span>
           <div>
-            <strong>Clipboard &amp; Background Stability:</strong> Smoother, more reliable copy-paste behavior across Windows and Linux, along with rock-solid background performance during heavy translation runs.
+            <strong>Leaner Bundle &amp; Stronger Test Coverage:</strong> Removed legacy production breakdown tag data structures and CSV export routines to reduce bundle overhead, with translation engine coverage expanded to <strong>23 tests</strong> for scene segmentation, chunking, retries, and formatting cleanup.
           </div>
         </div>
       </div>
