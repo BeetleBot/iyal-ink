@@ -1258,3 +1258,230 @@ img, svg, video {
     gap: 4px;
   }
 }
+
+.instruction-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 18, 24, 0.68);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+  padding: 16px;
+}
+
+.instruction-modal-overlay.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.instruction-modal-dialog {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 520px;
+  max-height: 84vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(8px) scale(0.98);
+  transition: transform var(--transition-fast);
+}
+
+.instruction-modal-overlay.is-active .instruction-modal-dialog {
+  transform: translateY(0) scale(1);
+}
+
+.instruction-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-subtle);
+}
+
+.instruction-modal-title {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
+
+.instruction-modal-close-btn {
+  background: var(--bg-card);
+  color: var(--fg-dim);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 4px 11px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.instruction-modal-close-btn:hover {
+  color: var(--fg);
+  border-color: var(--border-bright);
+  background: var(--bg);
+}
+
+.instruction-modal-body {
+  padding: 16px 18px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.instruction-card {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+}
+
+.instruction-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.instruction-card-title {
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: var(--fg);
+}
+
+.instruction-badge-rec {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-pastel);
+  color: var(--accent-fg);
+  border: 1px solid var(--accent-border);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.instruction-card-desc {
+  font-size: 0.82rem;
+  color: var(--fg-dim);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.instruction-step {
+  font-size: 0.8rem;
+  color: var(--fg-dim);
+  line-height: 1.45;
+  margin-bottom: 6px;
+}
+
+.instruction-step strong {
+  color: var(--fg);
+}
+
+.instruction-cmd-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border-bright);
+  border-radius: 6px;
+  padding: 7px 10px;
+  margin-bottom: 8px;
+}
+
+.instruction-cmd-code {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent-fg);
+  word-break: break-all;
+}
+
+.instruction-copy-btn {
+  font-size: 0.66rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--fg-dim);
+  padding: 3px 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  border-radius: 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.instruction-copy-btn:hover {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
+
+.instruction-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--fg-dim);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+.instruction-link-btn:hover {
+  color: var(--accent);
+}
+
+.download-card-action-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.card-under-action {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding-top: 8px;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.card-under-action .instruction-link-btn {
+  font-size: 0.76rem;
+}
+
+.instruction-footer-note {
+  font-size: 0.75rem;
+  color: var(--fg-muted);
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}

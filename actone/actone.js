@@ -33,6 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
           el.href = `https://downloads.iyal.ink/ActOne-Linux-x64-${v}.tar.gz`;
         }
       });
+      const flatpakEl = document.getElementById('flatpakCmd');
+      if (flatpakEl) {
+        flatpakEl.textContent = `flatpak install --user ActOne.flatpak`;
+      }
+      const appimageRunEl = document.getElementById('appimageRunCmd');
+      if (appimageRunEl) {
+        appimageRunEl.textContent = `chmod +x ActOne.AppImage && ./ActOne.AppImage`;
+      }
       // Fallback: patch any stray hardcoded version strings (e.g. missed during build)
       const versionPattern = /v0\.\d+\.\d+/g;
       const barePattern = /0\.\d+\.\d+/g;
@@ -264,6 +272,62 @@ document.addEventListener('DOMContentLoaded', () => {
     frame.addEventListener('click', () => {
       const img = frame.querySelector('img');
       if (img) openLightbox(img.src, img.alt);
+    });
+  });
+
+  // --- Linux Installation Modal Interaction ---
+  const linuxModal = document.getElementById('linuxModalOverlay');
+  const openLinuxModalBtn = document.getElementById('openLinuxInstructionsBtn');
+  const closeLinuxModalBtn = document.getElementById('linuxModalCloseBtn');
+
+  function openLinuxModal() {
+    if (linuxModal) {
+      linuxModal.classList.add('is-active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeLinuxModal() {
+    if (linuxModal) {
+      linuxModal.classList.remove('is-active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (openLinuxModalBtn) openLinuxModalBtn.addEventListener('click', openLinuxModal);
+  if (closeLinuxModalBtn) closeLinuxModalBtn.addEventListener('click', closeLinuxModal);
+  if (linuxModal) {
+    linuxModal.addEventListener('click', (e) => {
+      if (e.target === linuxModal) closeLinuxModal();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && linuxModal && linuxModal.classList.contains('is-active')) {
+      closeLinuxModal();
+    }
+  });
+
+  // Instruction copy buttons
+  document.querySelectorAll('.instruction-copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-copy-target');
+      if (!targetId) return;
+      const targetEl = document.getElementById(targetId);
+      if (!targetEl) return;
+      const textToCopy = targetEl.textContent.trim();
+
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        const originalText = btn.textContent;
+        btn.textContent = 'COPIED';
+        btn.style.color = 'var(--accent)';
+        btn.style.borderColor = 'var(--accent)';
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.color = '';
+          btn.style.borderColor = '';
+        }, 2000);
+      });
     });
   });
 });

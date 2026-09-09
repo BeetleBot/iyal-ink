@@ -42,7 +42,7 @@
         <div class="hero-meta-bar">
           <span class="hero-badge-accent">OFFICIAL RELEASE</span>
           <span>•</span>
-          <span data-version="badge">v0.4.23 BETA</span>
+          <span data-version="badge">v0.4.24 BETA</span>
           <span>•</span>
           <span>ZERO CLOUD LOCK-IN</span>
         </div>
@@ -60,7 +60,7 @@
     <div class="section-header-row">
       <span class="section-num">01</span>
       <span class="section-title">CHOOSE YOUR OPERATING SYSTEM</span>
-      <span class="section-tag">NATIVE DESKTOP BINARIES</span>
+      <span class="section-tag" data-version="section-tag">NATIVE DESKTOP PACKAGES</span>
     </div>
 
     <section class="download-card-grid">
@@ -77,33 +77,30 @@
 
         <div>
           <a class="btn-aspen btn-aspen-accent" style="width: 100%; justify-content: center; height: 48px;" href="https://apps.microsoft.com/detail/9PJMKR0937KK" target="_blank" rel="noopener">
-            <span>Get on Microsoft Store ↗</span>
+            <span>Get on Microsoft Store &rarr;</span>
           </a>
-
-          <div style="margin-top: 18px; padding: 14px; background: var(--bg-subtle); border-radius: var(--radius-sm); border: 1px solid var(--border); font-size: 0.78rem; color: var(--fg-dim);">
-            <strong style="color:var(--fg);">Requirement:</strong> Windows 10 build 17763+, Windows 11. 100% offline desktop app.
-          </div>
         </div>
       </div>
 
       <div class="download-card">
         <div>
-          <span class="download-platform-tag">All Linux Distributions</span>
+          <span class="download-platform-tag">Linux (x86_64)</span>
           <h2 class="download-platform-title">
-            Standalone Linux Tarball
+            Flatpak &amp; AppImage
           </h2>
           <p class="download-platform-desc">
-            Standalone portable archive tested across Ubuntu, Fedora, Arch Linux, Debian, openSUSE, and Pop!_OS.
+            Universal Linux packages. Choose sandboxed Flatpak bundle (recommended) or portable standalone AppImage with desktop integration.
           </p>
         </div>
 
-        <div>
-          <a data-version="linux-tgz" class="btn-aspen btn-aspen-accent" style="width: 100%; justify-content: center; height: 48px;" href="https://downloads.iyal.ink/ActOne-Linux-x64-0.4.23.tar.gz">
-            <span>Download Linux x64 (.tar.gz) ↓</span>
+        <div class="download-card-action-wrap">
+          <a class="btn-aspen btn-aspen-accent" style="width: 100%; justify-content: center; height: 48px;" href="https://github.com/BeetleBot/ActOne-Screenplay/releases" target="_blank" rel="noopener">
+            <span>Download for Linux on GitHub &rarr;</span>
           </a>
-
-          <div style="margin-top: 18px; padding: 14px; background: var(--bg-subtle); border-radius: var(--radius-sm); border: 1px solid var(--border); font-size: 0.78rem; color: var(--fg-dim);">
-            <strong style="color:var(--fg);">Install:</strong> Extract archive, open terminal in folder, run <code style="font-family:var(--font-mono); font-size:0.85em; background:var(--accent-pastel); padding:2px 6px; border-radius:4px; color:var(--accent-fg);">sudo ./install.sh</code>.
+          <div class="card-under-action">
+            <button id="openLinuxInstructionsBtn" class="instruction-link-btn" type="button">
+              Linux Installation Instructions &rarr;
+            </button>
           </div>
         </div>
       </div>
@@ -112,13 +109,13 @@
     <div class="section-header-row">
       <span class="section-num">02</span>
       <span class="section-title">RELEASE NOTES &amp; CHANGELOG</span>
-      <span class="section-tag" data-version="section-tag">VERSION 0.4.23</span>
+      <span class="section-tag" data-version="section-tag">VERSION 0.4.24</span>
     </div>
 
     <section class="changelog-card">
       <div class="changelog-header">
         <div class="changelog-version">
-          <h3 class="changelog-version-title" data-version="changelog-title">ActOne v0.4.23</h3>
+          <h3 class="changelog-version-title" data-version="changelog-title">ActOne v0.4.24</h3>
           <span class="changelog-badge">Latest Beta</span>
         </div>
         <span class="changelog-date">Production Release</span>
@@ -222,6 +219,82 @@
       </div>
     </div>
   </footer>
+
+  <div class="instruction-modal-overlay" id="linuxModalOverlay" role="dialog" aria-modal="true" aria-labelledby="linuxModalTitle">
+    <div class="instruction-modal-dialog">
+      <div class="instruction-modal-header">
+        <div class="instruction-modal-title" id="linuxModalTitle">
+          <span>Linux Installation &amp; Setup Guide</span>
+        </div>
+        <button class="instruction-modal-close-btn" id="linuxModalCloseBtn" type="button" aria-label="Close modal">Close &times;</button>
+      </div>
+
+      <div class="instruction-modal-body">
+        <div class="instruction-card">
+          <div class="instruction-card-header">
+            <h3 class="instruction-card-title">
+              <span>Flatpak Bundle (.flatpak)</span>
+            </h3>
+            <span class="instruction-badge-rec">Recommended</span>
+          </div>
+          <p class="instruction-card-desc">
+            Flatpak provides a sandboxed, isolated runtime for modern Linux distributions.
+          </p>
+
+          <div class="instruction-step">
+            <strong>Install:</strong> Run in terminal where downloaded:
+          </div>
+
+          <div class="instruction-cmd-box">
+            <code class="instruction-cmd-code" id="flatpakCmd">flatpak install --user ActOne.flatpak</code>
+            <button class="instruction-copy-btn" data-copy-target="flatpakCmd" type="button">COPY</button>
+          </div>
+
+          <div class="instruction-step">
+            <strong>Run:</strong> Launch from app menu or terminal:
+          </div>
+
+          <div class="instruction-cmd-box">
+            <code class="instruction-cmd-code" id="flatpakRunCmd">flatpak run ink.iyal.actone</code>
+            <button class="instruction-copy-btn" data-copy-target="flatpakRunCmd" type="button">COPY</button>
+          </div>
+        </div>
+
+        <div class="instruction-card">
+          <div class="instruction-card-header">
+            <h3 class="instruction-card-title">
+              <span>AppImage (.AppImage)</span>
+            </h3>
+          </div>
+          <p class="instruction-card-desc">
+            Portable single-file executable. Can be used directly or integrated into your desktop.
+          </p>
+
+          <div class="instruction-step">
+            <strong>Run as Portable:</strong> Make executable and run:
+          </div>
+
+          <div class="instruction-cmd-box">
+            <code class="instruction-cmd-code" id="appimageRunCmd">chmod +x ActOne.AppImage &amp;&amp; ./ActOne.AppImage</code>
+            <button class="instruction-copy-btn" data-copy-target="appimageRunCmd" type="button">COPY</button>
+          </div>
+
+          <div class="instruction-step">
+            <strong>Optional Desktop Integration:</strong>
+          </div>
+          <ul style="padding-left: 18px; font-size: 0.8rem; color: var(--fg-dim); line-height: 1.5; margin-bottom: 4px;">
+            <li>On first launch, you will be prompted to install desktop integration.</li>
+            <li>Or install anytime via <strong>Settings &rarr; General &rarr; Desktop Integration</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="instruction-footer-note">
+          <span>Need help or reporting an issue?</span>
+          <a href="https://github.com/BeetleBot/ActOne-Screenplay/issues" target="_blank" rel="noopener" style="color:var(--accent); font-weight:700; text-decoration:underline;">GitHub Issues &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="../actone.js"></script>
 </body>
