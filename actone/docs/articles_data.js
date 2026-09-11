@@ -1,6 +1,6 @@
 // AUTO-GENERATED — DO NOT EDIT MANUALLY
 // Source: ActOne-Screenplay/src/data/helpArticles.tsx (single source of truth)
-// Generated: 2026-09-11T20:16:36.451Z
+// Generated: 2026-09-11T20:18:14.477Z
 // To regenerate: node generate_docs.js
 // Categories: 10 | Articles: 91
 const DOCS_DATA = {
