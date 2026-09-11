@@ -1,21 +1,72 @@
-/**
- * ActOne Screenplay — Interactive Script Engine
- * Aspen Search Grid Architecture x Multi-Depth Courier Prime Cascading Rain
- */
-
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Theme Switcher System (Header Swatches)
+  // --- Dynamic version injection (single source: actone/version.json) ---
+  (async () => {
+    const candidates = (() => {
+      const path = window.location.pathname;
+      // Derive candidate fetch URLs relative to site root
+      if (path.includes('/downloads/')) return ['../version.json', '/actone/version.json', 'version.json'];
+      if (path.includes('/actone/')) return ['version.json', './version.json', '/actone/version.json'];
+      return ['actone/version.json', '/actone/version.json', './version.json'];
+    })();
+
+    let version = null;
+    for (const url of candidates) {
+      try {
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) continue;
+        const data = await res.json();
+        if (data && typeof data.version === 'string' && /^\d+\.\d+\.\d+$/.test(data.version)) {
+          version = data.version;
+          break;
+        }
+      } catch (_) { /* try next */ }
+    }
+    if (!version) return;
+
+    function applyVersion(v) {
+      document.querySelectorAll('[data-version="badge"]').forEach(el => { el.textContent = `v${v} BETA`; });
+      document.querySelectorAll('[data-version="download-btn"]').forEach(el => { el.textContent = `Download ActOne v${v}`; });
+      document.querySelectorAll('[data-version="section-tag"]').forEach(el => { el.textContent = `VERSION ${v}`; });
+      document.querySelectorAll('[data-version="changelog-title"]').forEach(el => { el.textContent = `ActOne v${v}`; });
+      document.querySelectorAll('[data-version="linux-tgz"]').forEach(el => {
+        if (el instanceof HTMLAnchorElement) {
+          el.href = `https://downloads.iyal.ink/ActOne-Linux-x64-${v}.tar.gz`;
+        }
+      });
+      const flatpakEl = document.getElementById('flatpakCmd');
+      if (flatpakEl) {
+        flatpakEl.textContent = `flatpak install --user ActOne.flatpak`;
+      }
+      const appimageRunEl = document.getElementById('appimageRunCmd');
+      if (appimageRunEl) {
+        appimageRunEl.textContent = `chmod +x ActOne.AppImage && ./ActOne.AppImage`;
+      }
+      // Fallback: patch any stray hardcoded version strings (e.g. missed during build)
+      const versionPattern = /v0\.\d+\.\d+/g;
+      const barePattern = /0\.\d+\.\d+/g;
+      // Only patch text nodes that look like version displays to avoid over-replacing
+      document.querySelectorAll('span, h3, a').forEach(el => {
+        if (el.hasAttribute('data-version')) return;
+        if (el.textContent && /Download ActOne v0\.\d+\.\d+/.test(el.textContent)) {
+          el.textContent = el.textContent.replace(versionPattern, `v${v}`);
+        }
+      });
+    }
+
+    applyVersion(version);
+  })();
+
   const themeBtns = document.querySelectorAll('.theme-btn');
-  const savedTheme = localStorage.getItem('actone_theme') || 'mint';
-  
+  const savedTheme = localStorage.getItem('actone_theme') || 'lavender';
+
   function applyTheme(themeName) {
-    if (themeName === 'mint') {
+    if (themeName === 'lavender') {
       document.documentElement.removeAttribute('data-theme');
     } else {
       document.documentElement.setAttribute('data-theme', themeName);
     }
     localStorage.setItem('actone_theme', themeName);
-    
+
     themeBtns.forEach(btn => {
       if (btn.dataset.setTheme === themeName) {
         btn.classList.add('active');
@@ -36,24 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 2. Real-Time Header Clock
-  function updateClocks() {
-    const now = new Date();
-    const headerTimeEl = document.getElementById('header-live-time');
-    if (headerTimeEl) {
-      headerTimeEl.textContent = new Intl.DateTimeFormat('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-      }).format(now);
-    }
-  }
-
-  setInterval(updateClocks, 1000);
-  updateClocks();
-
-  // 3. Multi-Depth Cascading Courier Prime Letters Engine with Trailing Motion Effects
   const canvas = document.getElementById('courierRainCanvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
@@ -66,13 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
       return COURIER_LETTERS[Math.floor(Math.random() * COURIER_LETTERS.length)];
     }
 
-    // 5 Deep, Immersive Layers with Darkened, Clearly Visible Typography
     const DEPTH_LAYERS = [
-      { count: 90, fontSize: 10, speedMin: 0.40, speedMax: 0.85, baseAlpha: 0.22, isAccent: false, trailLength: 2 },
-      { count: 75, fontSize: 13, speedMin: 0.85, speedMax: 1.45, baseAlpha: 0.35, isAccent: false, trailLength: 3 },
-      { count: 55, fontSize: 17, speedMin: 1.45, speedMax: 2.20, baseAlpha: 0.48, isAccent: false, trailLength: 3 },
-      { count: 35, fontSize: 23, speedMin: 2.20, speedMax: 3.20, baseAlpha: 0.62, isAccent: true,  trailLength: 4 },
-      { count: 18, fontSize: 30, speedMin: 3.20, speedMax: 4.40, baseAlpha: 0.75, isAccent: true,  trailLength: 4 }
+      { count: 70, fontSize: 11, speedMin: 0.35, speedMax: 0.75, baseAlpha: 0.16, isAccent: false, trailLength: 2 },
+      { count: 55, fontSize: 14, speedMin: 0.75, speedMax: 1.30, baseAlpha: 0.24, isAccent: false, trailLength: 3 },
+      { count: 40, fontSize: 18, speedMin: 1.30, speedMax: 1.95, baseAlpha: 0.32, isAccent: false, trailLength: 3 },
+      { count: 25, fontSize: 24, speedMin: 1.95, speedMax: 2.80, baseAlpha: 0.44, isAccent: true,  trailLength: 4 },
+      { count: 14, fontSize: 32, speedMin: 2.80, speedMax: 3.80, baseAlpha: 0.55, isAccent: true,  trailLength: 4 }
     ];
 
     let particles = [];
@@ -81,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
       particles = [];
       DEPTH_LAYERS.forEach((layer, layerIdx) => {
         const scaledCount = Math.floor(layer.count * Math.max(0.7, width / 1100));
-        const total = Math.max(14, scaledCount);
+        const total = Math.max(10, scaledCount);
 
         for (let i = 0; i < total; i++) {
           particles.push({
@@ -120,14 +152,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getAccentRgb() {
       const style = getComputedStyle(document.documentElement);
-      const hex = style.getPropertyValue('--accent').trim() || '#34d399';
-      if (hex.startsWith('#')) {
-        let c = hex.substring(1);
-        if (c.length === 3) c = c.split('').map(x => x + x).join('');
-        const num = parseInt(c, 16);
-        return `${(num >> 16) & 255}, ${(num >> 8) & 255}, ${num & 255}`;
-      }
-      return '52, 211, 153';
+      const rgb = style.getPropertyValue('--theme-rgb').trim();
+      if (rgb) return rgb;
+      return '139, 92, 246';
     }
 
     let accentRgb = getAccentRgb();
@@ -164,9 +191,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const currentAlpha = p.baseAlpha * edgeFade;
 
-        ctx.font = `${p.layer >= 3 ? '700 ' : '500 '}${p.fontSize}px 'CourierPrime', Courier, monospace`;
+        ctx.font = `${p.layer >= 3 ? '700 ' : '500 '}${p.fontSize}px 'Courier Prime', 'CourierPrime', Courier, monospace`;
 
-        // 1. Trailing Ghost Letters
         for (let t = p.trail.length - 1; t >= 0; t--) {
           const ghost = p.trail[t];
           const trailRatio = 1 - ((t + 1) / (p.trail.length + 1));
@@ -174,30 +200,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
           if (ghostAlpha > 0.02) {
             if (p.isAccent) {
-              ctx.fillStyle = `rgba(${accentRgb}, ${ghostAlpha * 0.7})`;
+              ctx.fillStyle = `rgba(${accentRgb}, ${ghostAlpha * 0.75})`;
             } else {
-              ctx.fillStyle = `rgba(140, 150, 165, ${ghostAlpha * 0.55})`;
+              ctx.fillStyle = `rgba(100, 116, 139, ${ghostAlpha * 0.55})`;
             }
             ctx.fillText(ghost.char, p.x, ghost.y);
           }
         }
 
-        // 2. Main Head Letter
         if (p.isAccent) {
-          ctx.fillStyle = `rgba(${accentRgb}, ${currentAlpha * 0.90})`;
-          if (p.layer === 4) {
-            ctx.shadowColor = `rgba(${accentRgb}, 0.5)`;
-            ctx.shadowBlur = 6;
-          } else {
-            ctx.shadowBlur = 0;
-          }
+          ctx.fillStyle = `rgba(${accentRgb}, ${currentAlpha * 0.95})`;
         } else {
-          ctx.fillStyle = `rgba(165, 175, 190, ${currentAlpha * 0.75})`;
-          ctx.shadowBlur = 0;
+          ctx.fillStyle = `rgba(80, 95, 115, ${currentAlpha * 0.75})`;
         }
 
         ctx.fillText(p.char, p.x, p.y);
-        ctx.shadowBlur = 0;
 
         if (p.y > height + 40) {
           p.y = -20 - Math.random() * 40;
@@ -214,12 +231,11 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(renderRain);
   }
 
-  // 4. Media Lightbox
   const lightbox = document.createElement('div');
   lightbox.className = 'media-lightbox';
   lightbox.innerHTML = `
     <div class="lightbox-content">
-      <button class="lightbox-close-btn" id="lightboxClose">[ESC] CLOSE ✕</button>
+      <button class="lightbox-close-btn" id="lightboxClose">Close ✕</button>
       <img id="lightboxImg" src="" alt="Enlarged screenshot">
     </div>
   `;
@@ -256,6 +272,62 @@ document.addEventListener('DOMContentLoaded', () => {
     frame.addEventListener('click', () => {
       const img = frame.querySelector('img');
       if (img) openLightbox(img.src, img.alt);
+    });
+  });
+
+  // --- Linux Installation Modal Interaction ---
+  const linuxModal = document.getElementById('linuxModalOverlay');
+  const openLinuxModalBtn = document.getElementById('openLinuxInstructionsBtn');
+  const closeLinuxModalBtn = document.getElementById('linuxModalCloseBtn');
+
+  function openLinuxModal() {
+    if (linuxModal) {
+      linuxModal.classList.add('is-active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeLinuxModal() {
+    if (linuxModal) {
+      linuxModal.classList.remove('is-active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (openLinuxModalBtn) openLinuxModalBtn.addEventListener('click', openLinuxModal);
+  if (closeLinuxModalBtn) closeLinuxModalBtn.addEventListener('click', closeLinuxModal);
+  if (linuxModal) {
+    linuxModal.addEventListener('click', (e) => {
+      if (e.target === linuxModal) closeLinuxModal();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && linuxModal && linuxModal.classList.contains('is-active')) {
+      closeLinuxModal();
+    }
+  });
+
+  // Instruction copy buttons
+  document.querySelectorAll('.instruction-copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-copy-target');
+      if (!targetId) return;
+      const targetEl = document.getElementById(targetId);
+      if (!targetEl) return;
+      const textToCopy = targetEl.textContent.trim();
+
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        const originalText = btn.textContent;
+        btn.textContent = 'COPIED';
+        btn.style.color = 'var(--accent)';
+        btn.style.borderColor = 'var(--accent)';
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.color = '';
+          btn.style.borderColor = '';
+        }, 2000);
+      });
     });
   });
 });

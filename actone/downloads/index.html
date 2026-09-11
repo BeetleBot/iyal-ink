@@ -5,46 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Download ActOne Screenplay — Free Studio Screenplay Writer for Windows &amp; Linux</title>
   <meta name="description" content="Download ActOne Screenplay for Windows and Linux. Completely open-source, offline-first, native Fountain manuscript workspace.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../actone.css">
   <link rel="icon" type="image/png" href="../../assets/ActOne_apptile.png">
 </head>
 <body>
 
-  <!-- Aspen Header -->
   <header class="aspen-header">
     <div class="header-brand-cell">
-      <a href="../" style="display:flex; align-items:center; gap:10px;">
+      <a href="https://actone.iyal.ink/" style="display:flex; align-items:center; gap:10px;">
         <img class="brand-icon" src="../../assets/ActOne_apptile.png" alt="ActOne Logo">
-        <span>ACTONE</span>
+        <span>ACTONE SCREENPLAY</span>
       </a>
-      <span class="brand-badge">DOWNLOADS</span>
     </div>
 
-    <div class="header-meta-cell">
-      <div class="meta-telemetry">
-        <span class="telemetry-item">
-          <span>CHANNEL:</span>
-          <span style="color:var(--accent); font-weight:700;">STABLE // v0.4.21</span>
-        </span>
-      </div>
-
-      <nav class="header-nav">
-        <a class="nav-link" href="../"><span>Overview</span></a>
-        <a class="nav-link" href="../#features"><span>Features</span></a>
-        <a class="nav-link" href="../#studio"><span>Studio</span></a>
-        <a class="nav-link" href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener"><span>GitHub ↗</span></a>
-      </nav>
-    </div>
+    <nav class="header-nav">
+      <a class="nav-link" href="../"><span>Overview</span></a>
+      <a class="nav-link" href="../#features"><span>Features</span></a>
+      <a class="nav-link" href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener"><span>GitHub ↗</span></a>
+    </nav>
 
     <div class="header-actions-cell">
-      <div class="theme-switcher" title="Select Color Palette">
-        <button class="theme-btn active" data-set-theme="mint" title="Aspen Mint"></button>
-        <button class="theme-btn" data-set-theme="amber" title="Amber CRT Phosphor"></button>
-        <button class="theme-btn" data-set-theme="matrix" title="Matrix Green"></button>
-        <button class="theme-btn" data-set-theme="mauve" title="Catppuccin Mauve"></button>
-        <button class="theme-btn" data-set-theme="cyan" title="Cyber Cyan"></button>
-      </div>
-
       <a class="btn-aspen" href="../">
         <span>Back to Site</span>
       </a>
@@ -52,18 +34,17 @@
   </header>
 
   <main class="aspen-container">
-    <!-- Download Hero Zone -->
-    <section class="hero-section" style="padding: 72px 44px 56px;">
+    <section class="hero-section" style="padding: 72px 36px 60px;">
       <canvas class="hero-rain-canvas" id="courierRainCanvas"></canvas>
       <div class="hero-rain-overlay"></div>
 
       <div class="hero-content-wrap">
         <div class="hero-meta-bar">
-          <span>[ RELEASE: STABLE ]</span>
-          <span>//</span>
-          <span>[ VERSION: v0.4.21 ]</span>
-          <span>//</span>
-          <span>[ ZERO CLOUD LOCK-IN ]</span>
+          <span class="hero-badge-accent">OFFICIAL RELEASE</span>
+          <span>•</span>
+          <span data-version="badge">v0.4.24 BETA</span>
+          <span>•</span>
+          <span>ZERO CLOUD LOCK-IN</span>
         </div>
 
         <h1 class="hero-title" style="font-size:clamp(2.6rem, 5.5vw, 4.4rem); margin-bottom:16px;">
@@ -76,105 +57,139 @@
       </div>
     </section>
 
-    <!-- Platform Download Grid -->
     <div class="section-header-row">
       <span class="section-num">01</span>
       <span class="section-title">CHOOSE YOUR OPERATING SYSTEM</span>
-      <span class="section-tag">[ NATIVE BINARIES ]</span>
+      <span class="section-tag" data-version="section-tag">NATIVE DESKTOP PACKAGES</span>
     </div>
 
-    <section class="grid-2 aspen-row divide-x">
-      <!-- Windows Store Card -->
-      <div style="padding: 44px; display: flex; flex-direction: column; justify-content: space-between; background: var(--bg-subtle);">
+    <section class="download-card-grid">
+      <div class="download-card">
         <div>
-          <span class="feature-meta-tag">// WINDOWS 10 / 11 (64-BIT)</span>
-          <h2 style="font-family: var(--font-sans); font-size: 1.8rem; font-weight: 800; color: var(--fg); margin-bottom: 12px;">
+          <span class="download-platform-tag">Windows 10 / 11 (64-Bit)</span>
+          <h2 class="download-platform-title">
             Microsoft Store
           </h2>
-          <p style="color: var(--fg-dim); font-size: 0.9rem; line-height: 1.6; margin-bottom: 28px;">
-            Install ActOne Screenplay from the official Microsoft Store with seamless background automatic updates and sandboxed security.
+          <p class="download-platform-desc">
+            Install ActOne Screenplay directly from the official Microsoft Store with seamless background automatic updates and sandboxed security.
           </p>
         </div>
 
         <div>
           <a class="btn-aspen btn-aspen-accent" style="width: 100%; justify-content: center; height: 48px;" href="https://apps.microsoft.com/detail/9PJMKR0937KK" target="_blank" rel="noopener">
-            <span>Get on Microsoft Store ↗</span>
+            <span>Get on Microsoft Store &rarr;</span>
           </a>
-
-          <div style="margin-top: 18px; padding: 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); font-size: 0.72rem; color: var(--fg-muted);">
-            <strong>Requirement:</strong> Windows 10 build 17763+, Windows 11. 100% offline desktop app.
-          </div>
         </div>
       </div>
 
-      <!-- Linux Tarball Card -->
-      <div style="padding: 44px; display: flex; flex-direction: column; justify-content: space-between; background: var(--bg-subtle);">
+      <div class="download-card">
         <div>
-          <span class="feature-meta-tag">// ALL LINUX DISTRIBUTIONS</span>
-          <h2 style="font-family: var(--font-sans); font-size: 1.8rem; font-weight: 800; color: var(--fg); margin-bottom: 12px;">
-            Standalone Linux Tarball
+          <span class="download-platform-tag">Linux (x86_64)</span>
+          <h2 class="download-platform-title">
+            Flatpak &amp; AppImage
           </h2>
-          <p style="color: var(--fg-dim); font-size: 0.9rem; line-height: 1.6; margin-bottom: 28px;">
-            Standalone portable archive tested across Ubuntu, Fedora, Arch Linux, Debian, openSUSE, and Pop!_OS.
+          <p class="download-platform-desc">
+            Universal Linux packages. Choose sandboxed Flatpak bundle (recommended) or portable standalone AppImage with desktop integration.
           </p>
         </div>
 
-        <div>
-          <a class="btn-aspen btn-aspen-accent" style="width: 100%; justify-content: center; height: 48px;" href="https://downloads.iyal.ink/ActOne-Linux-x64-0.4.20.tar.gz">
-            <span>Download Linux x64 (.tar.gz) ↓</span>
+        <div class="download-card-action-wrap">
+          <a class="btn-aspen btn-aspen-accent" style="width: 100%; justify-content: center; height: 48px;" href="https://github.com/BeetleBot/ActOne-Screenplay/releases" target="_blank" rel="noopener">
+            <span>Download for Linux on GitHub &rarr;</span>
           </a>
-
-          <div style="margin-top: 18px; padding: 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); font-size: 0.72rem; color: var(--fg-muted);">
-            <strong>Install:</strong> Extract archive, open terminal in folder, run <code>sudo ./install.sh</code>.
+          <div class="card-under-action">
+            <button id="openLinuxInstructionsBtn" class="instruction-link-btn" type="button">
+              Linux Installation Instructions &rarr;
+            </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Changelog Section -->
     <div class="section-header-row">
       <span class="section-num">02</span>
       <span class="section-title">RELEASE NOTES &amp; CHANGELOG</span>
-      <span class="section-tag">[ v0.4.21 ]</span>
+      <span class="section-tag" data-version="section-tag">VERSION 0.4.24</span>
     </div>
 
-    <section style="padding: 44px; background: var(--bg-card); border-bottom: 1px solid var(--border);">
-      <ul class="feature-bullets" style="gap: 16px;">
-        <li><strong>Gen 3 Multi-Document Project Bundles:</strong> Standardized <code>.actone</code> project bundles so all screenplay and prose documents are cleanly organized inside a dedicated files directory with automatic migration for older projects.</li>
-        <li><strong>Automatic Script Metadata Migration:</strong> Renaming documents inside the Project Pane now automatically migrates all associated notes, tasks, parking lots, character profiles, and production tags to the new name—eliminating lost data.</li>
-        <li><strong>Project Pane Right-Click Context Menu:</strong> Added instant right-click access across all document cards in the Project Pane to Rename, Move Up, Move Down, Duplicate, and Delete.</li>
-        <li><strong>Instant 1:1 Scrollbar Pointer Tracking:</strong> Dragging the scrollbar thumb in the editor and sidebars now tracks the mouse pointer instantaneously with zero elastic lag or bounce.</li>
-        <li><strong>Save Pipeline Data Integrity &amp; Safety:</strong> Instant direct document saving with protection against file collisions during rapid <code>Ctrl+S</code> keystrokes.</li>
-        <li><strong>Project Pane Rename Focus Fix:</strong> Resolved an issue where renaming files from the context menu could lose keyboard focus.</li>
-        <li><strong>Streamlined Welcome Screen:</strong> Cleaned up the Welcome Screen launcher for a distraction-free, faster startup experience.</li>
-      </ul>
+    <section class="changelog-card">
+      <div class="changelog-header">
+        <div class="changelog-version">
+          <h3 class="changelog-version-title" data-version="changelog-title">ActOne v0.4.24</h3>
+          <span class="changelog-badge">Latest Beta</span>
+        </div>
+        <span class="changelog-date">Production Release</span>
+      </div>
+
+      <div class="changelog-list">
+        <div class="changelog-item">
+          <span class="changelog-tag new">New</span>
+          <div>
+            <strong>Quick AI Model Switcher Palette (Alt+Shift+M):</strong> Minimal, fast floating dialog to switch between custom OpenAI-compatible API models and locally running Ollama models on the fly, with quick options to disable AI or jump straight to provider configuration in Settings.
+          </div>
+        </div>
+
+        <div class="changelog-item">
+          <span class="changelog-tag imp">Improved</span>
+          <div>
+            <strong>Scene-by-Scene Translation Architecture:</strong> Whole-document translation now uses narrative scene-by-scene units instead of fixed line batches, with adaptive sub-chunking for scenes exceeding 35 lines to preserve narrative context, character attributions, and emotional tone.
+          </div>
+        </div>
+
+        <div class="changelog-item">
+          <span class="changelog-tag imp">Improved</span>
+          <div>
+            <strong>Cleaner Translated Screenplays:</strong> Character glossaries no longer leak leading <code>@</code> symbols into AI prompts, model-generated surrounding quotes are stripped from dialogue, enclosing parentheses are stripped from action lines, and cross-lingual tokenizer bleeding (e.g. stray CJK or neighboring Indic glyphs) is automatically sanitized.
+          </div>
+        </div>
+
+        <div class="changelog-item">
+          <span class="changelog-tag imp">Improved</span>
+          <div>
+            <strong>Synchronous Script State Sync:</strong> Active script state now synchronizes immediately during script duplication, deletion, creation, switching, and reordering, preventing background updates from dropping or targeting outdated scripts.
+          </div>
+        </div>
+
+        <div class="changelog-item">
+          <span class="changelog-tag fix">Fix</span>
+          <div>
+            <strong>Drag-and-Drop Listener Lifecycle Guard:</strong> Hardened window event listener cleanup against Tauri <code>TypeError: Cannot read properties of undefined (reading 'handlerId')</code> crashes during React unmounts and hot reloads.
+          </div>
+        </div>
+
+        <div class="changelog-item">
+          <span class="changelog-tag imp">Improved</span>
+          <div>
+            <strong>Leaner Bundle &amp; Stronger Test Coverage:</strong> Removed legacy production breakdown tag data structures and CSV export routines to reduce bundle overhead, with translation engine coverage expanded to <strong>23 tests</strong> for scene segmentation, chunking, retries, and formatting cleanup.
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
-  <!-- Full-Bleed Architectural Aspen Footer -->
   <footer class="aspen-footer">
     <div class="footer-top-grid">
       <div class="footer-brand-col">
         <div>
-          <div style="display:flex; align-items:center; gap:12px; font-weight:800; font-size:1.1rem; margin-bottom:12px;">
+          <div style="display:flex; align-items:center; gap:12px; font-weight:800; font-size:1.15rem; margin-bottom:12px;">
             <img class="brand-icon" src="../../assets/ActOne_apptile.png" alt="ActOne Logo">
             <span>ACTONE SCREENPLAY</span>
           </div>
-          <p style="color:var(--fg-dim); font-size:0.85rem; max-width:320px; line-height:1.5;">
+          <p style="color:var(--fg-dim); font-size:0.9rem; max-width:320px; line-height:1.6;">
             The desktop-native Fountain screenplay studio for modern writers and filmmakers.
           </p>
         </div>
 
-        <div style="margin-top:28px; font-size:0.75rem; color:var(--fg-muted);">
+        <div style="margin-top:28px; font-size:0.8rem; color:var(--fg-muted); font-weight:600;">
           <span>PART OF THE </span><a href="https://iyal.ink/" style="color:var(--accent); font-weight:700;">IYAL.INK</a><span> FAMILY</span>
         </div>
       </div>
 
       <div class="footer-cta-col">
         <div>
-          <div style="font-size:0.7rem; color:var(--accent); letter-spacing:0.08em; font-weight:700; margin-bottom:8px;">// OPEN SOURCE</div>
-          <h3 style="font-size:1.6rem; font-weight:800; color:var(--fg); margin-bottom:12px;">Explore the source code</h3>
-          <p style="color:var(--fg-dim); font-size:0.85rem; max-width:360px; margin-bottom:24px;">
+          <div style="font-size:0.75rem; color:var(--accent); letter-spacing:0.06em; font-weight:700; margin-bottom:8px;">OPEN SOURCE</div>
+          <h3 style="font-size:1.7rem; font-weight:800; color:var(--fg); margin-bottom:12px; letter-spacing:-0.02em;">Explore the source code</h3>
+          <p style="color:var(--fg-dim); font-size:0.92rem; max-width:360px; margin-bottom:24px; line-height:1.6;">
             ActOne Screenplay is licensed under permissive open-source licenses. Star or contribute on GitHub.
           </p>
         </div>
@@ -204,6 +219,82 @@
       </div>
     </div>
   </footer>
+
+  <div class="instruction-modal-overlay" id="linuxModalOverlay" role="dialog" aria-modal="true" aria-labelledby="linuxModalTitle">
+    <div class="instruction-modal-dialog">
+      <div class="instruction-modal-header">
+        <div class="instruction-modal-title" id="linuxModalTitle">
+          <span>Linux Installation &amp; Setup Guide</span>
+        </div>
+        <button class="instruction-modal-close-btn" id="linuxModalCloseBtn" type="button" aria-label="Close modal">Close &times;</button>
+      </div>
+
+      <div class="instruction-modal-body">
+        <div class="instruction-card">
+          <div class="instruction-card-header">
+            <h3 class="instruction-card-title">
+              <span>Flatpak Bundle (.flatpak)</span>
+            </h3>
+            <span class="instruction-badge-rec">Recommended</span>
+          </div>
+          <p class="instruction-card-desc">
+            Flatpak provides a sandboxed, isolated runtime for modern Linux distributions.
+          </p>
+
+          <div class="instruction-step">
+            <strong>Install:</strong> Run in terminal where downloaded:
+          </div>
+
+          <div class="instruction-cmd-box">
+            <code class="instruction-cmd-code" id="flatpakCmd">flatpak install --user ActOne.flatpak</code>
+            <button class="instruction-copy-btn" data-copy-target="flatpakCmd" type="button">COPY</button>
+          </div>
+
+          <div class="instruction-step">
+            <strong>Run:</strong> Launch from app menu or terminal:
+          </div>
+
+          <div class="instruction-cmd-box">
+            <code class="instruction-cmd-code" id="flatpakRunCmd">flatpak run ink.iyal.actone</code>
+            <button class="instruction-copy-btn" data-copy-target="flatpakRunCmd" type="button">COPY</button>
+          </div>
+        </div>
+
+        <div class="instruction-card">
+          <div class="instruction-card-header">
+            <h3 class="instruction-card-title">
+              <span>AppImage (.AppImage)</span>
+            </h3>
+          </div>
+          <p class="instruction-card-desc">
+            Portable single-file executable. Can be used directly or integrated into your desktop.
+          </p>
+
+          <div class="instruction-step">
+            <strong>Run as Portable:</strong> Make executable and run:
+          </div>
+
+          <div class="instruction-cmd-box">
+            <code class="instruction-cmd-code" id="appimageRunCmd">chmod +x ActOne.AppImage &amp;&amp; ./ActOne.AppImage</code>
+            <button class="instruction-copy-btn" data-copy-target="appimageRunCmd" type="button">COPY</button>
+          </div>
+
+          <div class="instruction-step">
+            <strong>Optional Desktop Integration:</strong>
+          </div>
+          <ul style="padding-left: 18px; font-size: 0.8rem; color: var(--fg-dim); line-height: 1.5; margin-bottom: 4px;">
+            <li>On first launch, you will be prompted to install desktop integration.</li>
+            <li>Or install anytime via <strong>Settings &rarr; General &rarr; Desktop Integration</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="instruction-footer-note">
+          <span>Need help or reporting an issue?</span>
+          <a href="https://github.com/BeetleBot/ActOne-Screenplay/issues" target="_blank" rel="noopener" style="color:var(--accent); font-weight:700; text-decoration:underline;">GitHub Issues &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="../actone.js"></script>
 </body>
