@@ -42,7 +42,7 @@
         <div class="hero-meta-bar">
           <span class="hero-badge-accent">OFFICIAL RELEASE</span>
           <span>•</span>
-          <span data-version="badge">v0.5.2 BETA</span>
+          <span data-version="badge">v0.5.3 BETA</span>
           <span>•</span>
           <span>ZERO CLOUD LOCK-IN</span>
         </div>
@@ -109,13 +109,13 @@
     <div class="section-header-row">
       <span class="section-num">02</span>
       <span class="section-title">RELEASE NOTES &amp; CHANGELOG</span>
-      <span class="section-tag" data-version="section-tag">VERSION 0.5.2</span>
+      <span class="section-tag" data-version="section-tag">VERSION 0.5.3</span>
     </div>
 
     <section class="changelog-card">
       <div class="changelog-header">
         <div class="changelog-version">
-          <h3 class="changelog-version-title" data-version="changelog-title">ActOne v0.5.2</h3>
+          <h3 class="changelog-version-title" data-version="changelog-title">ActOne v0.5.3</h3>
           <span class="changelog-badge">Latest Beta</span>
         </div>
         <span class="changelog-date">Production Release</span>
@@ -125,49 +125,56 @@
         <div class="changelog-item">
           <span class="changelog-tag new">New</span>
           <div>
-            <strong>Copy Current Scene:</strong> Copy the scene around your cursor from the Command Palette, or right-click a scene in the Outline.
+            <strong>Remember Last Document &amp; Editor Position:</strong> Saved projects now remember the last open document, exact cursor selection, and scroll position across sessions, restoring your view seamlessly without touching screenplay files.
+          </div>
+        </div>
+
+        <div class="changelog-item">
+          <span class="changelog-tag new">New</span>
+          <div>
+            <strong>Smart Dialogue Speaker Suggestions:</strong> Character autocomplete and suggestions now adapt to the conversation flow in each scene, automatically prioritizing alternating speakers and recent speakers when typing character names or "@".
+          </div>
+        </div>
+
+        <div class="changelog-item">
+          <span class="changelog-tag new">New</span>
+          <div>
+            <strong>Export Completion Dialog &amp; Quick Actions:</strong> Desktop exports now prompt an export complete dialog with direct "Open file" and "Show in folder" shortcuts using your default viewer and native file manager.
           </div>
         </div>
 
         <div class="changelog-item">
           <span class="changelog-tag imp">Improved</span>
           <div>
-            <strong>Outline Navigation and Search:</strong> The navigator keeps scenes and sections in sync while editing, supports deeper nesting, and makes it easier to move around and search large screenplays.
+            <strong>Jump to Page Navigation:</strong> Click the status-bar page counter to open a quick page-jump popover—type a page number and press <kbd>Enter</kbd> to jump straight to that page.
           </div>
         </div>
 
         <div class="changelog-item">
           <span class="changelog-tag imp">Improved</span>
           <div>
-            <strong>Timeline Navigation:</strong> Scene positions align more precisely with screenplay lines, and scrubbing stays aligned as you edit.
-          </div>
-        </div>
-
-        <div class="changelog-item">
-          <span class="changelog-tag imp">Improved</span>
-          <div>
-            <strong>Editing and Parsing Reliability:</strong> Background parsing and editor synchronization handle rapid edits and saves more safely.
-          </div>
-        </div>
-
-        <div class="changelog-item">
-          <span class="changelog-tag imp">Improved</span>
-          <div>
-            <strong>Markdown Preview and Scrollbars:</strong> Refined horizontal-rule styling in Markdown preview and improved scrollbar visibility and consistency.
+            <strong>Optimized Loading &amp; Suspense Fallbacks:</strong> Window loading fallbacks and workspace transitions are optimized to eliminate layout flicker when opening secondary tools and dialogs.
           </div>
         </div>
 
         <div class="changelog-item">
           <span class="changelog-tag fix">Fix</span>
           <div>
-            <strong>Automatic (CONT'D) Cues:</strong> Continuation cues update correctly around edits and reset at new scenes.
+            <strong>Sentry Development Event Filtering:</strong> Prevent development and debug environment events from inadvertently transmitting to Sentry.
           </div>
         </div>
 
         <div class="changelog-item">
           <span class="changelog-tag fix">Fix</span>
           <div>
-            <strong>Scene and Section Boundaries:</strong> Copying scenes now stops at the next scene or section, and deeper section levels are handled correctly.
+            <strong>Tauri Teardown Panic Filtering:</strong> Safely ignore transient teardown panics during application launch and exit in Sentry error reporting.
+          </div>
+        </div>
+
+        <div class="changelog-item">
+          <span class="changelog-tag fix">Fix</span>
+          <div>
+            <strong>Hook Call Order in Scripts View:</strong> Resolved React hook order violation in ScriptsView by ensuring all hooks execute before early returns.
           </div>
         </div>
       </div>
