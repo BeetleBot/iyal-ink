@@ -1,227 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ActOne Screenplay Support & Help Center | Free Fountain Writer</title>
-  <meta name="description" content="Official support center and help resources for ActOne Screenplay Editor. Contact actonesupport@iyal.ink.">
-  <link rel="canonical" href="https://actone.iyal.ink/support/">
-  
-  <link rel="icon" type="image/png" href="https://iyal.ink/assets/ActOne_apptile.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    @font-face {
-      font-family: 'Courier Prime';
-      src: url('../../assets/CourierPrime-Regular.ttf') format('truetype');
-      font-weight: 400;
-    }
-    @font-face {
-      font-family: 'Courier Prime';
-      src: url('../../assets/CourierPrime-Bold.ttf') format('truetype');
-      font-weight: 700;
-    }
-
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --bg: #101010;
-      --text: #CCCCCC;
-      --text-dim: rgba(204, 204, 204, 0.68);
-      --border: rgba(255, 255, 255, 0.10);
-      --link: #AAAAAA;
-      --font-main: 'Outfit', -apple-system, system-ui, sans-serif;
-      --font-mono: 'Courier Prime', 'Fira Code', monospace;
-    }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: var(--font-main);
-      line-height: 1.6;
-      padding: 30px 16px;
-    }
-
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 16px;
-      border-bottom: 2px solid var(--text);
-      margin-bottom: 32px;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 800;
-      font-size: 1.5rem;
-      letter-spacing: -0.02em;
-    }
-
-    .brand-logo { height: 32px; width: auto; }
-
-    nav { display: flex; gap: 16px; flex-wrap: wrap; }
-    nav a { color: var(--text); text-decoration: none; font-weight: 600; font-size: 0.95rem; }
-    nav a:hover { color: var(--link); text-decoration: underline; }
-
-    .hero { margin-bottom: 32px; }
-    .hero h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 10px; }
-    .hero p { font-size: 1.1rem; color: var(--text-dim); }
-
-    hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
-
-    .contact-card {
-      background: #181818;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 24px;
-      margin-bottom: 32px;
-    }
-
-    .contact-card h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
-    .contact-card p { color: var(--text-dim); margin-bottom: 16px; }
-
-    .email-box {
-      background: #252525;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 12px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-family: var(--font-mono);
-      font-weight: 700;
-      font-size: 1.05rem;
-    }
-
-    .email-box a { color: var(--link); text-decoration: none; }
-    .email-box a:hover { text-decoration: underline; }
-
-    .btn-copy {
-      background: #555555;
-      color: #CCCCCC;
-      border: none;
-      padding: 6px 14px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-family: var(--font-main);
-      font-weight: 700;
-      font-size: 0.85rem;
-    }
-
-    .btn-copy:hover { background: #6E6E6E; color: #FFFFFF; }
-
-    .faq-item {
-      margin-bottom: 24px;
-      padding-bottom: 18px;
-      border-bottom: 1px dashed var(--border);
-    }
-
-    .faq-item h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
-    .faq-item p { color: var(--text-dim); font-size: 0.98rem; }
-
-    footer {
-      margin-top: 40px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-      font-size: 0.88rem;
-      color: var(--text-dim);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    footer a { color: var(--text-dim); text-decoration: underline; }
-
-    @media (max-width: 600px) {
-      body { padding: 20px 12px; }
-      .hero h1 { font-size: 1.8rem; }
-      header { flex-direction: column; align-items: flex-start; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101010">
+<title>Support — ActOne Screenplay</title>
+<meta name="description" content="Find answers, read the ActOne documentation, or contact actonesupport@iyal.ink for help.">
+<link rel="canonical" href="https://iyal.ink/actone/support/">
+<meta property="og:title" content="Support — ActOne Screenplay">
+<meta property="og:description" content="Find answers, read the ActOne documentation, or contact actonesupport@iyal.ink for help.">
+<meta property="og:image" content="https://iyal.ink/assets/ActOne_apptile.png">
+<link rel="icon" href="../../assets/ActOne_apptile.png">
+<link rel="stylesheet" href="../actone.css">
 </head>
 <body>
-
-  <div class="container">
-    <header>
-      <a href="../" class="brand">
-        <img src="../../assets/actone-icon.png" alt="ActOne Screenplay Logo" class="brand-logo">
-        <span>ActOne Screenplay <span class="product-beta">(Beta)</span> Support</span>
-      </a>
-      <nav>
-        <a href="../">← Overview</a>
-        <a href="../downloads/">Downloads</a>
-        <a href="../docs/">Docs</a>
-        <a href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-    </header>
-
-    <section class="hero">
-      <h1>ActOne Screenplay <span class="product-beta">(Beta)</span> Support & Help Center</h1>
-      <p>ActOne Screenplay is completely open source. Need assistance? We are here to help.</p>
-    </section>
-
-    <div class="contact-card">
-      <h2>Direct Customer Support</h2>
-      <p>Have a question, feedback, or need help with your installation or license? Email our team directly:</p>
-      <div class="email-box">
-        <a href="mailto:actonesupport@iyal.ink">actonesupport@iyal.ink</a>
-        <button class="btn-copy" onclick="navigator.clipboard.writeText('actonesupport@iyal.ink'); this.textContent = 'Copied!'; setTimeout(() => this.textContent = 'Copy Email', 2000)">Copy Email</button>
-      </div>
-    </div>
-
-    <hr>
-
-    <section>
-      <h2>Frequently Asked Questions</h2>
-      <br>
-
-      <div class="faq-item">
-        <h3>What operating systems does ActOne Screenplay support?</h3>
-        <p>ActOne Screenplay is engineered natively for Windows 10/11 and Linux distributions. High-performance builds are available on our downloads page.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Is my writing private and stored locally?</h3>
-        <p>Yes. All your screenplays, notes, character cards, and projects are stored strictly on your local machine in plain text. ActOne Screenplay does not store your creative content on external cloud servers. When using Muse AI with local models (like Ollama or LM Studio), your data remains 100% on your device; when using third-party APIs like OpenAI, requests are sent directly to your configured provider using your personal API key.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>How do I export my screenplay to PDF or Fountain?</h3>
-        <p>Press <code>Ctrl+P</code> (or select File &rarr; Export) inside ActOne Screenplay. Our built-in Rust export engine generates industry-standard PDF formatted screenplays instantly.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>What is the <code>.actone</code> file format?</h3>
-        <p>An <code>.actone</code> file is a standard ZIP container storing your plain-text <code>.fountain</code> script along with workspace metadata, character cards, and notes. You can extract it using any standard zip tool anytime to access raw Fountain files.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>How can I join the community?</h3>
-        <p>Join our active Discord community to chat with other writers, share feedback, and get early release builds: <a href="https://discord.gg/XTPjm93eNx" target="_blank">Join ActOne Screenplay Discord &rarr;</a></p>
-      </div>
-    </section>
-
-    <footer>
-      <span>© 2026 iyal.ink</span>
-      <span><a href="https://iyal.ink">iyal.ink Home</a> | <a href="../">ActOne Screenplay Overview</a> | <a href="https://github.com/beetlebot/ActOne-Screenplay" target="_blank" rel="noopener">GitHub</a></span>
-    </footer>
-  </div>
-
-</body>
-</html>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<a class="brand" href="../" aria-label="ActOne Screenplay home">
+<img src="../../assets/ActOne_apptile.png" alt="" width="30" height="30">ActOne Screenplay</a>
+<nav aria-label="Main navigation">
+<a href="../">Overview</a>
+<a href="../support/" aria-current="page">Support</a>
+</nav>
+<a class="button small" href="../downloads/" >Download <span aria-hidden="true">↗</span>
+</a>
+</header>
+<main id="main" class="wrap">
+<section class="page-heading">
+<p class="eyebrow">Here when you need us</p>
+<h1>Back to<br>
+<em>your story.</em>
+</h1>
+<p>A quick answer, a helpful guide, or a real conversation.</p>
+</section>
+<section class="help-grid">
+<a href="../docs/">
+<span class="eyebrow">Learn at your pace ↗</span>
+<h2>The field guide.</h2>
+<p>Find your way around ActOne Screenplay, from your first scene to your final export.</p>
+</a>
+<a href="mailto:actonesupport@iyal.ink">
+<span class="eyebrow">Talk to us ↗</span>
+<h2>A little help.</h2>
+<p>actonesupport@iyal.ink</p>
+<p>Include your app version, operating system, and what happened.</p>
+</a>
+</section>
+<section class="faq-section">
+<div>
+<p class="eyebrow">Good questions</p>
+<h2>A few answers.</h2>
+</div>
+<div>
+<details>
+<summary>What operating systems does ActOne Screenplay support?</summary>
+<p>ActOne Screenplay is engineered natively for Windows 10/11 and Linux distributions. High-performance builds are available on our downloads page.</p>
+</details>
+<details>
+<summary>Is my writing private and stored locally?</summary>
+<p>Yes. All your screenplays, notes, character cards, and projects are stored strictly on your local machine in plain text. ActOne Screenplay does not store your creative content on external cloud servers. When using Muse AI with local models (like Ollama or LM Studio), your data remains 100% on your device; when using third-party APIs like OpenAI, requests are sent directly to your configured provider using your personal API key.</p>
+</details>
+<details>
+<summary>How do I export my screenplay to PDF or Fountain?</summary>
+<p>Press <code>Ctrl+P</code> (or select File &rarr; Export) inside ActOne Screenplay. Our built-in Rust export engine generates industry-standard PDF formatted screenplays instantly.</p>
+</details>
+<details>
+<summary>What is the <code>.actone</code> file format?</summary>
+<p>An <code>.actone</code> file is a standard ZIP container storing your plain-text <code>.fountain</code> script along with workspace metadata, character cards, and notes. You can extract it using any standard zip tool anytime to access raw Fountain files.</p>
+</details>
+<details>
+<summary>How can I join the community?</summary>
+<p>Join our active Discord community to chat with other writers, share feedback, and get early release builds: <a href="https://discord.gg/XTPjm93eNx" target="_blank">Join ActOne Screenplay Discord &rarr;</a>
+</p>
+</details>
+</div>
+</section>
+<section class="inline-cta">
+<h2>Better together.</h2>
+<p>
+<a href="https://discord.gg/XTPjm93eNx">Join our Discord ↗</a>
+<a href="https://github.com/beetlebot/ActOne-Screenplay/issues">Report an issue ↗</a>
+</p>
+</section>
+</main>
+<footer class="site-footer">
+<a href="https://iyal.ink/">An iyal.ink creation.</a>
+<span>Made for the stories only you can tell.</span>
+<div>
+<a href="https://github.com/beetlebot/ActOne-Screenplay">GitHub ↗</a>
+<a href="https://discord.gg/XTPjm93eNx">Discord ↗</a>
+<a href="../support/">Support</a>
+</div>
+</footer><script src="../actone.js" defer></script></body></html>
