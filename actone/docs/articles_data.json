@@ -83,7 +83,7 @@
         "recent-files",
         "cli-commands"
       ],
-      "content": "Press <kbd>Ctrl+O</kbd> or use the Command Palette (<kbd>Ctrl+K</kbd>) → \"Open Project…\" to open an `.actone` project (or `.fountain` / `.txt` file) via the native file dialog.\n\nWhen launched from the command line on Linux, ActOne accepts file paths as arguments (see the **Command Line Interface (CLI)** article for complete details). The app also listens for OS-level file-open events (e.g., double-clicking a .actone or .fountain file).\n\nImporting other screenplay formats is separate from opening an existing project. Use **Import Screenplay...** for <code>.pdf</code>, <code>.fdx</code>, <code>.fadein</code>, <code>.fountain</code>, or <code>.txt</code> files. ActOne converts the selected screenplay file into an ActOne <code>.actone</code> project."
+      "content": "Press <kbd>Ctrl+O</kbd> or use the Command Palette (<kbd>Ctrl+K</kbd>) → \"Open Project…\" to open an `.actone` project (or `.fountain` / `.txt` file) via the native file dialog.\n\nExisting project paths retain their original filename and extension case. Linux filenames differing only by case identify separate projects. Flatpak may ask you to select the project folder to grant access for reliable saving and snapshots. Canceling leaves the project unchanged.\n\nWhen launched from the command line on Linux, ActOne accepts file paths as arguments (see the **Command Line Interface (CLI)** article for complete details). The app also listens for OS-level file-open events (e.g., double-clicking a .actone or .fountain file).\n\nImporting other screenplay formats is separate from opening an existing project. Use **Import Screenplay...** for <code>.pdf</code>, <code>.fdx</code>, <code>.fadein</code>, <code>.fountain</code>, or <code>.txt</code> files. ActOne converts the selected screenplay file into an ActOne <code>.actone</code> project."
     },
     {
       "id": "recent-files",
@@ -604,7 +604,7 @@
         "smart-newline",
         "character-names"
       ],
-      "content": "ActOne provides inline ghost text suggestions as you type:\n\n- On **character lines**: suggests character names from previously used characters.\n- On **heading lines**: suggests location names from previously used scene headings.\n- On **character lines with `(`**: suggests 29 character extensions like `(V.O.)`, `(O.S.)`, `(CONT'D)`, `(NARRATOR)`, etc.\n- On **action lines**: suggests character names if the text is ALL-CAPS.\n\nPress <kbd>Tab</kbd> to accept the ghost suggestion, or <kbd>ArrowDown</kbd> to open the full autocomplete dropdown. Toggle in Settings → Editor → Character/Scene Autocomplete."
+      "content": "ActOne provides inline ghost text suggestions as you type:\n\n- On **character lines**: suggests character names from previously used characters, with smart contextual prioritization for alternating speakers and recent speakers in the current scene.\n- On **heading lines**: suggests location names from previously used scene headings.\n- On **character lines with `(`**: suggests 29 character extensions like `(V.O.)`, `(O.S.)`, `(CONT'D)`, `(NARRATOR)`, etc.\n- On **action lines**: suggests character names if the text is ALL-CAPS.\n\nPress <kbd>Tab</kbd> to accept the ghost suggestion, or <kbd>ArrowDown</kbd> to open the full autocomplete dropdown. Toggle in Settings → Editor → Character/Scene Autocomplete."
     },
     {
       "id": "smart-quotes",
@@ -780,7 +780,7 @@
         "scene-headings",
         "export-pdf"
       ],
-      "content": "The Command Palette provides two scene number commands:\n\n- **Renumber Scene Headings** — Appends sequential `#1#`, `#2#`, etc. to every scene heading (removes existing numbers first). Prompts for confirmation.\n- **Clear Scene Numbers** — Removes all `#...#` markers from scene headings. Prompts for confirmation.\n\nScene numbers display in the editor margins and as badges in the Outline Navigator. PDF export can include them on the left side or mirrored on both sides."
+      "content": "The Command Palette provides two scene number commands:\n\n- **Renumber Scene Headings** — Appends sequential `#1#`, `#2#`, etc. to every scene heading (removes existing numbers first). Prompts for confirmation.\n- **Clear Scene Numbers** — Removes all `#...#` markers from scene headings. Prompts for confirmation.\n\nScene numbers display in the editor margins and as badges in the Outline Navigator. PDF export can include them on the left side or mirrored on both sides. Scene number markers such as `#1#` are rendered as numbers, including when a scene color tag follows or action starts on the next line."
     },
     {
       "id": "activity-bar",
@@ -938,7 +938,7 @@
         "character-names",
         "statistics-overview"
       ],
-      "content": "Character tracking and gender data live inside the **X-Ray Analysis** window:\n\n1. Open X-Ray (Status Bar bar-chart icon, or Command Palette → \"Open X-Ray Analysis…\").\n2. Switch to the **Characters** mode at the top of the X-Ray window.\n3. The list shows every character in the script with their dialogue line count, gender, and role, sorted by frequency.\n4. Click a row to edit gender and role inline; changes are persisted to the `.actone` bundle's `characters.json`.\n\nGender data also feeds the **Dialogue by Gender** chart in X-Ray's Statistics mode (4 rows: male, female, non-binary, unknown)."
+      "content": "Open **X-Ray Analysis** from the Status Bar or Command Palette, then choose **Cast**. Select a dialogue bar to see speeches, speaking scenes and the profile editor. The presence heatmap opens scene details; shared-scene matrix cells reveal scene links. **Edit profile** opens the character's description, role, gender, age, backstory, arc, color and relationships. Profiles remain saved with your project. Speaking presence is based on character cues; silent appearances are not inferred."
     },
     {
       "id": "statistics-overview",
@@ -956,7 +956,7 @@
         "status-bar",
         "sidebar-panels"
       ],
-      "content": "Script statistics are available in two places:\n\n**1. Status Bar (bottom of the editor):**\n- **Scenes** — count of scene headings (hidden on small screens).\n- **Words** — total word count, formatted with locale separators (hidden on small screens).\n- **Page** — \"Page: currentPage of totalPages\" (always visible), updated as you move your cursor.\n\n**2. X-Ray Analysis window (Status Bar bar-chart icon or Command Palette → \"Open X-Ray Analysis…\"):**\n\n- **Statistics mode:** Dialogue vs Action ratio, day vs night pie charts, top locations, and scene length distribution.\n- **Timing Report mode:** Estimated screen durations per scene, with cumulative runtimes.\n- **Pacing Chart mode:** Line/area chart of Dialogue vs Action per scene. Hold <kbd>Ctrl</kbd> + scroll to zoom; pan horizontally when zoomed in.\n\nX-Ray data updates live as you type."
+      "content": "Script statistics are available in two places:\n\n**1. Status Bar (bottom of the editor):**\n- **Scenes** — count of scene headings (hidden on small screens).\n- **Words** — total word count, formatted with locale separators (hidden on small screens).\n- **Page** — \"Page: currentPage of totalPages\" (always visible), updated as you move your cursor.\n\n**2. X-Ray Analysis window:**\nThe compact **Overview** shows scene rhythm, dialogue balance and leading voices. **Scenes** compares stacked word-count bars. **Cast** shows dialogue bars, a presence heatmap and a shared-scene matrix. **World** charts locations, settings and time of day. Select chart marks for details. The information button contains reading-rate settings. **Export PDF** saves the visual atlas."
     },
     {
       "id": "xray-analysis",
@@ -975,7 +975,7 @@
         "xray-character-data",
         "character-names"
       ],
-      "content": "The X-Ray window is a comprehensive screenplay analysis tool. Open it via the bar-chart icon on the right side of the **Status Bar** (bottom of the editor) or Command Palette → \"Open X-Ray Analysis…\". It is a live-updating window with several analysis modes:\n\n- **Statistics:** View dialogue vs action ratios, day vs night pie charts, top locations, and scene length distribution counts.\n- **Timing Report:** See estimated screen durations per scene (calculated by word count and pacing), along with cumulative runtimes. Scene headings are sanitized to display only clear, capitalized locations.\n- **Characters:** View and edit character details (gender and role) in a data-dense list, outside of the secondary details modal.\n- **Connections:** Analyze character interactions via two analytical modes:\n  - **Network Graph:** A circular node diagram linking characters who speak in the same scenes. Click a node to view single character co-occurrences.\n  - **Ctrl+Click Double Selection:** Hold <kbd>Ctrl</kbd> (or <kbd>Cmd</kbd>) and click a second character node to show connection data and shared scenes between both characters.\n  - **Matrix Heatmap:** A grid map of characters where cell colors reflect interaction frequency. Set column headers style to fit the window with proportional sizing.\n- **Pacing Chart:** A line/area chart showing Dialogue vs Action pacing per scene. \n  - **Fit-to-Window:** Reacts to window resizing by default to fit the space.\n  - **Scroll and Zoom:** Hold <kbd>Ctrl</kbd> + scroll your mouse wheel on the chart to zoom in (up to 500%) or zoom out. Zooming in lets you pan the pacing chart horizontally."
+      "content": "Open X-Ray from the Status Bar or Command Palette.\n\n- **Overview:** Compact stacked scene bars, a dialogue/action ring and leading-voice bars. Blue means dialogue; green means action. Select a scene and choose **Open scene**.\n- **Scenes:** Search and sort scene bars. Select one for counts, cast and optional revision prompts.\n- **Cast:** Select a dialogue bar to edit its profile. Heatmap cells show speaking presence; brighter cells mean more dialogue. Matrix numbers show shared speaking scenes. Use page controls for large casts and scripts.\n- **World:** Interior/exterior and day/night rings, plus location bars that filter the scene list.\n- **Information button:** Adjust reading rates and view measurement notes.\n- **Export PDF:** A light-background visual atlas using the same charts. Scene, cast, presence, location and connection charts are paginated independently of current search filters. The PDF uses high-resolution chart images. Native saving reports errors and supports cancellation.\n\nCounts exclude headings, cues, parentheticals, notes and title pages. Reading estimates are not screen runtime. Speaking presence includes voiceovers and does not infer silent appearances. Shared scenes do not prove direct interaction."
     },
     {
       "id": "tasks",
@@ -1179,7 +1179,7 @@
         "notes-markers",
         "outline-navigator"
       ],
-      "content": "Right-click a scene heading and choose **Highlight Scene** → pick a color (Red, Orange, Yellow, Green, Blue, Purple, Pink) or **Clear Highlight** to remove it. Color is stored as `[[color name]]` on the scene heading line. Hex codes also work: `[[#ff0000]]`\n\n**7 supported named colors:** red, orange, yellow, green, blue, purple, pink.\n\nHighlighted scenes show a colored left border in the editor, a colored dot in the Outline Navigator, and are exported as color-tagged elements in FDX format. The Outline Navigator's filter popover lets you filter by scene color with count badges."
+      "content": "Right-click a scene heading and choose **Highlight Scene** → pick a color (Red, Orange, Yellow, Green, Blue, Purple, Pink) or **Clear Highlight** to remove it. Color is stored as `[[color name]]` on the scene heading line. Hex codes also work: `[[#ff0000]]`\n\n**7 supported named colors:** red, orange, yellow, green, blue, purple, pink.\n\nHighlighted scenes display colored scene tag text in the editor, color-tinted number badges in the Outline Navigator, and color-coded segments in the Timeline. Scene colors are also exported as color-tagged elements in FDX format. The Outline Navigator's filter popover lets you filter by scene color with count badges."
     },
     {
       "id": "notes-markers",
@@ -1314,7 +1314,7 @@
         "export-fountain",
         "export-fdx"
       ],
-      "content": "Press <kbd>Ctrl+P</kbd> or open the Command Palette → \"Export…\" to open the Export dialog. Screenplays support PDF, Fountain, Final Draft FDX, and Fade In exports. Prose documents support PDF and Markdown exports. Export is fast, high-quality, and runs completely offline on your device.\n\nAfter a successful desktop export, choose **Open file** to open the exported document in its default application, **Show in folder** to reveal it in your file manager, or **Done** to return to writing. These actions appear only after a file has been saved. Canceling the save dialog leaves your export options open."
+      "content": "Press <kbd>Ctrl+P</kbd> or open the Command Palette → \"Export…\" to open the separate Export window. Screenplays support PDF, Fountain, Final Draft FDX, and Fade In exports. Prose documents support PDF and Markdown exports. Export is fast, high-quality, and runs completely offline on your device.\n\nAfter a successful desktop export, choose **Open file** to open the exported document in its default application, **Show in folder** to reveal it in your file manager, or **Done** to return to writing. These actions appear only after a file has been saved. Canceling the save dialog leaves your export options open."
     },
     {
       "id": "export-pdf",
@@ -1330,7 +1330,7 @@
         "export-fountain",
         "theme-manager"
       ],
-      "content": "Export your screenplay as an industry-standard, professionally formatted PDF. Options:\n\n- **Include Title Page** — Export the title page if defined.\n- **Bold Scene Headings** — Make scene headings bold.\n- **Scene Numbers** — Off, Left Side Only, or Mirror on Both Sides.\n- **Font** — Courier Prime or Courier Prime Sans.\n- **Include Sections** — Render section headers.\n- **Include Synopsis** — Render synopsis lines.\n- **Script Fonts** — Language-specific font selection for international scripts.\n- **Element Formatting** — Custom bold/italic/underline toggles per element.\n- **Watermarks** — Add header, footer, or center text/image watermarks with custom opacity.\n\nPaper Size (Letter or A4) is inherited from Settings. PDF includes proper page numbering, dialogue indentation, dual dialogue columns, and smart page breaks with orphan and widow protection."
+      "content": "Export your screenplay as an industry-standard, professionally formatted PDF. Export opens in its own native window on Windows and Linux, starting maximized and supporting resizing. The editor remains available while you export. The right 60% shows a scrollable preview of the final PDF. Changes to fonts, layout, element formatting, and watermarks update the preview automatically after a brief pause. Recent settings are cached to make switching back faster. Use the preview’s zoom buttons (50–200%) to inspect pages, or **Fit width** to reset. Zoom does not regenerate the PDF. Preview is available in the desktop app for screenplays and prose. Options:\n\n- **Include Title Page** — Export the title page if defined.\n- **Bold Scene Headings** — Make scene headings bold.\n- **Scene Numbers** — Off, Left Side Only, or Mirror on Both Sides.\n- **Font** — Courier Prime or Courier Prime Sans.\n- **Include Sections** — Render section headers.\n- **Include Synopsis** — Render synopsis lines.\n- **Script Fonts** — Language-specific font selection for international scripts.\n- **Element Formatting** — Custom bold/italic/underline toggles per element.\n- **Watermarks** — Add header, footer, or center text/image watermarks with custom opacity.\n\nPaper Size (Letter or A4) is inherited from Settings. PDF includes proper page numbering, dialogue indentation, dual dialogue columns, and smart page breaks with orphan and widow protection."
     },
     {
       "id": "export-fountain",
