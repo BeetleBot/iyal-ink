@@ -45,16 +45,34 @@
 <article class="download-option">
 <span class="eyebrow">02 / Linux</span>
 <h2>Linux.</h2>
-<p>Install with Flatpak for smooth updates,<br>or download a portable AppImage.</p>
-<a class="button" href="https://github.com/BeetleBot/ActOne-Screenplay/releases/latest"><span>Download AppImage</span><span aria-hidden="true">↗</span></a>
-</article>
-<div class="flatpak-install" aria-labelledby="flatpak-install-title">
-<p class="eyebrow">Linux / Recommended for smooth updates</p>
-<h3 id="flatpak-install-title">Install with Flatpak.</h3>
-<p>With Flatpak installed, run this command in your terminal. Future updates appear in your software manager.</p>
-<pre><code>flatpak install --user https://flatpak.iyal.ink/actone.flatpakref</code></pre>
+<p>Choose Flatpak for your desktop,<br>or AppImage for a portable download.</p>
+<div class="linux-download-actions">
+<button class="button" type="button" id="open-flatpak" aria-haspopup="dialog" aria-controls="flatpak-dialog">Flatpak <span class="recommended-tag">Recommended</span></button>
+<a class="button secondary" href="https://github.com/BeetleBot/ActOne-Screenplay/releases/latest">Download AppImage <span aria-hidden="true">↗</span></a>
 </div>
+<details class="appimage-help">
+<summary>How to run an AppImage</summary>
+<p>Download the .AppImage from the release page, allow it to run as a program in its file properties, then open it.</p>
+</details>
+</article>
 </section>
+<dialog class="flatpak-dialog" id="flatpak-dialog" aria-labelledby="flatpak-title">
+<form method="dialog" class="dialog-header"><span class="eyebrow">Linux / Flatpak</span><button class="dialog-close" aria-label="Close Flatpak instructions" autofocus>Close ×</button></form>
+<h2 id="flatpak-title">Install ActOne with Flatpak.</h2>
+<p>Works across Linux distributions with Flatpak installed.</p>
+<ol>
+<li>Install Flatpak using <a href="https://flatpak.org/setup/" target="_blank" rel="noopener">the setup guide for your distribution ↗</a>.</li>
+<li>Run this command in your terminal, then approve the installation prompts:</li>
+</ol>
+<pre><code>flatpak install --user https://flatpak.iyal.ink/actone.flatpakref</code></pre>
+<p>This installs ActOne and adds the iyal.ink repository. Open ActOne from your app menu. Future versions appear in your software manager.</p>
+<details><summary>Prefer a graphical installation?</summary><p><a href="https://flatpak.iyal.ink/actone.flatpakref">Download actone.flatpakref</a> and open it with KDE Discover or GNOME Software with Flatpak support. Approve the repository and install the app.</p></details>
+<details><summary>Terminal commands</summary>
+<p>Update:</p><pre><code>flatpak update --user ink.iyal.actone</code></pre>
+<p>Launch:</p><pre><code>flatpak run ink.iyal.actone</code></pre>
+<p>Uninstall:</p><pre><code>flatpak uninstall --user ink.iyal.actone</code></pre>
+</details>
+</dialog>
 <section class="installation">
 <div>
 <p class="eyebrow">What's new</p>
@@ -67,45 +85,6 @@
 <p><strong>Canvas Documents &amp; Visual Story Planning:</strong> Full support for .excalidraw Canvas documents inside .actone project bundles, complete with asset packaging/unpacking, offline bundled fonts, and non-screenplay document handling.</p>
 <p><strong>Open Source Credits &amp; Dependencies Viewer:</strong> Expandable Credits section in the About modal highlighting major dependencies (CodeMirror 6, Excalidraw, Material UI, Tauri v2, React 19, Krilla, Phosphor Icons, and backend crates) with direct project links and descriptions.</p>
 <p><strong>Enhanced Color Management &amp; Contrast:</strong> Refined theme color utilities and high-contrast styling across UI views, custom theme management, and editor highlights.</p>
-</details>
-</div>
-</section>
-<section class="installation">
-<div>
-<p class="eyebrow">A little help getting settled</p>
-<h2>Linux installation.</h2>
-<p>Use the recommended Flatpak repository for updates, or follow the steps for a standalone download.</p>
-</div>
-<div>
-<details open>
-<summary>Install from the Flatpak repository (recommended)</summary>
-<p>With Flatpak installed, run this command in your terminal and approve the installation prompts:</p>
-<pre><code>flatpak install --user https://flatpak.iyal.ink/actone.flatpakref</code></pre>
-<p>Future updates appear in your software manager. You can also update from a terminal:</p>
-<pre><code>flatpak update --user ink.iyal.actone</code></pre>
-</details>
-<details>
-<summary>Install a downloaded Flatpak bundle</summary>
-<p>Open a terminal in the download folder. Replace the filename if your downloaded bundle has a different name.</p>
-<pre>
-<code id="flatpakCmd">flatpak install --user ActOne.flatpak</code>
-</pre>
-<p>Launch from your app menu, or run:</p>
-<pre>
-<code>flatpak run ink.iyal.actone</code>
-</pre>
-</details>
-<details>
-<summary>Run an AppImage</summary>
-<p>Allow the downloaded file to run as a program in its properties, then open it. Or, in its folder, run the following with your downloaded filename:</p>
-<pre>
-<code>chmod +x ActOne.AppImage
-./ActOne.AppImage</code>
-</pre>
-</details>
-<details>
-<summary>Need an earlier version?</summary>
-<p>All available builds and release notes live on <a href="https://github.com/beetlebot/ActOne-Screenplay/releases">GitHub Releases ↗</a>.</p>
 </details>
 </div>
 </section>
@@ -125,4 +104,4 @@
 <a href="https://discord.gg/XTPjm93eNx">Discord ↗</a>
 <a href="../support/">Support</a>
 </div>
-</footer><script src="../actone.js" defer></script></body></html>
+</footer><script src="../actone.js" defer></script><script src="downloads.js" defer></script></body></html>
