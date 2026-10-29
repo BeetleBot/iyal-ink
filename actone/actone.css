@@ -266,14 +266,17 @@ img {
   min-height:70px}
 .download-option .button {
   margin-top:28px}
-.download-option .download-recommendation {
-  min-height:0;
-  margin-top:14px;
-  font-size:12px;
-  line-height:1.6;
-  color:var(--muted)}
-.download-recommendation strong {
-  color:var(--fg)}
+.flatpak-install {
+  grid-column:1 / -1;
+  padding-top:32px;
+  border-top:1px solid var(--border)}
+.flatpak-install h3 {
+  font-size:24px;
+  margin:16px 0 12px}
+.flatpak-install>p:not(.eyebrow) {
+  font-size:14px}
+.flatpak-install pre {
+  margin-bottom:0}
 .installation,.faq-section {
   display:grid;
   grid-template-columns:1fr 1.3fr;
