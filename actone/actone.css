@@ -266,6 +266,14 @@ img {
   min-height:70px}
 .download-option .button {
   margin-top:28px}
+.download-option .download-recommendation {
+  min-height:0;
+  margin-top:14px;
+  font-size:12px;
+  line-height:1.6;
+  color:var(--muted)}
+.download-recommendation strong {
+  color:var(--fg)}
 .installation,.faq-section {
   display:grid;
   grid-template-columns:1fr 1.3fr;

@@ -45,9 +45,11 @@
 <article class="download-option">
 <span class="eyebrow">02 / Linux</span>
 <h2>Linux.</h2>
-<p>Choose the package that fits your distribution.<br>Flatpak and AppImage builds on GitHub.</p>
-<a class="button" href="https://github.com/beetlebot/ActOne-Screenplay/releases">Choose a Linux build <span aria-hidden="true">↗</span>
-</a>
+<p>Install with Flatpak for smooth updates,<br>or download a portable AppImage.</p>
+<p class="download-recommendation"><strong>Recommended: install with Flatpak</strong><br>Run this command in your terminal. Flatpak must be installed first.</p>
+<pre><code>flatpak install --user https://flatpak.iyal.ink/actone.flatpakref</code></pre>
+<p class="download-recommendation">Future updates appear in your software manager.</p>
+<a class="button" href="https://github.com/BeetleBot/ActOne-Screenplay/releases/latest"><span>Download AppImage</span><span aria-hidden="true">↗</span></a>
 </article>
 </section>
 <section class="installation">
@@ -69,11 +71,18 @@
 <div>
 <p class="eyebrow">A little help getting settled</p>
 <h2>Linux installation.</h2>
-<p>Download a package from the release page, then follow the steps for your format.</p>
+<p>Use the recommended Flatpak repository for updates, or follow the steps for a standalone download.</p>
 </div>
 <div>
+<details open>
+<summary>Install from the Flatpak repository (recommended)</summary>
+<p>With Flatpak installed, run this command in your terminal and approve the installation prompts:</p>
+<pre><code>flatpak install --user https://flatpak.iyal.ink/actone.flatpakref</code></pre>
+<p>Future updates appear in your software manager. You can also update from a terminal:</p>
+<pre><code>flatpak update --user ink.iyal.actone</code></pre>
+</details>
 <details>
-<summary>Install a Flatpak bundle</summary>
+<summary>Install a downloaded Flatpak bundle</summary>
 <p>Open a terminal in the download folder. Replace the filename if your downloaded bundle has a different name.</p>
 <pre>
 <code id="flatpakCmd">flatpak install --user ActOne.flatpak</code>
