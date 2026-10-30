@@ -1,8 +1,8 @@
 // AUTO-GENERATED — DO NOT EDIT MANUALLY
 // Source: ActOne-Screenplay/src/data/helpArticles.tsx (single source of truth)
-// Generated: 2026-10-28T20:00:13.915Z
+// Generated: 2026-10-30T18:51:37.332Z
 // To regenerate: node generate_docs.js
-// Categories: 10 | Articles: 93
+// Categories: 10 | Articles: 94
 const DOCS_DATA = {
   "categories": [
     "Getting Started",
@@ -14,7 +14,7 @@ const DOCS_DATA = {
     "Files & Projects",
     "Export",
     "Settings & Customization",
-    "AI & Muse"
+    "AI & UrAI"
   ],
   "articles": [
     {
@@ -29,6 +29,22 @@ const DOCS_DATA = {
       ],
       "relatedIds": [],
       "content": "Canvas is a hand-drawn space for planning your story with text, shapes, arrows, and pictures.\n\nIn the project document list, choose **Add → Canvas**, or choose **New Canvas File** in an empty project's main action list.\n\nUse the editor toolbar to select, draw, add text and images, and connect ideas with arrows. Select an item to change its colors, line appearance, and other styles. Drag selection handles to resize or rotate items. Undo and redo work inside Canvas.\n\nSave your project normally, or press Ctrl/Command+S. Canvas documents and their pictures are stored inside your project, so they travel together. When autosave is enabled, Canvas edits are saved with the project.\n\nUse **Save as image**, or press Ctrl/Command+P while Canvas is active, to export a picture of your board. Canvas documents and their pictures are saved with your project.\n\nExisting screenplay and prose projects continue to open. Saving an older project upgrades its storage format. Use the current app version for projects containing Canvas documents."
+    },
+    {
+      "id": "linux-installation",
+      "title": "Linux Installation and Updates",
+      "category": "Getting Started",
+      "tags": [
+        "linux",
+        "install",
+        "flatpak",
+        "update",
+        "repository"
+      ],
+      "relatedIds": [
+        "cli-commands"
+      ],
+      "content": "ActOne provides a Flatpak repository for Linux. Install from it with:\n\n```bash\nflatpak install --user https://flatpak.iyal.ink/actone.flatpakref\n```\n\nAccept the repository and runtime prompts to complete installation. Updates are then available through a software manager that supports Flatpak, or with:\n\n```bash\nflatpak update --user ink.iyal.actone\n```\n\nIf you previously installed a standalone Flatpak download, it may still use its original update source. Installing from the repository link may ask you to replace or switch the existing installation. Back up your screenplay files before changing installations."
     },
     {
       "id": "welcome-screen",
@@ -131,7 +147,7 @@ const DOCS_DATA = {
       "relatedIds": [
         "command-palette"
       ],
-      "content": "ActOne is designed for keyboard-driven writing. Below is the complete list of shortcuts, automatically generated from system settings.\n\n**File & Document**\n\n| Action | Shortcut |\n|--------|----------|\n| New Project | <kbd>Ctrl</kbd> + <kbd>N</kbd> |\n| Open Project | <kbd>Ctrl</kbd> + <kbd>O</kbd> |\n| Save | <kbd>Ctrl</kbd> + <kbd>S</kbd> |\n| Save As | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> |\n| Close Tab | <kbd>Alt</kbd> + <kbd>Q</kbd> |\n| Export PDF / FDX | <kbd>Ctrl</kbd> + <kbd>P</kbd> |\n| Next Tab | <kbd>Ctrl</kbd> + <kbd>Tab</kbd> |\n| Previous Tab | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd> |\n\n**Editor & Formatting**\n\n| Action | Shortcut |\n|--------|----------|\n| Bold Text (**) | <kbd>Ctrl</kbd> + <kbd>B</kbd> |\n| Italic Text (*) | <kbd>Ctrl</kbd> + <kbd>I</kbd> |\n| Underline Text (_) | <kbd>Ctrl</kbd> + <kbd>U</kbd> |\n| Highlight Text (==) | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd> |\n| Cycle Line Element Prefix | <kbd>Tab</kbd> |\n| Accept Autocomplete Suggestion | <kbd>Tab</kbd> |\n| Undo | <kbd>Ctrl</kbd> + <kbd>Z</kbd> |\n| Redo | <kbd>Ctrl</kbd> + <kbd>Y</kbd> |\n\n**Navigation & View**\n\n| Action | Shortcut |\n|--------|----------|\n| Jump to Scene | <kbd>Ctrl</kbd> + <kbd>J</kbd> |\n| Previous Scene | <kbd>Alt</kbd> + <kbd>↑</kbd> |\n| Next Scene | <kbd>Alt</kbd> + <kbd>↓</kbd> |\n| Keyboard Shortcuts Modal | <kbd>F1</kbd> |\n| Command Palette | <kbd>Ctrl</kbd> + <kbd>K</kbd> |\n| Find & Replace | <kbd>Ctrl</kbd> + <kbd>F</kbd> |\n| Toggle Sidebar | <kbd>Ctrl</kbd> + <kbd>\\\\</kbd> |\n| Toggle Zen Mode | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Enter</kbd> |\n| Open Muse AI | <kbd>Alt</kbd> + <kbd>M</kbd> |\n| Switch AI Model | <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> |\n| Open Snapshots | <kbd>Alt</kbd> + <kbd>S</kbd> |\n| Toggle Timeline View | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> |\n| Settings | <kbd>Ctrl</kbd> + <kbd>,</kbd> |\n\n**Zoom & Interface**\n\n| Action | Shortcut |\n|--------|----------|\n| Zoom In Editor | <kbd>Ctrl</kbd> + <kbd>=</kbd> |\n| Zoom Out Editor | <kbd>Ctrl</kbd> + <kbd>-</kbd> |\n| Reset Editor Zoom | <kbd>Ctrl</kbd> + <kbd>0</kbd> |"
+      "content": "ActOne is designed for keyboard-driven writing. Below is the complete list of shortcuts, automatically generated from system settings.\n\n**File & Document**\n\n| Action | Shortcut |\n|--------|----------|\n| New Project | <kbd>Ctrl</kbd> + <kbd>N</kbd> |\n| Open Project | <kbd>Ctrl</kbd> + <kbd>O</kbd> |\n| Save | <kbd>Ctrl</kbd> + <kbd>S</kbd> |\n| Save As | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> |\n| Close Tab | <kbd>Alt</kbd> + <kbd>Q</kbd> |\n| Export PDF / FDX | <kbd>Ctrl</kbd> + <kbd>P</kbd> |\n| Next Tab | <kbd>Ctrl</kbd> + <kbd>Tab</kbd> |\n| Previous Tab | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd> |\n\n**Editor & Formatting**\n\n| Action | Shortcut |\n|--------|----------|\n| Bold Text (**) | <kbd>Ctrl</kbd> + <kbd>B</kbd> |\n| Italic Text (*) | <kbd>Ctrl</kbd> + <kbd>I</kbd> |\n| Underline Text (_) | <kbd>Ctrl</kbd> + <kbd>U</kbd> |\n| Highlight Text (==) | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd> |\n| Cycle Line Element Prefix | <kbd>Tab</kbd> |\n| Accept Autocomplete Suggestion | <kbd>Tab</kbd> |\n| Undo | <kbd>Ctrl</kbd> + <kbd>Z</kbd> |\n| Redo | <kbd>Ctrl</kbd> + <kbd>Y</kbd> |\n\n**Navigation & View**\n\n| Action | Shortcut |\n|--------|----------|\n| Jump to Scene | <kbd>Ctrl</kbd> + <kbd>J</kbd> |\n| Previous Scene | <kbd>Alt</kbd> + <kbd>↑</kbd> |\n| Next Scene | <kbd>Alt</kbd> + <kbd>↓</kbd> |\n| Keyboard Shortcuts Modal | <kbd>F1</kbd> |\n| Command Palette | <kbd>Ctrl</kbd> + <kbd>K</kbd> |\n| Find & Replace | <kbd>Ctrl</kbd> + <kbd>F</kbd> |\n| Toggle Sidebar | <kbd>Ctrl</kbd> + <kbd>\\\\</kbd> |\n| Toggle Zen Mode | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Enter</kbd> |\n| Open UrAI AI | <kbd>Alt</kbd> + <kbd>M</kbd> |\n| Switch AI Model | <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> |\n| Open Snapshots | <kbd>Alt</kbd> + <kbd>S</kbd> |\n| Toggle Timeline View | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> |\n| Settings | <kbd>Ctrl</kbd> + <kbd>,</kbd> |\n\n**Zoom & Interface**\n\n| Action | Shortcut |\n|--------|----------|\n| Zoom In Editor | <kbd>Ctrl</kbd> + <kbd>=</kbd> |\n| Zoom Out Editor | <kbd>Ctrl</kbd> + <kbd>-</kbd> |\n| Reset Editor Zoom | <kbd>Ctrl</kbd> + <kbd>0</kbd> |"
     },
     {
       "id": "command-palette",
@@ -200,7 +216,7 @@ const DOCS_DATA = {
         "script-import",
         "welcome-screen"
       ],
-      "content": "ActOne can be launched directly from the terminal on **Linux**.\n\n### Basic Usage\n```bash\nactone [file_path]\n\n# Linux (AppImage standalone)\n./ActOne-Screenplay-x86_64.AppImage [file_path]\n```\n\nWhen launched without arguments, ActOne displays the Welcome screen.\n\n### Supported File Arguments\nPassing a file path opens or imports the document directly:\n\n- **Native Projects & Screenplays**:\n  - `actone screenplay.actone` — Opens the `.actone` project bundle directly into the editor.\n  - `actone script.fountain` — Opens the Fountain screenplay directly with live formatting.\n  - `actone notes.txt` — Opens a plain text file.\n\n- **Instant Imports**:\n  - `actone draft.pdf` — Automatically converts the PDF screenplay and opens it as a project ready for editing.\n  - `actone draft.fdx` — Converts Final Draft XML into an unsaved project.\n  - `actone draft.fadein` — Converts Fade In project files into an unsaved project.\n  - `actone treatment.md` — Converts Markdown as a prose document in an unsaved project."
+      "content": "ActOne can be launched directly from the terminal on **Linux**.\n\n### Basic Usage\n```bash\nactone [file_path]\n\n# Linux (AppImage standalone)\n./ActOne-Screenplay-x86_64.AppImage [file_path]\n```\n\nWhen launched without arguments, ActOne displays the Welcome screen.\n\nFor an AppImage download, allow the file to run as a program in your file manager's Permissions settings before opening it. If it closes immediately, run it from a terminal and include the error message when reporting the problem.\n\n### Supported File Arguments\nPassing a file path opens or imports the document directly:\n\n- **Native Projects & Screenplays**:\n  - `actone screenplay.actone` — Opens the `.actone` project bundle directly into the editor.\n  - `actone script.fountain` — Opens the Fountain screenplay directly with live formatting.\n  - `actone notes.txt` — Opens a plain text file.\n\n- **Instant Imports**:\n  - `actone draft.pdf` — Automatically converts the PDF screenplay and opens it as a project ready for editing.\n  - `actone draft.fdx` — Converts Final Draft XML into an unsaved project.\n  - `actone draft.fadein` — Converts Fade In project files into an unsaved project.\n  - `actone treatment.md` — Converts Markdown as a prose document in an unsaved project."
     },
     {
       "id": "scene-headings",
@@ -669,7 +685,7 @@ const DOCS_DATA = {
         "editor-zoom",
         "focus-mode"
       ],
-      "content": "Keeps your active editing line vertically centered on screen. As you type, the page scrolls smoothly around your active line so your gaze stays comfortably in the center of the display. Toggle via Quick Settings in the Activity Bar, the Command Palette, or Settings → Editor."
+      "content": "Line numbers appear at the left edge of the editor. Toggle them in Settings > Editor > Line Numbers or search Show Line Numbers / Hide Line Numbers in the command palette. The current cursor line has a highlighted, bold line number. They count text lines, not scenes, and are not exported.\n\nKeeps your active editing line vertically centered on screen. As you type, the page scrolls smoothly around your active line so your gaze stays comfortably in the center of the display. Toggle via Quick Settings in the Activity Bar, the Command Palette, or Settings → Editor."
     },
     {
       "id": "hide-syntax",
@@ -1146,7 +1162,7 @@ const DOCS_DATA = {
         "sprint-timer",
         "scripts-manager"
       ],
-      "content": "The Status Bar at the bottom of the window displays essential manuscript and project indicators:\n\n**Left group (Metrics):**\n- **Words** — Total word count of the active document.\n- **Page** — \"Page: currentPage of totalPages\", updated continuously as you move your cursor. Click the counter to open a page-number box, type a page number, and press <kbd>Enter</kbd> to jump there. Press <kbd>Escape</kbd> to dismiss it. Prose pages follow the estimated page count shown in the status bar.\n- When text is selected, the count of selected words appears.\n\n**Center group (Document Selector):**\n- Displays the active script name — click to quickly switch between documents in your project.\n\n**Right group (Utilities & Status):**\n- **Muse AI indicator** — displays AI status and provides one-click access.\n- **Active Sprint** — displays a live countdown timer and current words-per-minute when a sprint is running.\n- **Save Indicator** — shows whether changes are saved.\n- **Scenes** — total scene heading count."
+      "content": "The Status Bar at the bottom of the window displays essential manuscript and project indicators:\n\n**Left group (Metrics):**\n- **Words** — Total word count of the active document.\n- **Page** — \"Page: currentPage of totalPages\", updated continuously as you move your cursor. Click the counter to open a page-number box, type a page number, and press <kbd>Enter</kbd> to jump there. Press <kbd>Escape</kbd> to dismiss it. Prose pages follow the estimated page count shown in the status bar.\n- When text is selected, the count of selected words appears.\n\n**Center group (Document Selector):**\n- Displays the active script name — click to quickly switch between documents in your project.\n\n**Right group (Utilities & Status):**\n- **UrAI AI indicator** — displays AI status and provides one-click access.\n- **Active Sprint** — displays a live countdown timer and current words-per-minute when a sprint is running.\n- **Save Indicator** — shows whether changes are saved.\n- **Scenes** — total scene heading count."
     },
     {
       "id": "file-tabs",
@@ -1280,7 +1296,7 @@ const DOCS_DATA = {
         "sidebar-panels",
         "save"
       ],
-      "content": "The **.actone** format packages your entire project into a single portable file:\n\n- **Document Files**: All screenplay (`.fountain`) and prose (`.md`) text documents.\n- **Character Profiles & Genders**: Character notes and tracking data.\n- **Task Checklists**: To-do revision items per document.\n- **Document Notepad**: Research notes and scratchpads.\n- **Parked Snippets**: Cut scenes and parked ideas.\n- **Sprint History**: Writing sprint analytics and statistics.\n- **Production Tags**: Scene breakdown tags and color coding.\n- **Muse AI Chat**: Dedicated AI conversation history per project.\n- **Workspace Settings**: Project-specific preferences.\n\nOlder project bundle versions are automatically recognized and seamlessly updated upon save."
+      "content": "The **.actone** format packages your entire project into a single portable file:\n\n- **Document Files**: All screenplay (`.fountain`) and prose (`.md`) text documents.\n- **Character Profiles & Genders**: Character notes and tracking data.\n- **Task Checklists**: To-do revision items per document.\n- **Document Notepad**: Research notes and scratchpads.\n- **Parked Snippets**: Cut scenes and parked ideas.\n- **Sprint History**: Writing sprint analytics and statistics.\n- **Production Tags**: Scene breakdown tags and color coding.\n- **UrAI AI Chat**: Dedicated AI conversation history per project.\n- **Workspace Settings**: Project-specific preferences.\n\nOlder project bundle versions are automatically recognized and seamlessly updated upon save."
     },
     {
       "id": "save",
@@ -1447,7 +1463,7 @@ const DOCS_DATA = {
         "interface-scale",
         "editor-settings"
       ],
-      "content": "Press <kbd>Ctrl+,</kbd> or use the Command Palette → \"Open Settings…\" to open the Settings window. It has five tabs: General, Editor, Spellcheck, Snapshots, and Muse.\n\n**General:** Paper Size (Letter / A4), Icon Style, Auto-Save toggle and interval, and Reset Settings.\n\n**Editor:** Font Style (Courier Prime / Courier Prime Sans), Editor Zoom (50%–400%), Typewriter Mode, Autocomplete, Smart Quotes, Auto-Match Parentheses, Auto (CONT'D), Hide Fountain Markup, Line Focus, and Syntax Colors.\n\n**Spellcheck:** Enable spellcheck, Active Language selection, **Download More Languages**, Installed Languages list, and Personal Dictionary management with custom words.\n\n**Snapshots:** Enable Automated Snapshots, Save Location folder picker, project snapshot management, and **Open Snapshots Folder**.\n\n**Muse:** Configure AI providers, model selection, translation languages, and custom instructions.\n\nQuick Settings are also available from the Activity Bar gear icon for common adjustments without opening the full window."
+      "content": "Press <kbd>Ctrl+,</kbd> or use the Command Palette → \"Open Settings…\" to open the Settings window. It has five tabs: General, Editor, Spellcheck, Snapshots, and UrAI.\n\n**General:** Paper Size (Letter / A4), Icon Style, Auto-Save toggle and interval, and Reset Settings.\n\n**Editor:** Font Style (Courier Prime / Courier Prime Sans), Editor Zoom (50%–400%), Typewriter Mode, Autocomplete, Smart Quotes, Auto-Match Parentheses, Auto (CONT'D), Hide Fountain Markup, Line Focus, and Syntax Colors.\n\n**Spellcheck:** Enable spellcheck, Active Language selection, **Download More Languages**, Installed Languages list, and Personal Dictionary management with custom words.\n\n**Snapshots:** Enable Automated Snapshots, Save Location folder picker, project snapshot management, and **Open Snapshots Folder**.\n\n**UrAI:** Configure AI providers, model selection, translation languages, and custom instructions.\n\nQuick Settings are also available from the Activity Bar gear icon for common adjustments without opening the full window.\n\nAfter upgrading from an older desktop installation, your settings may start at their defaults because the app's storage location has changed. Previous settings are not automatically transferred."
     },
     {
       "id": "theme-manager",
@@ -1464,7 +1480,7 @@ const DOCS_DATA = {
         "settings-overview",
         "font-paper"
       ],
-      "content": "ActOne ships with **17 built-in themes** organized into sections, with per-family adaptive variants. Each section has a shared design language:\n\n| Section | Theme | Mode | Description |\n|---------|-------|------|-------------|\n| CLASSIC | Adaptive | Auto | Classic Light/Dark by system preference |\n| CLASSIC | Classic Light | Light | Clean light theme |\n| CLASSIC | Classic Dark | Dark | Clean dark theme |\n| CATPPUCCIN | Catppuccin Adaptive | Auto | Catppuccin Latte/Mocha by system preference |\n| CATPPUCCIN | Catppuccin Latte | Light | Soft light with purple accents |\n| CATPPUCCIN | Catppuccin Mocha | Dark | Rich dark with purple accents |\n| PITCH | Pitch Adaptive | Auto | Pitch Light/Dark by system preference |\n| PITCH | Pitch Light | Light | Pure white e-ink style |\n| PITCH | Pitch Dark | Dark | Pure black background with grey tones |\n| PASTEL | Sunrise | Light | Warm cream with coral accents |\n| PASTEL | Sunset | Dark | Deep warm brown with coral accents |\n| PASTEL | Mint | Light | Pale mint with green accents |\n| PASTEL | Forest | Dark | Deep forest green with green accents |\n| PASTEL | Rose | Light | Soft blush with rose accents |\n| PASTEL | Berry | Dark | Deep berry with rose accents |\n| PASTEL | Ocean | Dark | Deep teal blue |\n| PASTEL | Honey | Light | Warm golden cream |\n| PASTEL | Plum | Dark | Dark plum purple |\n| PASTEL | Sky | Light | Light pastel blue |\n| PASTEL | Slate | Dark | Dark blue-grey |\n\n**Adaptive** variants automatically switch between their family's light and dark themes based on your system's appearance setting (<code>prefers-color-scheme</code>). Each family (Classic, Catppuccin, Pitch) has its own adaptive option. The transition happens instantly — no refresh needed.\n\nQuick-switch between any theme from the **Quick Settings** menu (gear icon in the Activity Bar) — a theme grid with 2×2 color cubes organized by section. The active theme is highlighted with a primary-colored border.\n\n**Create your own themes** via Quick Settings → \"Manage Themes…\". Each named preset shows a small palette preview of its interface, paper and accent colours. Choose one, then adjust just **Interface**, **Accent**, and **Writing paper**. Labels and writing text automatically adapt to their own background, so you can pair a dark interface with light paper. Buttons, fields, borders and selections follow your palette. Checkmarks, selected controls and secondary labels automatically adapt for readability, even with a vivid interface colour. The timeline sits above the status bar and shares its background, with contrasting lines and labels. Scene pills have solid fills and readable numbers. Status-bar text and icons adapt to the same background to stay readable. Use **Choose my own text colours** if you want to override UI or writing text; **Use automatic text colours** restores automatic choices. Reset buttons sit beside each colour field. Name your theme and Save.\n\nThe window opens at a comfortable size and can be resized. The preview has **Workspace**, **Prose & notes**, and **UI elements** tabs with sample content and real controls. Draft edits stay in the preview until saved. Select a saved theme to apply it across windows. Existing themes and .actheme files still work.\n\n**17 built-in themes** are available as clickable starting points in the creation form. Custom themes appear under a \"CUSTOM\" section in the Theme Manager.\n\n---\n\n### Warm Craft Aesthetic\n\nActOne is crafted with a warm, tactile, literary aesthetic designed to keep you focused and inspired:\n\n- **Harmonious Visuals**: Clean cards, floating panels, and modern controls keep your workspace organized and clutter-free.\n- **Comfortable Contrast**: Carefully calibrated light and dark themes reduce eye strain during long writing sessions.\n- **Adaptive Lighting**: Automatically matches your system appearance or allows instant switching to suit your writing environment.\n- **Distraction-Free Focus**: Thoughtful design elements guide your attention directly to your script and story structure."
+      "content": "ActOne ships with **17 built-in themes** organized into sections, with per-family adaptive variants. Each section has a shared design language:\n\n| Section | Theme | Mode | Description |\n|---------|-------|------|-------------|\n| CLASSIC | Adaptive | Auto | Classic Light/Dark by system preference |\n| CLASSIC | Classic Light | Light | Clean light theme |\n| CLASSIC | Classic Dark | Dark | Clean dark theme |\n| CATPPUCCIN | Catppuccin Adaptive | Auto | Catppuccin Latte/Mocha by system preference |\n| CATPPUCCIN | Catppuccin Latte | Light | Soft light with purple accents |\n| CATPPUCCIN | Catppuccin Mocha | Dark | Rich dark with purple accents |\n| PITCH | Pitch Adaptive | Auto | Pitch Light/Dark by system preference |\n| PITCH | Pitch Light | Light | Pure white e-ink style |\n| PITCH | Pitch Dark | Dark | Pure black background with grey tones |\n| PASTEL | Sunrise | Light | Warm cream with coral accents |\n| PASTEL | Sunset | Dark | Deep warm brown with coral accents |\n| PASTEL | Mint | Light | Pale mint with green accents |\n| PASTEL | Forest | Dark | Deep forest green with green accents |\n| PASTEL | Rose | Light | Soft blush with rose accents |\n| PASTEL | Berry | Dark | Deep berry with rose accents |\n| PASTEL | Ocean | Dark | Deep teal blue |\n| PASTEL | Honey | Light | Warm golden cream |\n| PASTEL | Plum | Dark | Dark plum purple |\n| PASTEL | Sky | Light | Light pastel blue |\n| PASTEL | Slate | Dark | Dark blue-grey |\n\n**Adaptive** variants automatically switch between their family's light and dark themes based on your system's appearance setting (<code>prefers-color-scheme</code>). Each family (Classic, Catppuccin, Pitch) has its own adaptive option. The transition happens instantly — no refresh needed.\n\nQuick-switch between any theme from the **Quick Settings** menu (gear icon in the Activity Bar) — a theme grid with 2×2 color cubes organized by section. The active theme is highlighted with a primary-colored border.\n\n**Create your own themes** via Quick Settings → \"Manage Themes…\". Each named preset shows a small palette preview of its interface, paper and accent colours. Choose one, then adjust just **Interface**, **Accent**, and **Writing paper**. Labels and writing text automatically adapt to their own background, so you can pair a dark interface with light paper. Buttons, fields, borders and selections follow your palette. Checkmarks, selected controls and secondary labels automatically adapt for readability, even with a vivid interface colour. The timeline sits above the status bar and shares its background, with contrasting lines and labels. Scene pills use dark gray in light themes and light gray in dark themes. Assigned scene colors appear when enabled, with contrasting scene numbers. Status-bar text and icons adapt to the same background to stay readable. Use **Choose my own text colours** if you want to override UI or writing text; **Use automatic text colours** restores automatic choices. Reset buttons sit beside each colour field. Name your theme and Save.\n\nThe window opens at a comfortable size and can be resized. The preview has **Workspace**, **Prose & notes**, and **UI elements** tabs with sample content and real controls. Draft edits stay in the preview until saved. Select a saved theme to apply it across windows. Existing themes and .actheme files still work.\n\n**17 built-in themes** are available as clickable starting points in the creation form. Custom themes appear under a \"CUSTOM\" section in the Theme Manager.\n\n---\n\n### Warm Craft Aesthetic\n\nActOne is crafted with a warm, tactile, literary aesthetic designed to keep you focused and inspired:\n\n- **Harmonious Visuals**: Clean cards, floating panels, and modern controls keep your workspace organized and clutter-free.\n- **Comfortable Contrast**: Carefully calibrated light and dark themes reduce eye strain during long writing sessions.\n- **Adaptive Lighting**: Automatically matches your system appearance or allows instant switching to suit your writing environment.\n- **Distraction-Free Focus**: Thoughtful design elements guide your attention directly to your script and story structure."
     },
     {
       "id": "font-paper",
@@ -1538,29 +1554,29 @@ const DOCS_DATA = {
       "content": "The Editor tab in Settings controls:\n\n- **Font Style**: Courier Prime (Serif) or Courier Prime Sans.\n- **Editor Zoom**: 50%–400% slider (step 10).\n- **Typewriter Mode**: Keep active line centered.\n- **Character/Scene Autocomplete**: Inline ghost text suggestions.\n- **Smart Quotes**: Auto-convert to curly quotes.\n- **Auto-Match Parentheses**: Auto-insert closing `)`.\n- **Auto (CONT'D)**: Automatically append virtual `(CONT'D)` tags when a character speaks again within the same scene. A new scene heading resets the continuation.\n- **Hide Fountain Markup**: Clean reading view (hide prefixes on non-active lines).\n- **Focus Mode**: Dim all lines except the active cursor line."
     },
     {
-      "id": "muse-overview",
-      "title": "Muse AI Feature Overview",
-      "category": "AI & Muse",
+      "id": "urai-overview",
+      "title": "UrAI AI Feature Overview",
+      "category": "AI & UrAI",
       "tags": [
-        "muse",
-        "muse go",
+        "urai",
+        "urai go",
         "ai",
         "assistant",
         "overview",
         "help"
       ],
       "relatedIds": [
-        "muse-configure",
-        "muse-chat"
+        "urai-configure",
+        "urai-chat"
       ],
-      "content": "**Muse** is ActOne's integrated AI feature suite. The right sidebar companion, **Muse Go!**, provides an intelligent conversational assistant for discussing, exploring, and analyzing your screenplay.\n\n**How to open Muse Go!:**\n- Press `Alt+M`.\n- Open Command Palette (`Ctrl+K`) → select **\"Show Muse Go!\"** (visible when Muse is configured).\n- The Muse Go! panel opens on the right side of your workspace.\n\n**Key features:**\n- **Conversational Screenplay Q&A**: Ask questions about your story, character arcs, scene flow, and dialogue.\n- **Intelligent Scene Context**: Muse Go! automatically finds and reads only the scenes relevant to your question (e.g. \"Summarize scenes with John\") without sending your entire manuscript every time.\n- **Look up & Synonyms**: Right-click words in the editor to look up definitions and synonyms in Muse Go!.\n- **Per-script history**: Each screenplay maintains its own conversation sessions across your writing workflow.\n- **Real-time streaming**: Watch responses generate smoothly in real time."
+      "content": "**UrAI** is ActOne's integrated AI feature suite. The right sidebar companion, **UrAI**, provides an intelligent conversational assistant for discussing, exploring, and analyzing your screenplay.\n\n**How to open UrAI:**\n- Press `Alt+M`.\n- Open Command Palette (`Ctrl+K`) → select **\"Show UrAI\"** (visible when UrAI is configured).\n- The UrAI panel opens on the right side of your workspace.\n\n**Key features:**\n- **Conversational Screenplay Q&A**: Ask questions about your story, character arcs, scene flow, and dialogue.\n- **Intelligent Scene Context**: UrAI automatically finds and reads only the scenes relevant to your question (e.g. \"Summarize scenes with John\") without sending your entire manuscript every time.\n- **Look up & Synonyms**: Right-click words in the editor to look up definitions and synonyms in UrAI.\n- **Per-script history**: Each screenplay maintains its own conversation sessions across your writing workflow.\n- **Real-time streaming**: Watch responses generate smoothly in real time."
     },
     {
-      "id": "muse-configure",
-      "title": "Configuring Muse (AI Providers)",
-      "category": "AI & Muse",
+      "id": "urai-configure",
+      "title": "Configuring UrAI (AI Providers)",
+      "category": "AI & UrAI",
       "tags": [
-        "muse",
+        "urai",
         "ai",
         "configure",
         "setup",
@@ -1570,51 +1586,51 @@ const DOCS_DATA = {
         "ollama"
       ],
       "relatedIds": [
-        "muse-overview",
+        "urai-overview",
         "settings-overview"
       ],
-      "content": "Before using Muse Go!, you can configure an AI provider in **Settings** (`Ctrl+,`) → **Muse** tab.\n\n**Supported Providers:**\n\n**1. OpenAI-compatible API** — Use any compatible chat-completion endpoint (OpenAI, OpenRouter, Groq, DeepSeek, LocalAI, vLLM).\n  - **Provider**: Select \"OpenAI API\".\n  - **Configure Providers**: Click \"Configure Providers\" to manage multiple API endpoints.\n    - Click **\"Add API\"** to add endpoints with custom Name, Endpoint URL, API Key, and Model name.\n    - Select your preferred active API.\n\n**2. Ollama (Local)** — Run local models entirely on your device.\n  - **Provider**: Select \"Ollama (Local)\".\n  - **Ollama URL**: Defaults to `http://localhost:11434`.\n  - **Model**: Select from models detected on your local Ollama server.\n\n**Privacy & Workspace Integration:**\n- When Muse is disabled (\"None\"), all Muse indicators and buttons remain completely hidden from your interface."
+      "content": "Before using UrAI, you can configure an AI provider in **Settings** (`Ctrl+,`) → **UrAI** tab.\n\n**Supported Providers:**\n\n**1. OpenAI-compatible API** — Use any compatible chat-completion endpoint (OpenAI, OpenRouter, Groq, DeepSeek, LocalAI, vLLM).\n  - **Provider**: Select \"OpenAI API\".\n  - **Configure Providers**: Click \"Configure Providers\" to manage multiple API endpoints.\n    - Click **\"Add API\"** to add endpoints with custom Name, Endpoint URL, API Key, and Model name.\n    - Select your preferred active API.\n\n**2. Ollama (Local)** — Run local models entirely on your device.\n  - **Provider**: Select \"Ollama (Local)\".\n  - **Ollama URL**: Defaults to `http://localhost:11434`.\n  - **Model**: Select from models detected on your local Ollama server.\n\n**Privacy & Workspace Integration:**\n- When UrAI is disabled (\"None\"), all UrAI indicators and buttons remain completely hidden from your interface."
     },
     {
-      "id": "muse-chat",
-      "title": "Using Muse Go! Chat",
-      "category": "AI & Muse",
+      "id": "urai-chat",
+      "title": "Using UrAI Chat",
+      "category": "AI & UrAI",
       "tags": [
-        "muse",
-        "muse go",
+        "urai",
+        "urai go",
         "chat",
         "conversation",
         "history",
         "streaming"
       ],
       "relatedIds": [
-        "muse-overview",
-        "muse-configure"
+        "urai-overview",
+        "urai-configure"
       ],
-      "content": "The **Muse Go!** panel is your dedicated conversational companion:\n\n**Asking questions:**\n- Type in the \"Message Muse Go!...\" composer and press `Enter` to send.\n- Press `Shift+Enter` to insert a newline.\n- Press `Escape` or click the Stop button to cancel streaming.\n\n**Intelligent character & scene queries:**\n- Ask about specific characters: *\"What does John do across his scenes?\"* — Muse Go! intelligently slices only the scenes where John appears.\n- Ask about specific scenes: *\"What happens in scenes 3 to 5?\"* — Muse Go! loads and analyzes only those scenes.\n\n**Chat session management:**\n- Click the **clock icon** to view, switch, and manage past chat sessions for the current screenplay.\n- Click the **+ icon** to start a fresh conversation.\n- Click the **trash icon** to clear messages in the active session."
+      "content": "UrAI helps you brainstorm, discuss screenplay context, translate and rephrase.\n\n- UrAI asks permission before reading a screenplay. After you allow access, it chooses scenes automatically. Change or revoke access through the header gear.\n- For local Ollama models, use the **Index screenplay** book button. It processes scenes in small batches and saves completed scenes locally. Restarting indexing skips unchanged scenes; edits need reindexing.\n- Ask about **scene 3** to retrieve its original text. General questions use relevant passages or index summaries. Summaries can contain mistakes; UrAI may not have read every scene for a given answer.\n- Rephrase and translate replace selected text after generation, with an animated highlight. Use Undo to restore the original. If you edit while UrAI is working, the result is not applied.\n- Context limits are available in the gear menu. A larger number does not increase a model's actual supported context.\n"
     },
     {
-      "id": "muse-translate",
+      "id": "urai-translate",
       "title": "Whole Document Translation",
-      "category": "AI & Muse",
+      "category": "AI & UrAI",
       "tags": [
         "translate",
         "language",
         "whole document",
         "background",
         "multilingual",
-        "muse"
+        "urai"
       ],
       "relatedIds": [
-        "muse-overview",
-        "muse-configure"
+        "urai-overview",
+        "urai-configure"
       ],
-      "content": "ActOne allows you to translate an entire screenplay or prose document to any supported language without disrupting your writing workflow.\n\n### How it Works:\n1. Right-click or use the document menu → select **Translate Whole Script**.\n2. Configure your options in the modal:\n   - **Target Language:** Choose from 18 supported languages including English, Spanish, French, German, Italian, Portuguese, Hindi, Tamil, Telugu, Kannada, Malayalam, Japanese, Chinese, Korean, Arabic (RTL), Russian, Turkish, and Thai.\n   - **Elements & Tone:** Choose which screenplay elements to translate (Dialogue, Action, Scene Headings, Parentheticals, Transitions) and pick custom phrasing tones (Natural/Conversational, Literal, or Casual).\n   - **Custom Instructions:** Provide optional per-document translation guidance (e.g., dialect registers, character idioms, cultural context).\n   - **Character Names:** Option to keep character names unchanged to prevent proper noun mistranslation.\n   - **AI Model:** Select your preferred local (Ollama) or remote API model.\n3. ActOne duplicates your document into a target script (e.g., `MyScript-Tamil`) and runs a pre-flight connection check before starting.\n4. **Scene-by-Scene Engine:** ActOne translates scene by scene with complete narrative context rather than isolated line batches. Long scenes are adaptively partitioned at character boundaries to maintain context window stability.\n5. The progress window displays the active scene heading, part count for long scenes, real-time status (including provider rate-limit wait countdowns), percentage bar, time remaining estimates, and a live streaming preview.\n6. Click **\"Run in Background\"** to dismiss the progress window anytime and keep writing in other scripts.\n7. If any scenes fail after automatic retries, the completion screen gives you a **\"Retry Failed Scenes\"** button to re-run them with one click.\n8. Once complete, click **\"Open Translated Script\"** to view your translated screenplay."
+      "content": "ActOne allows you to translate an entire screenplay or prose document to any supported language without disrupting your writing workflow.\n\n### How it Works:\n1. Right-click or use the document menu → select **Translate Whole Script**.\n2. Configure your options in the modal:\n   - **Target Language:** Choose from 18 supported languages including English, Spanish, French, German, Italian, Portuguese, Hindi, Tamil, Telugu, Kannada, Malayalam, Japanese, Chinese, Korean, Arabic (RTL), Russian, Turkish, and Thai.\n   - **Elements & Tone:** Choose which screenplay elements to translate (Dialogue, Action, Scene Headings, Parentheticals, Transitions) and pick custom phrasing tones (Natural/Conversational, Literal, or Casual).\n   - **Custom Instructions:** Provide optional per-document translation guidance (e.g., dialect registers, character idioms, cultural context).\n   - **Character Names:** Option to keep character names unchanged to prevent proper noun mistranslation.\n   - **AI Model:** Select your preferred local (Ollama) or remote API model.\n3. ActOne duplicates your document into a target script (e.g., `MyScript-Tamil`) and runs a pre-flight connection check before starting.\n**Translation glossary:** Choose Prepare glossary first. UrAI suggests recurring names, terms and speech traits in small batches. Review or edit the glossary, then start translation. Custom instructions take priority, and the reviewed glossary is saved for resume and retry. Dialogue aims for natural speech; action stays concise and precise.\n\n4. **Scene-by-Scene Engine:** ActOne processes small batches within each scene. Completed batches are saved so interrupted work can resume. Failed elements retain their original text and can be retried.\n5. The progress window displays the active scene heading, part count for long scenes, real-time status (including provider rate-limit wait countdowns), percentage bar, time remaining estimates, and a live streaming preview.\n6. Click **\"Run in Background\"** to dismiss the progress window anytime and keep writing in other scripts.\n7. If any scenes fail after automatic retries, the completion screen gives you a **\"Retry Failed Scenes\"** button to re-run them with one click.\n8. Once complete, click **\"Open Translated Script\"** to view your translated screenplay."
     },
     {
-      "id": "muse-quick-model-switcher",
+      "id": "urai-quick-model-switcher",
       "title": "Quick AI Model Switcher",
-      "category": "AI & Muse",
+      "category": "AI & UrAI",
       "tags": [
         "model switcher",
         "quick switch",
@@ -1623,8 +1639,8 @@ const DOCS_DATA = {
         "keyboard shortcut"
       ],
       "relatedIds": [
-        "muse-configure",
-        "muse-overview"
+        "urai-configure",
+        "urai-overview"
       ],
       "content": "You can instantly switch active AI models without navigating through the full Settings window.\n\n### How to Use:\n1. Press <kbd>Alt+Shift+M</kbd> or open the Command Palette (<kbd>Ctrl+K</kbd>) and choose **\"Switch AI Model\"**.\n2. A streamlined, fast model chooser popup appears showing:\n   - All configured OpenAI-compatible custom API models.\n   - Locally detected Ollama models.\n   - Quick options to **Disable AI** or open **Configure Models** in Settings.\n3. Use your keyboard arrow keys (<kbd>↑</kbd> / <kbd>↓</kbd>), <kbd>Home</kbd>, <kbd>End</kbd>, <kbd>PageUp</kbd>, or <kbd>PageDown</kbd> to navigate, and press <kbd>Enter</kbd> to select your desired model immediately.\n4. When closed with <kbd>Esc</kbd> or upon model selection, editor focus and cursor viewport position are automatically restored."
     }
