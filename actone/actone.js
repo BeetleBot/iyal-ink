@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const thumbnail = trigger.querySelector('img');
     trigger.setAttribute('aria-label', `Enlarge screenshot: ${thumbnail.alt}`);
     trigger.addEventListener('click', () => {
-      image.src = thumbnail.currentSrc || thumbnail.src;
+      image.src = trigger.dataset.fullsize || thumbnail.currentSrc || thumbnail.src;
       image.alt = thumbnail.alt;
       caption.textContent = thumbnail.alt;
       dialog.showModal();
@@ -42,4 +42,25 @@ document.addEventListener('DOMContentLoaded', () => {
         event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
   });
   dialog.addEventListener('close', () => document.body.classList.remove('screenshot-open'));
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const preview = document.getElementById('theme-preview');
+  if (!preview) return;
+  const image = preview.querySelector('img');
+  const swatches = [...document.querySelectorAll('.theme-swatch')];
+  swatches.forEach(swatch => {
+    swatch.addEventListener('click', () => {
+      const { theme, themeName } = swatch.dataset;
+      const base = `assets/screenshots/A1-Editor-${theme}`;
+      image.src = `${base}-1920.webp`;
+      image.srcset = `${base}-1280.webp 1280w, ${base}-1920.webp 1920w, ${base}-3840.webp 3840w`;
+      image.alt = `ActOne screenplay editor in ${themeName}`;
+      preview.dataset.fullsize = `assets/screenshots-4k/themes/A1-Editor-${theme}.png`;
+      preview.setAttribute('aria-label', `Enlarge screenshot: ${image.alt}`);
+      document.getElementById('theme-preview-name').textContent = themeName;
+      document.getElementById('theme-selection-name').textContent = themeName;
+      swatches.forEach(button => button.setAttribute('aria-pressed', String(button === swatch)));
+    });
+  });
 });

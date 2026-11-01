@@ -1,0 +1,131 @@
+{
+  "render": "Native ActOne WebView2, 1920x1080 logical viewport, device pixel ratio 2. No image upscaling.",
+  "screenshots": [
+    {
+      "file": "A1-Editor.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 322031
+    },
+    {
+      "file": "A1-Navigator.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 443590
+    },
+    {
+      "file": "A1-Xray.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 212497
+    },
+    {
+      "file": "A1-Multi-Scripts.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 354995
+    },
+    {
+      "file": "A1-Prose.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 408574
+    },
+    {
+      "file": "A1-Canvas.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 798692
+    },
+    {
+      "file": "A1-Marker.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 508331
+    },
+    {
+      "file": "A1-UrAI.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 630721
+    },
+    {
+      "file": "A1-Export.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 485530
+    },
+    {
+      "file": "themes/A1-Editor-dark.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 322031
+    },
+    {
+      "file": "themes/A1-Editor-light.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 321637
+    },
+    {
+      "file": "themes/A1-Editor-catppuccin-mocha.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 343597
+    },
+    {
+      "file": "themes/A1-Editor-catppuccin-latte.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 346444
+    },
+    {
+      "file": "themes/A1-Editor-ocean.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 345093
+    },
+    {
+      "file": "themes/A1-Editor-forest.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 341335
+    },
+    {
+      "file": "themes/A1-Editor-rose.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 340755
+    },
+    {
+      "file": "themes/A1-Editor-honey.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 339647
+    },
+    {
+      "file": "themes/A1-Editor-plum.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 344506
+    },
+    {
+      "file": "themes/A1-Editor-sunrise.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 339294
+    },
+    {
+      "file": "themes/A1-Editor-mint.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 341376
+    },
+    {
+      "file": "themes/A1-Editor-berry.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 343221
+    }
+  ]
+}
