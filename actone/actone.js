@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
       image.src = `${base}-1920.webp`;
       image.srcset = `${base}-1280.webp 1280w, ${base}-1920.webp 1920w, ${base}-3840.webp 3840w`;
       image.alt = `ActOne screenplay editor in ${themeName}`;
-      preview.dataset.fullsize = `assets/screenshots-4k/themes/A1-Editor-${theme}.png`;
+      preview.dataset.fullsize = `assets/screenshots-4k/themes/A1-Editor-${theme}.webp`;
       preview.setAttribute('aria-label', `Enlarge screenshot: ${image.alt}`);
       document.getElementById('theme-preview-name').textContent = themeName;
       document.getElementById('theme-selection-name').textContent = themeName;
