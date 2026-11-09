@@ -809,6 +809,11 @@ button.screenshot-link {
 .story-chapter h3 {font-size:28px;line-height:1.15;letter-spacing:-.04em;}
 .notes-composition figcaption h3 {margin:8px 0 12px;}
 .notes-composition figcaption p {max-width:350px;font-size:14px;}
+.structure-spread {margin-bottom:88px;}
+.structure-spread>figcaption {display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:28px;}
+.structure-spread h3 {margin-top:15px;}
+.structure-spread figcaption p {max-width:340px;font-size:14px;}
+.structure-shot {width:100%;}
 .atlas-spread {margin-bottom:88px;}
 .atlas-spread>figcaption {display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:28px;}
 .atlas-spread h3 {margin-top:15px;}
@@ -835,6 +840,9 @@ button.screenshot-link {
   .canvas-spread figcaption {display:block;padding-inline:0;}
   .canvas-spread figcaption p {margin-top:12px;}
   .notes-composition {grid-template-columns:1fr;gap:30px;margin-bottom:48px;}
+  .structure-spread {margin-bottom:48px;}
+  .structure-spread>figcaption {display:block;margin-bottom:22px;}
+  .structure-spread figcaption p {margin-top:18px;}
   .marker-detail {width:92%;margin-top:0;}
   .prose-detail {width:88%;margin-left:auto;}
   .prose-shot {aspect-ratio:1.3;}
